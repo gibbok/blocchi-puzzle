@@ -19,8 +19,7 @@
     "start": "parcel src/index.html",
     "build-prod": "parcel build src/index.html",
     "test": "jest",
-    "lint": "tsc & eslint './src/**/*.{js,ts,tsx}' --fix",
-    "format": "prettier './src/**/*.{js,ts,tsx}' --write"
+    "lint": "tsc & eslint './src/**/*.{js,ts,tsx}' --fix & prettier './src/**/*.{js,ts,tsx}' --write",
   },
   "dependencies": {
     "react": "^16.8.6",
