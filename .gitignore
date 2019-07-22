@@ -64,4 +64,4 @@ typings/
 .cache
 
 # parcel dist 
-.dist
+dist
