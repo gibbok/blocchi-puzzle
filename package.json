@@ -18,9 +18,12 @@
     "clean": "rm dist/bundle.js",
     "start": "parcel src/index.html",
     "build-prod": "parcel build src/index.html",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ./src/** --fix"
   },
   "dependencies": {
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
@@ -31,6 +34,10 @@
     "@types/jest": "^24.0.15",
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.4",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
+    "eslint": "^6.1.0",
+    "eslint-plugin-react": "^7.14.2",
     "jest": "^24.8.0",
     "parcel-bundler": "^1.12.3",
     "prettier": "^1.18.2",
