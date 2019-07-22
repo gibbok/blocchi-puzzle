@@ -19,7 +19,7 @@
     "start": "parcel src/index.html",
     "build-prod": "parcel build src/index.html",
     "test": "jest",
-    "lint": "eslint ./src/** --fix"
+    "lint": "tsc & eslint './src/**/*.{js,ts,tsx}' --fix"
   },
   "dependencies": {
     "eslint-config-prettier": "^6.0.0",
@@ -32,6 +32,7 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@types/jest": "^24.0.15",
+    "@types/node": "^12.6.8",
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.4",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
