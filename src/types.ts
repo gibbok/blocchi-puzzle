@@ -14,6 +14,6 @@ export enum TetrominoEnum {
     O = 'O',
 }
 
-export type Cell = 0 | 1;
+export type Cell = 0 | TetrominoEnum;
 
 export type Tetromino = readonly (readonly Cell[])[];

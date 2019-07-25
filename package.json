@@ -26,6 +26,7 @@
     "lint:fix": "tsc & eslint './src/**/*.{js,ts,tsx}' --fix & prettier './src/**/*.{js,ts,tsx}' --write"
   },
   "dependencies": {
+    "fp-ts": "^2.0.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
