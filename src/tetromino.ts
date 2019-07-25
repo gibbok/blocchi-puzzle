@@ -149,7 +149,6 @@ export const factoryTetro = (p: Position) => (t: TetroEnum) => (o: Orientation) 
     tetromino: pieces[t][o],
     position: p,
 });
-export const x =()=> 10
 // const x = factoryTetro({ x: 0, y: 0 })(Z)(Orientation.N);
 // const mkTetroS = factoryTetro(TetrominoEnum.S);
 // const mkTetroJ = factoryTetro(TetrominoEnum.J);
