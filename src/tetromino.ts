@@ -1,14 +1,7 @@
-import { TetrominoEnum, Tetromino, Orientation } from './types';
-
-const Z = TetrominoEnum.Z;
-const S = TetrominoEnum.S;
-const J = TetrominoEnum.J;
-const T = TetrominoEnum.T;
-const I = TetrominoEnum.I;
-const O = TetrominoEnum.O;
+import { TetroEnum, Tetro, Orientation, Position, Z, S, J, T, I, O } from './types';
 
 /* eslint-disable prettier/prettier */
-const pieces: Record<TetrominoEnum, readonly Tetromino[]> = {
+const pieces: Record<TetroEnum, readonly Tetro[]> = {
   Z: [
     [
       [Z, Z, 0],
@@ -152,9 +145,11 @@ const pieces: Record<TetrominoEnum, readonly Tetromino[]> = {
 }
 /* eslint-enable prettier/prettier */
 
-const factoryTetro = (t: TetrominoEnum): ((o: Orientation) => Tetromino) => (o: Orientation): Tetromino => pieces[t][o];
-
-// const mkTetroZ = factoryTetro(TetrominoEnum.Z);
+const factoryTetro = (p: Position) => (t: TetroEnum) => (o: Orientation) => ({
+    tetromino: pieces[t][o],
+    position: p,
+});
+// const x = factoryTetro({ x: 0, y: 0 })(Z)(Orientation.N);
 // const mkTetroS = factoryTetro(TetrominoEnum.S);
 // const mkTetroJ = factoryTetro(TetrominoEnum.J);
 // const mkTetroT = factoryTetro(TetrominoEnum.T);

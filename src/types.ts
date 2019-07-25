@@ -1,11 +1,11 @@
 export enum Orientation {
-    North,
-    East,
-    South,
-    West,
+    N,
+    E,
+    S,
+    W,
 }
 
-export enum TetrominoEnum {
+export enum TetroEnum {
     Z = 'Z',
     S = 'S',
     J = 'J',
@@ -14,6 +14,23 @@ export enum TetrominoEnum {
     O = 'O',
 }
 
-export type Cell = 0 | TetrominoEnum;
+export const Z = TetroEnum.Z;
+export const S = TetroEnum.S;
+export const J = TetroEnum.J;
+export const T = TetroEnum.T;
+export const I = TetroEnum.I;
+export const O = TetroEnum.O;
 
-export type Tetromino = readonly (readonly Cell[])[];
+export type Cell = 0 | TetroEnum;
+
+export type Tetro = readonly (readonly Cell[])[];
+
+export type Position = Readonly<{
+    x: number;
+    y: number;
+}>;
+
+export type TetroPos = Readonly<{
+    tetromino: Tetro;
+    position: Position;
+}>;
