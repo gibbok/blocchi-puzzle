@@ -1,6 +1,5 @@
 import { TetroEnum, Tetro, Orientation, Position, Z, S, J, T, I, O } from './types';
 
-/* eslint-disable prettier/prettier */
 const pieces: Record<TetroEnum, readonly Tetro[]> = {
   Z: [
     [[Z, Z, 0], [0, Z, Z], [0, 0, 0]],
@@ -39,7 +38,6 @@ const pieces: Record<TetroEnum, readonly Tetro[]> = {
     [[0, 0, 0, 0], [0, O, O, 0], [0, O, O, 0], [0, 0, 0, 0]]
   ]
 };
-/* eslint-enable prettier/prettier */
 
 export const factoryTetro = (p: Position) => (t: TetroEnum) => (o: Orientation) => ({
   tetromino: pieces[t][o],

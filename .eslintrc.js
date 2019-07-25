@@ -15,10 +15,10 @@ module.exports = {
   },
   rules: {
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
-    // e.g. "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/explicit-function-return-type": {
-      allowHigherOrderFunctions: true // HOC won't be checked
-    }
+    "@typescript-eslint/explicit-function-return-type": "off",
+    // "@typescript-eslint/explicit-function-return-type": {
+    //   allowHigherOrderFunctions: true // HOC won't be checked
+    // }
   },
   settings: {
     react: {
