@@ -1,17 +1,17 @@
 export enum Orientation {
-    N,
-    E,
-    S,
-    W,
+  N,
+  E,
+  S,
+  W
 }
 
 export enum TetroEnum {
-    Z = 'Z',
-    S = 'S',
-    J = 'J',
-    T = 'T',
-    I = 'I',
-    O = 'O',
+  Z = 'Z',
+  S = 'S',
+  J = 'J',
+  T = 'T',
+  I = 'I',
+  O = 'O'
 }
 
 export const Z = TetroEnum.Z;
@@ -26,11 +26,11 @@ export type Cell = 0 | TetroEnum;
 export type Tetro = readonly (readonly Cell[])[];
 
 export type Position = Readonly<{
-    x: number;
-    y: number;
+  x: number;
+  y: number;
 }>;
 
 export type TetroPos = Readonly<{
-    tetromino: Tetro;
-    position: Position;
+  tetromino: Tetro;
+  position: Position;
 }>;

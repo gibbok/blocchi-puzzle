@@ -22,8 +22,8 @@
     "tsc:watch": "tsc --watch --pretty",
     "test": "tsc && jest --coverage true",
     "test:watch": "tsc && jest --watch --coverage false",
-    "lint": "tsc & eslint './src/**/*.{js,ts,tsx}' & prettier './src/**/*.{js,ts,tsx}' --check",
-    "lint:fix": "tsc & eslint './src/**/*.{js,ts,tsx}' --fix & prettier './src/**/*.{js,ts,tsx}' --write"
+    "lint": "tsc & typescript-eslint './src/**/*.{js,ts,tsx}' & prettier './src/**/*.{js,ts,tsx}' --check",
+    "lint:fix": "tsc & typescript-eslint './src/**/*.{js,ts,tsx}' --fix & prettier './src/**/*.{js,ts,tsx}' --write"
   },
   "dependencies": {
     "fp-ts": "^2.0.3",
