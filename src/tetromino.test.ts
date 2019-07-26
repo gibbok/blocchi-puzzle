@@ -45,7 +45,7 @@ describe('tetromino', () => {
     const pos = { x: 0, y: 0 };
     Object.keys(TetroEnum).forEach((t: string) =>
       dataTetroDirection[t as TetroEnum].forEach((tetro: Tetro, o: DirectionEnum) => {
-        test(`it should return tetro of type: ${t}, direction: ${DirectionEnum[o]}, position: ${pos.x}/${pos.y}`, () =>
+        it(`should return tetro of type: ${t}, direction: ${DirectionEnum[o]}, position: ${pos.x}/${pos.y}`, () =>
           expect({ pos, tetro }).toEqual(factoryTetro(pos)(t as TetroEnum)(o as DirectionEnum)));
       })
     );
