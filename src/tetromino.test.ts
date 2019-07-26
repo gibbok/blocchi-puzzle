@@ -1,7 +1,6 @@
 import { factoryTetro } from './tetromino';
 import { Z, S, J, T, O, I, TetroEnum, DirectionEnum, Tetro } from './types';
 
-/* eslint-disable prettier/prettier */
 const dataTetroDirection: Record<TetroEnum, readonly Tetro[]> = {
   Z: [
     [[Z, Z, 0], [0, Z, Z], [0, 0, 0]],
@@ -43,14 +42,11 @@ const dataTetroDirection: Record<TetroEnum, readonly Tetro[]> = {
 
 describe('tetromino', () => {
   describe('factoryTetro', () => {
-    const position = { x: 0, y: 0 };
+    const pos = { x: 0, y: 0 };
     Object.keys(TetroEnum).forEach((t: string) =>
-      dataTetroDirection[t as TetroEnum].forEach((d: Tetro, o: DirectionEnum) => {
-        test(`it should return tetro of type: ${t}, with direction: ${DirectionEnum[o]}, position: ${position.x}/${position.y}`, () =>
-          expect({
-            position,
-            tetromino: d
-          }).toEqual(factoryTetro(position)(t as TetroEnum)(o as DirectionEnum)));
+      dataTetroDirection[t as TetroEnum].forEach((tetro: Tetro, o: DirectionEnum) => {
+        test(`it should return tetro of type: ${t}, with direction: ${DirectionEnum[o]}, position: ${pos.x}/${pos.y}`, () =>
+          expect({ pos, tetro }).toEqual(factoryTetro(pos)(t as TetroEnum)(o as DirectionEnum)));
       })
     );
   });
