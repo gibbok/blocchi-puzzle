@@ -41,7 +41,7 @@ describe('tetromino', () => {
         ]
       }));
 
-    it('should return tetro: position: 5/5, type: Z, orientation: E', () =>
+    it('should return tetro: position: 0/0, type: Z, orientation: E', () =>
       expect(
         factoryTetro({
           x: 0,
@@ -57,6 +57,44 @@ describe('tetromino', () => {
           [0, 0, Z],
           [0, Z, Z],
           [0, Z, 0]
+        ]
+      }));
+
+    it('should return tetro: position: 0/0, type: Z, orientation: S', () =>
+      expect(
+        factoryTetro({
+          x: 0,
+          y: 0
+        })(Z)(Orientation.S)
+      ).toEqual({
+        position: {
+          x: 0,
+          y: 0
+        },
+        // eslint-disable-next-line prettier/prettier
+        tetromino: [
+          [0, 0, 0],
+          [Z, Z, 0],
+          [0, Z, Z]
+        ]
+      }));
+
+    it('should return tetro: position: 0/0, type: Z, orientation: W', () =>
+      expect(
+        factoryTetro({
+          x: 0,
+          y: 0
+        })(Z)(Orientation.W)
+      ).toEqual({
+        position: {
+          x: 0,
+          y: 0
+        },
+        // eslint-disable-next-line prettier/prettier
+        tetromino: [
+          [0, Z, 0],
+          [Z, Z, 0],
+          [Z, 0, 0]
         ]
       }));
   });
