@@ -1,4 +1,4 @@
-import { TetroEnum, Tetro, DirectionEnum, Position, Z, S, J, T, I, O } from './types';
+import { TetroEnum, Tetro, DirectionEnum, Position, Z, S, J, T, I, O, TetroPos } from './types';
 
 const pieces: Record<TetroEnum, readonly Tetro[]> = {
   Z: [
@@ -39,7 +39,7 @@ const pieces: Record<TetroEnum, readonly Tetro[]> = {
   ]
 };
 
-export const factoryTetro = (p: Position) => (t: TetroEnum) => (o: DirectionEnum) => ({
+export const factoryTetro = (p: Position) => (t: TetroEnum) => (o: DirectionEnum): TetroPos => ({
   tetro: pieces[t][o],
   pos: p
 });
