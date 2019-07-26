@@ -148,12 +148,15 @@ const pieces: Record<TetroEnum, readonly Tetro[]> = {
 
 describe('tetromino', () => {
   describe('factoryTetro', () => {
+    const position = {x:0,y:0}
     Object.keys(TetroEnum).forEach((t:string) => pieces[t as TetroEnum].forEach((d:Tetro, o:Orientation) => {
       test(`tetro ${t} ${o}`,
-        () => expect(d)
+        () => expect({
+          position:position,
+          tetromino: d
+        })
           .toEqual(
-            factoryTetro({ x: 0, y: 0 })(t as TetroEnum)(o as Orientation).tetromino)
-
+            factoryTetro(position)(t as TetroEnum)(o as Orientation))
           )
     }))
   })
