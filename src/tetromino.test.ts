@@ -1,5 +1,5 @@
 import { factoryTetro } from './tetromino';
-import { Z, NO, ES, SO, WE, S, J, T, O, I, TetroEnum, Orientation, Tetro } from './types';
+import { Z, NO, ES, SO, WE, S, J, T, O, I, TetroEnum, Orientation, Tetro, TetroPos } from './types';
 
 /* eslint-disable prettier/prettier */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -148,16 +148,11 @@ const pieces: Record<TetroEnum, readonly Tetro[]> = {
 
 describe('tetromino', () => {
   describe('factoryTetro', () => {
-    const ts = Object.keys(TetroEnum)
-    const os = Object.keys(Orientation).splice(0, 4)
-    const pc = Object.keys(pieces)
-
-    //@ts-ignore
-    ts.forEach((t:TetroEnum) => pieces[t].forEach((d, o:Orientation) => {
+    Object.keys(TetroEnum).forEach((t:string) => pieces[t as TetroEnum].forEach((d:Tetro, o:Orientation) => {
       test(`tetro ${t} ${o}`,
         () => expect(d)
           .toEqual(
-            factoryTetro({ x: 0, y: 0 })(t)(o).tetromino)
+            factoryTetro({ x: 0, y: 0 })(t as TetroEnum)(o as Orientation).tetromino)
 
           )
     }))
