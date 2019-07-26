@@ -5,6 +5,11 @@ export enum Orientation {
   W
 }
 
+export const NO = Orientation.N;
+export const ES = Orientation.E;
+export const SO = Orientation.S;
+export const WE = Orientation.W;
+
 export enum TetroEnum {
   Z = 'Z',
   S = 'S',
