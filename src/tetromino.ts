@@ -1,4 +1,6 @@
-import { TetroEnum, Tetro, DirectionEnum, Z, S, J, T, I, O } from './types';
+import { TetroEnum, Tetro, DirectionEnum, Z, S, J, T, I, O, NO } from './types';
+import { randomInt } from 'fp-ts/lib/Random';
+import { IO, io } from 'fp-ts/lib/IO';
 
 const pieces: Record<TetroEnum, readonly Tetro[]> = {
   Z: [
@@ -40,6 +42,12 @@ const pieces: Record<TetroEnum, readonly Tetro[]> = {
 };
 
 export const factoryTetro = (t: TetroEnum) => (o: DirectionEnum): Tetro => pieces[t][o];
+
+export const getRandomTetro = (): IO<Tetro> => {
+  const randomEnum = Object.keys(TetroEnum)[randomInt(0, Object.keys(TetroEnum).length - 1)()];
+  console.log('xxxx', randomEnum);
+  return io.of(pieces[randomEnum as TetroEnum][NO]);
+};
 // const x = factoryTetro({ x: 0, y: 0 })(Z)(Orientation.N);
 // const mkTetroS = factoryTetro(TetrominoEnum.S);
 // const mkTetroJ = factoryTetro(TetrominoEnum.J);

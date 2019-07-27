@@ -1,5 +1,7 @@
-import { factoryTetro } from './tetromino';
+import { factoryTetro, getRandomTetro } from './tetromino';
 import { Z, S, J, T, O, I, TetroEnum, DirectionEnum, Tetro } from './types';
+// import { randomInt } from 'fp-ts/lib/Random';
+// import { stub } from 'sinon';
 
 const dataTetroDirection: Record<TetroEnum, readonly Tetro[]> = {
   Z: [
@@ -48,5 +50,14 @@ describe('tetromino', () => {
           expect(tetro).toEqual(factoryTetro(t as TetroEnum)(o as DirectionEnum)));
       })
     );
+  });
+
+  describe('getRandomTetro', () => {
+    // beforeAll(() => stub(Math, 'random').returns(1));
+    // afterAll(() => stub().restore());
+    it('should return ramdom tetro', () => {
+      console.log(getRandomTetro()());
+      // expect(getRandomTetro()).toBe('d');
+    });
   });
 });
