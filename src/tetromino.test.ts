@@ -42,11 +42,10 @@ const dataTetroDirection: Record<TetroEnum, readonly Tetro[]> = {
 
 describe('tetromino', () => {
   describe('factoryTetro', () => {
-    const pos = { x: 0, y: 0 };
     Object.keys(TetroEnum).forEach((t: string) =>
       dataTetroDirection[t as TetroEnum].forEach((tetro: Tetro, o: DirectionEnum) => {
-        it(`should return tetro of type: ${t}, direction: ${DirectionEnum[o]}, position: ${pos.x}/${pos.y}`, () =>
-          expect({ pos, tetro }).toEqual(factoryTetro(pos)(t as TetroEnum)(o as DirectionEnum)));
+        it(`should return tetro of type: ${t}, direction: ${DirectionEnum[o]}`, () =>
+          expect(tetro).toEqual(factoryTetro(t as TetroEnum)(o as DirectionEnum)));
       })
     );
   });

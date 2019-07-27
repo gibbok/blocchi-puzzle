@@ -34,8 +34,3 @@ export type Position = Readonly<{
   x: number;
   y: number;
 }>;
-
-export type TetroPos = Readonly<{
-  tetro: Tetro;
-  pos: Position;
-}>;
