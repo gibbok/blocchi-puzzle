@@ -44,9 +44,9 @@ const pieces: Record<TetroEnum, readonly Tetro[]> = {
 export const factoryTetro = (t: TetroEnum) => (o: DirectionEnum): Tetro => pieces[t][o];
 
 export const getRandomTetro = (): IO<Tetro> => {
-  const randomEnum = Object.keys(TetroEnum)[randomInt(0, Object.keys(TetroEnum).length - 1)()];
-  console.log('xxxx', randomEnum);
-  return io.of(pieces[randomEnum as TetroEnum][NO]);
+  const rndInt = randomInt(0, Object.keys(TetroEnum).length - 1)();
+  const rndEnum = Object.keys(TetroEnum)[rndInt];
+  return io.of(pieces[rndEnum as TetroEnum][NO]);
 };
 // const x = factoryTetro({ x: 0, y: 0 })(Z)(Orientation.N);
 // const mkTetroS = factoryTetro(TetrominoEnum.S);
