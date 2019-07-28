@@ -1,8 +1,8 @@
 import { factoryTetro, getRandomTetro } from './tetromino';
-import { Z, S, J, T, O, I, TetroEnum, DirectionEnum, Pieces } from './types';
+import { Z, S, J, T, O, I, TetroEnum, DirectionEnum, TetroPieces } from './types';
 import { stub } from 'sinon';
 
-const dataTetro: Pieces = {
+const dataTetro: TetroPieces = {
   Z: {
     // eslint-disable-next-line prettier/prettier
     N: [

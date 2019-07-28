@@ -4,12 +4,6 @@ export enum DirectionEnum {
   S = 'S',
   W = 'W'
 }
-
-// export const NO = DirectionEnum.N;
-// export const ES = DirectionEnum.E;
-// export const SO = DirectionEnum.S;
-// export const WE = DirectionEnum.W;
-
 export enum TetroEnum {
   Z = 'Z',
   S = 'S',
@@ -18,19 +12,16 @@ export enum TetroEnum {
   I = 'I',
   O = 'O'
 }
-
+export type Cell = 0 | TetroEnum;
+export type TetroPieces = Record<TetroEnum, Record<DirectionEnum, Tetro>>;
+export type TetroRow = readonly Cell[];
+export type Tetro = readonly (TetroRow)[];
 export const Z = TetroEnum.Z;
 export const S = TetroEnum.S;
 export const J = TetroEnum.J;
 export const T = TetroEnum.T;
 export const I = TetroEnum.I;
 export const O = TetroEnum.O;
-
-export type Cell = 0 | TetroEnum;
-
-export type Pieces = Record<TetroEnum, Record<DirectionEnum, Tetro>>;
-
-export type Tetro = readonly (readonly Cell[])[];
 
 export type Position = Readonly<{
   x: number;
