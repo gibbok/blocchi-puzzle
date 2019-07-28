@@ -1,9 +1,8 @@
-import { TetroEnum, Tetro, DirectionEnum, Z, S, J, T, I, O } from './types';
+import { TetroEnum, Tetro, DirectionEnum, Z, S, J, T, I, O, Pieces } from './types';
 import { randomInt } from 'fp-ts/lib/Random';
 import { IO, io } from 'fp-ts/lib/IO';
 
-// const pieces: Record<TetroEnum, readonly Tetro[]> = {
-const pieces: Record<TetroEnum, Record<DirectionEnum, Tetro>> = {
+const pieces: Pieces = {
   Z: {
     // eslint-disable-next-line prettier/prettier
     N: [

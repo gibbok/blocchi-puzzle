@@ -28,6 +28,8 @@ export const O = TetroEnum.O;
 
 export type Cell = 0 | TetroEnum;
 
+export type Pieces = Record<TetroEnum, Record<DirectionEnum, Tetro>>;
+
 export type Tetro = readonly (readonly Cell[])[];
 
 export type Position = Readonly<{
