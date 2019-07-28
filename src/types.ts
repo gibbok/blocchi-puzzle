@@ -1,14 +1,14 @@
 export enum DirectionEnum {
-  N,
-  E,
-  S,
-  W
+  N = 'N',
+  E = 'E',
+  S = 'S',
+  W = 'W'
 }
 
-export const NO = DirectionEnum.N;
-export const ES = DirectionEnum.E;
-export const SO = DirectionEnum.S;
-export const WE = DirectionEnum.W;
+// export const NO = DirectionEnum.N;
+// export const ES = DirectionEnum.E;
+// export const SO = DirectionEnum.S;
+// export const WE = DirectionEnum.W;
 
 export enum TetroEnum {
   Z = 'Z',
