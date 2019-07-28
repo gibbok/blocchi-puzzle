@@ -1,5 +1,5 @@
 import { factoryTetro, getRandomTetro } from './tetromino';
-import { Z, S, J, T, O, I, TetroEnum, DirectionEnum, Tetro, NO } from './types';
+import { Z, S, J, T, O, I, TetroEnum, DirectionEnum, Tetro } from './types';
 import { stub } from 'sinon';
 
 const dataTetroDirection: Record<TetroEnum, readonly Tetro[]> = {
@@ -56,7 +56,7 @@ describe('tetromino', () => {
     afterAll(() => stub().restore());
 
     it('should return random tetro', () => {
-      expect(getRandomTetro()()).toEqual(dataTetroDirection[TetroEnum.Z][NO]);
+      expect(getRandomTetro()()).toEqual(dataTetroDirection[TetroEnum.Z][DirectionEnum.N]);
     });
   });
 });
