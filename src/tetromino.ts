@@ -2,7 +2,7 @@ import { TetroEnum, Tetro, DirectionEnum, Z, S, J, T, I, O, TetroPieces } from '
 import { randomInt } from 'fp-ts/lib/Random';
 import { IO, io } from 'fp-ts/lib/IO';
 
-const pieces: TetroPieces = {
+export const pieces: TetroPieces = {
   Z: {
     N: [[Z, Z, 0], [0, Z, Z], [0, 0, 0]],
     E: [[0, 0, Z], [0, Z, Z], [0, Z, 0]],
