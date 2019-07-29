@@ -27,3 +27,6 @@ export type Position = Readonly<{
   x: number;
   y: number;
 }>;
+
+export type BoardRow = readonly Cell[];
+export type Board = readonly (BoardRow)[];
