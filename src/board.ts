@@ -1,4 +1,4 @@
-import { Board, Cell, TetroEnum, DirectionEnum, TetroRow, Tetro, BoardRow } from './types';
+import { Board, Cell, TetroEnum, DirectionEnum, TetroRow, Tetro } from './types';
 import { pieces } from './tetromino';
 
 export const printPrettier = (x: Tetro | Board) => {
