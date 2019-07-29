@@ -1,4 +1,4 @@
-import { TetroPieces, Z, S, J, T, I, O } from './types';
+import { TetroPieces, Z, S, J, T, I, O } from '../src/types';
 
 export const testPieces: TetroPieces = {
   Z: {

@@ -1,5 +1,5 @@
-import { factoryTetro, getRandomTetro } from './tetromino';
-import { TetroEnum, DirectionEnum } from './types';
+import { factoryTetro, getRandomTetro } from '../src/tetromino';
+import { TetroEnum, DirectionEnum } from '../src/types';
 import { stub } from 'sinon';
 import { testPieces } from './data.support.test';
 
