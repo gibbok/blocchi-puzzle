@@ -24,3 +24,24 @@ export const calculateNewBoard = (t: TetroEnum) => (d: DirectionEnum) => (newX: 
   );
   return tempBoard;
 };
+
+export const canMoveTetroToPostion = (t: TetroEnum) => (d: DirectionEnum) => (newX: number) => (
+  newY: number
+) => (board: Board): boolean => {
+  const tetro = pieces[t][d];
+  let result = true;
+  for (let tetroRow = 0; tetroRow < tetro.length; tetroRow++) {
+    for (let tetroCell = 0; tetroCell < tetro[tetroRow].length; tetroCell++) {
+      const futurePosRow = tetroRow + newY;
+      const futurePosCell = tetroCell + newX;
+      const tetroCellContnt = tetro[tetroRow][tetroCell];
+      const boardCellContent = board[futurePosRow][futurePosCell];
+      const doesTetroTouchBoard = tetroCellContnt !== 0 && boardCellContent !== 0;
+      if (doesTetroTouchBoard) {
+        result = false;
+        break;
+      }
+    }
+  }
+  return result;
+};
