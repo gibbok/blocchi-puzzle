@@ -25,23 +25,22 @@ export const calculateNewBoard = (t: TetroEnum) => (d: DirectionEnum) => (newX: 
   return tempBoard;
 };
 
-export const canMoveTetroToPostion = (t: TetroEnum) => (d: DirectionEnum) => (newX: number) => (
-  newY: number
+export const canMoveTetroToPostion = (t: TetroEnum) => (d: DirectionEnum) => (newCell: number) => (
+  newRow: number
 ) => (board: Board): boolean => {
   const tetro = pieces[t][d];
-  let result = true;
-  for (let tetroRow = 0; tetroRow < tetro.length; tetroRow++) {
-    for (let tetroCell = 0; tetroCell < tetro[tetroRow].length; tetroCell++) {
-      const futurePosRow = tetroRow + newY;
-      const futurePosCell = tetroCell + newX;
-      const tetroCellContnt = tetro[tetroRow][tetroCell];
-      const boardCellContent = board[futurePosRow][futurePosCell];
-      const doesTetroTouchBoard = tetroCellContnt !== 0 && boardCellContent !== 0;
-      if (doesTetroTouchBoard) {
-        result = false;
-        break;
+
+  return tetro.some((row, tRow) =>
+    row.some((cell, tCell) => {
+      const futurePosRow = tRow + newRow;
+      const futurePosCell = tCell + newCell;
+      const tetroCellCnt = cell;
+      const boardCellCnt = board[futurePosRow][futurePosCell];
+      const isTetroCollideBoard = tetroCellCnt !== 0 && boardCellCnt !== 0;
+      if (isTetroCollideBoard) {
+        return false;
       }
-    }
-  }
-  return result;
+      return true;
+    })
+  );
 };
