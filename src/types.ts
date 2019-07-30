@@ -23,10 +23,7 @@ export const T = TetroEnum.T;
 export const I = TetroEnum.I;
 export const O = TetroEnum.O;
 
-export type Position = Readonly<{
-  x: number;
-  y: number;
-}>;
+export type Position = number;
 
 export type BoardRow = readonly Cell[];
 export type Board = readonly (BoardRow)[];
