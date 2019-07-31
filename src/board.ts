@@ -34,27 +34,25 @@ export const canPositionTetroWithinBoard = (t: TetroEnum) => (d: DirectionEnum) 
     tRow.some((tCell: Cell, tCellPos: number) => {
       const futureRowPos = tRowPos + newRowPos;
       const futureCellPos = tCellPos + newCellPos;
-      const tetroCellCnt = tCell;
 
-      const isNewRowNotValid = futureRowPos > board.length - 1 || futureRowPos < 0;
-      const isNewCellNotValid = futureCellPos > board[0].length - 1 || futureCellPos < 0;
-      if (isNewRowNotValid || isNewCellNotValid) {
+      const isNewRowPosValid = futureRowPos >= 0;
+      const isNewCellPosValid =
+        futureCellPos >= 0 && futureCellPos <= board[futureRowPos].length - 1;
+      if (!isNewRowPosValid || !isNewCellPosValid) {
         return false;
       }
 
       const boardCellCnt = board[futureRowPos][futureCellPos];
 
-      const doesTetroCollideBoard = tetroCellCnt !== 0 && boardCellCnt !== 0;
-      const doesTetroCollideBoardWallsSO = futureRowPos <= board.length ? false : true;
-      const doesTetroCollideBoardWallsWE = futureCellPos <= -1;
-      const doesTetroCollideBoardWallsES = futureCellPos >= board.length;
+      const doesTetroCollideBoard = tCell !== 0 && boardCellCnt !== 0;
+      // const doesTetroCollideBoardWallsSO = futureRowPos <= board.length ? false : true;
+      // const doesTetroCollideBoardWallsWE = futureCellPos <= -1;
+      // const doesTetroCollideBoardWallsES = futureCellPos >= board.length;
 
-      return (
-        !doesTetroCollideBoard &&
-        !doesTetroCollideBoardWallsSO &&
-        !doesTetroCollideBoardWallsWE &&
-        !doesTetroCollideBoardWallsES
-      );
+      return !doesTetroCollideBoard;
+      // !doesTetroCollideBoardWallsSO &&
+      // !doesTetroCollideBoardWallsWE &&
+      // !doesTetroCollideBoardWallsES
     })
   );
 };
