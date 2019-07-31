@@ -70,17 +70,25 @@ describe('board', () => {
     });
 
     describe('board walls', () => {
-      it('should return true if future position is within WE and ES walls', () => {
+      it('should return true if future position is within WE/ES walls', () => {
         const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(0)(
           EMPTY_BOARD[0].length - 1
         )(EMPTY_BOARD);
         expect(test).toStrictEqual(true);
       });
-      it('should return false if future position is outside WE and ES walls', () => {
+      it('should return false if future position is not within WE/ES walls', () => {
         const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(0)(1000)(
           EMPTY_BOARD
         );
         expect(test).toStrictEqual(false);
+      });
+      it('should return true if future position is within SO wall', () => {
+        const test1 = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(0)(1)(EMPTY_BOARD);
+        expect(test1).toStrictEqual(true);
+        const test2 = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(
+          EMPTY_BOARD.length - 1
+        )(0)(EMPTY_BOARD);
+        expect(test2).toStrictEqual(true);
       });
       // it('should return true if future position is wihtin NO and SO walls', () => {
       //   const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(0)(0)(EMPTY_BOARD);
