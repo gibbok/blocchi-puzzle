@@ -26,28 +26,28 @@ export const mkEmptyBoard = (rows: number) => (columns: number): Board =>
 // };
 
 export const canPositionTetroWithinBoard = (t: TetroEnum) => (d: DirectionEnum) => (
-  newRow: Position
-) => (newCell: Position) => (board: Board): boolean => {
+  newRowPos: Position
+) => (newCellPos: Position) => (board: Board): boolean => {
   const tetro = pieces[t][d];
 
-  return tetro.some((row: TetroRow, tRow: number) =>
-    row.some((cell: Cell, tCell: number) => {
-      const futurePosRow = tRow + newRow;
-      const futurePosCell = tCell + newCell;
-      const tetroCellCnt = cell;
+  return tetro.some((tRow: TetroRow, tRowPos: number) =>
+    tRow.some((tCell: Cell, tCellPos: number) => {
+      const futureRowPos = tRowPos + newRowPos;
+      const futureCellPos = tCellPos + newCellPos;
+      const tetroCellCnt = tCell;
 
-      const isNewRowNotValid = futurePosRow > board.length - 1 || futurePosRow < 0;
-      const isNewCellNotValid = futurePosCell > board[0].length - 1 || futurePosCell < 0;
+      const isNewRowNotValid = futureRowPos > board.length - 1 || futureRowPos < 0;
+      const isNewCellNotValid = futureCellPos > board[0].length - 1 || futureCellPos < 0;
       if (isNewRowNotValid || isNewCellNotValid) {
         return false;
       }
 
-      const boardCellCnt = board[futurePosRow][futurePosCell];
+      const boardCellCnt = board[futureRowPos][futureCellPos];
 
       const doesTetroCollideBoard = tetroCellCnt !== 0 && boardCellCnt !== 0;
-      const doesTetroCollideBoardWallsSO = futurePosRow <= board.length ? false : true;
-      const doesTetroCollideBoardWallsWE = futurePosCell <= -1;
-      const doesTetroCollideBoardWallsES = futurePosCell >= board.length;
+      const doesTetroCollideBoardWallsSO = futureRowPos <= board.length ? false : true;
+      const doesTetroCollideBoardWallsWE = futureCellPos <= -1;
+      const doesTetroCollideBoardWallsES = futureCellPos >= board.length;
 
       return (
         !doesTetroCollideBoard &&
