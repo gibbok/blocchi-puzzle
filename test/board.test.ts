@@ -82,7 +82,7 @@ describe('board', () => {
         );
         expect(test).toStrictEqual(false);
       });
-      it('should return true if future position is within SO wall', () => {
+      it('should return true if future position is within ∞/SO wall', () => {
         const test1 = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(0)(1)(EMPTY_BOARD);
         expect(test1).toStrictEqual(true);
         const test2 = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(
@@ -90,66 +90,12 @@ describe('board', () => {
         )(0)(EMPTY_BOARD);
         expect(test2).toStrictEqual(true);
       });
-      it('should return false if future position is not within SO wall', () => {
+      it('should return false if future position is not within ∞/SO wall', () => {
         const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(1000)(0)(
           EMPTY_BOARD
         );
         expect(test).toStrictEqual(false);
       });
-      // it('should return true if future position is wihtin NO and SO walls', () => {
-      //   const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(0)(0)(EMPTY_BOARD);
-      //   expect(test).toStrictEqual(false);
-      // });
-      // it('should return false if tetro cannot be positionated outside the NO board wall', () => {
-      //   const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(-1000)(0)(
-      //     EMPTY_BOARD
-      //   );
-      //   expect(test).toStrictEqual(false);
-      // });
-      // it('should return true if tetro can be positionated just outside the NO board wall', () => {
-      //   const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(-1)(0)(EMPTY_BOARD);
-      //   expect(test).toStrictEqual(true);
-      // });
-      // it('should return false if tetro cannot be positionated outside the ES board wall', () => {
-      //   const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(0)(1000)(
-      //     EMPTY_BOARD
-      //   );
-      //   expect(test).toStrictEqual(false);
-      // });
-      // it('should return false if tetro cannot be positionated outside the SO board wall', () => {
-      //   const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(1000)(0)(
-      //     EMPTY_BOARD
-      //   );
-      //   expect(test).toStrictEqual(false);
-      // });
-      // it('should return false if tetro cannot be positionated outside the WE board wall', () => {
-      //   const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(0)(-1000)(
-      //     EMPTY_BOARD
-      //   );
-      //   expect(test).toStrictEqual(false);
-      // });
-
-      // it('should return true if tetro cannot be positionated exactly on the NO board wall', () => {
-      //   const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(0)(0)(EMPTY_BOARD);
-      //   expect(test).toStrictEqual(true);
-      // });
-      // it('should return true if tetro cannot be positionated exactly on the ES board wall', () => {
-      //   const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(0)(
-      //     EMPTY_BOARD.length
-      //   )(EMPTY_BOARD);
-      //   expect(test).toStrictEqual(true);
-      // });
-      // it('should return true if tetro cannot be positionated exactly on the SO board wall', () => {
-      //   const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(EMPTY_BOARD.length)(
-      //     0
-      //   )(EMPTY_BOARD);
-      //   expect(test).toStrictEqual(true);
-      // });
-
-      // it('should return true if tetro can be positionated exactly on the WE board wall', () => {
-      //   const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(0)(0)(EMPTY_BOARD);
-      //   expect(test).toStrictEqual(true);
-      // });
     });
   });
 });

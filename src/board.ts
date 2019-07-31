@@ -48,14 +48,8 @@ export const canPositionTetroWithinBoard = (t: TetroEnum) => (d: DirectionEnum) 
       const boardCellCnt = board[futureRowPos][futureCellPos];
 
       const doesTetroCollideBoard = tCell !== 0 && boardCellCnt !== 0;
-      // const doesTetroCollideBoardWallsSO = futureRowPos <= board.length ? false : true;
-      // const doesTetroCollideBoardWallsWE = futureCellPos <= -1;
-      // const doesTetroCollideBoardWallsES = futureCellPos >= board.length;
 
       return !doesTetroCollideBoard;
-      // !doesTetroCollideBoardWallsSO &&
-      // !doesTetroCollideBoardWallsWE &&
-      // !doesTetroCollideBoardWallsES
     })
   );
 };
