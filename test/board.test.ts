@@ -70,11 +70,15 @@ describe('board', () => {
     });
 
     describe('board walls', () => {
-      it('should return true if tetro cannot be positionated outside the NO board wall', () => {
+      it('should return false if tetro cannot be positionated outside the NO board wall', () => {
         const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(-1000)(0)(
           EMPTY_BOARD
         );
         expect(test).toStrictEqual(false);
+      });
+      it('should return true if tetro can be positionated just outside the NO board wall', () => {
+        const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(-1)(0)(EMPTY_BOARD);
+        expect(test).toStrictEqual(true);
       });
       it('should return false if tetro cannot be positionated outside the ES board wall', () => {
         const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(0)(1000)(

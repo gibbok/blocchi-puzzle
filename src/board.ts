@@ -36,8 +36,7 @@ export const canPositionTetroWithinBoard = (t: TetroEnum) => (d: DirectionEnum) 
       const futurePosCell = tCell + newCell;
       const tetroCellCnt = cell;
 
-      const isNewRowNotValid =
-        futurePosRow > board.length - 1 || futurePosRow < 0 + tetro.length - 1;
+      const isNewRowNotValid = futurePosRow > board.length - 1 || futurePosRow < 0;
       const isNewCellNotValid = futurePosCell > board[0].length - 1 || futurePosCell < 0;
       if (isNewRowNotValid || isNewCellNotValid) {
         return false;
