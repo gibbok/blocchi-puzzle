@@ -35,10 +35,13 @@ export const canPositionTetroWithinBoard = (t: TetroEnum) => (d: DirectionEnum) 
       const futureRowPos = tRowPos + newRowPos;
       const futureCellPos = tCellPos + newCellPos;
 
-      const isNewRowPosValid = futureRowPos >= 0;
+      const isNewRowPosValid = futureRowPos >= 0 && futureRowPos <= board.length - 1;
+      if (!isNewRowPosValid) {
+        return false;
+      }
       const isNewCellPosValid =
         futureCellPos >= 0 && futureCellPos <= board[futureRowPos].length - 1;
-      if (!isNewRowPosValid || !isNewCellPosValid) {
+      if (!isNewCellPosValid) {
         return false;
       }
 

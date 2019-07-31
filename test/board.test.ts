@@ -90,6 +90,12 @@ describe('board', () => {
         )(0)(EMPTY_BOARD);
         expect(test2).toStrictEqual(true);
       });
+      it('should return false if future position is not within SO wall', () => {
+        const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(1000)(0)(
+          EMPTY_BOARD
+        );
+        expect(test).toStrictEqual(false);
+      });
       // it('should return true if future position is wihtin NO and SO walls', () => {
       //   const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(0)(0)(EMPTY_BOARD);
       //   expect(test).toStrictEqual(false);
