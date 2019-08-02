@@ -1,11 +1,12 @@
 import { mkEmptyBoard, canTetroFitInBoard, lockTetroOnBoard, logNice } from '../src/board';
-import { TetroEnum, DirectionEnum, Board, Z, I } from '../src/types';
+import { TetroEnum, DirectionEnum, Z, I } from '../src/types';
 import { dataBoardZ, EMPTY_BOARD, NON_EMPTY_BOARD } from './data.support.test';
 
 describe('board', () => {
   describe('mkEmptyBoard', () => {
-    it('sould return empty board', () => {});
-    expect(mkEmptyBoard(20)(10)).toEqual(EMPTY_BOARD);
+    it('sould return empty board', () => {
+      expect(mkEmptyBoard(20)(10)).toEqual(EMPTY_BOARD);
+    });
   });
 
   describe('canTetroFitInBoard', () => {
@@ -19,7 +20,6 @@ describe('board', () => {
       const test = canTetroFitInBoard(TetroEnum.I)(DirectionEnum.E)(0)(0)(EMPTY_BOARD);
       expect(test).toStrictEqual(true);
     });
-
     it('should return false if tetro future position is not within WE/ES walls', () => {
       const test = canTetroFitInBoard(TetroEnum.I)(DirectionEnum.E)(0)(1000)(EMPTY_BOARD);
       expect(test).toStrictEqual(false);
@@ -39,7 +39,6 @@ describe('board', () => {
       const test = canTetroFitInBoard(TetroEnum.I)(DirectionEnum.N)(0)(0)(EMPTY_BOARD);
       expect(test).toStrictEqual(true);
     });
-
     it('should return false if tetro future position does not fit within ∞/SO wall', () => {
       const test = canTetroFitInBoard(TetroEnum.I)(DirectionEnum.N)(1000)(0)(EMPTY_BOARD);
       expect(test).toStrictEqual(false);
