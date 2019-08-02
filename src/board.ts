@@ -57,7 +57,7 @@ export const lockTetroOnBoard = (t: TetroEnum) => (d: DirectionEnum) => (newRowP
       const futureRowPos = rowX + newRowPos;
       const futureCellPos = cellY + newCellPos;
       const tetroCell = tetro[rowX][cellY];
-      const boardCell = board[futureRowPos][futureCellPos];
+      // const boardCell = board[futureRowPos][futureCellPos];
       // if (tetroCell !== 0 && boardCell === 0) { // version do not ovveride
       // version ovveride anything
       if (tetroCell !== 0) {

@@ -52,14 +52,31 @@ describe('board', () => {
       const test = canTetroFitInBoard(TetroEnum.Z)(DirectionEnum.N)(0)(5)(NON_EMPTY_BOARD);
       expect(test).toStrictEqual(false);
     });
+
+    Object.keys(TetroEnum).forEach((t: string) => {
+      Object.keys(DirectionEnum).forEach((d: string) => {
+        it(`should return true if tetro ${t} future position with direction ${d} fit in empty board`, () => {
+          const test = canTetroFitInBoard(t as TetroEnum)(DirectionEnum.N)(0)(0)(EMPTY_BOARD);
+          expect(test).toStrictEqual(true);
+        });
+        it(`should return false if tetro ${t} future position with direction ${d} does not fit in empty board`, () => {
+          const test = canTetroFitInBoard(t as TetroEnum)(DirectionEnum.N)(1000)(1000)(EMPTY_BOARD);
+          expect(test).toStrictEqual(false);
+        });
+        it(`should return false if tetro ${t} future position is already taken by locked tetro in the board`, () => {
+          const test = canTetroFitInBoard(t as TetroEnum)(DirectionEnum.N)(0)(5)(NON_EMPTY_BOARD);
+          expect(test).toStrictEqual(false);
+        });
+      });
+    });
   });
 
   describe('lockTetroOnBoard', () => {
-    it('should return a new board with locked tetro', () => {
+    it('should return new board with locked tetro', () => {
       const test = lockTetroOnBoard(TetroEnum.Z)(DirectionEnum.N)(2)(2)(EMPTY_BOARD);
       expect(test).toStrictEqual(dataBoardZ);
     });
-    it('should return a new board with two adjacent locked tetros', () => {
+    it('should return new board with two adjacent locked tetros', () => {
       const test = lockTetroOnBoard(TetroEnum.Z)(DirectionEnum.N)(2)(4)(dataBoardZ);
       expect(test).toStrictEqual([
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
