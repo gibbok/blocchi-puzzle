@@ -1,4 +1,4 @@
-import { mkEmptyBoard, canPositionTetroWithinBoard } from '../src/board';
+import { mkEmptyBoard, canTetroFitInBoard } from '../src/board';
 import { TetroEnum, DirectionEnum, Board } from '../src/types';
 
 const EMPTY_BOARD: Board = [...Array(20).fill([...Array(10).fill(0)])];
@@ -64,37 +64,33 @@ describe('board', () => {
   describe('canPositionTetroWithinBoard', () => {
     describe('board locked tetros', () => {
       it('should return true if tetro can be positioned within the board without colliding with any locked tetros', () => {
-        const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(0)(1)(EMPTY_BOARD);
+        const test = canTetroFitInBoard(TetroEnum.Z)(DirectionEnum.N)(0)(1)(EMPTY_BOARD);
         expect(test).toStrictEqual(true);
       });
     });
 
     describe('board walls', () => {
       it('should return true if future position is within WE/ES walls', () => {
-        const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(0)(
-          EMPTY_BOARD[0].length - 1
-        )(EMPTY_BOARD);
+        const test = canTetroFitInBoard(TetroEnum.Z)(DirectionEnum.N)(0)(EMPTY_BOARD[0].length - 1)(
+          EMPTY_BOARD
+        );
         expect(test).toStrictEqual(true);
       });
       it('should return false if future position is not within WE/ES walls', () => {
-        const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(0)(1000)(
-          EMPTY_BOARD
-        );
+        const test = canTetroFitInBoard(TetroEnum.Z)(DirectionEnum.N)(0)(1000)(EMPTY_BOARD);
         expect(test).toStrictEqual(false);
       });
 
       it('should return true if future position is within ∞/SO wall', () => {
-        const test1 = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(0)(1)(EMPTY_BOARD);
+        const test1 = canTetroFitInBoard(TetroEnum.Z)(DirectionEnum.N)(0)(1)(EMPTY_BOARD);
         expect(test1).toStrictEqual(true);
-        const test2 = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(
-          EMPTY_BOARD.length - 1
-        )(0)(EMPTY_BOARD);
+        const test2 = canTetroFitInBoard(TetroEnum.Z)(DirectionEnum.N)(EMPTY_BOARD.length - 1)(0)(
+          EMPTY_BOARD
+        );
         expect(test2).toStrictEqual(true);
       });
       it('should return false if future position is not within ∞/SO wall', () => {
-        const test = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(1000)(0)(
-          EMPTY_BOARD
-        );
+        const test = canTetroFitInBoard(TetroEnum.Z)(DirectionEnum.N)(1000)(0)(EMPTY_BOARD);
         expect(test).toStrictEqual(false);
       });
     });

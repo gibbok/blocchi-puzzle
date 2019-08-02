@@ -25,9 +25,9 @@ export const mkEmptyBoard = (rows: number) => (columns: number): Board =>
 //   return tempBoard;
 // };
 
-export const canPositionTetroWithinBoard = (t: TetroEnum) => (d: DirectionEnum) => (
-  newRowPos: Position
-) => (newCellPos: Position) => (board: Board): boolean => {
+export const canTetroFitInBoard = (t: TetroEnum) => (d: DirectionEnum) => (newRowPos: Position) => (
+  newCellPos: Position
+) => (board: Board): boolean => {
   const tetro = pieces[t][d];
 
   return tetro.some((tRow: TetroRow, tRowPos: number) =>
@@ -46,9 +46,9 @@ export const canPositionTetroWithinBoard = (t: TetroEnum) => (d: DirectionEnum) 
       }
 
       const boardCellCnt = board[futureRowPos][futureCellPos];
-      const doesTetroFitInBoard = tCell === 0 && boardCellCnt === 0;
+      const canTetroFitInBoard = tCell === 0 && boardCellCnt === 0;
 
-      return doesTetroFitInBoard;
+      return canTetroFitInBoard;
     })
   );
 };
