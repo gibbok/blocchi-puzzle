@@ -41,6 +41,8 @@ export const pieces: TetroPieces = {
   }
 };
 
+export const getTetroFromPieces = (t: TetroEnum) => (d: DirectionEnum): Tetro => pieces[t][d];
+
 export const factoryTetro = (t: TetroEnum) => (o: DirectionEnum): Tetro => pieces[t][o];
 
 export const getRandomTetro = (): IO<Tetro> => {

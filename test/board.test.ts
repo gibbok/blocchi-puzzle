@@ -1,4 +1,4 @@
-import { mkEmptyBoard, canTetroFitInBoard } from '../src/board';
+import { mkEmptyBoard, canTetroFitInBoard, lockTetroOnBoard } from '../src/board';
 import { TetroEnum, DirectionEnum, Board } from '../src/types';
 
 const EMPTY_BOARD: Board = [...Array(20).fill([...Array(10).fill(0)])];
@@ -96,6 +96,13 @@ describe('board', () => {
     it('should return false if future position is already taken by locked tetro in the board', () => {
       const test = canTetroFitInBoard(TetroEnum.Z)(DirectionEnum.N)(0)(5)(NON_EMPTY_BOARD);
       expect(test).toStrictEqual(false);
+    });
+  });
+
+  describe('lockTetroOnBoard', () => {
+    it('should return a new board with the locked tetro', () => {
+      const test = lockTetroOnBoard(TetroEnum.Z)(DirectionEnum.N)(0)(5)(NON_EMPTY_BOARD);
+      expect(test).toStrictEqual(NON_EMPTY_BOARD);
     });
   });
 });

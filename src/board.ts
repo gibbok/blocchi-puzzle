@@ -1,5 +1,14 @@
-import { Board, Cell, TetroEnum, DirectionEnum, TetroRow, Tetro, Position } from './types';
-import { pieces } from './tetromino';
+import {
+  Board,
+  Cell,
+  TetroEnum,
+  DirectionEnum,
+  TetroRow,
+  Tetro,
+  Position,
+  TetroPieces
+} from './types';
+import { pieces, getTetroFromPieces } from './tetromino';
 
 export const logNice = (x: Tetro | Board) => {
   console.log(x.reduce((acc, v) => `${acc} ${v.concat()} \n`, ''));
@@ -27,10 +36,8 @@ export const mkEmptyBoard = (rows: number) => (columns: number): Board =>
 
 export const canTetroFitInBoard = (t: TetroEnum) => (d: DirectionEnum) => (newRowPos: Position) => (
   newCellPos: Position
-) => (board: Board): boolean => {
-  const tetro = pieces[t][d];
-
-  return tetro.some((tRow: TetroRow, tRowPos: number) =>
+) => (board: Board): boolean =>
+  getTetroFromPieces(t)(d).some((tRow: TetroRow, tRowPos: number) =>
     tRow.some((tCell: Cell, tCellPos: number) => {
       const futureRowPos = tRowPos + newRowPos;
       const futureCellPos = tCellPos + newCellPos;
@@ -51,4 +58,9 @@ export const canTetroFitInBoard = (t: TetroEnum) => (d: DirectionEnum) => (newRo
       return canTetroFitInBoard;
     })
   );
+export const lockTetroOnBoard = (t: TetroEnum) => (d: DirectionEnum) => (newRowPos: Position) => (
+  newCellPos: Position
+) => (board: Board): Board => {
+  const tetro = getTetroFromPieces(t)(d);
+  return board;
 };

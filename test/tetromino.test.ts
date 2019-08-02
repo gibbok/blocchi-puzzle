@@ -1,9 +1,16 @@
-import { factoryTetro, getRandomTetro } from '../src/tetromino';
+import { factoryTetro, getRandomTetro, getTetroFromPieces } from '../src/tetromino';
 import { TetroEnum, DirectionEnum } from '../src/types';
 import { stub } from 'sinon';
 import { testPieces } from './data.support.test';
 
 describe('tetromino', () => {
+  describe('getTetroFromPieces', () => {
+    it('should a tetro from pieces', () => {
+      const test = getTetroFromPieces(TetroEnum.Z)(DirectionEnum.N);
+      expect(test).toEqual(testPieces[TetroEnum.Z][DirectionEnum.N]);
+    });
+  });
+
   describe('factoryTetro', () => {
     const tetroKeys = Object.keys(TetroEnum);
     const directionKeys = Object.keys(DirectionEnum);
