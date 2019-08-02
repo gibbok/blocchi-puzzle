@@ -1,5 +1,5 @@
 import { mkEmptyBoard, canTetroFitInBoard, lockTetroOnBoard, logNice } from '../src/board';
-import { TetroEnum, DirectionEnum, Board, Z } from '../src/types';
+import { TetroEnum, DirectionEnum, Board, Z, I } from '../src/types';
 import { dataBoardZ } from './data.support.test';
 
 const EMPTY_BOARD: Board = [...Array(20).fill([...Array(10).fill(0)])];
@@ -137,10 +137,10 @@ describe('board', () => {
       expect(test).toStrictEqual([
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, Z, Z, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, Z, Z, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, Z, I, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, I, Z, 0, 0, 0, 0, 0],
+        [0, 0, 0, I, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, I, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
