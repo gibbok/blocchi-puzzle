@@ -82,6 +82,7 @@ describe('board', () => {
         );
         expect(test).toStrictEqual(false);
       });
+
       it('should return true if future position is within ∞/SO wall', () => {
         const test1 = canPositionTetroWithinBoard(TetroEnum.Z)(DirectionEnum.N)(0)(1)(EMPTY_BOARD);
         expect(test1).toStrictEqual(true);

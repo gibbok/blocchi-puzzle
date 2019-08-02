@@ -46,10 +46,9 @@ export const canPositionTetroWithinBoard = (t: TetroEnum) => (d: DirectionEnum) 
       }
 
       const boardCellCnt = board[futureRowPos][futureCellPos];
+      const doesTetroFitInBoard = tCell === 0 && boardCellCnt === 0;
 
-      const doesTetroCollideBoard = tCell !== 0 && boardCellCnt !== 0;
-
-      return !doesTetroCollideBoard;
+      return doesTetroFitInBoard;
     })
   );
 };
