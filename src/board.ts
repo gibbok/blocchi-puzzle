@@ -62,5 +62,18 @@ export const lockTetroOnBoard = (t: TetroEnum) => (d: DirectionEnum) => (newRowP
   newCellPos: Position
 ) => (board: Board): Board => {
   const tetro = getTetroFromPieces(t)(d);
-  return board;
+  let tempBoard = board.map(x => x.map(x => x));
+  tetro.forEach((row: TetroRow, rowX: number) =>
+    row.forEach((cell: Cell, cellY: number) => {
+      const futureRowPos = rowX + newRowPos;
+      const futureCellPos = cellY + newCellPos;
+
+      if (tetro[rowX][cellY] !== 0 && board[futureRowPos][futureCellPos] === 0) {
+        return (tempBoard[futureRowPos][futureCellPos] = t);
+      } else {
+        return tempBoard[futureRowPos][futureCellPos];
+      }
+    })
+  );
+  return tempBoard;
 };

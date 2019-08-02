@@ -5,7 +5,7 @@ import { testPieces } from './data.support.test';
 
 describe('tetromino', () => {
   describe('getTetroFromPieces', () => {
-    it('should a tetro from pieces', () => {
+    it('should return a tetro from pieces', () => {
       const test = getTetroFromPieces(TetroEnum.Z)(DirectionEnum.N);
       expect(test).toEqual(testPieces[TetroEnum.Z][DirectionEnum.N]);
     });
