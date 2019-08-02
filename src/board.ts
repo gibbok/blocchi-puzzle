@@ -36,28 +36,43 @@ export const mkEmptyBoard = (rows: number) => (columns: number): Board =>
 
 export const canTetroFitInBoard = (t: TetroEnum) => (d: DirectionEnum) => (newRowPos: Position) => (
   newCellPos: Position
-) => (board: Board): boolean =>
-  getTetroFromPieces(t)(d).some((tRow: TetroRow, tRowPos: number) =>
+) => (board: Board): boolean => {
+  const tetro = getTetroFromPieces(t)(d);
+  const boardRowsLen = board.length - 1;
+  const tetroRowsLen = tetro.length - 1;
+  const boardCellsLen = board[0].length - 1;
+  const tetroCellsLen = tetro[-0].length - 1;
+  return tetro.some((tRow: TetroRow, tRowPos: number) =>
     tRow.some((tCell: Cell, tCellPos: number) => {
       const futureRowPos = tRowPos + newRowPos;
       const futureCellPos = tCellPos + newCellPos;
-
       const isNewRowPosValid = futureRowPos >= 0 && futureRowPos <= board.length - 1;
       if (!isNewRowPosValid) {
         return false;
       }
       const isNewCellPosValid =
         futureCellPos >= 0 && futureCellPos <= board[futureRowPos].length - 1;
+
       if (!isNewCellPosValid) {
         return false;
       }
 
-      const boardCellCnt = board[futureRowPos][futureCellPos];
+      const isSizeTetroValid =
+        newRowPos + tetroRowsLen <= boardRowsLen && newCellPos + tetroCellsLen <= boardCellsLen;
+      if (!isSizeTetroValid) {
+        return false;
+      }
+
+      const boardCellCnt =
+        board[futureRowPos][futureCellPos] && board[futureCellPos][futureCellPos + tRow.length - 1];
+      console.log(tRowPos, tCellPos, boardCellCnt);
       const canTetroFitInBoard = tCell === 0 && boardCellCnt === 0;
+
       // missing check inside each piece
       return canTetroFitInBoard;
     })
   );
+};
 export const lockTetroOnBoard = (t: TetroEnum) => (d: DirectionEnum) => (newRowPos: Position) => (
   newCellPos: Position
 ) => (board: Board): Board => {
