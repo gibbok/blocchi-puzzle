@@ -61,3 +61,13 @@ export const dataBoardZ: Board = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
+
+export const EMPTY_BOARD: Board = [...Array(20).fill([...Array(10).fill(0)])];
+
+export const NON_EMPTY_BOARD: Board = [
+  ...Array(20).fill([
+    ...Array(10)
+      .fill(0, 0, 10)
+      .fill(1, 5, 10)
+  ])
+];

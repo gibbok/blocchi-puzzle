@@ -1,73 +1,12 @@
 import { mkEmptyBoard, canTetroFitInBoard, lockTetroOnBoard, logNice } from '../src/board';
 import { TetroEnum, DirectionEnum, Board, Z, I } from '../src/types';
-import { dataBoardZ } from './data.support.test';
-
-const EMPTY_BOARD: Board = [...Array(20).fill([...Array(10).fill(0)])];
-const NON_EMPTY_BOARD: Board = [
-  ...Array(20).fill([
-    ...Array(10)
-      .fill(0, 0, 10)
-      .fill(1, 5, 10)
-  ])
-];
+import { dataBoardZ, EMPTY_BOARD, NON_EMPTY_BOARD } from './data.support.test';
 
 describe('board', () => {
   describe('mkEmptyBoard', () => {
     it('sould return empty board', () => {});
     expect(mkEmptyBoard(20)(10)).toEqual(EMPTY_BOARD);
   });
-
-  // describe('calculateNewBoard', () => {
-  //   it('sould return a new board with collision detected', () => {});
-  //   const test = calculateNewBoard(TetroEnum.Z)(DirectionEnum.N)(0)(0)(EMPTY_BOARD);
-  //   expect(test).toStrictEqual([
-  //     [Z, Z, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, Z, Z, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-  //   ]);
-  // });
-  // it('should calculate new board', () => {
-  //   const test = calculateNewBoard(TetroEnum.Z)(DirectionEnum.N)(0)(1)(EMPTY_BOARD);
-  //   expect(test).toStrictEqual([
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [Z, Z, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, Z, Z, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-  //   ]);
-  // });
 
   describe('canTetroFitInBoard', () => {
     it('should return false if tetro future position and lenght does not fit within WE/ES walls', () => {
