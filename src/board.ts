@@ -54,7 +54,7 @@ export const canTetroFitInBoard = (t: TetroEnum) => (d: DirectionEnum) => (newRo
 
       const boardCellCnt = board[futureRowPos][futureCellPos];
       const canTetroFitInBoard = tCell === 0 && boardCellCnt === 0;
-
+      // missing check inside each piece
       return canTetroFitInBoard;
     })
   );
