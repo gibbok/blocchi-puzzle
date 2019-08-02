@@ -63,13 +63,13 @@ export const canTetroFitInBoard = (t: TetroEnum) => (d: DirectionEnum) => (newRo
         return false;
       }
 
-      const boardCellCnt =
-        board[futureRowPos][futureCellPos] && board[futureCellPos][futureCellPos + tRow.length - 1];
-      console.log(tRowPos, tCellPos, boardCellCnt);
+      const boardCellCnt = board[futureRowPos][futureCellPos];
       const canTetroFitInBoard = tCell === 0 && boardCellCnt === 0;
+      if (!canTetroFitInBoard) {
+        return false;
+      }
 
-      // missing check inside each piece
-      return canTetroFitInBoard;
+      return true;
     })
   );
 };
