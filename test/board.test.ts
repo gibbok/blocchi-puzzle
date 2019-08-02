@@ -1,6 +1,6 @@
 import { mkEmptyBoard, canTetroFitInBoard, lockTetroOnBoard, logNice } from '../src/board';
 import { TetroEnum, DirectionEnum, Board, Z } from '../src/types';
-import { testBoardLockedOneZ } from './data.support.test';
+import { dataBoardZ } from './data.support.test';
 
 const EMPTY_BOARD: Board = [...Array(20).fill([...Array(10).fill(0)])];
 const NON_EMPTY_BOARD: Board = [
@@ -103,16 +103,42 @@ describe('board', () => {
   describe('lockTetroOnBoard', () => {
     it('should return a new board with locked tetro', () => {
       const test = lockTetroOnBoard(TetroEnum.Z)(DirectionEnum.N)(2)(2)(EMPTY_BOARD);
-      expect(test).toStrictEqual(testBoardLockedOneZ);
+      expect(test).toStrictEqual(dataBoardZ);
     });
-    it('should return a new board with two adjacent locked tetrps', () => {
-      const test = lockTetroOnBoard(TetroEnum.Z)(DirectionEnum.N)(2)(4)(testBoardLockedOneZ);
-      logNice(test);
+    it('should return a new board with two adjacent locked tetros', () => {
+      const test = lockTetroOnBoard(TetroEnum.Z)(DirectionEnum.N)(2)(4)(dataBoardZ);
       expect(test).toStrictEqual([
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, Z, Z, Z, Z, 0, 0, 0, 0],
         [0, 0, 0, Z, Z, Z, Z, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      ]);
+    });
+
+    it('should return a new board with locked tetro on top of another', () => {
+      const test = lockTetroOnBoard(TetroEnum.I)(DirectionEnum.N)(2)(2)(dataBoardZ);
+      logNice(test);
+      expect(test).toStrictEqual([
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, Z, Z, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, Z, Z, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

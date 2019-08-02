@@ -1,6 +1,6 @@
 import { TetroPieces, Z, S, J, T, I, O, Board } from '../src/types';
 
-export const testPieces: TetroPieces = {
+export const dataPieces: TetroPieces = {
   Z: {
     N: [[Z, Z, 0], [0, Z, Z], [0, 0, 0]],
     E: [[0, 0, Z], [0, Z, Z], [0, Z, 0]],
@@ -39,7 +39,7 @@ export const testPieces: TetroPieces = {
   }
 };
 
-export const testBoardLockedOneZ: Board = [
+export const dataBoardZ: Board = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, Z, Z, 0, 0, 0, 0, 0, 0],

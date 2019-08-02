@@ -1,13 +1,13 @@
 import { factoryTetro, getRandomTetro, getTetroFromPieces } from '../src/tetromino';
 import { TetroEnum, DirectionEnum } from '../src/types';
 import { stub } from 'sinon';
-import { testPieces } from './data.support.test';
+import { dataPieces } from './data.support.test';
 
 describe('tetromino', () => {
   describe('getTetroFromPieces', () => {
     it('should return a tetro from pieces', () => {
       const test = getTetroFromPieces(TetroEnum.Z)(DirectionEnum.N);
-      expect(test).toEqual(testPieces[TetroEnum.Z][DirectionEnum.N]);
+      expect(test).toEqual(dataPieces[TetroEnum.Z][DirectionEnum.N]);
     });
   });
 
@@ -17,7 +17,7 @@ describe('tetromino', () => {
     tetroKeys.forEach((t: string) =>
       directionKeys.forEach((o: string) => {
         it(`should return tetro of type: ${t}, direction: ${o}`, () => {
-          expect(testPieces[t as TetroEnum][o as DirectionEnum]).toEqual(
+          expect(dataPieces[t as TetroEnum][o as DirectionEnum]).toEqual(
             factoryTetro(t as TetroEnum)(o as DirectionEnum)
           );
         });
@@ -30,7 +30,7 @@ describe('tetromino', () => {
     afterAll(() => stub().restore());
 
     it('should return random tetro', () => {
-      expect(getRandomTetro()()).toEqual(testPieces[TetroEnum.Z][DirectionEnum.N]);
+      expect(getRandomTetro()()).toEqual(dataPieces[TetroEnum.Z][DirectionEnum.N]);
     });
   });
 });
