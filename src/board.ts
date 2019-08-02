@@ -12,21 +12,22 @@ export const canTetroFitInBoard = (t: TetroEnum) => (d: DirectionEnum) => (newRo
   newCellPos: Position
 ) => (board: Board): boolean => {
   const tetro = getTetroFromPieces(t)(d);
-  const boardRowsLen = board.length - 1;
-  const tetroRowsLen = tetro.length - 1;
-  const boardCellsLen = board[0].length - 1;
-  const tetroCellsLen = tetro[-0].length - 1;
+  const tetroRowsLen = tetro.length;
+  const tetroCellsLen = tetro[0].length;
+  const boardRowsLen = board.length;
+  const boardCellsLen = board[0].length;
+
   return tetro.some((tRow: TetroRow, tRowPos: number) =>
     tRow.some((tCell: Cell, tCellPos: number) => {
       const futureRowPos = tRowPos + newRowPos;
       const futureCellPos = tCellPos + newCellPos;
-      const isNewRowPosValid = futureRowPos >= 0 && futureRowPos <= board.length - 1;
+
+      const isNewRowPosValid = futureRowPos >= 0 && futureRowPos < boardRowsLen;
       if (!isNewRowPosValid) {
         return false;
       }
-      const isNewCellPosValid =
-        futureCellPos >= 0 && futureCellPos <= board[futureRowPos].length - 1;
 
+      const isNewCellPosValid = futureCellPos >= 0 && futureCellPos < board[futureRowPos].length;
       if (!isNewCellPosValid) {
         return false;
       }
