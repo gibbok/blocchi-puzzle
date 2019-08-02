@@ -1,7 +1,14 @@
-import { mkEmptyBoard, canTetroFitInBoard } from '../src/board';
+import { mkEmptyBoard, canTetroFitInBoard, logNice } from '../src/board';
 import { TetroEnum, DirectionEnum, Board } from '../src/types';
 
 const EMPTY_BOARD: Board = [...Array(20).fill([...Array(10).fill(0)])];
+const NON_EMPTY_BOARD: Board = [
+  ...Array(20).fill([
+    ...Array(10)
+      .fill(0, 0, 10)
+      .fill(1, 5, 10)
+  ])
+];
 
 describe('board', () => {
   describe('mkEmptyBoard', () => {
@@ -91,6 +98,12 @@ describe('board', () => {
       });
       it('should return false if future position is not within ∞/SO wall', () => {
         const test = canTetroFitInBoard(TetroEnum.Z)(DirectionEnum.N)(1000)(0)(EMPTY_BOARD);
+        expect(test).toStrictEqual(false);
+      });
+
+      it('should return false if future position is already taken by locked tetro in the board', () => {
+        // logNice(NON_EMPTY_BOARD);
+        const test = canTetroFitInBoard(TetroEnum.Z)(DirectionEnum.N)(0)(5)(NON_EMPTY_BOARD);
         expect(test).toStrictEqual(false);
       });
     });
