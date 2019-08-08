@@ -160,8 +160,7 @@ describe('board', () => {
     });
 
     it('should return a new board with locked tetro on the SO wall 2', () => {
-      const test = lockTetroOnBoard(TetroEnum.I)(DirectionEnum.E)(16)(0)(EMPTY_BOARD);
-      logNice(test);
+      const test = lockTetroOnBoard(TetroEnum.I)(DirectionEnum.E)(18)(0)(EMPTY_BOARD);
       expect(test).toStrictEqual([
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -182,7 +181,7 @@ describe('board', () => {
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, I, I, I, I, 0, 0, 0, 0, 0] // TODO: fix this position it is ok
+        [I, I, I, I, 0, 0, 0, 0, 0, 0]
       ]);
     });
   });
