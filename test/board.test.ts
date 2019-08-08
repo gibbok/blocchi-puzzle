@@ -133,7 +133,7 @@ describe('board', () => {
       expect(test).toStrictEqual(EMPTY_BOARD);
     });
 
-    it('should return a new board with locked tetro on the SO wall', () => {
+    it('should return a new board with locked tetro direction NO on the SO wall', () => {
       const test = lockTetroOnBoard(TetroEnum.I)(DirectionEnum.N)(16)(0)(EMPTY_BOARD);
       expect(test).toStrictEqual([
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -159,7 +159,7 @@ describe('board', () => {
       ]);
     });
 
-    it('should return a new board with locked tetro on the SO wall 2', () => {
+    it('should return a new board with locked tetro direction ES on the SO wall', () => {
       const test = lockTetroOnBoard(TetroEnum.I)(DirectionEnum.E)(18)(0)(EMPTY_BOARD);
       expect(test).toStrictEqual([
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -182,6 +182,32 @@ describe('board', () => {
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [I, I, I, I, 0, 0, 0, 0, 0, 0]
+      ]);
+    });
+
+    it('should return a new board with locked tetro direction ES on the SO wall ES side', () => {
+      const test = lockTetroOnBoard(TetroEnum.I)(DirectionEnum.E)(18)(6)(EMPTY_BOARD);
+      expect(test).toStrictEqual([
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, I, I, I, I]
       ]);
     });
   });
