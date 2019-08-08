@@ -20,7 +20,7 @@ describe('state', () => {
     });
 
     [...Array(2)].fill(0).forEach((_x, idx) => {
-      it(`x xx should calcuate state ${idx} no lock tetro`, () => {
+      it.skip(`x xx should calcuate state ${idx} no lock tetro`, () => {
         const test = calculateState(TetroEnum.Z)(DirectionEnum.N)(18 + idx)(0)(EMPTY_BOARD);
         logNice(test.board);
         expect(test).toStrictEqual({

@@ -103,7 +103,8 @@ describe('board', () => {
     });
 
     it('should return a new board with locked tetro on top of another', () => {
-      const test = lockTetroOnBoard(TetroEnum.I)(DirectionEnum.N)(2)(2)(dataBoardZ);
+      const test = lockTetroOnBoard(TetroEnum.I)(DirectionEnum.N)(2)(3)(dataBoardZ);
+      logNice(test);
       expect(test).toStrictEqual([
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -152,15 +153,15 @@ describe('board', () => {
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, I, 0, 0, 0, 0, 0, 0, 0, 0]
+        [I, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [I, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [I, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [I, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       ]);
     });
 
     it('should return a new board with locked tetro direction ES on the SO wall', () => {
-      const test = lockTetroOnBoard(TetroEnum.I)(DirectionEnum.E)(18)(0)(EMPTY_BOARD);
+      const test = lockTetroOnBoard(TetroEnum.I)(DirectionEnum.E)(19)(0)(EMPTY_BOARD);
       expect(test).toStrictEqual([
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -186,7 +187,7 @@ describe('board', () => {
     });
 
     it('should return a new board with locked tetro direction ES on the SO wall ES side', () => {
-      const test = lockTetroOnBoard(TetroEnum.I)(DirectionEnum.E)(18)(6)(EMPTY_BOARD);
+      const test = lockTetroOnBoard(TetroEnum.I)(DirectionEnum.E)(19)(6)(EMPTY_BOARD);
       expect(test).toStrictEqual([
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -210,9 +211,8 @@ describe('board', () => {
         [0, 0, 0, 0, 0, 0, I, I, I, I]
       ]);
     });
-
     it('should return a new board locking the tero without considering if it fit in the board', () => {
-      const test = lockTetroOnBoard(TetroEnum.I)(DirectionEnum.E)(18)(8)(EMPTY_BOARD);
+      const test = lockTetroOnBoard(TetroEnum.I)(DirectionEnum.E)(19)(8)(EMPTY_BOARD);
       expect(test).toStrictEqual([
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
