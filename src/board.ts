@@ -48,9 +48,15 @@ export const canTetroFitInBoard = (t: TetroEnum) => (d: DirectionEnum) => (newRo
     })
   );
 };
+
 export const lockTetroOnBoard = (t: TetroEnum) => (d: DirectionEnum) => (newRowPos: Position) => (
   newCellPos: Position
 ) => (board: Board): Board => {
+  const canFit = canTetroFitInBoard(t)(d)(newRowPos)(newCellPos)(board);
+  if (!canFit) {
+    return board;
+  }
+
   const tetro = getTetroFromPieces(t)(d);
   let tempBoard = board.map(x => x.map(x => x));
   tetro.forEach((row: TetroRow, rowX: number) =>

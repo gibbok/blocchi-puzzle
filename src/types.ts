@@ -27,3 +27,11 @@ export type Position = number;
 
 export type BoardRow = readonly Cell[];
 export type Board = readonly (BoardRow)[];
+
+export type AppState = Readonly<{
+  tetroType: TetroEnum;
+  tetroOrientation: DirectionEnum;
+  posRow: Position;
+  posCell: Position;
+  board: Board;
+}>;

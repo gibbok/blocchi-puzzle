@@ -104,7 +104,6 @@ describe('board', () => {
 
     it('should return a new board with locked tetro on top of another', () => {
       const test = lockTetroOnBoard(TetroEnum.I)(DirectionEnum.N)(2)(2)(dataBoardZ);
-      logNice(test);
       expect(test).toStrictEqual([
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -127,6 +126,11 @@ describe('board', () => {
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       ]);
+    });
+
+    it('should return same board if tetro does not fit within walls', () => {
+      const test = lockTetroOnBoard(TetroEnum.I)(DirectionEnum.N)(1000)(1000)(EMPTY_BOARD);
+      expect(test).toStrictEqual(EMPTY_BOARD);
     });
   });
 });
