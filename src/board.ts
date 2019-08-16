@@ -52,22 +52,14 @@ export const canTetroFitInBoard = (t: TetroEnum) => (d: DirectionEnum) => (newRo
 export const lockTetroOnBoard = (t: TetroEnum) => (d: DirectionEnum) => (newRowPos: Position) => (
   newCellPos: Position
 ) => (board: Board): Board => {
-  // const canFit = canTetroFitInBoard(t)(d)(newRowPos)(newCellPos)(board);
-  // if (!canFit) {
-  //   return board;
-  // }
-
   const tetro = getTetroFromPieces(t)(d);
   let tempBoard = board.map(x => x.map(x => x));
   tetro.forEach((row: TetroRow, rowX: number) =>
     row.forEach((cell: Cell, cellY: number) => {
       const futureRowPos = rowX + newRowPos;
       const futureCellPos = cellY + newCellPos;
-
       const tetroCell = tetro[rowX][cellY];
-      // const boardCell = board[futureRowPos][futureCellPos];
-      // if (tetroCell !== 0 && boardCell === 0) { // version do not ovveride
-      // version ovveride anything
+
       if (
         tempBoard[futureRowPos] === undefined ||
         tempBoard[futureRowPos][futureCellPos] === undefined

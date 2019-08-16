@@ -16,7 +16,7 @@ describe('tetromino', () => {
     const directionKeys = Object.keys(DirectionEnum);
     tetroKeys.forEach((t: string) =>
       directionKeys.forEach((o: string) => {
-        it(`should return tetro of type: ${t}, direction: ${o}`, () => {
+        it(`should return a tetro of type: ${t}, direction: ${o}`, () => {
           expect(dataPieces[t as TetroEnum][o as DirectionEnum]).toEqual(
             factoryTetro(t as TetroEnum)(o as DirectionEnum)
           );
@@ -29,7 +29,7 @@ describe('tetromino', () => {
     beforeAll(() => stub(Math, 'random').returns(0));
     afterAll(() => stub().restore());
 
-    it('should return random tetro', () => {
+    it('should return a random tetro', () => {
       expect(getRandomTetro()()).toEqual(dataPieces[TetroEnum.Z][DirectionEnum.N]);
     });
   });
