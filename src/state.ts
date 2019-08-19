@@ -28,7 +28,9 @@ export const mkPublicState = (t: TetroEnum) => (d: DirectionEnum) => (posRow: nu
       const futureTr = tr + posRow;
       const futureTc = tc + posCell;
       const tetroCell = tetro[tr][tc];
-      tempBoard[futureTr][futureTc] = tetroCell;
+      if (tempBoard[futureTr] && tempBoard[futureTr][futureTc]) {
+        tempBoard[futureTr][futureTc] = tetroCell;
+      }
     }
   }
 
