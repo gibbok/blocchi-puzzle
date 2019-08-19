@@ -7,7 +7,6 @@ describe('state', () => {
     [...Array(17)].fill(0).forEach((_x, idx) => {
       it(`should return a new state ${idx} with an empty board`, () => {
         const test = mkInternalState(TetroEnum.Z)(DirectionEnum.N)(idx)(0)(EMPTY_BOARD);
-        // logNice(test.board);
         expect(test).toStrictEqual({
           tetroType: TetroEnum.Z,
           tetroOrientation: DirectionEnum.N,

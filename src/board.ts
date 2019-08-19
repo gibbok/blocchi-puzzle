@@ -44,7 +44,6 @@ export const canTetroFitInBoard = (t: TetroEnum) => (d: DirectionEnum) => (newRo
         break;
       }
 
-      const tetroCellCnt = tetro[r][c];
       const boardCellCnt = board[futureRowPos][futureCellPos];
       const canTetroFitInBoard = boardCellCnt === 0;
       if (!canTetroFitInBoard) {
@@ -54,37 +53,6 @@ export const canTetroFitInBoard = (t: TetroEnum) => (d: DirectionEnum) => (newRo
     }
   }
   return result;
-  // const testSome = tetro.some((tRow: TetroRow, tRowPos: number) =>
-  //   tRow.some((tCell: Cell, tCellPos: number) => {
-  //     const futureRowPos = tRowPos + newRowPos;
-  //     const futureCellPos = tCellPos + newCellPos;
-
-  //     const isNewRowPosValid = futureRowPos >= 0 && futureRowPos < boardRowsLen;
-  //     if (!isNewRowPosValid) {
-  //       return false;
-  //     }
-
-  //     const isNewCellPosValid = futureCellPos >= 0 && futureCellPos < board[futureRowPos].length;
-  //     if (!isNewCellPosValid) {
-  //       return false;
-  //     }
-
-  //     const isSizeTetroValid =
-  //       newRowPos + tetroRowsLen <= boardRowsLen && newCellPos + tetroCellsLen <= boardCellsLen;
-  //     if (!isSizeTetroValid) {
-  //       return false;
-  //     }
-
-  //     const boardCellCnt = board[futureRowPos][futureCellPos];
-  //     const canTetroFitInBoard = tCell !== 0 && boardCellCnt === 0;
-  //     if (!canTetroFitInBoard) {
-  //       return false;
-  //     }
-
-  //     return true;
-  //   })
-  // );
-  // return testSome;
 };
 
 export const lockTetroOnBoard = (t: TetroEnum) => (d: DirectionEnum) => (newRowPos: Position) => (
