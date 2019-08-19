@@ -1,4 +1,4 @@
-import { mkEmptyBoard, canTetroFitInBoard, lockTetroOnBoard, logNice } from '../src/board';
+import { mkEmptyBoard, canTetroFitInBoard, lockTetroOnBoard } from '../src/board';
 import { TetroEnum, DirectionEnum, Z, I, Board, O } from '../src/types';
 import { dataBoardZ, EMPTY_BOARD, NON_EMPTY_BOARD } from './data.support.test';
 
@@ -236,7 +236,7 @@ describe('board', () => {
         [0, 0, 0, 0, 0, 0, 0, 0, I, I]
       ]);
     });
-    it('XXXX should return a new board with a locked tetro next to another', () => {
+    it('should return a new board with a locked tetro which has a side next to another tetro', () => {
       const b: Board = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -260,8 +260,6 @@ describe('board', () => {
         [Z, Z, Z, Z, Z, O, O, I, I, I]
       ];
       const test = lockTetroOnBoard(TetroEnum.I)(DirectionEnum.N)(15)(0)(b);
-      console.log('xxxxxxxxxx');
-      logNice(test);
       expect(test).toStrictEqual([
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
