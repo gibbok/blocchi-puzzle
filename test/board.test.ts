@@ -102,6 +102,7 @@ describe('board', () => {
       ]);
     });
 
+    // by the way this case should never happen because canTetroFitInBoard
     it('should return a new board with a locked tetro on top of another', () => {
       const test = lockTetroOnBoard(TetroEnum.I)(DirectionEnum.N)(2)(3)(dataBoardZ);
       expect(test).toStrictEqual([
@@ -259,7 +260,8 @@ describe('board', () => {
         [Z, Z, Z, Z, Z, O, O, I, I, I]
       ];
       const test = lockTetroOnBoard(TetroEnum.I)(DirectionEnum.N)(15)(0)(b);
-      console.log(logNice(test));
+      console.log('xxxxxxxxxx');
+      logNice(test);
       expect(test).toStrictEqual([
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
