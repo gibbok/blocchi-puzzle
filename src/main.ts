@@ -15,7 +15,7 @@ export const main = () => {
         internalState.posRow
       )(internalState.posCell)(internalState.board);
       console.log('hey');
-      console.log(publicState.board);
+      console.log(publicState);
       posRow++;
       console.log(posRow);
     } else {
