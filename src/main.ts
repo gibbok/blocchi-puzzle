@@ -1,5 +1,6 @@
 import { TetroEnum, DirectionEnum, AppState, Board } from './types';
 import { mkInternalState } from './state';
+import { logNice } from './board';
 
 export const logic = (t: TetroEnum) => (d: DirectionEnum) => (posRow: number) => (
   posCell: number
@@ -8,5 +9,6 @@ export const logic = (t: TetroEnum) => (d: DirectionEnum) => (posRow: number) =>
   if (posRow < b.length) {
     return logic(t)(d)(posRow + 1)(posCell)(internalState.board);
   }
+  console.log(internalState);
   return internalState;
 };

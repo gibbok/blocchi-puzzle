@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { TetroPieces, Z, S, J, T, I, O, Board } from '../src/types';
+import { TetroPieces, Z, S, J, T, I, O, Board, TetroEnum } from '../src/types';
 
 export const dataPieces: TetroPieces = {
   Z: {
@@ -151,6 +151,6 @@ export const NON_EMPTY_BOARD: Board = [
   ...Array(20).fill([
     ...Array(10)
       .fill(0, 0, 10)
-      .fill(1, 5, 10)
+      .fill(TetroEnum.I, 5, 10)
   ])
 ];
