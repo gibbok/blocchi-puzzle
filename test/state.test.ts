@@ -1,6 +1,7 @@
-import { mkInternalState } from '../src/state';
-import { TetroEnum, DirectionEnum, Z, Board, I } from '../src/types';
+import { mkInternalState, mkPublicState } from '../src/state';
+import { TetroEnum, DirectionEnum, Z, Board, I, O } from '../src/types';
 import { EMPTY_BOARD } from './data.support.test';
+import { mkEmptyBoard } from '../src/board';
 
 describe('state', () => {
   describe('mkInternalState', () => {
@@ -49,7 +50,7 @@ describe('state', () => {
       });
     });
 
-    it(`XXX should return a new state with a locked tetro on the board, if next tetro move touch a locked tetro`, () => {
+    it(`should return a new state with a locked tetro on the board, if next tetro move touch a locked tetro`, () => {
       const b: Board = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [I, I, I, I, 0, 0, 0, 0, 0, 0],
@@ -112,6 +113,116 @@ describe('state', () => {
         posRow: 17,
         posCell: 0,
         board: EMPTY_BOARD
+      });
+    });
+  });
+
+  describe('mkPublicState', () => {
+    it('should return public state with a board with only new tetro at row/cell position', () => {
+      const b: Board = mkEmptyBoard(20)(10);
+      const test = mkPublicState(TetroEnum.I)(DirectionEnum.N)(0)(0)(b);
+      expect(test).toStrictEqual({
+        board: [
+          [I, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [I, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [I, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [I, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ]
+      });
+    });
+
+    it('should return public state with a board with only new tetro at row/cell position 2', () => {
+      const b: Board = mkEmptyBoard(20)(10);
+      const test = mkPublicState(TetroEnum.I)(DirectionEnum.N)(1)(1)(b);
+      expect(test).toStrictEqual({
+        board: [
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ]
+      });
+    });
+
+    it('should return public state with a board with new tetro and board with locked tetros at row/cell position', () => {
+      const b: Board = [
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [O, O, 0, 0, 0, 0, 0, 0, 0, 0],
+        [O, O, 0, Z, Z, 0, 0, 0, 0, 0],
+        [I, I, I, I, Z, Z, 0, 0, 0, 0]
+      ];
+      const test = mkPublicState(TetroEnum.I)(DirectionEnum.N)(1)(1)(b);
+      expect(test).toStrictEqual({
+        board: [
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [O, O, 0, 0, 0, 0, 0, 0, 0, 0],
+          [O, O, 0, Z, Z, 0, 0, 0, 0, 0],
+          [I, I, I, I, Z, Z, 0, 0, 0, 0]
+        ]
       });
     });
   });
