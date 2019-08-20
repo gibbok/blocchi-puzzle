@@ -1,10 +1,4 @@
-import {
-  factoryTetro,
-  getRandomTetro,
-  getTetroFromPieces,
-  occupied,
-  getBlock
-} from '../src/tetromino';
+import { getRandomTetro, getTetroFromPieces, occupied, getBlock } from '../src/tetromino';
 import { TetroEnum, DirectionEnum, I, NO, Z } from '../src/types';
 import { stub } from 'sinon';
 import { dataPieces, EMPTY_BOARD, NON_EMPTY_BOARD } from './data.support.test';
@@ -13,20 +7,13 @@ import { logNice } from '../src/board';
 
 describe('tetromino', () => {
   describe('getTetroFromPieces', () => {
-    it('should return a tetro from pieces', () => {
-      const test = getTetroFromPieces(TetroEnum.Z)(DirectionEnum.N);
-      expect(test).toEqual(dataPieces[TetroEnum.Z][DirectionEnum.N]);
-    });
-  });
-
-  describe('factoryTetro', () => {
     const tetroKeys = Object.keys(TetroEnum);
     const directionKeys = Object.keys(DirectionEnum);
     tetroKeys.forEach((t: string) =>
       directionKeys.forEach((o: string) => {
         it(`should return a tetro of type: ${t}, direction: ${o}`, () => {
           expect(dataPieces[t as TetroEnum][o as DirectionEnum]).toEqual(
-            factoryTetro(t as TetroEnum)(o as DirectionEnum)
+            getTetroFromPieces(t as TetroEnum)(o as DirectionEnum)
           );
         });
       })
