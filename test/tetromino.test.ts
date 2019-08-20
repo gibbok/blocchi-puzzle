@@ -3,7 +3,6 @@ import { TetroEnum, DirectionEnum, I, NO, Z } from '../src/types';
 import { stub } from 'sinon';
 import { dataPieces, EMPTY_BOARD, NON_EMPTY_BOARD } from './data.support.test';
 import { none, isSome, toUndefined } from 'fp-ts/lib/Option';
-import { logger } from '../src/utils';
 
 describe('tetromino', () => {
   describe('getTetroFromPieces', () => {
