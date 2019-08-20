@@ -38,6 +38,5 @@ export const occupied = (t: TetroEnum) => (d: DirectionEnum) => (x: number) => (
       exists(a => a !== 0)
     );
     const result = x < 0 || x >= BOARD_CELLS || y < 0 || y >= BOARD_ROWS || block ? true : false;
-    console.log('block', block, 'result', result);
     return result;
   });

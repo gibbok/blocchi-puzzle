@@ -3,7 +3,7 @@ import { TetroEnum, DirectionEnum, I, NO, Z } from '../src/types';
 import { stub } from 'sinon';
 import { dataPieces, EMPTY_BOARD, NON_EMPTY_BOARD } from './data.support.test';
 import { none, isSome, toUndefined } from 'fp-ts/lib/Option';
-import { logNice } from '../src/board';
+import { logger } from '../src/utils';
 
 describe('tetromino', () => {
   describe('getTetroFromPieces', () => {
@@ -57,8 +57,7 @@ describe('tetromino', () => {
       const test = tZ(0)(0)(EMPTY_BOARD);
       expect(test).toStrictEqual(false);
     });
-    it.only('should return true if tetro new position is occupied on the board 4', () => {
-      logNice(NON_EMPTY_BOARD);
+    it('should return true if tetro new position is occupied on the board 4', () => {
       const test = tI(0)(5)(NON_EMPTY_BOARD);
       expect(test).toStrictEqual(true);
     });
