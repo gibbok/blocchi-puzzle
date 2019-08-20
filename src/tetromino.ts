@@ -2,7 +2,7 @@
 import { TetroEnum, Tetro, DirectionEnum, Z, S, J, T, I, O, TetroPieces, Board, Cell } from './types';
 import { randomInt } from 'fp-ts/lib/Random';
 import { IO, io } from 'fp-ts/lib/IO';
-import { none, some, Option, exists} from 'fp-ts/lib/Option'
+import { none, some, Option, exists } from 'fp-ts/lib/Option'
 import { pipe } from 'fp-ts/lib/pipeable'
 
 export const pieces: TetroPieces = {
@@ -13,8 +13,8 @@ export const pieces: TetroPieces = {
     ],
     E: [
       [0, Z],
-      [ Z, Z],
-      [ Z, 0]
+      [Z, Z],
+      [Z, 0]
     ],
     S: [
       [Z, Z, 0],
@@ -144,22 +144,30 @@ export const getRandomTetro = (): IO<Tetro> => {
 
 export const eachblock = (t: TetroEnum, d: DirectionEnum, x: number, y: number, fn: (x: number, y: number) => boolean) => {
   const tetro = getTetroFromPieces(t)(d)
-  for (let r = 0; r < tetro.length; r++) {
-    for (let c = 0; c < tetro[r].length; c++) {
-      return fn(r + x, c + y)
-    }
-  }
-  return false
+  const result = tetro.some((r, rIdx) => r.some((c, cIdx) => {
+    return fn(cIdx + x, rIdx + y)
+  }))
+  console.log('xx', result)
+  return result
+  // for (let r = 0; r < tetro.length; r++) {
+  //   for (let c = 0; c < tetro[r].length; c++) {
+  //     console.log(r, c)
+  //     return fn(r + x, c + y)
+  //   }
+  // }
+  // return true
 }
-const NX = 20 // MAX ROWs
-const NY = 10 // MAX CELLs
+const NX = 10 // MAX CELLS
+const NY = 20 // MAX ROWS
 
-export const getBlock = (x: number) => (y: number) => (b: Board): Option<Cell> => b && b[y] ? some(b[y][x]) : none
+// export const getBlock = (x: number) => (y: number) => (b: Board): Option<Cell> => b && b[y] ? some(b[y][x]) : none
+export const getBlock = (x: number) => (y: number) => (b: Board) => b && b[y] ? b[y][x] : null
 
 export const occupied = (t: TetroEnum) => (d: DirectionEnum) => (x: number) => (y: number) => (b: Board): boolean => {
   return eachblock(t, d, x, y, (x, y) => {
-    const block = pipe(getBlock(x)(y)(b), exists(x => x !== 0))
+    const block = getBlock(x)(y)(b)
     const result = x < 0 || x >= NX || y < 0 || y >= NY || block ? true : false
+    console.log('block', block, 'result', result)
     return result
   })
 }
