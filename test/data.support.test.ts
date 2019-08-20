@@ -148,9 +148,6 @@ export const dataBoardZ: Board = [
 export const EMPTY_BOARD: Board = [...Array(20).fill([...Array(10).fill(0)])];
 
 export const NON_EMPTY_BOARD: Board = [
-  ...Array(20).fill([
-    ...Array(10)
-      .fill(0, 0, 10)
-      .fill(TetroEnum.I, 5, 10)
-  ])
+  ...Array(20).fill(0).map((_x, idx)=> [...Array(10).fill(idx <= 5 ? 0 : TetroEnum.I)])
+
 ];

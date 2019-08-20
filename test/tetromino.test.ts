@@ -1,7 +1,7 @@
-import { factoryTetro, getRandomTetro, getTetroFromPieces } from '../src/tetromino';
-import { TetroEnum, DirectionEnum } from '../src/types';
+import { factoryTetro, getRandomTetro, getTetroFromPieces, occupied } from '../src/tetromino';
+import { TetroEnum, DirectionEnum, I, NO } from '../src/types';
 import { stub } from 'sinon';
-import { dataPieces } from './data.support.test';
+import { dataPieces, EMPTY_BOARD, NON_EMPTY_BOARD } from './data.support.test';
 
 describe('tetromino', () => {
   describe('getTetroFromPieces', () => {
@@ -31,6 +31,31 @@ describe('tetromino', () => {
 
     it('should return a random tetro', () => {
       expect(getRandomTetro()()).toEqual(dataPieces[TetroEnum.Z][DirectionEnum.N]);
+    });
+  });
+
+  describe.only('occupied', () => {
+    it('should return true if tetro new position is occupied on the board', () => {
+      console.log(NON_EMPTY_BOARD);
+      const test = occupied(I, NO, 7, 7, NON_EMPTY_BOARD);
+      expect(test).toStrictEqual(true);
+    });
+    it('should return true if tetro new position is not within board 1', () => {
+      const test = occupied(I, NO, -10, -10, EMPTY_BOARD);
+      expect(test).toStrictEqual(true);
+    });
+    it('should return true if tetro new position is not within board 2', () => {
+      const test = occupied(I, NO, 0, 20, EMPTY_BOARD);
+      expect(test).toStrictEqual(true);
+    });
+
+    it('should return false if tetro new position is not occupied on the board 1', () => {
+      const test = occupied(I, NO, 0, 0, EMPTY_BOARD);
+      expect(test).toStrictEqual(false);
+    });
+    it('should return false if tetro new position is not occupied on the board 2', () => {
+      const test = occupied(I, NO, 0, 0, NON_EMPTY_BOARD);
+      expect(test).toStrictEqual(false);
     });
   });
 });

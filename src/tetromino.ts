@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { TetroEnum, Tetro, DirectionEnum, Z, S, J, T, I, O, TetroPieces } from './types';
+import { TetroEnum, Tetro, DirectionEnum, Z, S, J, T, I, O, TetroPieces, Board } from './types';
 import { randomInt } from 'fp-ts/lib/Random';
 import { IO, io } from 'fp-ts/lib/IO';
 
@@ -139,3 +139,27 @@ export const getRandomTetro = (): IO<Tetro> => {
 // const mkTetroT = factoryTetro(TetrominoEnum.T);
 // const mkTetroI = factoryTetro(TetrominoEnum.I);
 // const mkTetroO = factoryTetro(TetrominoEnum.O);
+
+export const eachblock = (t: TetroEnum, d: DirectionEnum, x: number, y: number, fn: (x: number, y: number) => boolean) => {
+  const tetro = getTetroFromPieces(t)(d)
+  for (let r = 0; r < tetro.length; r++) {
+    for (let c = 0; c < tetro[r].length; c++) {
+      return fn(r + x, c + y)
+    }
+  }
+  return false
+}
+const NX = 20 // MAX ROWs
+const NY = 10 // MAX CELLs
+
+export const getBlock = (x: number, y: number, b: Board) => b && b[x] ? b[x][y] : null
+
+export const occupied = (t: TetroEnum, d: DirectionEnum, x: number, y: number, b: Board): boolean => {
+  return eachblock(t, d, x, y, (x, y) => {
+    const block = getBlock(x, y, b)
+    const result = x < 0 || x >= NX || y < 0 || y >= NY || block ? true : false
+    return result
+  })
+}
+
+
