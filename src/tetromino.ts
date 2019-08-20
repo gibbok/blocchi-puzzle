@@ -6,7 +6,7 @@ import { pipe } from 'fp-ts/lib/pipeable';
 import { pieces } from './pieces';
 import { BOARD_CELLS, BOARD_ROWS } from './board';
 
-export const getTetroFromPieces = (t: TetroEnum) => (d: DirectionEnum): Tetro => pieces[t][d]; // FIXME: use Option<Cell> here
+export const getTetroFromPieces = (t: TetroEnum) => (d: DirectionEnum): Tetro => pieces[t][d];
 
 export const getRandomTetro = (): IO<Tetro> => {
   const rndInt = randomInt(0, Object.keys(TetroEnum).length - 1)();
