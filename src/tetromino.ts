@@ -161,11 +161,14 @@ const NX = 10 // MAX CELLS
 const NY = 20 // MAX ROWS
 
 // export const getBlock = (x: number) => (y: number) => (b: Board): Option<Cell> => b && b[y] ? some(b[y][x]) : none
-export const getBlock = (x: number) => (y: number) => (b: Board) => b && b[y] ? b[y][x] : null
+export const getBlock = (x: number) => (y: number) => (b: Board) => b && b[y] ? some(b[y][x]) : none
 
 export const occupied = (t: TetroEnum) => (d: DirectionEnum) => (x: number) => (y: number) => (b: Board): boolean => {
   return eachblock(t, d, x, y, (x, y) => {
-    const block = getBlock(x)(y)(b)
+    const block = pipe(
+      getBlock(x)(y)(b),
+      exists(a => a !== 0)
+    )
     const result = x < 0 || x >= NX || y < 0 || y >= NY || block ? true : false
     console.log('block', block, 'result', result)
     return result
