@@ -1,7 +1,9 @@
 /* eslint-disable prettier/prettier */
-import { TetroEnum, Tetro, DirectionEnum, Z, S, J, T, I, O, TetroPieces, Board } from './types';
+import { TetroEnum, Tetro, DirectionEnum, Z, S, J, T, I, O, TetroPieces, Board, Cell } from './types';
 import { randomInt } from 'fp-ts/lib/Random';
 import { IO, io } from 'fp-ts/lib/IO';
+import { none, some, Option, exists} from 'fp-ts/lib/Option'
+import { pipe } from 'fp-ts/lib/pipeable'
 
 export const pieces: TetroPieces = {
   Z: {
@@ -10,18 +12,18 @@ export const pieces: TetroPieces = {
       [0, Z, Z],
     ],
     E: [
-      [0, 0, Z],
-      [0, Z, Z],
-      [0, Z, 0]
+      [0, Z],
+      [ Z, Z],
+      [ Z, 0]
     ],
     S: [
       [Z, Z, 0],
       [0, Z, Z]
     ],
     W: [
-      [0, Z, 0],
-      [Z, Z, 0],
-      [Z, 0, 0]
+      [0, Z],
+      [Z, Z],
+      [Z, 0]
     ]
   },
   S: {
@@ -152,11 +154,11 @@ export const eachblock = (t: TetroEnum, d: DirectionEnum, x: number, y: number, 
 const NX = 20 // MAX ROWs
 const NY = 10 // MAX CELLs
 
-export const getBlock = (x: number, y: number, b: Board) => b && b[x] ? b[x][y] : null
+export const getBlock = (x: number) => (y: number) => (b: Board): Option<Cell> => b && b[y] ? some(b[y][x]) : none
 
-export const occupied = (t: TetroEnum, d: DirectionEnum, x: number, y: number, b: Board): boolean => {
+export const occupied = (t: TetroEnum) => (d: DirectionEnum) => (x: number) => (y: number) => (b: Board): boolean => {
   return eachblock(t, d, x, y, (x, y) => {
-    const block = getBlock(x, y, b)
+    const block = pipe(getBlock(x)(y)(b), exists(x => x !== 0))
     const result = x < 0 || x >= NX || y < 0 || y >= NY || block ? true : false
     return result
   })

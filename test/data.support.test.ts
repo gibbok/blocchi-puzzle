@@ -8,18 +8,18 @@ export const dataPieces: TetroPieces = {
       [0, Z, Z],
     ],
     E: [
-      [0, 0, Z],
-      [0, Z, Z],
-      [0, Z, 0]
+      [0, Z],
+      [Z, Z],
+      [Z, 0]
     ],
     S: [
       [Z, Z, 0],
       [0, Z, Z]
     ],
     W: [
-      [0, Z, 0],
-      [Z, Z, 0],
-      [Z, 0, 0]
+      [0, Z],
+      [Z, Z],
+      [Z, 0]
     ]
   },
   S: {
@@ -148,6 +148,6 @@ export const dataBoardZ: Board = [
 export const EMPTY_BOARD: Board = [...Array(20).fill([...Array(10).fill(0)])];
 
 export const NON_EMPTY_BOARD: Board = [
-  ...Array(20).fill(0).map((_x, idx)=> [...Array(10).fill(idx <= 5 ? 0 : TetroEnum.I)])
+  ...Array(20).fill(0).map((_x, idx) => [...Array(10).fill(idx <= 5 ? 0 : TetroEnum.I)])
 
 ];
