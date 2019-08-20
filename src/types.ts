@@ -4,6 +4,11 @@ export enum DirectionEnum {
   S = 'S',
   W = 'W'
 }
+
+export const NO = DirectionEnum.N;
+export const ES = DirectionEnum.E;
+export const SO = DirectionEnum.S;
+export const WE = DirectionEnum.W;
 export enum TetroEnum {
   Z = 'Z',
   S = 'S',
@@ -23,7 +28,19 @@ export const T = TetroEnum.T;
 export const I = TetroEnum.I;
 export const O = TetroEnum.O;
 
-export type Position = Readonly<{
-  x: number;
-  y: number;
+export type Position = number;
+
+export type BoardRow = readonly Cell[];
+export type Board = readonly (BoardRow)[];
+
+export type InternalState = Readonly<{
+  tetroType: TetroEnum;
+  tetroOrientation: DirectionEnum;
+  posRow: Position;
+  posCell: Position;
+  board: Board;
+}>;
+
+export type PublicState = Readonly<{
+  board: Board;
 }>;

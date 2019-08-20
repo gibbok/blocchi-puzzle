@@ -1,56 +1,43 @@
-import { TetroEnum, Tetro, DirectionEnum, Z, S, J, T, I, O, TetroPieces } from './types';
+import { TetroEnum, Tetro, DirectionEnum, Board, Cell } from './types';
 import { randomInt } from 'fp-ts/lib/Random';
 import { IO, io } from 'fp-ts/lib/IO';
+import { none, some, exists, Option } from 'fp-ts/lib/Option';
+import { pipe } from 'fp-ts/lib/pipeable';
+import { pieces } from './pieces';
+import { TOT_BOARD_CELLS, TOT_BOARD_ROWS } from './board';
 
-const pieces: TetroPieces = {
-  Z: {
-    N: [[Z, Z, 0], [0, Z, Z], [0, 0, 0]],
-    E: [[0, 0, Z], [0, Z, Z], [0, Z, 0]],
-    S: [[0, 0, 0], [Z, Z, 0], [0, Z, Z]],
-    W: [[0, Z, 0], [Z, Z, 0], [Z, 0, 0]]
-  },
-  S: {
-    N: [[0, S, S], [S, S, 0], [0, 0, 0]],
-    E: [[0, S, 0], [0, S, S], [0, 0, S]],
-    S: [[0, 0, 0], [0, S, S], [S, S, 0]],
-    W: [[S, 0, 0], [S, S, 0], [0, S, 0]]
-  },
-  J: {
-    N: [[0, J, 0], [0, J, 0], [J, J, 0]],
-    E: [[J, 0, 0], [J, J, J], [0, 0, 0]],
-    S: [[0, J, J], [0, J, 0], [0, J, 0]],
-    W: [[0, 0, 0], [J, J, J], [0, 0, J]]
-  },
-  T: {
-    N: [[0, 0, 0], [T, T, T], [0, T, 0]],
-    E: [[0, T, 0], [T, T, 0], [0, T, 0]],
-    S: [[0, T, 0], [T, T, T], [0, 0, 0]],
-    W: [[0, T, 0], [0, T, T], [0, T, 0]]
-  },
-  I: {
-    N: [[0, I, 0, 0], [0, I, 0, 0], [0, I, 0, 0], [0, I, 0, 0]],
-    E: [[0, 0, 0, 0], [I, I, I, I], [0, 0, 0, 0], [0, 0, 0, 0]],
-    S: [[0, 0, I, 0], [0, 0, I, 0], [0, 0, I, 0], [0, 0, I, 0]],
-    W: [[0, 0, 0, 0], [0, 0, 0, 0], [I, I, I, I], [0, 0, 0, 0]]
-  },
-  O: {
-    N: [[0, 0, 0, 0], [0, O, O, 0], [0, O, O, 0], [0, 0, 0, 0]],
-    E: [[0, 0, 0, 0], [0, O, O, 0], [0, O, O, 0], [0, 0, 0, 0]],
-    S: [[0, 0, 0, 0], [0, O, O, 0], [0, O, O, 0], [0, 0, 0, 0]],
-    W: [[0, 0, 0, 0], [0, O, O, 0], [0, O, O, 0], [0, 0, 0, 0]]
-  }
-};
-
-export const factoryTetro = (t: TetroEnum) => (o: DirectionEnum): Tetro => pieces[t][o];
+export const getTetroFromPieces = (t: TetroEnum) => (d: DirectionEnum): Tetro => pieces[t][d];
 
 export const getRandomTetro = (): IO<Tetro> => {
   const rndInt = randomInt(0, Object.keys(TetroEnum).length - 1)();
   const rndEnum = Object.keys(TetroEnum)[rndInt];
   return io.of(pieces[rndEnum as TetroEnum][DirectionEnum.N]);
 };
-// const x = factoryTetro({ x: 0, y: 0 })(Z)(Orientation.N);
-// const mkTetroS = factoryTetro(TetrominoEnum.S);
-// const mkTetroJ = factoryTetro(TetrominoEnum.J);
-// const mkTetroT = factoryTetro(TetrominoEnum.T);
-// const mkTetroI = factoryTetro(TetrominoEnum.I);
-// const mkTetroO = factoryTetro(TetrominoEnum.O);
+
+export const eachblock = (
+  t: TetroEnum,
+  d: DirectionEnum,
+  x: number,
+  y: number,
+  fn: (x: number, y: number) => boolean
+) => {
+  const tetro = getTetroFromPieces(t)(d);
+  const result = tetro.some((r, rIdx) => r.some((c, cIdx) => fn(cIdx + x, rIdx + y)));
+  return result;
+};
+
+export const getBlock = (x: number) => (y: number) => (b: Board): Option<Cell> =>
+  b && b[y] ? some(b[y][x]) : none;
+
+export const occupied = (t: TetroEnum) => (d: DirectionEnum) => (x: number) => (y: number) => (
+  b: Board
+): boolean =>
+  eachblock(t, d, x, y, (x, y) => {
+    const isTetroBlockAlredyOnBoard = pipe(
+      getBlock(x)(y)(b),
+      exists(a => a !== 0)
+    );
+    const isInvalidPosX = x < 0 || x >= TOT_BOARD_CELLS;
+    const isInvalidPosY = y < 0 || y >= TOT_BOARD_ROWS;
+    return isInvalidPosX || isInvalidPosY || isTetroBlockAlredyOnBoard;
+  });
