@@ -53,9 +53,10 @@ export type InternalState = Readonly<{
   lines: number;
   currentTetro: TetroDef;
   nextTetro: TetroDef;
+  isPlay: boolean;
 }>;
 
-export type PubicState = Omit<InternalState, 'currentTetro'>;
+export type PubicState = Omit<InternalState, 'currentTetro'> & Omit<InternalState, 'isPlay'>;
 
 export enum KeyEnum {
   Esc = 27,
