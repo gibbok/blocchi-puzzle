@@ -56,3 +56,14 @@ export type InternalState = Readonly<{
 }>;
 
 export type PubicState = Omit<InternalState, 'currentTetro'>;
+
+export enum KeyEnum {
+  Esc = 27,
+  Space = 32,
+  Left = 37,
+  Up = 38,
+  Right = 39,
+  Down = 40
+}
+
+export type CallBack = () => void;
