@@ -20,9 +20,6 @@ export const keyDown = (keyCode: KeyEnum) => (isPlay: boolean) => (fnUp: Cb) => 
       case KeyEnum.Esc:
         fnEsc();
         break;
-      default:
-        !isPlay && keyCode === KeyEnum.Space && fnSpace();
-        break;
     }
   } else if (!isPlay && keyCode === KeyEnum.Space) {
     fnSpace();
