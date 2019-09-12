@@ -56,7 +56,7 @@ export type InternalState = Readonly<{
   isPlay: boolean;
 }>;
 
-export type PubicState = Omit<InternalState, 'currentTetro'> & Omit<InternalState, 'isPlay'>;
+export type PubicState = Omit<InternalState, 'currentTetro' | 'isPlay'>;
 
 export enum KeyEnum {
   Esc = 27,
@@ -68,3 +68,11 @@ export enum KeyEnum {
 }
 
 export type CallBack = () => void;
+
+export type Action = Readonly<{
+  type: string;
+}>;
+
+export enum ActionEnum {
+  MoveDown = 'MoveDown'
+}
