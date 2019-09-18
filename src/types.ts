@@ -18,7 +18,9 @@ export enum TetroEnum {
   I = 'I',
   O = 'O'
 }
-export type Block = 0 | TetroEnum;
+
+export type NoTetro = 0;
+export type Block = NoTetro | TetroEnum;
 
 export type TetroPieces = Record<TetroEnum, Record<DirectionEnum, Tetro>>;
 

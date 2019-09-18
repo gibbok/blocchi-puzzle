@@ -1,7 +1,7 @@
 import { getRandomTetro, getTetroFromPieces, occupied, getBlock } from '../src/tetromino';
 import { TetroEnum, DirectionEnum, I, NO, Z } from '../src/types';
 import { stub } from 'sinon';
-import { dataPieces, EMPTY_BOARD, NON_EMPTY_BOARD } from './data.support.test';
+import { dataPieces, BOARD_EMPTY, BOARD_HALF_I } from './data.support.test';
 import { none, isSome, toUndefined } from 'fp-ts/lib/Option';
 
 describe('tetromino', () => {
@@ -32,49 +32,49 @@ describe('tetromino', () => {
     const tI = occupied(I)(NO);
     const tZ = occupied(Z)(NO);
     it('should return true if tetro new position is occupied on the board', () => {
-      const test = tI(7)(7)(NON_EMPTY_BOARD);
+      const test = tI(7)(7)(BOARD_HALF_I);
       expect(test).toStrictEqual(true);
     });
     it('should return true if tetro new position is not within board 1', () => {
-      const test = tI(-10)(-10)(EMPTY_BOARD);
+      const test = tI(-10)(-10)(BOARD_EMPTY);
       expect(test).toStrictEqual(true);
     });
     it('should return false if tetro new position is within board 2', () => {
-      const test = tZ(0)(15)(EMPTY_BOARD);
+      const test = tZ(0)(15)(BOARD_EMPTY);
       expect(test).toStrictEqual(false);
     });
 
     it('should return false if tetro new position is not occupied on the board 1', () => {
-      const test = tI(0)(0)(EMPTY_BOARD);
+      const test = tI(0)(0)(BOARD_EMPTY);
       expect(test).toStrictEqual(false);
     });
     it('should return false if tetro new position is not occupied on the board 2', () => {
-      const test = tI(0)(0)(NON_EMPTY_BOARD);
+      const test = tI(0)(0)(BOARD_HALF_I);
       expect(test).toStrictEqual(false);
     });
     it('should return false if tetro new position is not occupied on the board 3', () => {
-      const test = tZ(0)(0)(EMPTY_BOARD);
+      const test = tZ(0)(0)(BOARD_EMPTY);
       expect(test).toStrictEqual(false);
     });
     it('should return true if tetro new position is occupied on the board 4', () => {
-      const test = tI(0)(5)(NON_EMPTY_BOARD);
+      const test = tI(0)(5)(BOARD_HALF_I);
       expect(test).toStrictEqual(true);
     });
   });
 
   describe('getBlock', () => {
     it('should return a block if it is present 1', () => {
-      const test = getBlock(0)(0)(EMPTY_BOARD);
+      const test = getBlock(0)(0)(BOARD_EMPTY);
       expect(isSome(test)).toStrictEqual(true);
       expect(toUndefined(test)).toStrictEqual(0);
     });
     it('should return a block if it is present 2', () => {
-      const test = getBlock(0)(7)(NON_EMPTY_BOARD);
+      const test = getBlock(0)(7)(BOARD_HALF_I);
       expect(isSome(test)).toStrictEqual(true);
       expect(toUndefined(test)).toStrictEqual(I);
     });
     it('should return none if block does not exist', () => {
-      const test = getBlock(-100)(-100)(NON_EMPTY_BOARD);
+      const test = getBlock(-100)(-100)(BOARD_HALF_I);
       expect(test).toStrictEqual(none);
     });
   });
