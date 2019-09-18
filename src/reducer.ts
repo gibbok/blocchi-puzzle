@@ -1,5 +1,5 @@
 import { InternalState, Action, ActionEnum, TetroEnum, DirectionEnum } from './types';
-import { mkEmptyBoard } from './board';
+import { mkEmptyBoard, addTetroToBoard } from './board';
 import { occupied } from './tetromino';
 
 const mkInitialState = () => ({
@@ -22,6 +22,7 @@ const mkInitialState = () => ({
   isPlay: true // TODO pause before start game
 });
 
+// TODO add test to the reducer
 const reducer = (prevState: InternalState = mkInitialState(), action: Action): InternalState => {
   switch (action.type) {
     case ActionEnum.MoveDown:
@@ -39,7 +40,7 @@ const reducer = (prevState: InternalState = mkInitialState(), action: Action): I
       const newY = y + 1;
       const isOccupied = occupied(type)(direction)(newX)(newY);
       return {
-        board: isOccupied ? board : [[]], // TODO here print the board
+        board: isOccupied ? board : addTetroToBoard(type)(direction)(newX)(newY)(board),
         score,
         level,
         lines,
