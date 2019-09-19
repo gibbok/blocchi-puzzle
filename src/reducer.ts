@@ -39,18 +39,17 @@ export const reducer = (
         nextTetro,
         isPlay
       } = prevState;
-      const newX = x + 1;
       const newY = y + 1;
-      const isOccupied = occupied(type)(direction)(newX)(newY)(board);
+      const isOccupied = occupied(type)(direction)(x)(newY)(board);
       return {
-        board: isOccupied ? board : addTetroToBoard(type)(direction)(newX)(newY)(board),
+        board: isOccupied ? board : addTetroToBoard(type)(direction)(x)(newY)(board),
         score,
         level,
         lines,
         currentTetro: {
           type,
           direction,
-          x: isOccupied ? x : newX,
+          x,
           y: isOccupied ? y : newY
         },
         nextTetro,
@@ -61,7 +60,3 @@ export const reducer = (
       return prevState;
   }
 };
-
-// TODOS
-// Think in order of reducer, so I can write all my action where I appl the logic to change the state
-// - create function which render the block on the board
