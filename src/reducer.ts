@@ -22,27 +22,10 @@ export const mkInitialState = () => ({
   isPlay: true // TODO pause before start game
 });
 
-export const recBoard = (type: TetroEnum) => (d: DirectionEnum) => (x: number) => (y: number) => (
-  b: Board
-): Board => {
-  const fn = (newY: number) => occupied(type)(d)(x)(newY)(b);
-  if (fn(y)) {
-    return recBoard(type)(d)(x)(y - 1)(b);
-  } else {
-    return addTetroToBoard(type)(d)(x)(y)(b);
-  }
-};
-
-export const recPos = (type: TetroEnum) => (d: DirectionEnum) => (x: number) => (y: number) => (
-  b: Board
-): number => {
-  const fn = (newY: number) => occupied(type)(d)(x)(newY)(b);
-  if (fn(y)) {
-    return recPos(type)(d)(x)(y - 1)(b);
-  } else {
-    return y;
-  }
-};
+export const recFindNewPos = (type: TetroEnum) => (d: DirectionEnum) => (x: number) => (
+  y: number
+) => (b: Board) => (towards: number) => (fn: (pos: number) => number): number =>
+  occupied(type)(d)(x)(y)(b) ? recFindNewPos(type)(d)(x)(y + towards)(b)(towards)(fn) : fn(y);
 
 // TODO add test to the reducer
 export const reducer = (
@@ -62,8 +45,9 @@ export const reducer = (
       } = prevState;
       const newY = y + 1;
       const isOccupied = occupied(type)(direction)(x)(newY)(board);
+      const foundPosY = recFindNewPos(type)(direction)(x)(newY)(board)(-1)(pos => pos);
       return {
-        board: isOccupied ? recBoard(type)(direction)(x)(newY)(board) : board,
+        board: isOccupied ? addTetroToBoard(type)(direction)(x)(foundPosY)(board) : board,
         score,
         level,
         lines,
@@ -71,7 +55,7 @@ export const reducer = (
           type,
           direction,
           x,
-          y: isOccupied ? recPos(type)(direction)(x)(newY)(board) : newY
+          y: isOccupied ? foundPosY : newY
         },
         nextTetro,
         isPlay
