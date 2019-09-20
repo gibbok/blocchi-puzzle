@@ -40,9 +40,9 @@ export const reducer = (
         isPlay
       } = prevState;
       const newY = y + 1;
-      const isOccupied = occupied(type)(direction)(x)(newY)(board);
+      const isOccupied = occupied(type)(direction)(x)(newY + 1)(board);
       return {
-        board: isOccupied ? board : addTetroToBoard(type)(direction)(x)(newY)(board),
+        board: isOccupied ? addTetroToBoard(type)(direction)(x)(newY)(board) : board,
         score,
         level,
         lines,
