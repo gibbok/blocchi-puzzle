@@ -29,6 +29,31 @@ describe('reducer', () => {
       };
       const finalState: InternalState = {
         ...INITIAL_STATE,
+        board: BOARD_HALF_S,
+        // board: [
+        //   ...Array(2).fill(BOARD_ROW_EMPTY),
+        //   ...Array(4).fill([I, ...Array(9).fill(0)]),
+        //   ...Array(14).fill(Array(10).fill(S))
+        // ],
+        currentTetro: {
+          ...INITIAL_STATE.currentTetro,
+          y: 2
+        }
+      };
+      const r = reducer(initialState, MoveDown);
+      expect(r).toEqual(finalState);
+    });
+    it('xx', () => {
+      const initialState: InternalState = {
+        ...INITIAL_STATE,
+        board: BOARD_HALF_S,
+        currentTetro: {
+          ...INITIAL_STATE.currentTetro,
+          y: 4
+        }
+      };
+      const finalState: InternalState = {
+        ...INITIAL_STATE,
         board: [
           ...Array(2).fill(BOARD_ROW_EMPTY),
           ...Array(4).fill([I, ...Array(9).fill(0)]),
@@ -36,13 +61,14 @@ describe('reducer', () => {
         ],
         currentTetro: {
           ...INITIAL_STATE.currentTetro,
-          y: 1
+          y: 2
         }
       };
       const r = reducer(initialState, MoveDown);
+      console.log(initialState);
+      console.log(r);
+      console.log(finalState);
       expect(r).toEqual(finalState);
-
-      // TODO: add a test with y at 10
     });
   });
 });
