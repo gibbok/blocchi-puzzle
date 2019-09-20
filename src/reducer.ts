@@ -1,5 +1,5 @@
-import { InternalState, Action, ActionEnum, TetroEnum, DirectionEnum, Board } from './types';
-import { mkEmptyBoard, addTetroToBoard } from './board';
+import { InternalState, Action, ActionEnum, TetroEnum, DirectionEnum } from './types';
+import { mkEmptyBoard, addTetroToBoard, recFindAvailablePos } from './board';
 import { occupied } from './tetromino';
 
 export const mkInitialState = () => ({
@@ -22,12 +22,6 @@ export const mkInitialState = () => ({
   isPlay: true // TODO pause before start game
 });
 
-export const recFindNewPos = (type: TetroEnum) => (d: DirectionEnum) => (x: number) => (
-  y: number
-) => (b: Board) => (towards: number): number =>
-  occupied(type)(d)(x)(y)(b) ? recFindNewPos(type)(d)(x)(y + towards)(b)(towards) : y;
-
-// TODO add test to the reducer
 export const reducer = (
   prevState: InternalState = mkInitialState(),
   action: Action
@@ -45,7 +39,7 @@ export const reducer = (
       } = prevState;
       const newY = y + 1;
       const isOccupied = occupied(type)(direction)(x)(newY)(board);
-      const foundPosY = recFindNewPos(type)(direction)(x)(newY)(board)(-1);
+      const foundPosY = recFindAvailablePos(type)(direction)(x)(newY)(board)(0)(-1);
       return {
         board: isOccupied ? addTetroToBoard(type)(direction)(x)(foundPosY)(board) : board,
         score,
