@@ -24,8 +24,8 @@ export const mkInitialState = () => ({
 
 export const recFindNewPos = (type: TetroEnum) => (d: DirectionEnum) => (x: number) => (
   y: number
-) => (b: Board) => (towards: number) => (fn: (pos: number) => number): number =>
-  occupied(type)(d)(x)(y)(b) ? recFindNewPos(type)(d)(x)(y + towards)(b)(towards)(fn) : fn(y);
+) => (b: Board) => (towards: number): number =>
+  occupied(type)(d)(x)(y)(b) ? recFindNewPos(type)(d)(x)(y + towards)(b)(towards) : y;
 
 // TODO add test to the reducer
 export const reducer = (
@@ -45,7 +45,7 @@ export const reducer = (
       } = prevState;
       const newY = y + 1;
       const isOccupied = occupied(type)(direction)(x)(newY)(board);
-      const foundPosY = recFindNewPos(type)(direction)(x)(newY)(board)(-1)(pos => pos);
+      const foundPosY = recFindNewPos(type)(direction)(x)(newY)(board)(-1);
       return {
         board: isOccupied ? addTetroToBoard(type)(direction)(x)(foundPosY)(board) : board,
         score,
