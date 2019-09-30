@@ -18,7 +18,12 @@ export const addTetroToBoard = (t: TetroEnum) => (d: DirectionEnum) => (x: numbe
 
 export const recFindAvailablePos = (type: TetroEnum) => (d: DirectionEnum) => (x: number) => (
   y: number
-) => (b: Board) => (towardsX: number) => (towardsY: number): number =>
-  occupied(type)(d)(x)(y)(b)
+) => (b: Board) => (towardsX: number) => (towardsY: number): number => {
+  console.log(x, y, towardsX, towardsY);
+  const isOccupied = occupied(type)(d)(x)(y)(b);
+  return isOccupied
     ? recFindAvailablePos(type)(d)(x + towardsX)(y + towardsY)(b)(towardsX)(towardsY)
-    : y;
+    : y !== 0 // TODO make it better it should receive only one value fnot x: 1 y:1
+    ? y
+    : x;
+};

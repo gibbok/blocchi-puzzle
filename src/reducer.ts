@@ -26,22 +26,23 @@ export const reducer = (
   prevState: InternalState = mkInitialState(),
   action: Action
 ): InternalState => {
+  const {
+    board,
+    score,
+    level,
+    lines,
+    currentTetro: { type, direction, x, y },
+    nextTetro,
+    isPlay
+  } = prevState;
+  console.log(action.type);
   switch (action.type) {
     case ActionEnum.MoveDown:
-      const {
-        board,
-        score,
-        level,
-        lines,
-        currentTetro: { type, direction, x, y },
-        nextTetro,
-        isPlay
-      } = prevState;
       const newY = y + 1;
-      const isOccupied = occupied(type)(direction)(x)(newY)(board);
+      const isOccupiedDown = occupied(type)(direction)(x)(newY)(board);
       const foundPosY = recFindAvailablePos(type)(direction)(x)(newY)(board)(0)(-1);
       return {
-        board: isOccupied ? addTetroToBoard(type)(direction)(x)(foundPosY)(board) : board,
+        board: isOccupiedDown ? addTetroToBoard(type)(direction)(x)(foundPosY)(board) : board,
         score,
         level,
         lines,
@@ -49,12 +50,31 @@ export const reducer = (
           type,
           direction,
           x,
-          y: isOccupied ? foundPosY : newY
+          y: isOccupiedDown ? foundPosY : newY
         },
         nextTetro,
         isPlay
       };
-      break;
+    case ActionEnum.MoveRight:
+      console.log('xxx');
+      const newX = x + 1;
+      const isOccupiedRight = occupied(type)(direction)(newX)(y)(board);
+      console.log(newX, y);
+      const foundPosX = recFindAvailablePos(type)(direction)(newX)(y)(board)(1)(0);
+      return {
+        board: isOccupiedRight ? addTetroToBoard(type)(direction)(foundPosX)(y)(board) : board,
+        score,
+        level,
+        lines,
+        currentTetro: {
+          type,
+          direction,
+          x: isOccupiedRight ? foundPosX : newX,
+          y
+        },
+        nextTetro,
+        isPlay
+      };
     default:
       return prevState;
   }
