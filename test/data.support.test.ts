@@ -50,12 +50,12 @@ export const BOARD_ROW_S: BoardRow = fillRowWith(10)(S);
 
 export const BOARD_EMPTY: Board = [...Array(20).fill(BOARD_ROW_EMPTY)];
 
-export const mkBoardHaldTetro = (t: TetroEnum): Board => [
+export const mkBoardHaldTetroY = (t: TetroEnum): Board => [
   ...Array(20)
     .fill(0)
     .map((_x, idx) => [...Array(10).fill(idx <= 5 ? 0 : t)])
 ];
-export const BOARD_HALF_I: Board = mkBoardHaldTetro(TetroEnum.I);
-export const BOARD_HALF_S: Board = mkBoardHaldTetro(TetroEnum.S);
+export const BOARD_HALF_I_Y: Board = mkBoardHaldTetroY(TetroEnum.I);
+export const BOARD_HALF_S_Y: Board = mkBoardHaldTetroY(TetroEnum.S);
 
 export const BOARD_FULL_S: Board = [...Array(20).fill(BOARD_ROW_S)];
