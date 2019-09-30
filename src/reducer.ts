@@ -35,7 +35,6 @@ export const reducer = (
     nextTetro,
     isPlay
   } = prevState;
-  console.log(action.type);
   switch (action.type) {
     case ActionEnum.MoveDown:
       const newY = y + 1;
@@ -56,10 +55,8 @@ export const reducer = (
         isPlay
       };
     case ActionEnum.MoveRight:
-      console.log('xxx');
       const newX = x + 1;
       const isOccupiedRight = occupied(type)(direction)(newX)(y)(board);
-      console.log(newX, y);
       const foundPosX = recFindAvailablePos(type)(direction)(newX)(y)(board)(1)(0);
       return {
         board: isOccupiedRight ? addTetroToBoard(type)(direction)(foundPosX)(y)(board) : board,

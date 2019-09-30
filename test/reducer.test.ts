@@ -54,7 +54,7 @@ describe('reducer', () => {
     });
 
     describe('Move Right', () => {
-      it.only('should increase current tetro x position, leaving the board un tocuched, no collission', () => {
+      it('should increase current tetro x position, leaving the board un tocuched, no collission', () => {
         const test: InternalState = {
           ...INITIAL_STATE,
           currentTetro: { ...INITIAL_STATE.currentTetro, x: 1 }
