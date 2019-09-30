@@ -86,13 +86,13 @@ describe('reducer', () => {
         };
         const finalState: InternalState = {
           ...INITIAL_STATE,
-          board: BOARD_HALF_S_X,
+          board: [
+            ...Array(4).fill([0, 0, 0, 0, I, S, S, S, S, S]),
+            ...Array(16).fill([0, 0, 0, 0, 0, S, S, S, S, S])
+          ],
           currentTetro: { ...INITIAL_STATE.currentTetro, x: 4 }
         };
-        logger(initialState.board);
-        logger(finalState.board);
         const r = reducer(initialState, MoveRight);
-        logger(r.board);
         expect(r).toEqual(finalState);
       });
     });
