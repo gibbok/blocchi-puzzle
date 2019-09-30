@@ -39,6 +39,10 @@ describe('tetromino', () => {
       const test = tI(-10)(-10)(BOARD_EMPTY);
       expect(test).toStrictEqual(true);
     });
+    it('should return true if tetro new position is not within board 1', () => {
+      const test = tI(100)(100)(BOARD_EMPTY);
+      expect(test).toStrictEqual(true);
+    });
     it('should return false if tetro new position is within board 2', () => {
       const test = tZ(0)(15)(BOARD_EMPTY);
       expect(test).toStrictEqual(false);

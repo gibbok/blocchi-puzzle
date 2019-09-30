@@ -75,9 +75,24 @@ describe('reducer', () => {
           currentTetro: { ...INITIAL_STATE.currentTetro, x: 2 }
         };
         const r = reducer(initialState, MoveRight);
+        expect(r).toEqual(finalState);
+      });
+
+      it('should not increase current tetro x position, lock current tetro on board, collision ', () => {
+        const initialState: InternalState = {
+          ...INITIAL_STATE,
+          board: BOARD_HALF_S_X,
+          currentTetro: { ...INITIAL_STATE.currentTetro, x: 4 }
+        };
+        const finalState: InternalState = {
+          ...INITIAL_STATE,
+          board: BOARD_HALF_S_X,
+          currentTetro: { ...INITIAL_STATE.currentTetro, x: 4 }
+        };
         logger(initialState.board);
-        logger(r.board);
         logger(finalState.board);
+        const r = reducer(initialState, MoveRight);
+        logger(r.board);
         expect(r).toEqual(finalState);
       });
     });

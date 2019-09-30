@@ -2,8 +2,11 @@ import { InternalState, Action, ActionEnum, TetroEnum, DirectionEnum } from './t
 import { mkEmptyBoard, addTetroToBoard, recFindAvailablePos } from './board';
 import { occupied } from './tetromino';
 
+export const BOARD_TOT_BLOCK_X = 20;
+export const BOARD_TOT_ROW_Y = 10;
+
 export const mkInitialState = () => ({
-  board: mkEmptyBoard(20)(10),
+  board: mkEmptyBoard(BOARD_TOT_BLOCK_X)(BOARD_TOT_ROW_Y),
   score: 0,
   level: 1,
   lines: 0,
@@ -57,7 +60,7 @@ export const reducer = (
     case ActionEnum.MoveRight:
       const newX = x + 1;
       const isOccupiedRight = occupied(type)(direction)(newX)(y)(board);
-      const foundPosX = recFindAvailablePos(type)(direction)(newX)(y)(board)(1)(0);
+      const foundPosX = recFindAvailablePos(type)(direction)(newX)(y)(board)(-1)(0);
       return {
         board: isOccupiedRight ? addTetroToBoard(type)(direction)(foundPosX)(y)(board) : board,
         score,
