@@ -2,7 +2,7 @@ import { reducer, mkInitialState } from '../src/reducer';
 import { logger } from '../src/utils';
 import { InternalState, I, S } from '../src/types';
 import { MoveDown, MoveRight } from '../src/action';
-import { BOARD_HALF_S_Y, BOARD_ROW_EMPTY } from './data.support.test';
+import { BOARD_HALF_S_Y, BOARD_ROW_EMPTY, BOARD_HALF_S_X } from './data.support.test';
 
 const INITIAL_STATE = mkInitialState();
 
@@ -61,6 +61,24 @@ describe('reducer', () => {
         };
         const r = reducer(INITIAL_STATE, MoveRight);
         expect(r).toEqual(test);
+      });
+
+      it('should increase current tetro x position, leaving the board un touched, no collision', () => {
+        const initialState: InternalState = {
+          ...INITIAL_STATE,
+          board: BOARD_HALF_S_X,
+          currentTetro: { ...INITIAL_STATE.currentTetro, x: 1 }
+        };
+        const finalState: InternalState = {
+          ...INITIAL_STATE,
+          board: BOARD_HALF_S_X,
+          currentTetro: { ...INITIAL_STATE.currentTetro, x: 2 }
+        };
+        const r = reducer(initialState, MoveRight);
+        logger(initialState.board);
+        logger(r.board);
+        logger(finalState.board);
+        expect(r).toEqual(finalState);
       });
     });
   });
