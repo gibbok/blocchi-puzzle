@@ -87,8 +87,8 @@ describe('reducer', () => {
         const finalState: InternalState = {
           ...INITIAL_STATE,
           board: [
-            ...Array(4).fill([0, 0, 0, 0, I, S, S, S, S, S]),
-            ...Array(16).fill([0, 0, 0, 0, 0, S, S, S, S, S])
+            ...Array(4).fill([...Array(4).fill(0), I, ...Array(5).fill(S)]),
+            ...Array(16).fill([...Array(5).fill(0), ...Array(5).fill(S)])
           ],
           currentTetro: { ...INITIAL_STATE.currentTetro, x: 4 }
         };
