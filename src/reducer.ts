@@ -42,7 +42,7 @@ export const reducer = (
     case ActionEnum.MoveDown:
       const newY = y + 1;
       const isOccupiedDown = occupied(type)(direction)(x)(newY)(board);
-      const foundPosY = recFindAvailablePos(type)(direction)(x)(newY)(board)(0)(-1);
+      const foundPosY = recFindAvailablePos(type)(direction)(x)(newY)(board)(0)(1);
       return {
         board: isOccupiedDown ? addTetroToBoard(type)(direction)(x)(foundPosY)(board) : board,
         score,
@@ -60,7 +60,7 @@ export const reducer = (
     case ActionEnum.MoveRight:
       const newRightX = x + 1;
       const isOccupiedRight = occupied(type)(direction)(newRightX)(y)(board);
-      const foundRightPosX = recFindAvailablePos(type)(direction)(newRightX)(y)(board)(-1)(0);
+      const foundRightPosX = recFindAvailablePos(type)(direction)(newRightX)(y)(board)(1)(0);
       return {
         board: isOccupiedRight ? addTetroToBoard(type)(direction)(foundRightPosX)(y)(board) : board,
         score,
@@ -78,7 +78,7 @@ export const reducer = (
     case ActionEnum.MoveLeft:
       const newLeftX = x - 1;
       const isOccupiedLeft = occupied(type)(direction)(newLeftX)(y)(board);
-      const foundLeftPosX = recFindAvailablePos(type)(direction)(newLeftX)(y)(board)(1)(0);
+      const foundLeftPosX = recFindAvailablePos(type)(direction)(newLeftX)(y)(board)(-1)(0);
       return {
         board: isOccupiedLeft ? addTetroToBoard(type)(direction)(foundLeftPosX)(y)(board) : board,
         score,
