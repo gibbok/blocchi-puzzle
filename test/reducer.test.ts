@@ -1,5 +1,4 @@
 import { reducer, mkInitialState } from '../src/reducer';
-import { logger } from '../src/utils';
 import { InternalState, I, S } from '../src/types';
 import { MoveDown, MoveRight, MoveLeft } from '../src/action';
 import {
@@ -13,6 +12,12 @@ const INITIAL_STATE = mkInitialState();
 
 describe('reducer', () => {
   describe('reducer', () => {
+    describe('No Move', () => {
+      it('should return prevState if action passed is not valid ', () => {
+        const r = reducer(INITIAL_STATE, { type: 'invalid-action' });
+        expect(r).toEqual(INITIAL_STATE);
+      });
+    });
     describe('Move Down', () => {
       it('should increase current tetro y position, leaving the board un touched, no collision', () => {
         const test: InternalState = {

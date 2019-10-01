@@ -22,7 +22,15 @@ export const recFindAvailablePos = (type: TetroEnum) => (d: DirectionEnum) => (x
   const isOccupied = occupied(type)(d)(x)(y)(b);
   return isOccupied
     ? recFindAvailablePos(type)(d)(x - towardsX)(y - towardsY)(b)(towardsX)(towardsY)
-    : y !== 0 // TODO make it better it should receive only one value fnot x: 1 y:1
+    : y !== 0
     ? y
     : x;
 };
+
+export const recFindAvailablePosX = (type: TetroEnum) => (d: DirectionEnum) => (x: number) => (
+  y: number
+) => (b: Board) => (towardsX: number): number => recFindAvailablePos(type)(d)(x)(y)(b)(towardsX)(0);
+
+export const recFindAvailablePosY = (type: TetroEnum) => (d: DirectionEnum) => (x: number) => (
+  y: number
+) => (b: Board) => (towardsY: number): number => recFindAvailablePos(type)(d)(x)(y)(b)(0)(towardsY);
