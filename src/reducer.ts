@@ -58,18 +58,36 @@ export const reducer = (
         isPlay
       };
     case ActionEnum.MoveRight:
-      const newX = x + 1;
-      const isOccupiedRight = occupied(type)(direction)(newX)(y)(board);
-      const foundPosX = recFindAvailablePos(type)(direction)(newX)(y)(board)(-1)(0);
+      const newRightX = x + 1;
+      const isOccupiedRight = occupied(type)(direction)(newRightX)(y)(board);
+      const foundRightPosX = recFindAvailablePos(type)(direction)(newRightX)(y)(board)(-1)(0);
       return {
-        board: isOccupiedRight ? addTetroToBoard(type)(direction)(foundPosX)(y)(board) : board,
+        board: isOccupiedRight ? addTetroToBoard(type)(direction)(foundRightPosX)(y)(board) : board,
         score,
         level,
         lines,
         currentTetro: {
           type,
           direction,
-          x: isOccupiedRight ? foundPosX : newX,
+          x: isOccupiedRight ? foundRightPosX : newRightX,
+          y
+        },
+        nextTetro,
+        isPlay
+      };
+    case ActionEnum.MoveLeft:
+      const newLeftX = x - 1;
+      const isOccupiedLeft = occupied(type)(direction)(newLeftX)(y)(board);
+      const foundLeftPosX = recFindAvailablePos(type)(direction)(newLeftX)(y)(board)(1)(0);
+      return {
+        board: isOccupiedLeft ? addTetroToBoard(type)(direction)(foundLeftPosX)(y)(board) : board,
+        score,
+        level,
+        lines,
+        currentTetro: {
+          type,
+          direction,
+          x: isOccupiedLeft ? foundLeftPosX : newLeftX,
           y
         },
         nextTetro,

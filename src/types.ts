@@ -77,5 +77,6 @@ export type Action = Readonly<{
 
 export enum ActionEnum {
   MoveDown = 'MoveDown',
-  MoveRight = 'MoveRight'
+  MoveRight = 'MoveRight',
+  MoveLeft = 'MoveLeft'
 }
