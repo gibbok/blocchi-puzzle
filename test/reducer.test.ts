@@ -2,7 +2,12 @@ import { reducer, mkInitialState } from '../src/reducer';
 import { logger } from '../src/utils';
 import { InternalState, I, S } from '../src/types';
 import { MoveDown, MoveRight, MoveLeft } from '../src/action';
-import { BOARD_HALF_S_Y, BOARD_ROW_EMPTY, BOARD_HALF_S_X } from './data.support.test';
+import {
+  BOARD_HALF_S_Y,
+  BOARD_ROW_EMPTY,
+  BOARD_HALF_S_X,
+  BOARD_HALF_S_X_REV
+} from './data.support.test';
 
 const INITIAL_STATE = mkInitialState();
 
@@ -108,6 +113,42 @@ describe('reducer', () => {
           currentTetro: { ...INITIAL_STATE.currentTetro, x: 0 }
         };
         const r = reducer(initialState, MoveLeft);
+        expect(r).toEqual(finalState);
+      });
+
+      it('should decrease current tetro x position, leaving the board un touched, no collision', () => {
+        const initialState: InternalState = {
+          ...INITIAL_STATE,
+          board: BOARD_HALF_S_X,
+          currentTetro: { ...INITIAL_STATE.currentTetro, x: 1 }
+        };
+        const finalState: InternalState = {
+          ...INITIAL_STATE,
+          board: BOARD_HALF_S_X,
+          currentTetro: { ...INITIAL_STATE.currentTetro, x: 0 }
+        };
+        const r = reducer(initialState, MoveLeft);
+        expect(r).toEqual(finalState);
+      });
+
+      it('should not decrease current tetro x position, lock current tetro on board, collision ', () => {
+        const initialState: InternalState = {
+          ...INITIAL_STATE,
+          board: BOARD_HALF_S_X_REV,
+          currentTetro: { ...INITIAL_STATE.currentTetro, x: 5 }
+        };
+        const finalState: InternalState = {
+          ...INITIAL_STATE,
+          board: [
+            ...Array(4).fill([...Array(5).fill(S), I, ...Array(4).fill(0)]),
+            ...Array(16).fill([...Array(5).fill(S), ...Array(5).fill(0)])
+          ],
+          currentTetro: { ...INITIAL_STATE.currentTetro, x: 5 }
+        };
+        const r = reducer(initialState, MoveLeft);
+        logger(initialState.board);
+        logger(r.board);
+        logger(finalState.board);
         expect(r).toEqual(finalState);
       });
     });

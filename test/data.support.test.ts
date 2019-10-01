@@ -60,6 +60,7 @@ export const mkBoardHaldTetroX = (t: TetroEnum): Board => [
 ];
 export const BOARD_HALF_I_Y: Board = mkBoardHaldTetroY(TetroEnum.I);
 export const BOARD_HALF_S_Y: Board = mkBoardHaldTetroY(TetroEnum.S);
-export const BOARD_HALF_S_X: Board = mkBoardHaldTetroX(TetroEnum.S);
+export const BOARD_HALF_S_X: Board = [...Array(20).fill([0, 0, 0, 0, 0, S, S, S, S, S])];
+export const BOARD_HALF_S_X_REV: Board = [...Array(20).fill([S, S, S, S, S, 0, 0, 0, 0, 0])];
 
 export const BOARD_FULL_S: Board = [...Array(20).fill(BOARD_ROW_S)];
