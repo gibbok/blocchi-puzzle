@@ -55,9 +55,9 @@ export const mkBoardHalfTetroY = (t: TetroEnum): Board => [
     .fill(0)
     .map((_x, idx) => [...Array(10).fill(idx <= 5 ? 0 : t)])
 ];
-export const mkBoardHalfTetroX = (t: TetroEnum): Board => [
-  ...Array(20).fill([0, 0, 0, 0, 0, t, t, t, t, t])
-];
+// export const mkBoardHalfTetroX = (t: TetroEnum): Board => [
+//   ...Array(20).fill([0, 0, 0, 0, 0, t, t, t, t, t])
+// ];
 export const BOARD_HALF_I_Y: Board = mkBoardHalfTetroY(TetroEnum.I);
 export const BOARD_HALF_S_Y: Board = mkBoardHalfTetroY(TetroEnum.S);
 export const BOARD_HALF_S_X: Board = [...Array(20).fill([0, 0, 0, 0, 0, S, S, S, S, S])];
