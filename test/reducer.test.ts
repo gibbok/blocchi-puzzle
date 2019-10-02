@@ -1,7 +1,7 @@
 import { reducer, mkInitialState } from '../src/reducer';
 import { logger } from '../src/utils';
 
-import { InternalState, I, S, NO, WE } from '../src/types';
+import { InternalState, I, S, NO, WE, ES } from '../src/types';
 import { MoveDown, MoveRight, MoveLeft, MoveUp } from '../src/action';
 import {
   BOARD_HALF_S_Y,
@@ -167,6 +167,21 @@ describe('reducer', () => {
         const finalState: InternalState = {
           ...INITIAL_STATE,
           currentTetro: { ...INITIAL_STATE.currentTetro, direction: WE }
+        };
+        const r = reducer(initialState, MoveUp);
+        expect(r).toEqual(finalState);
+      });
+
+      it('should not be able to rotate, collision', () => {
+        const initialState: InternalState = {
+          ...INITIAL_STATE,
+          board: BOARD_HALF_S_Y,
+          currentTetro: { ...INITIAL_STATE.currentTetro, direction: ES, x: 0, y: 5 }
+        };
+        const finalState: InternalState = {
+          ...INITIAL_STATE,
+          board: BOARD_HALF_S_Y,
+          currentTetro: { ...INITIAL_STATE.currentTetro, direction: ES, x: 0, y: 5 }
         };
         const r = reducer(initialState, MoveUp);
         logger(initialState.board);
