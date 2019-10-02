@@ -1,5 +1,4 @@
 import { reducer, mkInitialState } from '../src/reducer';
-import { logger } from '../src/utils';
 
 import { InternalState, I, S, NO, WE, ES } from '../src/types';
 import { MoveDown, MoveRight, MoveLeft, MoveUp } from '../src/action';
@@ -11,14 +10,18 @@ import {
 } from './data.support.test';
 
 const INITIAL_STATE = mkInitialState();
+const INVALID_ACTION = { type: 'invalid-action' };
 
 describe('reducer', () => {
   describe('reducer', () => {
-    describe('No Move', () => {
-      it('should return prevState if action passed is not valid ', () => {
-        const r = reducer(INITIAL_STATE, { type: 'invalid-action' });
-        expect(r).toEqual(INITIAL_STATE);
-      });
+    it('should return default state if no state is passed', () => {
+      const r = reducer(undefined, INVALID_ACTION);
+      expect(r).toEqual(INITIAL_STATE);
+    });
+
+    it('should return prevState if action passed is not valid', () => {
+      const r = reducer(INITIAL_STATE, INVALID_ACTION);
+      expect(r).toEqual(INITIAL_STATE);
     });
 
     describe('Move Down', () => {
@@ -158,7 +161,7 @@ describe('reducer', () => {
       });
     });
 
-    describe.only('Move Up', () => {
+    describe('Move Up', () => {
       it('should rotate the tetro direction ACW, no collision', () => {
         const initialState: InternalState = {
           ...INITIAL_STATE,
@@ -184,9 +187,6 @@ describe('reducer', () => {
           currentTetro: { ...INITIAL_STATE.currentTetro, direction: ES, x: 0, y: 5 }
         };
         const r = reducer(initialState, MoveUp);
-        logger(initialState.board);
-        logger(r.board);
-        logger(finalState.board);
         expect(r).toEqual(finalState);
       });
     });
