@@ -44,7 +44,9 @@ export const occupied = (t: TetroEnum) => (d: DirectionEnum) => (x: number) => (
 
 export const rotateTetroACW = (t: TetroEnum) => {
   const values = Object.values(TetroEnum);
-  const i = values.indexOf(t);
-  const n = values[i - 1] !== undefined ? values[i - 1] : values[values.length - 1];
-  return n;
+  const len = values.length - 1;
+  const index = values.indexOf(t);
+  const prev = values[index - 1];
+  const newTetro = prev === undefined ? values[len] : prev;
+  return newTetro;
 };
