@@ -42,11 +42,11 @@ export const occupied = (t: TetroEnum) => (d: DirectionEnum) => (x: number) => (
     return isInvalidPosX || isInvalidPosY || isTetroBlockAlredyOnBoard;
   });
 
-export const rotateTetroACW = (t: TetroEnum) => {
-  const values = Object.values(TetroEnum);
+export const rotateTetroDirectionACW = (d: DirectionEnum) => {
+  const values = Object.values(DirectionEnum);
   const len = values.length - 1;
-  const index = values.indexOf(t);
+  const index = values.indexOf(d);
   const prev = values[index - 1];
-  const newTetro = prev === undefined ? values[len] : prev;
-  return newTetro;
+  const newDirection = prev === undefined ? values[len] : prev;
+  return newDirection;
 };

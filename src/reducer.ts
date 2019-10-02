@@ -1,6 +1,6 @@
 import { InternalState, Action, ActionEnum, TetroEnum, DirectionEnum } from './types';
 import { mkEmptyBoard, addTetroToBoard, recFindAvailablePosY, recFindAvailablePosX } from './board';
-import { occupied } from './tetromino';
+import { occupied, rotateTetroDirectionACW } from './tetromino';
 
 export const BOARD_TOT_BLOCK_X = 20;
 export const BOARD_TOT_ROW_Y = 10;
@@ -88,6 +88,23 @@ export const reducer = (
           type,
           direction,
           x: isOccupiedLeft ? foundLeftPosX : newLeftX,
+          y
+        },
+        nextTetro,
+        isPlay
+      };
+    case ActionEnum.MoveUp:
+      const directionNew = rotateTetroDirectionACW(direction);
+      const isOccupiedUp = occupied(type)(directionNew)(x)(y)(board);
+      return {
+        board,
+        score,
+        level,
+        lines,
+        currentTetro: {
+          type,
+          direction: isOccupiedUp ? direction : directionNew,
+          x,
           y
         },
         nextTetro,

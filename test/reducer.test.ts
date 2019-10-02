@@ -1,6 +1,8 @@
 import { reducer, mkInitialState } from '../src/reducer';
-import { InternalState, I, S } from '../src/types';
-import { MoveDown, MoveRight, MoveLeft } from '../src/action';
+import { logger } from '../src/utils';
+
+import { InternalState, I, S, NO, WE } from '../src/types';
+import { MoveDown, MoveRight, MoveLeft, MoveUp } from '../src/action';
 import {
   BOARD_HALF_S_Y,
   BOARD_ROW_EMPTY,
@@ -18,6 +20,7 @@ describe('reducer', () => {
         expect(r).toEqual(INITIAL_STATE);
       });
     });
+
     describe('Move Down', () => {
       it('should increase current tetro y position, leaving the board un touched, no collision', () => {
         const test: InternalState = {
@@ -151,6 +154,24 @@ describe('reducer', () => {
           currentTetro: { ...INITIAL_STATE.currentTetro, x: 5 }
         };
         const r = reducer(initialState, MoveLeft);
+        expect(r).toEqual(finalState);
+      });
+    });
+
+    describe.only('Move Up', () => {
+      it('should rotate the tetro direction ACW, no collision', () => {
+        const initialState: InternalState = {
+          ...INITIAL_STATE,
+          currentTetro: { ...INITIAL_STATE.currentTetro, direction: NO }
+        };
+        const finalState: InternalState = {
+          ...INITIAL_STATE,
+          currentTetro: { ...INITIAL_STATE.currentTetro, direction: WE }
+        };
+        const r = reducer(initialState, MoveUp);
+        logger(initialState.board);
+        logger(r.board);
+        logger(finalState.board);
         expect(r).toEqual(finalState);
       });
     });

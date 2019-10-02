@@ -3,7 +3,7 @@ import {
   getTetroFromPieces,
   occupied,
   getBlock,
-  rotateTetroACW
+  rotateTetroDirectionACW
 } from '../src/tetromino';
 import { TetroEnum, DirectionEnum, I, NO, Z } from '../src/types';
 import { stub } from 'sinon';
@@ -89,14 +89,14 @@ describe('tetromino', () => {
     });
   });
 
-  describe.only('rotateTetroACW', () => {
-    it('should get the previous tetro type anti clock wise', () => {
-      expect(rotateTetroACW(TetroEnum.O)).toEqual(TetroEnum.I);
-      expect(rotateTetroACW(TetroEnum.S)).toEqual(TetroEnum.Z);
+  describe('rotateTetroDirectionACW', () => {
+    it('should get the previous direction type anti clock wise', () => {
+      expect(rotateTetroDirectionACW(DirectionEnum.W)).toEqual(DirectionEnum.S);
+      expect(rotateTetroDirectionACW(DirectionEnum.S)).toEqual(DirectionEnum.E);
     });
 
-    it('should get the last tetro, if input tetro was the first one', () => {
-      expect(rotateTetroACW(TetroEnum.Z)).toEqual(TetroEnum.O);
+    it('should get the last direction, if input tetro direction was the first one', () => {
+      expect(rotateTetroDirectionACW(DirectionEnum.N)).toEqual(DirectionEnum.W);
     });
   });
 });
