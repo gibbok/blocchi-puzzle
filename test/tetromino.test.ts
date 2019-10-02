@@ -1,4 +1,10 @@
-import { getRandomTetro, getTetroFromPieces, occupied, getBlock } from '../src/tetromino';
+import {
+  getRandomTetro,
+  getTetroFromPieces,
+  occupied,
+  getBlock,
+  rotateTetroACW
+} from '../src/tetromino';
 import { TetroEnum, DirectionEnum, I, NO, Z } from '../src/types';
 import { stub } from 'sinon';
 import { dataPieces, BOARD_EMPTY, BOARD_HALF_I_Y } from './data.support.test';
@@ -80,6 +86,17 @@ describe('tetromino', () => {
     it('should return none if block does not exist', () => {
       const test = getBlock(-100)(-100)(BOARD_HALF_I_Y);
       expect(test).toStrictEqual(none);
+    });
+  });
+
+  describe.only('rotateTetroACW', () => {
+    it('should get the previous tetro type anti clock wise', () => {
+      expect(rotateTetroACW(TetroEnum.O)).toEqual(TetroEnum.I);
+      expect(rotateTetroACW(TetroEnum.S)).toEqual(TetroEnum.Z);
+    });
+
+    it('should get the last tetro, if input tetro was the first one', () => {
+      expect(rotateTetroACW(TetroEnum.Z)).toEqual(TetroEnum.O);
     });
   });
 });

@@ -41,3 +41,10 @@ export const occupied = (t: TetroEnum) => (d: DirectionEnum) => (x: number) => (
     const isInvalidPosY = y < 0 || y >= TOT_BOARD_ROWS;
     return isInvalidPosX || isInvalidPosY || isTetroBlockAlredyOnBoard;
   });
+
+export const rotateTetroACW = (t: TetroEnum) => {
+  const values = Object.values(TetroEnum);
+  const i = values.indexOf(t);
+  const n = values[i - 1] !== undefined ? values[i - 1] : values[values.length - 1];
+  return n;
+};
