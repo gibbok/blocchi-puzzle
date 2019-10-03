@@ -1,3 +1,0 @@
-ISSUES:
-- Basically for public state, final rendering, we need a distinction between an internal board (where tetro locked are keept)
-and a board with the current tetro, floating freely with around blocked tetros.
