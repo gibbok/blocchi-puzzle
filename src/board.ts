@@ -35,17 +35,5 @@ export const recFindAvailablePosY = (type: TetroEnum) => (d: DirectionEnum) => (
   y: number
 ) => (b: Board) => (towardsY: number): number => recFindAvailablePos(type)(d)(x)(y)(b)(0)(towardsY);
 
-export const checkMatchesOnBoard = (b: Board): readonly number[] => {
-  const { lineIndex } = b.reduce(
-    (acc, row, idx: number) => {
-      const countOneLineMatch = row.every(cell => cell !== 0) ? 1 : 0;
-      const hasOneLineMatch = countOneLineMatch !== 0;
-      return {
-        lineIndex: hasOneLineMatch ? [...acc.lineIndex, idx] : [...acc.lineIndex]
-      };
-    },
-    { lineIndex: [] as number[] }
-  );
-
-  return lineIndex;
-};
+export const checkMatchesOnBoard = (b: Board): readonly number[] =>
+  b.flatMap((row, idx) => (row.every(cell => cell !== 0) ? [idx] : []));
