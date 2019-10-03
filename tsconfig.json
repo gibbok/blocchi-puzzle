@@ -7,7 +7,7 @@
     "noImplicitAny": true,
     "module": "commonjs",
     "moduleResolution": "node",
-    "target": "es5",
+    "target": "es2019",
     "allowJs": true,
     "jsx": "react",
     "esModuleInterop": true

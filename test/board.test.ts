@@ -36,15 +36,17 @@ describe('board', () => {
   describe.only('checkMatchesOnBoard', () => {
     it('should not return a match if board is empty', () => {
       expect(checkMatchesOnBoard(BOARD_EMPTY)).toEqual({
-        totalLinesMatched: 0,
-        board: BOARD_EMPTY
+        tot: 0,
+        board: BOARD_EMPTY,
+        idexes: []
       });
     });
 
     it('should return the total lines matched plus a board with removed lines', () => {
       expect(checkMatchesOnBoard(BOARD_HALF_S_Y)).toEqual({
-        totalLinesMatched: 14,
-        board: BOARD_HALF_S_Y
+        tot: 14,
+        board: BOARD_HALF_S_Y,
+        idexes: []
       });
     });
   });

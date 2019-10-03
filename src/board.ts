@@ -35,16 +35,29 @@ export const recFindAvailablePosY = (type: TetroEnum) => (d: DirectionEnum) => (
   y: number
 ) => (b: Board) => (towardsY: number): number => recFindAvailablePos(type)(d)(x)(y)(b)(0)(towardsY);
 
-export const checkMatchesOnBoard = (
-  b: Board
-): Readonly<{ totalLinesMatched: number; board: Board }> => {
-  const totalLinesMatched = b.reduce((acc, value) => {
-    const result = value.every(c => c !== 0) ? 1 : 0;
-    return acc + result;
-  }, 0);
-  console.log(totalLinesMatched);
+type X = Readonly<{ tot: number; idexes: readonly number[] }>;
+type Y = X &
+  Readonly<{
+    board: Board;
+  }>;
+
+export const checkMatchesOnBoard = (b: Board): Y => {
+  const { tot, idexes } = b.reduce(
+    (acc: X, value: readonly Block[]) => {
+      const result = value.every(c => c !== 0) ? 1 : 0;
+      const idx = value.flatMap((x, ix) => {
+        return x !== 0 ? [ix] : [];
+      });
+      return {
+        tot: acc.tot + result,
+        idexes: idx
+      };
+    },
+    { tot: 0, idexes: [] }
+  );
   return {
-    totalLinesMatched,
+    tot,
+    idexes,
     board: b
   };
 };
