@@ -44,11 +44,11 @@ type LineInfoBoard = LineInfo &
 export const checkMatchesOnBoard = (b: Board): LineInfoBoard => {
   const { tot, lineIndex } = b.reduce(
     (acc, row, idx: number) => {
-      const lineMatch = row.every(cell => cell !== 0) ? 1 : 0;
-
+      const countOneLineMatch = row.every(cell => cell !== 0) ? 1 : 0;
+      const hasOneLineMatch = countOneLineMatch !== 0;
       return {
-        tot: acc.tot + lineMatch,
-        lineIndex: lineMatch !== 0 ? [...acc.lineIndex, idx] : [...acc.lineIndex]
+        tot: acc.tot + countOneLineMatch,
+        lineIndex: hasOneLineMatch ? [...acc.lineIndex, idx] : [...acc.lineIndex]
       };
     },
     { tot: 0, lineIndex: [] as number[] }
@@ -57,6 +57,6 @@ export const checkMatchesOnBoard = (b: Board): LineInfoBoard => {
   return {
     tot,
     lineIndex,
-    board: b
+    board: b // TODO change the board here
   };
 };
