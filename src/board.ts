@@ -42,25 +42,21 @@ type LineInfoBoard = LineInfo &
   }>;
 
 export const checkMatchesOnBoard = (b: Board): LineInfoBoard => {
-  console.log(b.length);
   const { tot, lineIndex } = b.reduce(
-    (acc: LineInfo, row: readonly Block[]) => {
-      const lineFilled = row.every(cell => cell !== 0) ? 1 : 0;
-      // TODO bug here I want the row not the index of the cell
-      const lineIndex = row.flatMap((c, idx) => {
-        console.log(c, idx);
-        return c !== 0 ? [idx] : [];
-      });
+    (acc, row, idx: number) => {
+      const lineMatch = row.every(cell => cell !== 0) ? 1 : 0;
+
       return {
-        tot: acc.tot + lineFilled,
-        lineIndex
+        tot: acc.tot + lineMatch,
+        lineIndex: lineMatch !== 0 ? [...acc.lineIndex, idx] : [...acc.lineIndex]
       };
     },
-    { tot: 0, lineIndex: [] }
+    { tot: 0, lineIndex: [] as number[] }
   );
+
   return {
     tot,
-    lineIndex: lineIndex,
+    lineIndex,
     board: b
   };
 };

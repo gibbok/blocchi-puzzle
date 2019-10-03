@@ -46,7 +46,11 @@ describe('board', () => {
       expect(checkMatchesOnBoard(BOARD_HALF_S_Y)).toEqual({
         tot: 14,
         board: BOARD_HALF_S_Y,
-        lineIndex: []
+        lineIndex: [
+          ...Array(14)
+            .fill(0)
+            .map((_x, idx) => idx + 6)
+        ]
       });
     });
   });
