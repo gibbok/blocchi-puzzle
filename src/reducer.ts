@@ -11,14 +11,14 @@ export const mkInitialState = () => ({
   level: 1,
   lines: 0,
   currentTetro: {
-    type: TetroEnum.I, // TODO get random
-    direction: DirectionEnum.N, // TODO get randome
+    type: TetroEnum.I, // TODO random
+    direction: DirectionEnum.N, // TODO random
     x: 0,
     y: 0
   },
   nextTetro: {
-    type: TetroEnum.S, // TODO get random
-    direction: DirectionEnum.N, // TODO get randome
+    type: TetroEnum.S, // TODO random
+    direction: DirectionEnum.N, // TODO randome
     x: 0,
     y: 0
   },
