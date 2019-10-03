@@ -1,4 +1,4 @@
-import { TetroEnum, Tetro, DirectionEnum, Board, Cell } from './types';
+import { TetroEnum, Tetro, DirectionEnum, Board, Block } from './types';
 import { randomInt } from 'fp-ts/lib/Random';
 import { IO, io } from 'fp-ts/lib/IO';
 import { none, some, exists, Option } from 'fp-ts/lib/Option';
@@ -26,7 +26,7 @@ export const eachblock = (
   return result;
 };
 
-export const getBlock = (x: number) => (y: number) => (b: Board): Option<Cell> =>
+export const getBlock = (x: number) => (y: number) => (b: Board): Option<Block> =>
   b && b[y] ? some(b[y][x]) : none;
 
 export const occupied = (t: TetroEnum) => (d: DirectionEnum) => (x: number) => (y: number) => (
@@ -41,3 +41,12 @@ export const occupied = (t: TetroEnum) => (d: DirectionEnum) => (x: number) => (
     const isInvalidPosY = y < 0 || y >= TOT_BOARD_ROWS;
     return isInvalidPosX || isInvalidPosY || isTetroBlockAlredyOnBoard;
   });
+
+export const rotateTetroDirectionACW = (d: DirectionEnum) => {
+  const values = Object.values(DirectionEnum);
+  const len = values.length - 1;
+  const index = values.indexOf(d);
+  const prev = values[index - 1];
+  const newDirection = prev === undefined ? values[len] : prev;
+  return newDirection;
+};
