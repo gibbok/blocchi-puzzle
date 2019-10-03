@@ -1,4 +1,4 @@
-import { mkEmptyBoard, addTetroToBoard, checkMatchesOnBoard } from '../src/board';
+import { mkEmptyBoard, addTetroToBoard, getCompleteLineIdxs } from '../src/board';
 import {
   BOARD_EMPTY,
   BOARD_ROW_EMPTY,
@@ -33,13 +33,13 @@ describe('board', () => {
     });
   });
 
-  describe.only('checkMatchesOnBoard', () => {
-    it('should not return a match if board is empty', () => {
-      expect(checkMatchesOnBoard(BOARD_EMPTY)).toEqual([]);
+  describe('getCompleteLineIdxs', () => {
+    it('should return an empty array of full line positions if not found', () => {
+      expect(getCompleteLineIdxs(BOARD_EMPTY)).toEqual([]);
     });
 
-    it('should return the total lines matched plus a board with removed lines', () => {
-      expect(checkMatchesOnBoard(BOARD_HALF_S_Y)).toEqual([
+    it('should return an array of full line positions if foundu any', () => {
+      expect(getCompleteLineIdxs(BOARD_HALF_S_Y)).toEqual([
         ...Array(14)
           .fill(0)
           .map((_x, idx) => idx + 6)

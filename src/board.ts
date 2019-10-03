@@ -35,5 +35,5 @@ export const recFindAvailablePosY = (type: TetroEnum) => (d: DirectionEnum) => (
   y: number
 ) => (b: Board) => (towardsY: number): number => recFindAvailablePos(type)(d)(x)(y)(b)(0)(towardsY);
 
-export const checkMatchesOnBoard = (b: Board): readonly number[] =>
+export const getCompleteLineIdxs = (b: Board): readonly number[] =>
   b.flatMap((row, idx) => (row.every(cell => cell !== 0) ? [idx] : []));
