@@ -34,3 +34,17 @@ export const recFindAvailablePosX = (type: TetroEnum) => (d: DirectionEnum) => (
 export const recFindAvailablePosY = (type: TetroEnum) => (d: DirectionEnum) => (x: number) => (
   y: number
 ) => (b: Board) => (towardsY: number): number => recFindAvailablePos(type)(d)(x)(y)(b)(0)(towardsY);
+
+export const checkMatchesOnBoard = (
+  b: Board
+): Readonly<{ totalLinesMatched: number; board: Board }> => {
+  const totalLinesMatched = b.reduce((acc, value) => {
+    const result = value.every(c => c !== 0) ? 1 : 0;
+    return acc + result;
+  }, 0);
+  console.log(totalLinesMatched);
+  return {
+    totalLinesMatched,
+    board: b
+  };
+};

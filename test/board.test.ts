@@ -1,5 +1,11 @@
-import { mkEmptyBoard, addTetroToBoard } from '../src/board';
-import { BOARD_EMPTY, BOARD_ROW_EMPTY, BOARD_FULL_S, BOARD_ROW_S } from './data.support.test';
+import { mkEmptyBoard, addTetroToBoard, checkMatchesOnBoard } from '../src/board';
+import {
+  BOARD_EMPTY,
+  BOARD_ROW_EMPTY,
+  BOARD_FULL_S,
+  BOARD_ROW_S,
+  BOARD_HALF_S_Y
+} from './data.support.test';
 import { TetroEnum, DirectionEnum, I, Board, S } from '../src/types';
 
 describe('board', () => {
@@ -24,6 +30,22 @@ describe('board', () => {
       const test = addTetroToBoard(TetroEnum.I)(DirectionEnum.E)(0)(0)(BOARD_FULL_S);
       const result: Board = [[I, I, I, I, S, S, S, S, S, S], ...Array(19).fill(BOARD_ROW_S)];
       expect(test).toEqual(result);
+    });
+  });
+
+  describe.only('checkMatchesOnBoard', () => {
+    it('should not return a match if board is empty', () => {
+      expect(checkMatchesOnBoard(BOARD_EMPTY)).toEqual({
+        totalLinesMatched: 0,
+        board: BOARD_EMPTY
+      });
+    });
+
+    it('should return the total lines matched plus a board with removed lines', () => {
+      expect(checkMatchesOnBoard(BOARD_HALF_S_Y)).toEqual({
+        totalLinesMatched: 14,
+        board: BOARD_HALF_S_Y
+      });
     });
   });
 });
