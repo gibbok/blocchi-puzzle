@@ -35,28 +35,17 @@ export const recFindAvailablePosY = (type: TetroEnum) => (d: DirectionEnum) => (
   y: number
 ) => (b: Board) => (towardsY: number): number => recFindAvailablePos(type)(d)(x)(y)(b)(0)(towardsY);
 
-type LineInfo = Readonly<{ tot: number; lineIndex: readonly number[] }>;
-type LineInfoBoard = LineInfo &
-  Readonly<{
-    board: Board;
-  }>;
-
-export const checkMatchesOnBoard = (b: Board): LineInfoBoard => {
-  const { tot, lineIndex } = b.reduce(
+export const checkMatchesOnBoard = (b: Board): readonly number[] => {
+  const { lineIndex } = b.reduce(
     (acc, row, idx: number) => {
       const countOneLineMatch = row.every(cell => cell !== 0) ? 1 : 0;
       const hasOneLineMatch = countOneLineMatch !== 0;
       return {
-        tot: acc.tot + countOneLineMatch,
         lineIndex: hasOneLineMatch ? [...acc.lineIndex, idx] : [...acc.lineIndex]
       };
     },
-    { tot: 0, lineIndex: [] as number[] }
+    { lineIndex: [] as number[] }
   );
 
-  return {
-    tot,
-    lineIndex,
-    board: b // TODO change the board here
-  };
+  return lineIndex;
 };

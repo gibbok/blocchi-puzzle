@@ -35,23 +35,15 @@ describe('board', () => {
 
   describe.only('checkMatchesOnBoard', () => {
     it('should not return a match if board is empty', () => {
-      expect(checkMatchesOnBoard(BOARD_EMPTY)).toEqual({
-        tot: 0,
-        board: BOARD_EMPTY,
-        lineIndex: []
-      });
+      expect(checkMatchesOnBoard(BOARD_EMPTY)).toEqual([]);
     });
 
     it('should return the total lines matched plus a board with removed lines', () => {
-      expect(checkMatchesOnBoard(BOARD_HALF_S_Y)).toEqual({
-        tot: 14,
-        board: BOARD_HALF_S_Y,
-        lineIndex: [
-          ...Array(14)
-            .fill(0)
-            .map((_x, idx) => idx + 6)
-        ]
-      });
+      expect(checkMatchesOnBoard(BOARD_HALF_S_Y)).toEqual([
+        ...Array(14)
+          .fill(0)
+          .map((_x, idx) => idx + 6)
+      ]);
     });
   });
 });
