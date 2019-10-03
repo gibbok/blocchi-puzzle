@@ -35,29 +35,32 @@ export const recFindAvailablePosY = (type: TetroEnum) => (d: DirectionEnum) => (
   y: number
 ) => (b: Board) => (towardsY: number): number => recFindAvailablePos(type)(d)(x)(y)(b)(0)(towardsY);
 
-type X = Readonly<{ tot: number; idexes: readonly number[] }>;
-type Y = X &
+type LineInfo = Readonly<{ tot: number; lineIndex: readonly number[] }>;
+type LineInfoBoard = LineInfo &
   Readonly<{
     board: Board;
   }>;
 
-export const checkMatchesOnBoard = (b: Board): Y => {
-  const { tot, idexes } = b.reduce(
-    (acc: X, value: readonly Block[]) => {
-      const result = value.every(c => c !== 0) ? 1 : 0;
-      const idx = value.flatMap((x, ix) => {
-        return x !== 0 ? [ix] : [];
+export const checkMatchesOnBoard = (b: Board): LineInfoBoard => {
+  console.log(b.length);
+  const { tot, lineIndex } = b.reduce(
+    (acc: LineInfo, row: readonly Block[]) => {
+      const lineFilled = row.every(cell => cell !== 0) ? 1 : 0;
+      // TODO bug here I want the row not the index of the cell
+      const lineIndex = row.flatMap((c, idx) => {
+        console.log(c, idx);
+        return c !== 0 ? [idx] : [];
       });
       return {
-        tot: acc.tot + result,
-        idexes: idx
+        tot: acc.tot + lineFilled,
+        lineIndex
       };
     },
-    { tot: 0, idexes: [] }
+    { tot: 0, lineIndex: [] }
   );
   return {
     tot,
-    idexes,
+    lineIndex: lineIndex,
     board: b
   };
 };

@@ -38,7 +38,7 @@ describe('board', () => {
       expect(checkMatchesOnBoard(BOARD_EMPTY)).toEqual({
         tot: 0,
         board: BOARD_EMPTY,
-        idexes: []
+        lineIndex: []
       });
     });
 
@@ -46,7 +46,7 @@ describe('board', () => {
       expect(checkMatchesOnBoard(BOARD_HALF_S_Y)).toEqual({
         tot: 14,
         board: BOARD_HALF_S_Y,
-        idexes: []
+        lineIndex: []
       });
     });
   });
