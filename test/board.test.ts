@@ -4,7 +4,8 @@ import {
   getCompleteRowIdxs,
   removeCompleteRowFromBoard,
   mkRow,
-  mkEmptyRow
+  mkEmptyRow,
+  appendEmptyRowsToBoard
 } from '../src/board';
 import {
   BOARD_EMPTY,
@@ -86,6 +87,15 @@ describe('board', () => {
     it('should make an empty row', () => {
       const output = [...Array(10).fill(0)];
       expect(mkEmptyRow).toEqual(output);
+    });
+  });
+
+  describe('appendEmptyRowsToBoard', () => {
+    it('should append 10 empty rows to a board', () => {
+      const input: Board = [...Array(10).fill(S)];
+      const output: Board = [...Array(10).fill(mkEmptyRow), ...Array(10).fill(S)];
+      const test = appendEmptyRowsToBoard(input)(10);
+      expect(test).toEqual(output);
     });
   });
 });

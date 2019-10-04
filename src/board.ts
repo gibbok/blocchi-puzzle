@@ -54,7 +54,7 @@ export const removeCompleteRowFromBoard = (b: Board) => (
 export const mkRow = (len: number) => (b: Block) => [...Array(len).fill(b)];
 export const mkEmptyRow = mkRow(TOT_BOARD_CELLS)(0);
 
-export const appendEmptyRowsToBoard = (b: Board) => (amount: number) => [
+export const appendEmptyRowsToBoard = (b: Board) => (amount: number): Board => [
   ...Array(amount).fill(mkEmptyRow),
   ...b
 ];
