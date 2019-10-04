@@ -1,4 +1,4 @@
-import { Board, Block, TetroEnum, DirectionEnum } from './types';
+import { Board, Block, TetroEnum, DirectionEnum, NoTetro } from './types';
 import { getTetroFromPieces, occupied } from './tetromino';
 import { pipe } from 'fp-ts/lib/pipeable';
 
@@ -6,7 +6,7 @@ export const TOT_BOARD_CELLS = 10;
 export const TOT_BOARD_ROWS = 20;
 
 export const mkEmptyBoard = (rows: number) => (columns: number): Board =>
-  [...Array(rows)].fill([...Array(columns).fill(0 as Block)]);
+  [...Array(rows)].fill([...Array(columns).fill(NoTetro)]);
 
 export const addTetroToBoard = (t: TetroEnum) => (d: DirectionEnum) => (x: number) => (
   y: number
@@ -37,7 +37,7 @@ export const recFindAvailablePosY = (type: TetroEnum) => (d: DirectionEnum) => (
 ) => (b: Board) => (towardsY: number): number => recFindAvailablePos(type)(d)(x)(y)(b)(0)(towardsY);
 
 export const getCompleteRowIdxs = (b: Board): number[] =>
-  b.flatMap((row, idx) => (row.every(cell => cell !== 0) ? [idx] : []));
+  b.flatMap((row, idx) => (row.every(cell => cell !== NoTetro) ? [idx] : []));
 
 export const removeCompleteRowFromBoard = (b: Board) => (
   lineIdxs: number[]
@@ -53,7 +53,7 @@ export const removeCompleteRowFromBoard = (b: Board) => (
 };
 
 export const mkRow = (len: number) => (b: Block) => [...Array(len).fill(b)];
-export const mkEmptyRow = mkRow(TOT_BOARD_CELLS)(0);
+export const mkEmptyRow = mkRow(TOT_BOARD_CELLS)(NoTetro);
 
 export const appendEmptyRowsToBoard = (b: Board) => (amount: number): Board => [
   ...Array(amount).fill(mkEmptyRow),

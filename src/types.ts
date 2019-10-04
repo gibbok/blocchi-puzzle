@@ -19,8 +19,12 @@ export enum TetroEnum {
   O = 'O'
 }
 
-export type NoTetro = 0;
-export type Block = NoTetro | TetroEnum;
+export enum NoTetroEnum {
+  NoTetro
+}
+export const NoTetro = NoTetroEnum.NoTetro;
+
+export type Block = NoTetroEnum.NoTetro | TetroEnum;
 
 export type TetroPieces = Record<TetroEnum, Record<DirectionEnum, Tetro>>;
 
