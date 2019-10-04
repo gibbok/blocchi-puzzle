@@ -1,12 +1,20 @@
-import { mkEmptyBoard, addTetroToBoard, getCompleteLineIdxs } from '../src/board';
+import {
+  mkEmptyBoard,
+  addTetroToBoard,
+  getCompleteRowIdxs,
+  removeCompleteRowFromBoard
+} from '../src/board';
+import { logger } from '../src/utils';
 import {
   BOARD_EMPTY,
   BOARD_ROW_EMPTY,
   BOARD_FULL_S,
   BOARD_ROW_S,
-  BOARD_HALF_S_Y
+  BOARD_HALF_S_Y,
+  BOARD_HALF_S_X_REV,
+  BOARD_RANDOM_S_1
 } from './data.support.test';
-import { TetroEnum, DirectionEnum, I, Board, S } from '../src/types';
+import { TetroEnum, DirectionEnum, I, Board, S, Z, J } from '../src/types';
 
 describe('board', () => {
   describe('mkEmptyBoard', () => {
@@ -33,17 +41,37 @@ describe('board', () => {
     });
   });
 
-  describe('getCompleteLineIdxs', () => {
-    it('should return an empty array of full line positions if not found', () => {
-      expect(getCompleteLineIdxs(BOARD_EMPTY)).toEqual([]);
+  describe('getCompleteRowIdxs', () => {
+    it('should return an empty array of full row positions if not found', () => {
+      expect(getCompleteRowIdxs(BOARD_EMPTY)).toEqual([]);
     });
 
-    it('should return an array of full line positions if foundu any', () => {
-      expect(getCompleteLineIdxs(BOARD_HALF_S_Y)).toEqual([
+    it('should return an array of full row positions if found any', () => {
+      expect(getCompleteRowIdxs(BOARD_HALF_S_Y)).toEqual([
         ...Array(14)
           .fill(0)
           .map((_x, idx) => idx + 6)
       ]);
+    });
+  });
+
+  describe('removeCompleteRowFromBoard', () => {
+    it('should remove specific rows from board', () => {
+      const input = BOARD_RANDOM_S_1;
+      const output = {
+        board: [
+          ...Array(10).fill(BOARD_ROW_EMPTY),
+          [0, 0, 0, 0, 0, I, I, I, I, I],
+          [0, 0, 0, 0, S, S, S, S, S, S],
+          [0, 0, 0, S, S, S, S, S, S, S],
+          [0, 0, S, S, S, S, S, S, S, S],
+          [0, 0, J, J, J, J, J, J, J, J],
+          [0, 0, Z, Z, Z, Z, Z, Z, Z, Z]
+        ],
+        totRemoved: 4
+      };
+      const test = removeCompleteRowFromBoard(input)([15, 16, 18, 19]);
+      expect(test).toEqual(output);
     });
   });
 });

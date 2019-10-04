@@ -35,5 +35,18 @@ export const recFindAvailablePosY = (type: TetroEnum) => (d: DirectionEnum) => (
   y: number
 ) => (b: Board) => (towardsY: number): number => recFindAvailablePos(type)(d)(x)(y)(b)(0)(towardsY);
 
-export const getCompleteLineIdxs = (b: Board): readonly number[] =>
+export const getCompleteRowIdxs = (b: Board): readonly number[] =>
   b.flatMap((row, idx) => (row.every(cell => cell !== 0) ? [idx] : []));
+
+export const removeCompleteRowFromBoard = (b: Board) => (
+  lineIdxs: number[]
+): Readonly<{
+  board: Board;
+  totRemoved: number;
+}> => {
+  const newBoard = b.filter((_row, ridx) => !lineIdxs.some(idx => idx === ridx));
+  return {
+    board: newBoard,
+    totRemoved: b.length - newBoard.length
+  };
+};
