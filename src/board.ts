@@ -50,3 +50,11 @@ export const removeCompleteRowFromBoard = (b: Board) => (
     totRemoved: b.length - newBoard.length
   };
 };
+
+export const mkRow = (len: number) => (b: Block) => [...Array(len).fill(b)];
+export const mkEmptyRow = mkRow(TOT_BOARD_CELLS)(0);
+
+export const appendEmptyRowsToBoard = (b: Board) => (amount: number) => [
+  ...Array(amount).fill(mkEmptyRow),
+  ...b
+];

@@ -2,16 +2,16 @@ import {
   mkEmptyBoard,
   addTetroToBoard,
   getCompleteRowIdxs,
-  removeCompleteRowFromBoard
+  removeCompleteRowFromBoard,
+  mkRow,
+  mkEmptyRow
 } from '../src/board';
-import { logger } from '../src/utils';
 import {
   BOARD_EMPTY,
   BOARD_ROW_EMPTY,
   BOARD_FULL_S,
   BOARD_ROW_S,
   BOARD_HALF_S_Y,
-  BOARD_HALF_S_X_REV,
   BOARD_RANDOM_S_1
 } from './data.support.test';
 import { TetroEnum, DirectionEnum, I, Board, S, Z, J } from '../src/types';
@@ -72,6 +72,20 @@ describe('board', () => {
       };
       const test = removeCompleteRowFromBoard(input)([15, 16, 18, 19]);
       expect(test).toEqual(output);
+    });
+  });
+
+  describe('mkRow', () => {
+    it('should make a row full of tetro S', () => {
+      const output = [...Array(10).fill(S)];
+      expect(mkRow(10)(S)).toEqual(output);
+    });
+  });
+
+  describe('mkEmptyRow', () => {
+    it('should make an empty row', () => {
+      const output = [...Array(10).fill(0)];
+      expect(mkEmptyRow).toEqual(output);
     });
   });
 });

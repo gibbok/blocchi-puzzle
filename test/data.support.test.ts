@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { TetroPieces, Z, S, J, T, I, O, Board, TetroEnum, Block, BoardRow } from '../src/types';
+import { TetroPieces, Z, S, J, T, I, O, Board, TetroEnum, BoardRow } from '../src/types';
+import { mkEmptyRow, mkRow } from '../src/board';
 
 export const dataPieces: TetroPieces = {
   Z: {
@@ -41,12 +42,8 @@ export const dataPieces: TetroPieces = {
 };
 /* eslint-enable prettier/prettier */
 
-export const fillRowWith = (cellTot: number) => (block: Block): BoardRow => [
-  ...Array(cellTot).fill(block)
-];
-
-export const BOARD_ROW_EMPTY: BoardRow = fillRowWith(10)(0);
-export const BOARD_ROW_S: BoardRow = fillRowWith(10)(S);
+export const BOARD_ROW_EMPTY: BoardRow = mkEmptyRow;
+export const BOARD_ROW_S: BoardRow = mkRow(10)(S);
 
 export const BOARD_EMPTY: Board = [...Array(20).fill(BOARD_ROW_EMPTY)];
 
