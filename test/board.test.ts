@@ -5,8 +5,10 @@ import {
   removeCompleteRowFromBoard,
   mkRow,
   mkEmptyRow,
-  appendEmptyRowsToBoard
+  appendEmptyRowsToBoard,
+  detectAndRemoveCompleteRows
 } from '../src/board';
+// import { logger } from '../src/utils';
 import {
   BOARD_EMPTY,
   BOARD_ROW_EMPTY,
@@ -96,6 +98,23 @@ describe('board', () => {
       const output: Board = [...Array(10).fill(mkEmptyRow), ...Array(10).fill(S)];
       const test = appendEmptyRowsToBoard(input)(10);
       expect(test).toEqual(output);
+    });
+  });
+
+  describe('detectAndRemoveCompleteRows', () => {
+    it('should detect 4 rows completed, remove them and add 4 new empty row at the begginin of the board', () => {
+      const input = BOARD_RANDOM_S_1;
+      const output = [
+        ...Array(14).fill(BOARD_ROW_EMPTY),
+        [0, 0, 0, 0, 0, I, I, I, I, I],
+        [0, 0, 0, 0, S, S, S, S, S, S],
+        [0, 0, 0, S, S, S, S, S, S, S],
+        [0, 0, S, S, S, S, S, S, S, S],
+        [0, 0, J, J, J, J, J, J, J, J],
+        [0, 0, Z, Z, Z, Z, Z, Z, Z, Z]
+      ];
+      const test = detectAndRemoveCompleteRows(input);
+      expect(test).toStrictEqual(output);
     });
   });
 });

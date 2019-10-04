@@ -35,7 +35,7 @@ export const recFindAvailablePosY = (type: TetroEnum) => (d: DirectionEnum) => (
   y: number
 ) => (b: Board) => (towardsY: number): number => recFindAvailablePos(type)(d)(x)(y)(b)(0)(towardsY);
 
-export const getCompleteRowIdxs = (b: Board): readonly number[] =>
+export const getCompleteRowIdxs = (b: Board): number[] =>
   b.flatMap((row, idx) => (row.every(cell => cell !== 0) ? [idx] : []));
 
 export const removeCompleteRowFromBoard = (b: Board) => (
@@ -58,3 +58,10 @@ export const appendEmptyRowsToBoard = (b: Board) => (amount: number): Board => [
   ...Array(amount).fill(mkEmptyRow),
   ...b
 ];
+
+export const detectAndRemoveCompleteRows = (b: Board): Board => {
+  const idxsRowCompleted = getCompleteRowIdxs(b);
+  const { board, totRemoved } = removeCompleteRowFromBoard(b)(idxsRowCompleted);
+  const newBoard = appendEmptyRowsToBoard(board)(totRemoved);
+  return newBoard;
+};
