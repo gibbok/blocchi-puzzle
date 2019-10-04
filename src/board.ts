@@ -1,5 +1,6 @@
 import { Board, Block, TetroEnum, DirectionEnum } from './types';
 import { getTetroFromPieces, occupied } from './tetromino';
+import { pipe } from 'fp-ts/lib/pipeable';
 
 export const TOT_BOARD_CELLS = 10;
 export const TOT_BOARD_ROWS = 20;
@@ -59,9 +60,9 @@ export const appendEmptyRowsToBoard = (b: Board) => (amount: number): Board => [
   ...b
 ];
 
-export const detectAndRemoveCompleteRows = (b: Board): Board => {
-  const idxsRowCompleted = getCompleteRowIdxs(b);
-  const { board, totRemoved } = removeCompleteRowFromBoard(b)(idxsRowCompleted);
-  const newBoard = appendEmptyRowsToBoard(board)(totRemoved);
-  return newBoard;
-};
+export const detectAndRemoveCompletedRows = (b: Board): Board =>
+  pipe(
+    getCompleteRowIdxs(b),
+    idxsRowCompleted => removeCompleteRowFromBoard(b)(idxsRowCompleted),
+    ({ board, totRemoved }) => appendEmptyRowsToBoard(board)(totRemoved)
+  );

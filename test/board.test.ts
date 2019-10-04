@@ -6,7 +6,7 @@ import {
   mkRow,
   mkEmptyRow,
   appendEmptyRowsToBoard,
-  detectAndRemoveCompleteRows
+  detectAndRemoveCompletedRows
 } from '../src/board';
 // import { logger } from '../src/utils';
 import {
@@ -101,7 +101,7 @@ describe('board', () => {
     });
   });
 
-  describe('detectAndRemoveCompleteRows', () => {
+  describe('detectAndRemoveCompletedRows', () => {
     it('should detect 4 rows completed, remove them and add 4 new empty row at the begginin of the board', () => {
       const input = BOARD_RANDOM_S_1;
       const output = [
@@ -113,7 +113,7 @@ describe('board', () => {
         [0, 0, J, J, J, J, J, J, J, J],
         [0, 0, Z, Z, Z, Z, Z, Z, Z, Z]
       ];
-      const test = detectAndRemoveCompleteRows(input);
+      const test = detectAndRemoveCompletedRows(input);
       expect(test).toStrictEqual(output);
     });
   });
