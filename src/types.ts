@@ -83,5 +83,6 @@ export enum ActionEnum {
   MoveDown = 'MoveDown',
   MoveRight = 'MoveRight',
   MoveLeft = 'MoveLeft',
-  MoveUp = 'MoveUp'
+  MoveUp = 'MoveUp',
+  CheckBoard = 'CheckBoard'
 }

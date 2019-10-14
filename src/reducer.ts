@@ -1,6 +1,15 @@
 import { InternalState, Action, ActionEnum, TetroEnum, DirectionEnum } from './types';
-import { mkEmptyBoard, addTetroToBoard, recFindAvailablePosY, recFindAvailablePosX } from './board';
+import {
+  mkEmptyBoard,
+  addTetroToBoard,
+  recFindAvailablePosY,
+  recFindAvailablePosX,
+  detectAndRemoveCompletedRows,
+  getCompleteRowIdxs
+} from './board';
 import { occupied, rotateTetroDirectionACW } from './tetromino';
+import { pipe } from 'fp-ts/lib/pipeable';
+import { calcScore, calcLevel } from './game';
 
 export const BOARD_TOT_BLOCK_X = 20;
 export const BOARD_TOT_ROW_Y = 10;
@@ -107,6 +116,22 @@ export const reducer = (
           x,
           y
         },
+        nextTetro,
+        isPlay
+      };
+    case ActionEnum.CheckBoard:
+      const totRowCompleted = getCompleteRowIdxs(board);
+      const totRowCompletedLen = totRowCompleted.length;
+      const newScore = pipe(
+        totRowCompletedLen,
+        calcScore
+      );
+      return {
+        board: detectAndRemoveCompletedRows(board),
+        score: newScore,
+        level: calcLevel(newScore),
+        lines: lines + totRowCompletedLen,
+        currentTetro: { type, direction, x, y },
         nextTetro,
         isPlay
       };

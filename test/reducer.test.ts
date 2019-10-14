@@ -1,13 +1,15 @@
 import { reducer, mkInitialState } from '../src/reducer';
 
 import { InternalState, I, S, NO, WE, ES } from '../src/types';
-import { MoveDown, MoveRight, MoveLeft, MoveUp } from '../src/action';
+import { MoveDown, MoveRight, MoveLeft, MoveUp, CheckBoard } from '../src/action';
 import {
   BOARD_HALF_S_Y,
   BOARD_ROW_EMPTY,
   BOARD_HALF_S_X,
-  BOARD_HALF_S_X_REV
+  BOARD_HALF_S_X_REV,
+  BOARD_EMPTY
 } from './data.support.test';
+// import { logger } from '../src/utils';
 
 const INITIAL_STATE = mkInitialState();
 const INVALID_ACTION = { type: 'invalid-action' };
@@ -187,6 +189,33 @@ describe('reducer', () => {
           currentTetro: { ...INITIAL_STATE.currentTetro, direction: ES, x: 0, y: 5 }
         };
         const r = reducer(initialState, MoveUp);
+        expect(r).toEqual(finalState);
+      });
+    });
+
+    describe('CheckBoard', () => {
+      it('should update level, lines, score when row completed are detected on the board', () => {
+        const initialState: InternalState = {
+          ...INITIAL_STATE,
+          board: BOARD_HALF_S_Y,
+          currentTetro: { ...INITIAL_STATE.currentTetro, direction: ES, x: 0, y: 5 }
+        };
+        const finalState: InternalState = {
+          ...INITIAL_STATE,
+          board: BOARD_EMPTY,
+          currentTetro: { ...INITIAL_STATE.currentTetro, direction: ES, x: 0, y: 5 },
+          level: 2,
+          lines: 14,
+          score: 1400
+        };
+        const r = reducer(initialState, CheckBoard);
+        expect(r).toEqual(finalState);
+      });
+
+      it('should not update level, lines, score when no row completed are detected', () => {
+        const initialState: InternalState = { ...INITIAL_STATE };
+        const finalState: InternalState = { ...INITIAL_STATE };
+        const r = reducer(initialState, CheckBoard);
         expect(r).toEqual(finalState);
       });
     });
