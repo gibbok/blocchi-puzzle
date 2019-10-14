@@ -54,9 +54,9 @@ export type Board = readonly (BoardRow)[];
 
 export type InternalState = Readonly<{
   board: Board;
-  score: number;
-  level: number;
-  lines: number;
+  score: number; // some point based on lines done
+  level: number; // based on score, every 1000 score you go to next level, speed is faster
+  lines: number; // number of lines done
   currentTetro: TetroDef;
   nextTetro: TetroDef;
   isPlay: boolean;
