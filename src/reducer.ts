@@ -1,4 +1,7 @@
 import { InternalState, Action, ActionEnum, TetroEnum, DirectionEnum } from './types';
+import { Store } from 'redux';
+import { configureStore } from 'redux-starter-kit';
+
 import {
   mkEmptyBoard,
   addTetroToBoard,
@@ -139,3 +142,5 @@ export const reducer = (
       return prevState;
   }
 };
+
+const store: Store = configureStore({ reducer });
