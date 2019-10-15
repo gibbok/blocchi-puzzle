@@ -27,31 +27,31 @@
     "main": "npm run tsc && npx node -e \"require('./dist/main.js').main()\""
   },
   "dependencies": {
-    "fp-ts": "^2.0.3",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "redux-starter-kit": "^0.7.0",
-    "sinon": "^7.3.2"
+    "fp-ts": "^2.1.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "redux-starter-kit": "^0.8.0",
+    "sinon": "^7.5.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "@types/jest": "^24.0.15",
-    "@types/node": "^12.6.8",
-    "@types/react": "^16.8.23",
-    "@types/react-dom": "^16.8.4",
-    "@types/sinon": "^7.0.13",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "@types/jest": "^24.0.19",
+    "@types/node": "^12.7.12",
+    "@types/react": "^16.9.7",
+    "@types/react-dom": "^16.9.2",
+    "@types/sinon": "^7.5.0",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
-    "eslint": "^6.1.0",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-react": "^7.14.2",
-    "jest": "^24.8.0",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "jest": "^24.9.0",
     "parcel-bundler": "^1.12.4",
     "prettier": "^1.18.2",
-    "ts-jest": "^24.0.2",
-    "typescript": "^3.5.3"
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.4"
   },
   "jest": {
     "testEnvironment": "node"

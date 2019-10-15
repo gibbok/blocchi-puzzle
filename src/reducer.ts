@@ -284,7 +284,7 @@ const logicCheckBoard = (prevState: InternalState) => {
 };
 
 export const gameSlice = createSlice({
-  slice: 'game',
+  name: 'game',
   initialState: mkInitialState(),
   reducers: {
     checkBoard: logicCheckBoard,
