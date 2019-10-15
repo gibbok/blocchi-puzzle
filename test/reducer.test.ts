@@ -1,7 +1,7 @@
-import { reducer, mkInitialState } from '../src/reducer';
+import { gameSlice, mkInitialState } from '../src/reducer';
+const { actions, reducer } = gameSlice;
 
 import { InternalState, I, S, NO, WE, ES } from '../src/types';
-import { moveDown, moveRight, moveLeft, moveUp, checkBoard } from '../src/action';
 import {
   BOARD_HALF_S_Y,
   BOARD_ROW_EMPTY,
@@ -32,7 +32,7 @@ describe('reducer', () => {
           ...INITIAL_STATE,
           currentTetro: { ...INITIAL_STATE.currentTetro, y: 1 }
         };
-        const r = reducer(INITIAL_STATE, moveDown);
+        const r = reducer(INITIAL_STATE, actions.moveDown);
         expect(r).toEqual(test);
       });
 
@@ -47,7 +47,7 @@ describe('reducer', () => {
           board: BOARD_HALF_S_Y,
           currentTetro: { ...INITIAL_STATE.currentTetro, y: 2 }
         };
-        const r = reducer(initialState, moveDown);
+        const r = reducer(initialState, actions.moveDown);
         expect(r).toEqual(finalState);
       });
 
@@ -66,7 +66,7 @@ describe('reducer', () => {
           ],
           currentTetro: { ...INITIAL_STATE.currentTetro, y: 2 }
         };
-        const r = reducer(initialState, moveDown);
+        const r = reducer(initialState, actions.moveDown);
         expect(r).toEqual(finalState);
       });
     });
@@ -77,7 +77,7 @@ describe('reducer', () => {
           ...INITIAL_STATE,
           currentTetro: { ...INITIAL_STATE.currentTetro, x: 1 }
         };
-        const r = reducer(INITIAL_STATE, moveRight);
+        const r = reducer(INITIAL_STATE, actions.moveRight);
         expect(r).toEqual(test);
       });
 
@@ -92,7 +92,7 @@ describe('reducer', () => {
           board: BOARD_HALF_S_X,
           currentTetro: { ...INITIAL_STATE.currentTetro, x: 2 }
         };
-        const r = reducer(initialState, moveRight);
+        const r = reducer(initialState, actions.moveRight);
         expect(r).toEqual(finalState);
       });
 
@@ -110,7 +110,7 @@ describe('reducer', () => {
           ],
           currentTetro: { ...INITIAL_STATE.currentTetro, x: 4 }
         };
-        const r = reducer(initialState, moveRight);
+        const r = reducer(initialState, actions.moveRight);
         expect(r).toEqual(finalState);
       });
     });
@@ -125,7 +125,7 @@ describe('reducer', () => {
           ...INITIAL_STATE,
           currentTetro: { ...INITIAL_STATE.currentTetro, x: 0 }
         };
-        const r = reducer(initialState, moveLeft);
+        const r = reducer(initialState, actions.moveLeft);
         expect(r).toEqual(finalState);
       });
 
@@ -140,7 +140,7 @@ describe('reducer', () => {
           board: BOARD_HALF_S_X,
           currentTetro: { ...INITIAL_STATE.currentTetro, x: 0 }
         };
-        const r = reducer(initialState, moveLeft);
+        const r = reducer(initialState, actions.moveLeft);
         expect(r).toEqual(finalState);
       });
 
@@ -158,7 +158,7 @@ describe('reducer', () => {
           ],
           currentTetro: { ...INITIAL_STATE.currentTetro, x: 5 }
         };
-        const r = reducer(initialState, moveLeft);
+        const r = reducer(initialState, actions.moveLeft);
         expect(r).toEqual(finalState);
       });
     });
@@ -173,7 +173,7 @@ describe('reducer', () => {
           ...INITIAL_STATE,
           currentTetro: { ...INITIAL_STATE.currentTetro, direction: WE }
         };
-        const r = reducer(initialState, moveUp);
+        const r = reducer(initialState, actions.moveUp);
         expect(r).toEqual(finalState);
       });
 
@@ -188,7 +188,7 @@ describe('reducer', () => {
           board: BOARD_HALF_S_Y,
           currentTetro: { ...INITIAL_STATE.currentTetro, direction: ES, x: 0, y: 5 }
         };
-        const r = reducer(initialState, moveUp);
+        const r = reducer(initialState, actions.moveUp);
         expect(r).toEqual(finalState);
       });
     });
@@ -208,14 +208,14 @@ describe('reducer', () => {
           lines: 14,
           score: 1400
         };
-        const r = reducer(initialState, checkBoard);
+        const r = reducer(initialState, actions.checkBoard);
         expect(r).toEqual(finalState);
       });
 
       it('should not update level, lines, score when no row completed are detected', () => {
         const initialState: InternalState = { ...INITIAL_STATE };
         const finalState: InternalState = { ...INITIAL_STATE };
-        const r = reducer(initialState, checkBoard);
+        const r = reducer(initialState, actions.checkBoard);
         expect(r).toEqual(finalState);
       });
     });

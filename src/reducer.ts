@@ -1,6 +1,6 @@
-import { InternalState, ActionEnum, TetroEnum, DirectionEnum } from './types';
+import { InternalState, TetroEnum, DirectionEnum } from './types';
 import { Store } from 'redux';
-import { configureStore, createReducer } from 'redux-starter-kit';
+import { configureStore, createSlice } from 'redux-starter-kit';
 
 import {
   mkEmptyBoard,
@@ -283,12 +283,16 @@ const logicCheckBoard = (prevState: InternalState) => {
   };
 };
 
-export const reducer = createReducer(mkInitialState(), {
-  [ActionEnum.CheckBoard]: logicCheckBoard,
-  [ActionEnum.MoveUp]: logicMoveUp,
-  [ActionEnum.MoveLeft]: logicMoveLeft,
-  [ActionEnum.MoveRight]: logicMoveRight,
-  [ActionEnum.MoveDown]: logicMoveDown
+export const gameSlice = createSlice({
+  slice: 'game',
+  initialState: mkInitialState(),
+  reducers: {
+    checkBoard: logicCheckBoard,
+    moveUp: logicMoveUp,
+    moveLeft: logicMoveLeft,
+    moveRight: logicMoveRight,
+    moveDown: logicMoveDown
+  }
 });
 
-export const store: Store = configureStore({ reducer });
+export const store: Store = configureStore({ reducer: gameSlice.reducer });

@@ -78,11 +78,3 @@ export type CallBack = () => void;
 export type Action = Readonly<{
   type: string;
 }>;
-
-export enum ActionEnum {
-  MoveDown = 'MoveDown',
-  MoveRight = 'MoveRight',
-  MoveLeft = 'MoveLeft',
-  MoveUp = 'MoveUp',
-  CheckBoard = 'CheckBoard'
-}
