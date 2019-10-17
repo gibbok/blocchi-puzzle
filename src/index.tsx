@@ -11,12 +11,7 @@ class App extends React.Component<Props> {
   public render(): JSX.Element {
     return (
       <Provider store={store}>
-        <div>
-          Hello {this.props.name}
-          <div>
-            <BoardContainer />
-          </div>
-        </div>
+        <BoardContainer />
       </Provider>
     );
   }

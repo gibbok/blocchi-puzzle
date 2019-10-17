@@ -297,3 +297,14 @@ export const gameSlice = createSlice({
 
 export const store: Store = configureStore({ reducer: gameSlice.reducer });
 // TODO rename this file to gameSlice or smt, use slice in the title
+
+export const mkPublicState = (state: InternalState) => {
+  const { board, currentTetro, score, level, nextTetro } = state;
+  const { type, direction, x, y } = currentTetro;
+  return {
+    board: addTetroToBoard(type)(direction)(x)(y)(board),
+    score,
+    level,
+    nextTetro
+  };
+};

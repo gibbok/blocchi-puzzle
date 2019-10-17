@@ -12,7 +12,7 @@ export const addTetroToBoard = (t: TetroEnum) => (d: DirectionEnum) => (x: numbe
   y: number
 ) => (b: Board) => {
   const tetro = getTetroFromPieces(t)(d);
-  let bn = b.map(r => r.map(c => c));
+  const bn = b.map(r => r.map(c => c));
   tetro.forEach((tR, tRx) => tR.forEach((tC, tCx) => (bn[tRx + y][tCx + x] = t)));
   return bn;
 };
