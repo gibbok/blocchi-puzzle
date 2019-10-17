@@ -1,11 +1,9 @@
-import * as React from 'react';
-import { Board, InternalState } from './types';
+import { Board as BoardType, InternalState } from './types';
 import { connect } from 'react-redux';
 import { mkPublicState } from './reducer';
+import { Board } from './component/Board';
 
-const Board = (board: Board) => <div>{JSON.stringify(board)}</div>;
-
-const mapStateToProps = (state: InternalState): Board => {
+const mapStateToProps = (state: InternalState): BoardType => {
   const { board } = mkPublicState(state);
   return board;
 };
