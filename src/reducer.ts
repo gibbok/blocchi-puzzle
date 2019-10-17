@@ -296,3 +296,4 @@ export const gameSlice = createSlice({
 });
 
 export const store: Store = configureStore({ reducer: gameSlice.reducer });
+// TODO rename this file to gameSlice or smt, use slice in the title
