@@ -1,7 +1,7 @@
-import { gameSlice, mkInitialState } from '../src/reducer';
+import { gameSlice, mkInitialState, mkPublicState } from '../src/reducer';
 const { actions, reducer } = gameSlice;
 
-import { InternalState, I, S, NO, WE, ES } from '../src/types';
+import { InternalState, I, S, NO, WE, ES, PubicState } from '../src/types';
 import {
   BOARD_HALF_S_Y,
   BOARD_ROW_EMPTY,
@@ -217,6 +217,19 @@ describe('reducer', () => {
         const finalState: InternalState = { ...INITIAL_STATE };
         const r = reducer(initialState, actions.checkBoard);
         expect(r).toEqual(finalState);
+      });
+    });
+
+    describe('mkPublicState', () => {
+      it('should return pubic state included computed board to render and removed hidden properties', () => {
+        const input: InternalState = INITIAL_STATE;
+        const { score, level, lines, nextTetro } = INITIAL_STATE;
+        const board = [
+          ...Array(4).fill([I, 0, 0, 0, 0, 0, 0, 0, 0, 0]),
+          ...Array(16).fill(BOARD_ROW_EMPTY)
+        ];
+        const output: PubicState = { board, score, level, lines, nextTetro };
+        expect(mkPublicState(input)).toEqual(output);
       });
     });
   });

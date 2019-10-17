@@ -1,4 +1,4 @@
-import { InternalState, TetroEnum, DirectionEnum } from './types';
+import { InternalState, TetroEnum, DirectionEnum, PubicState } from './types';
 import { Store } from 'redux';
 import { configureStore, createSlice } from 'redux-starter-kit';
 
@@ -298,13 +298,14 @@ export const gameSlice = createSlice({
 export const store: Store = configureStore({ reducer: gameSlice.reducer });
 // TODO rename this file to gameSlice or smt, use slice in the title
 
-export const mkPublicState = (state: InternalState) => {
-  const { board, currentTetro, score, level, nextTetro } = state;
+export const mkPublicState = (state: InternalState): PubicState => {
+  const { board, currentTetro, score, level, lines, nextTetro } = state;
   const { type, direction, x, y } = currentTetro;
   return {
     board: addTetroToBoard(type)(direction)(x)(y)(board),
     score,
     level,
+    lines,
     nextTetro
   };
 };
