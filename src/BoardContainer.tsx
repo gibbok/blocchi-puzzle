@@ -1,19 +1,13 @@
 import * as React from 'react';
-import { TetroDef, Board } from './types';
+import { Board, InternalState } from './types';
 import { connect } from 'react-redux';
+import { mkPublicState } from './reducer';
 
-type BoardAndCurrentTetro = Readonly<{ board: Board; currentTetro: TetroDef }>;
+const Board = (board: Board) => <div>{JSON.stringify(board)}</div>;
 
-const Board = ({ board, currentTetro }: BoardAndCurrentTetro) => (
-  <div>
-    {JSON.stringify(board)}
-    {JSON.stringify(currentTetro)}
-  </div>
-);
-
-const mapStateToProps = ({ board, currentTetro }: BoardAndCurrentTetro) => ({
-  board,
-  currentTetro
-});
+const mapStateToProps = (state: InternalState): Board => {
+  const { board } = mkPublicState(state);
+  return board;
+};
 
 export const BoardContainer = connect(mapStateToProps)(Board);
