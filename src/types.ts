@@ -19,8 +19,12 @@ export enum TetroEnum {
   O = 'O'
 }
 
-export type NoTetro = 0;
-export type Block = NoTetro | TetroEnum;
+export enum NoTetroEnum {
+  NoTetro
+}
+export const NoTetro = NoTetroEnum.NoTetro;
+
+export type Block = NoTetroEnum.NoTetro | TetroEnum;
 
 export type TetroPieces = Record<TetroEnum, Record<DirectionEnum, Tetro>>;
 
@@ -50,9 +54,9 @@ export type Board = readonly (BoardRow)[];
 
 export type InternalState = Readonly<{
   board: Board;
-  score: number;
-  level: number;
-  lines: number;
+  score: number; // some point based on lines done
+  level: number; // based on score, every 1000 score you go to next level, speed is faster
+  lines: number; // number of lines done
   currentTetro: TetroDef;
   nextTetro: TetroDef;
   isPlay: boolean;
@@ -74,10 +78,3 @@ export type CallBack = () => void;
 export type Action = Readonly<{
   type: string;
 }>;
-
-export enum ActionEnum {
-  MoveDown = 'MoveDown',
-  MoveRight = 'MoveRight',
-  MoveLeft = 'MoveLeft',
-  MoveUp = 'MoveUp'
-}

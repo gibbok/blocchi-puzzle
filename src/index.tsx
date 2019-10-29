@@ -1,15 +1,21 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-
+import { BoardContainer } from './BoardContainer';
+import { Provider } from 'react-redux';
+import { store } from './reducer';
 interface Props {
   name: string;
 }
 
 class App extends React.Component<Props> {
   public render(): JSX.Element {
-    return <div>Hello {this.props.name}</div>;
+    return (
+      <Provider store={store}>
+        <BoardContainer />
+      </Provider>
+    );
   }
 }
 
-var mountNode = document.getElementById('app');
+const mountNode = document.getElementById('app');
 ReactDOM.render(<App name="Jane" />, mountNode);
