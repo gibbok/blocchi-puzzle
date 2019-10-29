@@ -43,7 +43,7 @@ export const dataPieces: TetroPieces = {
 /* eslint-enable prettier/prettier */
 
 export const BOARD_ROW_EMPTY: BoardRow = mkEmptyRow;
-export const BOARD_ROW_S: BoardRow = mkRow(10)(S);
+export const BOARD_ROW_S: BoardRow = mkRow(10, S);
 
 export const BOARD_EMPTY: Board = [...Array(20).fill(BOARD_ROW_EMPTY)];
 

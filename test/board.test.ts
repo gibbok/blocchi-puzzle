@@ -22,13 +22,13 @@ import { TetroEnum, DirectionEnum, I, Board, S, Z, J } from '../src/types';
 describe('board', () => {
   describe('mkEmptyBoard', () => {
     it('sould return empty board', () => {
-      expect(mkEmptyBoard(20)(10)).toEqual(BOARD_EMPTY);
+      expect(mkEmptyBoard(20, 10)).toEqual(BOARD_EMPTY);
     });
   });
 
   describe('addTetroToBoard', () => {
     it('sould return new board with locked tetro', () => {
-      const test = addTetroToBoard(TetroEnum.I)(DirectionEnum.E)(1)(1)(BOARD_EMPTY);
+      const test = addTetroToBoard(TetroEnum.I, DirectionEnum.E, 1, 1, BOARD_EMPTY);
       const result: Board = [
         BOARD_ROW_EMPTY,
         [0, I, I, I, I, 0, 0, 0, 0, 0],
@@ -38,7 +38,7 @@ describe('board', () => {
     });
 
     it('sould return new board with locked tetro overwritting any present tetro', () => {
-      const test = addTetroToBoard(TetroEnum.I)(DirectionEnum.E)(0)(0)(BOARD_FULL_S);
+      const test = addTetroToBoard(TetroEnum.I, DirectionEnum.E, 0, 0, BOARD_FULL_S);
       const result: Board = [[I, I, I, I, S, S, S, S, S, S], ...Array(19).fill(BOARD_ROW_S)];
       expect(test).toEqual(result);
     });
@@ -73,7 +73,7 @@ describe('board', () => {
         ],
         totRemoved: 4
       };
-      const test = removeCompleteRowFromBoard(input)([15, 16, 18, 19]);
+      const test = removeCompleteRowFromBoard(input, [15, 16, 18, 19]);
       expect(test).toEqual(output);
     });
   });
@@ -81,7 +81,7 @@ describe('board', () => {
   describe('mkRow', () => {
     it('should make a row full of tetro S', () => {
       const output = [...Array(10).fill(S)];
-      expect(mkRow(10)(S)).toEqual(output);
+      expect(mkRow(10, S)).toEqual(output);
     });
   });
 
@@ -96,7 +96,7 @@ describe('board', () => {
     it('should append 10 empty rows to a board', () => {
       const input: Board = [...Array(10).fill(S)];
       const output: Board = [...Array(10).fill(mkEmptyRow), ...Array(10).fill(S)];
-      const test = appendEmptyRowsToBoard(input)(10);
+      const test = appendEmptyRowsToBoard(input, 10);
       expect(test).toEqual(output);
     });
   });

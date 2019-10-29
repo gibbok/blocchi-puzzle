@@ -5,41 +5,56 @@ import { pipe } from 'fp-ts/lib/pipeable';
 export const TOT_BOARD_CELLS = 10;
 export const TOT_BOARD_ROWS = 20;
 
-export const mkEmptyBoard = (rows: number) => (columns: number): Board =>
+export const mkEmptyBoard = (rows: number, columns: number): Board =>
   [...Array(rows)].fill([...Array(columns).fill(NoTetro)]);
 
-export const addTetroToBoard = (t: TetroEnum) => (d: DirectionEnum) => (x: number) => (
-  y: number
-) => (b: Board) => {
-  const tetro = getTetroFromPieces(t)(d);
+export const addTetroToBoard = (t: TetroEnum, d: DirectionEnum, x: number, y: number, b: Board) => {
+  const tetro = getTetroFromPieces(t, d);
   const bn = b.map(r => r.map(c => c));
   tetro.forEach((tR, tRx) => tR.forEach((tC, tCx) => (bn[tRx + y][tCx + x] = t)));
   return bn;
 };
 
-export const recFindAvailablePos = (type: TetroEnum) => (d: DirectionEnum) => (x: number) => (
-  y: number
-) => (b: Board) => (towardsX: number) => (towardsY: number): number => {
-  const isOccupied = occupied(type)(d)(x)(y)(b);
+export const recFindAvailablePos = (
+  type: TetroEnum,
+  d: DirectionEnum,
+  x: number,
+  y: number,
+  b: Board,
+  towardsX: number,
+  towardsY: number
+): number => {
+  const isOccupied = occupied(type, d, x, y, b);
   return isOccupied
-    ? recFindAvailablePos(type)(d)(x - towardsX)(y - towardsY)(b)(towardsX)(towardsY)
+    ? recFindAvailablePos(type, d, x - towardsX, y - towardsY, b, towardsX, towardsY)
     : y !== 0
     ? y
     : x;
 };
 
-export const recFindAvailablePosX = (type: TetroEnum) => (d: DirectionEnum) => (x: number) => (
-  y: number
-) => (b: Board) => (towardsX: number): number => recFindAvailablePos(type)(d)(x)(y)(b)(towardsX)(0);
+export const recFindAvailablePosX = (
+  type: TetroEnum,
+  d: DirectionEnum,
+  x: number,
+  y: number,
+  b: Board,
+  towardsX: number
+): number => recFindAvailablePos(type, d, x, y, b, towardsX, 0);
 
-export const recFindAvailablePosY = (type: TetroEnum) => (d: DirectionEnum) => (x: number) => (
-  y: number
-) => (b: Board) => (towardsY: number): number => recFindAvailablePos(type)(d)(x)(y)(b)(0)(towardsY);
+export const recFindAvailablePosY = (
+  type: TetroEnum,
+  d: DirectionEnum,
+  x: number,
+  y: number,
+  b: Board,
+  towardsY: number
+): number => recFindAvailablePos(type, d, x, y, b, 0, towardsY);
 
 export const getCompleteRowIdxs = (b: Board): number[] =>
   b.flatMap((row, idx) => (row.every(cell => cell !== NoTetro) ? [idx] : []));
 
-export const removeCompleteRowFromBoard = (b: Board) => (
+export const removeCompleteRowFromBoard = (
+  b: Board,
   lineIdxs: number[]
 ): Readonly<{
   board: Board;
@@ -52,10 +67,10 @@ export const removeCompleteRowFromBoard = (b: Board) => (
   };
 };
 
-export const mkRow = (len: number) => (b: Block) => [...Array(len).fill(b)];
-export const mkEmptyRow = mkRow(TOT_BOARD_CELLS)(NoTetro);
+export const mkRow = (len: number, b: Block) => [...Array(len).fill(b)];
+export const mkEmptyRow = mkRow(TOT_BOARD_CELLS, NoTetro);
 
-export const appendEmptyRowsToBoard = (b: Board) => (amount: number): Board => [
+export const appendEmptyRowsToBoard = (b: Board, amount: number): Board => [
   ...Array(amount).fill(mkEmptyRow),
   ...b
 ];
@@ -63,6 +78,6 @@ export const appendEmptyRowsToBoard = (b: Board) => (amount: number): Board => [
 export const detectAndRemoveCompletedRows = (b: Board): Board =>
   pipe(
     getCompleteRowIdxs(b),
-    idxsRowCompleted => removeCompleteRowFromBoard(b)(idxsRowCompleted),
-    ({ board, totRemoved }) => appendEmptyRowsToBoard(board)(totRemoved)
+    idxsRowCompleted => removeCompleteRowFromBoard(b, idxsRowCompleted),
+    ({ board, totRemoved }) => appendEmptyRowsToBoard(board, totRemoved)
   );
