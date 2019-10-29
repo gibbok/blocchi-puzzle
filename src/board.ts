@@ -9,7 +9,7 @@ export const mkEmptyBoard = (rows: number, columns: number): Board =>
   [...Array(rows)].fill([...Array(columns).fill(NoTetro)]);
 
 export const addTetroToBoard = (t: TetroEnum, d: DirectionEnum, x: number, y: number, b: Board) => {
-  const tetro = getTetroFromPieces(t)(d);
+  const tetro = getTetroFromPieces(t, d);
   const bn = b.map(r => r.map(c => c));
   tetro.forEach((tR, tRx) => tR.forEach((tC, tCx) => (bn[tRx + y][tCx + x] = t)));
   return bn;
@@ -24,7 +24,7 @@ export const recFindAvailablePos = (
   towardsX: number,
   towardsY: number
 ): number => {
-  const isOccupied = occupied(type)(d)(x)(y)(b);
+  const isOccupied = occupied(type, d, x, y, b);
   return isOccupied
     ? recFindAvailablePos(type, d, x - towardsX, y - towardsY, b, towardsX, towardsY)
     : y !== 0

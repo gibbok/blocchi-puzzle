@@ -48,7 +48,7 @@ const logicMoveDown = (prevState: InternalState) => {
     isPlay
   } = prevState;
   const newY = y + 1;
-  const isOccupiedDown = occupied(type)(direction)(x)(newY)(board);
+  const isOccupiedDown = occupied(type, direction, x, newY, board);
   const foundPosY = recFindAvailablePosY(type, direction, x, newY, board, 1);
   return {
     board: isOccupiedDown ? addTetroToBoard(type, direction, x, foundPosY, board) : board,
@@ -77,7 +77,7 @@ const logicMoveRight = (prevState: InternalState) => {
     isPlay
   } = prevState;
   const newRightX = x + 1;
-  const isOccupiedRight = occupied(type)(direction)(newRightX)(y)(board);
+  const isOccupiedRight = occupied(type, direction, newRightX, y, board);
   const foundRightPosX = recFindAvailablePosX(type, direction, newRightX, y, board, 1);
 
   return {
@@ -107,7 +107,7 @@ const logicMoveUp = (prevState: InternalState) => {
     isPlay
   } = prevState;
   const directionNew = rotateTetroDirectionACW(direction);
-  const isOccupiedUp = occupied(type)(directionNew)(x)(y)(board);
+  const isOccupiedUp = occupied(type, directionNew, x, y, board);
   return {
     board,
     score,
@@ -135,7 +135,7 @@ const logicMoveLeft = (prevState: InternalState) => {
     isPlay
   } = prevState;
   const newLeftX = x - 1;
-  const isOccupiedLeft = occupied(type)(direction)(newLeftX)(y)(board);
+  const isOccupiedLeft = occupied(type, direction, newLeftX, y, board);
   const foundLeftPosX = recFindAvailablePosX(type, direction, newLeftX, y, board, -1);
   return {
     board: isOccupiedLeft ? addTetroToBoard(type, direction, foundLeftPosX, y, board) : board,
