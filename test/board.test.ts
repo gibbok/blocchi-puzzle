@@ -81,7 +81,7 @@ describe('board', () => {
   describe('mkRow', () => {
     it('should make a row full of tetro S', () => {
       const output = [...Array(10).fill(S)];
-      expect(mkRow(10)(S)).toEqual(output);
+      expect(mkRow(10, S)).toEqual(output);
     });
   });
 
