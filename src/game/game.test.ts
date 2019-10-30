@@ -1,4 +1,4 @@
-import { calcScore, calcLevel } from '../src/game';
+import { calcScore, calcLevel } from '.';
 
 describe('game', () => {
   describe('calcScore', () => {

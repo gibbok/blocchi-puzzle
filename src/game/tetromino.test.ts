@@ -9,9 +9,9 @@ import {
   I,
   NO,
   Z
-} from '../src/game';
+} from '.';
 import { stub } from 'sinon';
-import { dataPieces, BOARD_EMPTY, BOARD_HALF_I_Y } from './data.support.test';
+import { dataPieces, BOARD_EMPTY, BOARD_HALF_I_Y } from '../utils';
 import { none, isSome, toUndefined } from 'fp-ts/lib/Option';
 
 describe('tetromino', () => {

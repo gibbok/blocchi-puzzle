@@ -14,7 +14,7 @@ import {
   S,
   Z,
   J
-} from '../src/game';
+} from '.';
 import {
   BOARD_EMPTY,
   BOARD_ROW_EMPTY,
@@ -22,7 +22,7 @@ import {
   BOARD_ROW_S,
   BOARD_HALF_S_Y,
   BOARD_RANDOM_S_1
-} from './data.support.test';
+} from '../utils';
 
 describe('board', () => {
   describe('mkEmptyBoard', () => {

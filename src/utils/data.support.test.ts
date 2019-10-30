@@ -12,7 +12,7 @@ import {
   BoardRow,
   mkEmptyRow,
   mkRow
-} from '../src/game';
+} from '../game';
 
 export const dataPieces: TetroPieces = {
   Z: {
