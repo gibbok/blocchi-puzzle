@@ -1,4 +1,4 @@
-import { InternalState, TetroEnum, DirectionEnum, PubicState } from './types';
+import { InternalState, TetroEnum, DirectionEnum, PubicState } from '../game';
 import { Store } from 'redux';
 import { configureStore, createSlice } from 'redux-starter-kit';
 
@@ -9,10 +9,10 @@ import {
   recFindAvailablePosX,
   detectAndRemoveCompletedRows,
   getCompleteRowIdxs
-} from './board';
-import { occupied, rotateTetroDirectionACW } from './tetromino';
+} from '../game/board';
+import { occupied, rotateTetroDirectionACW } from '../game/tetromino';
 import { pipe } from 'fp-ts/lib/pipeable';
-import { calcScore, calcLevel } from './game';
+import { calcLevel, calcScore } from '../game/game';
 
 export const BOARD_TOT_BLOCK_X = 20;
 export const BOARD_TOT_ROW_Y = 10;

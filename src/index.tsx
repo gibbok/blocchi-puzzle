@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { BoardContainer } from './BoardContainer';
 import { Provider } from 'react-redux';
-import { store } from './reducer';
+import { BoardContainer } from './containers/BoardContainer';
+import { store } from './redux/reducer';
 interface Props {
   name: string;
 }
