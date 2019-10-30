@@ -1,15 +1,13 @@
-import { gameSlice, mkInitialState, mkPublicState } from '../src/reducer';
-const { actions, reducer } = gameSlice;
-
-import { InternalState, I, S, NO, WE, ES, PubicState } from '../src/types';
+import { InternalState, I, S, NO, WE, ES, PubicState } from '../game';
 import {
   BOARD_HALF_S_Y,
   BOARD_ROW_EMPTY,
   BOARD_HALF_S_X,
   BOARD_HALF_S_X_REV,
   BOARD_EMPTY
-} from './data.support.test';
-// import { logger } from '../src/utils';
+} from '../utils';
+import { mkInitialState, mkPublicState, gameSlice } from '.';
+const { actions, reducer } = gameSlice;
 
 const INITIAL_STATE = mkInitialState();
 const INVALID_ACTION = { type: 'invalid-action' };

@@ -3,11 +3,15 @@ import {
   getTetroFromPieces,
   occupied,
   getBlock,
-  rotateTetroDirectionACW
-} from '../src/tetromino';
-import { TetroEnum, DirectionEnum, I, NO, Z } from '../src/types';
+  rotateTetroDirectionACW,
+  TetroEnum,
+  DirectionEnum,
+  I,
+  NO,
+  Z
+} from '.';
 import { stub } from 'sinon';
-import { dataPieces, BOARD_EMPTY, BOARD_HALF_I_Y } from './data.support.test';
+import { dataPieces, BOARD_EMPTY, BOARD_HALF_I_Y } from '../utils';
 import { none, isSome, toUndefined } from 'fp-ts/lib/Option';
 
 describe('tetromino', () => {

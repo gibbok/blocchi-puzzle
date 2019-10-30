@@ -6,9 +6,15 @@ import {
   mkRow,
   mkEmptyRow,
   appendEmptyRowsToBoard,
-  detectAndRemoveCompletedRows
-} from '../src/board';
-// import { logger } from '../src/utils';
+  detectAndRemoveCompletedRows,
+  TetroEnum,
+  DirectionEnum,
+  I,
+  Board,
+  S,
+  Z,
+  J
+} from '.';
 import {
   BOARD_EMPTY,
   BOARD_ROW_EMPTY,
@@ -16,8 +22,7 @@ import {
   BOARD_ROW_S,
   BOARD_HALF_S_Y,
   BOARD_RANDOM_S_1
-} from './data.support.test';
-import { TetroEnum, DirectionEnum, I, Board, S, Z, J } from '../src/types';
+} from '../utils';
 
 describe('board', () => {
   describe('mkEmptyBoard', () => {
