@@ -16,7 +16,18 @@ export enum TetroEnum {
   J = 'J',
   T = 'T',
   I = 'I',
+  L = 'L',
   O = 'O'
+}
+
+export enum ColorTetroEnum {
+  Z = 'red',
+  S = 'green',
+  J = 'blue',
+  T = 'purple',
+  I = 'cyan',
+  L = 'orange',
+  O = 'yellow'
 }
 
 export enum NoTetroEnum {
@@ -44,6 +55,7 @@ export const S = TetroEnum.S;
 export const J = TetroEnum.J;
 export const T = TetroEnum.T;
 export const I = TetroEnum.I;
+export const L = TetroEnum.L;
 export const O = TetroEnum.O;
 
 export type Position = number;

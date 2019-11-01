@@ -1,4 +1,4 @@
-import { TetroPieces, Z, S, J, T, I, O } from './types';
+import { TetroPieces, Z, S, J, T, I, L, O } from './types';
 /* eslint-disable prettier/prettier */
 export const pieces: TetroPieces = {
   Z: {
@@ -99,6 +99,26 @@ export const pieces: TetroPieces = {
     ],
     W: [
       [I, I, I, I],
+    ]
+  },
+  L:{
+    N:[
+      [L],
+      [L],
+      [L, L],
+    ],
+    E:[
+      [L, L, L],
+      [L],
+    ],
+    S:[
+      [L, L],
+      [0, L],
+      [0, L],
+    ],
+    W:[
+      [0, 0, L],
+      [L, L, L],
     ]
   },
   O: {
