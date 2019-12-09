@@ -41,7 +41,7 @@ export type TetroPieces = Record<TetroEnum, Record<DirectionEnum, Tetro>>;
 
 export type TetroRow = readonly Block[];
 
-export type Tetro = readonly (TetroRow)[];
+export type Tetro = readonly TetroRow[];
 
 export type TetroDef = Readonly<{
   type: TetroEnum;
@@ -62,7 +62,7 @@ export type Position = number;
 
 export type BoardRow = readonly Block[];
 
-export type Board = readonly (BoardRow)[];
+export type Board = readonly BoardRow[];
 
 export type InternalState = Readonly<{
   board: Board;

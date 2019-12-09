@@ -2,10 +2,19 @@ import * as React from 'react';
 import { TetroEnum } from '../game';
 import styled from 'styled-components';
 
-const SquareMain = styled.div`
-  background-color: red;
-  width: 10px;
-  height: 10px;
+type Props = {
+  t: TetroEnum;
+  primary?: boolean;
+};
+
+const StyledSquare = styled.button<Props>`
+  background: ${({ primary }) => (primary ? 'palevioletred' : 'white')};
+  color: ${({ primary }) => (primary ? 'white' : 'palevioletred')};
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
 `;
 
-export const Square = ({ t }: { t: TetroEnum }) => SquareMain;
+export const Square = ({ t }: Props) => <StyledSquare t={t} primary />;
