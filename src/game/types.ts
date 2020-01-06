@@ -20,26 +20,16 @@ export enum TetroEnum {
   O = 'O'
 }
 
-export enum ColorTetroEnum {
-  Z = 'red',
-  S = 'green',
-  J = 'blue',
-  T = 'purple',
-  I = 'cyan',
-  L = 'orange',
-  O = 'yellow'
-}
-
 export enum NoTetroEnum {
   NoTetro
 }
 export const NoTetro = NoTetroEnum.NoTetro;
 
-export type Block = NoTetroEnum.NoTetro | TetroEnum;
+export type Tile = NoTetroEnum.NoTetro | TetroEnum;
 
 export type TetroPieces = Record<TetroEnum, Record<DirectionEnum, Tetro>>;
 
-export type TetroRow = readonly Block[];
+export type TetroRow = readonly Tile[];
 
 export type Tetro = readonly TetroRow[];
 
@@ -60,7 +50,7 @@ export const O = TetroEnum.O;
 
 export type Position = number;
 
-export type BoardRow = readonly Block[];
+export type BoardRow = readonly Tile[];
 
 export type Board = readonly BoardRow[];
 

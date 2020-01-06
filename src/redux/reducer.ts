@@ -163,10 +163,7 @@ const logicCheckBoard = (prevState: InternalState) => {
   } = prevState;
   const totRowCompleted = getCompleteRowIdxs(board);
   const totRowCompletedLen = totRowCompleted.length;
-  const newScore = pipe(
-    totRowCompletedLen,
-    calcScore
-  );
+  const newScore = pipe(totRowCompletedLen, calcScore);
   return {
     board: detectAndRemoveCompletedRows(board),
     score: newScore,

@@ -1,4 +1,4 @@
-import { TetroEnum, Tetro, DirectionEnum, Board, Block } from './types';
+import { TetroEnum, Tetro, DirectionEnum, Board, Tile } from './types';
 import { randomInt } from 'fp-ts/lib/Random';
 import { IO, io } from 'fp-ts/lib/IO';
 import { none, some, exists, Option } from 'fp-ts/lib/Option';
@@ -26,7 +26,7 @@ export const eachblock = (
   return result;
 };
 
-export const getBlock = (x: number, y: number, b: Board): Option<Block> =>
+export const getBlock = (x: number, y: number, b: Board): Option<Tile> =>
   b && b[y] ? some(b[y][x]) : none;
 
 export const occupied = (t: TetroEnum, d: DirectionEnum, x: number, y: number, b: Board): boolean =>
