@@ -10,7 +10,14 @@
     "target": "es2019",
     "allowJs": true,
     "jsx": "react",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "types": [
+      "react",
+      "jest"
+    ]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ]
 }

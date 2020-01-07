@@ -4,7 +4,7 @@ import { IO, io } from 'fp-ts/lib/IO';
 import { none, some, exists, Option } from 'fp-ts/lib/Option';
 import { pipe } from 'fp-ts/lib/pipeable';
 import { pieces } from './pieces';
-import { TOT_BOARD_CELLS, TOT_BOARD_ROWS } from './board';
+import { BOARD_CELLS, BOARD_ROWS } from './settings';
 
 export const getTetroFromPieces = (t: TetroEnum, d: DirectionEnum): Tetro => pieces[t][d];
 
@@ -35,8 +35,8 @@ export const occupied = (t: TetroEnum, d: DirectionEnum, x: number, y: number, b
       getBlock(x, y, b),
       exists(a => a !== 0)
     );
-    const isInvalidPosX = x < 0 || x >= TOT_BOARD_CELLS;
-    const isInvalidPosY = y < 0 || y >= TOT_BOARD_ROWS;
+    const isInvalidPosX = x < 0 || x >= BOARD_CELLS;
+    const isInvalidPosY = y < 0 || y >= BOARD_ROWS;
     return isInvalidPosX || isInvalidPosY || isTetroBlockAlredyOnBoard;
   });
 

@@ -1,6 +1,6 @@
 import { InternalState, TetroEnum, DirectionEnum, PubicState } from '../game';
 import { Store } from 'redux';
-import { configureStore, createSlice } from 'redux-starter-kit';
+import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 import {
   mkEmptyBoard,

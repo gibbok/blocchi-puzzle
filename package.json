@@ -16,8 +16,8 @@
   "homepage": "https://github.com/gibbok/fp-tetris#readme",
   "scripts": {
     "clean": "rm dist/bundle.js",
-    "start": "parcel src/index.html",
-    "build-prod": "parcel build src/index.html",
+    "start": "tsc && parcel src/index.html",
+    "build-prod": "tsx && parcel build src/index.html",
     "tsc": "tsc",
     "tsc:watch": "tsc --watch --pretty",
     "test": "tsc && jest --coverage true",
@@ -27,14 +27,14 @@
     "main": "npm run tsc && npx node -e \"require('./dist/main.js').main()\""
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.2.1",
     "fp-ts": "^2.3.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-redux": "^7.1.3",
     "redux": "^4.0.5",
-    "redux-starter-kit": "^1.0.1",
     "settings": "^0.1.1",
-    "sinon": "^7.5.0",
+    "sinon": "^8.0.4",
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
@@ -42,7 +42,7 @@
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
     "@types/jest": "^24.0.25",
-    "@types/node": "^12.12.24",
+    "@types/node": "^13.1.4",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
     "@types/react-redux": "^7.1.5",

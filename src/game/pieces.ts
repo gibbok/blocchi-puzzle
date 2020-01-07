@@ -4,7 +4,7 @@ export const pieces: TetroPieces = {
   Z: {
     N: [
       [Z, Z, 0],
-      [0, Z, Z],
+      [0, Z, Z]
     ],
     E: [
       [0, Z],
@@ -24,7 +24,7 @@ export const pieces: TetroPieces = {
   S: {
     N: [
       [0, S, S],
-      [S, S, 0],
+      [S, S, 0]
     ],
     E: [
       [S, 0],
@@ -49,7 +49,7 @@ export const pieces: TetroPieces = {
     ],
     E: [
       [J, 0, 0],
-      [J, J, J],
+      [J, J, J]
     ],
     S: [
       [J, J],
@@ -67,13 +67,13 @@ export const pieces: TetroPieces = {
       [0, T, 0]
     ],
     E: [
-      [0, T,],
-      [T, T,],
-      [0, T,]
+      [0, T],
+      [T, T],
+      [0, T]
     ],
     S: [
       [0, T, 0],
-      [T, T, T],
+      [T, T, T]
     ],
     W: [
       [T, 0],
@@ -82,61 +82,40 @@ export const pieces: TetroPieces = {
     ]
   },
   I: {
-    N: [
-      [I,],
-      [I,],
-      [I,],
-      [I,]
-    ],
-    E: [
-      [I, I, I, I],
-    ],
+    N: [[I], [I], [I], [I]],
+    E: [[I, I, I, I]],
+    S: [[I], [I], [I], [I]],
+    W: [[I, I, I, I]]
+  },
+  L: {
+    N: [[L], [L], [L, L]],
+    E: [[L, L, L], [L]],
     S: [
-      [I,],
-      [I,],
-      [I,],
-      [I,]
+      [L, L],
+      [0, L],
+      [0, L]
     ],
     W: [
-      [I, I, I, I],
-    ]
-  },
-  L:{
-    N:[
-      [L],
-      [L],
-      [L, L],
-    ],
-    E:[
-      [L, L, L],
-      [L],
-    ],
-    S:[
-      [L, L],
-      [0, L],
-      [0, L],
-    ],
-    W:[
       [0, 0, L],
-      [L, L, L],
+      [L, L, L]
     ]
   },
   O: {
     N: [
-      [O, O,],
-      [O, O,],
+      [O, O],
+      [O, O]
     ],
     E: [
-      [O, O,],
-      [O, O,],
+      [O, O],
+      [O, O]
     ],
     S: [
-      [O, O,],
-      [O, O,],
+      [O, O],
+      [O, O]
     ],
     W: [
-      [O, O,],
-      [O, O,],
+      [O, O],
+      [O, O]
     ]
   }
 };
