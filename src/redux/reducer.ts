@@ -13,12 +13,10 @@ import {
 import { occupied, rotateTetroDirectionACW } from '../game/tetromino';
 import { pipe } from 'fp-ts/lib/pipeable';
 import { calcLevel, calcScore } from '../game/game';
-
-export const BOARD_TOT_BLOCK_X = 20;
-export const BOARD_TOT_ROW_Y = 10;
+import { BOARD_ROWS, BOARD_CELLS } from '../game/settings';
 
 export const mkInitialState = () => ({
-  board: mkEmptyBoard(BOARD_TOT_BLOCK_X, BOARD_TOT_ROW_Y),
+  board: mkEmptyBoard(BOARD_ROWS, BOARD_CELLS),
   score: 0,
   level: 1,
   lines: 0,
