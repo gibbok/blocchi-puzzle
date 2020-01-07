@@ -222,7 +222,7 @@ describe('reducer', () => {
     });
 
     describe('mkPublicState', () => {
-      it('should return  the pubic state included computed board to render and removed hidden properties', () => {
+      it('should return the pubic state included computed board to render and removed hidden properties', () => {
         const input: InternalState = INITIAL_STATE;
         const { score, level, lines, nextTetro } = INITIAL_STATE;
         const board = [
