@@ -3,7 +3,7 @@ import { KeyEnum } from '../game';
 import { useDispatch } from 'react-redux';
 import { gameSlice } from '../redux';
 const {
-  actions: { moveLeft, moveUp, moveRight, moveDown, checkBoard }
+  actions: { moveLeft, moveUp, moveRight, moveDown }
 } = gameSlice;
 
 type Props = Readonly<{}>;
@@ -29,7 +29,6 @@ export const Keyboard = ({}: Props) => {
           break;
         case KeyEnum.Down:
           dispatch(moveDown());
-          dispatch(checkBoard());
           break;
       }
     })
