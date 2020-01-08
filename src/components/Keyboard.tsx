@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { KeyEnum } from '../game';
 import { useDispatch } from 'react-redux';
-import { gameSlice } from '../redux';
+import { gameSlice } from '../store';
 const {
   actions: { moveLeft, moveUp, moveRight, moveDown }
 } = gameSlice;
