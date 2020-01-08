@@ -60,8 +60,5 @@
     "prettier": "^1.19.1",
     "ts-jest": "^24.3.0",
     "typescript": "^3.7.4"
-  },
-  "jest": {
-    "testEnvironment": "node"
   }
 }

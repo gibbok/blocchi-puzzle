@@ -1,19 +1,9 @@
 /* eslint-disable prettier/prettier */
 import {
-  TetroPieces,
-  Z,
-  S,
-  J,
-  T,
-  I,
-  L,
-  O,
-  Board,
-  TetroEnum,
-  BoardRow,
   mkEmptyRow,
   mkRow
 } from '../game';
+import { TetroPieces, Z, S, J, T, I, L, O, BoardRow, Board, TetroEnum } from '../game/types';
 
 export const dataPieces: TetroPieces = {
   Z: {

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Board as BoardType } from '../game';
-import { Tile } from './Tile';
+import { Board as BoardType } from '~game/types';
 import styled from 'styled-components';
-import { BOARD_CELLS, BOARD_ROWS, TILE_WIDTH } from '../game/settings';
+import { BOARD_CELLS, BOARD_ROWS, TILE_WIDTH } from '~game/settings';
+import { Tile } from './Tile';
 
 const StyledBoard = styled.div`
   display: grid;

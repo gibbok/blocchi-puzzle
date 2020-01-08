@@ -11,10 +11,16 @@
     "allowJs": true,
     "jsx": "react",
     "esModuleInterop": true,
+    "baseUrl": "./src",
     "types": [
       "react",
       "jest"
-    ]
+    ],
+    "paths": {
+      "~*": [
+        "./*"
+      ]
+    },
   },
   "include": [
     "src/**/*.ts",

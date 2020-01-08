@@ -1,18 +1,8 @@
-import {
-  getRandomTetro,
-  getTetroFromPieces,
-  occupied,
-  getBlock,
-  rotateTetroDirectionACW,
-  TetroEnum,
-  DirectionEnum,
-  I,
-  NO,
-  Z
-} from '.';
+import { getRandomTetro, getTetroFromPieces, occupied, getBlock, rotateTetroDirectionACW } from '.';
 import { stub } from 'sinon';
 import { dataPieces, BOARD_EMPTY, BOARD_HALF_I_Y } from '../utils';
 import { none, isSome, toUndefined } from 'fp-ts/lib/Option';
+import { TetroEnum, DirectionEnum, I, NO, Z } from './types';
 
 describe('tetromino', () => {
   describe('getTetroFromPieces', () => {

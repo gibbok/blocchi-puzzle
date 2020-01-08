@@ -1,4 +1,4 @@
-import { InternalState, TetroEnum, DirectionEnum, PubicState } from '../game';
+import { InternalState, TetroEnum, DirectionEnum, PubicState } from '~game/types';
 import { Store } from 'redux';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
@@ -8,11 +8,13 @@ import {
   recFindAvailablePosY,
   recFindAvailablePosX,
   detectAndRemoveCompletedRows,
-  getCompleteRowIdxs
-} from '../game/board';
-import { occupied, rotateTetroDirectionACW } from '../game/tetromino';
+  getCompleteRowIdxs,
+  calcLevel,
+  calcScore,
+  occupied,
+  rotateTetroDirectionACW
+} from '~game';
 import { pipe } from 'fp-ts/lib/pipeable';
-import { calcLevel, calcScore } from '../game/game';
 import { BOARD_ROWS, BOARD_CELLS } from '../game/settings';
 
 export const mkInitialState = () => ({

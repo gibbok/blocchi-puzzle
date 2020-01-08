@@ -1,4 +1,3 @@
-import { InternalState, I, S, NO, WE, ES, PubicState } from '../game';
 import {
   BOARD_HALF_S_Y,
   BOARD_ROW_EMPTY,
@@ -7,6 +6,7 @@ import {
   BOARD_EMPTY
 } from '../utils';
 import { mkInitialState, mkPublicState, gameSlice } from '.';
+import { InternalState, I, S, NO, WE, ES, PubicState } from '../game/types';
 const {
   actions: { moveDown, moveLeft, moveRight, moveUp, checkBoard },
   reducer

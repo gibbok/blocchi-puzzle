@@ -6,14 +6,7 @@ import {
   mkRow,
   mkEmptyRow,
   appendEmptyRowsToBoard,
-  detectAndRemoveCompletedRows,
-  TetroEnum,
-  DirectionEnum,
-  I,
-  Board,
-  S,
-  Z,
-  J
+  detectAndRemoveCompletedRows
 } from '.';
 import {
   BOARD_EMPTY,
@@ -23,6 +16,7 @@ import {
   BOARD_HALF_S_Y,
   BOARD_RANDOM_S_1
 } from '../utils';
+import { I, TetroEnum, DirectionEnum, Board, S, J, Z } from './types';
 
 describe('board', () => {
   describe('mkEmptyBoard', () => {
