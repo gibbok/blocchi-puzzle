@@ -21,13 +21,6 @@ export const addTetroToBoard = (t: TetroEnum, d: DirectionEnum, x: number, y: nu
   return bn;
 };
 
-// export const addTetroToBoard = (t: TetroEnum, d: DirectionEnum, x: number, y: number, b: Board) => {
-//   const tetro = getTetroFromPieces(t, d);
-//   const bn = b.map(r => r.map(c => c));
-//   tetro.forEach((tR, tRx) => tR.forEach((tC, tCx) => (bn[tRx + y][tCx + x] = t)));
-//   return bn;
-// };
-
 export const recFindAvailablePos = (
   type: TetroEnum,
   d: DirectionEnum,
