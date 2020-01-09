@@ -50,7 +50,6 @@ const logicMoveDown = (prevState: InternalState) => {
   const newY = y + 1;
   const isOccupiedDown = occupied(type, direction, x, newY, board);
   const foundPosY = recFindAvailablePosY(type, direction, x, newY, board, 1);
-  // XXX
   const newState = {
     board: isOccupiedDown ? addTetroToBoard(type, direction, x, foundPosY, board) : board,
     score,
@@ -65,7 +64,6 @@ const logicMoveDown = (prevState: InternalState) => {
     nextTetro,
     isPlay
   };
-  console.log(newState);
   return newState;
 };
 
