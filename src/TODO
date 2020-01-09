@@ -1,2 +1,2 @@
- - revise tests
- - read doc and start to think about the ui
+ - use redux=loop
+ - create minimal action for app, for example INIT, ADD-TETRO, MOVE-DOWN, CLEAN-CURRENT-TETRO and so on

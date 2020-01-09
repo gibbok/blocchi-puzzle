@@ -1,7 +1,7 @@
-import { Board as BoardType, InternalState } from '../game/types';
+import { Board as BoardType, InternalState } from '~game/types';
 import { connect } from 'react-redux';
-import { mkPublicState } from '../redux/reducer';
-import { Board } from '../components';
+import { mkPublicState } from '~store/reducer';
+import { Board } from '~components';
 
 const mapStateToProps = (state: InternalState): { board: BoardType } => {
   const { board } = mkPublicState(state);

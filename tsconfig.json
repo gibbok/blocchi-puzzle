@@ -10,7 +10,20 @@
     "target": "es2019",
     "allowJs": true,
     "jsx": "react",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": "./src",
+    "types": [
+      "react",
+      "jest"
+    ],
+    "paths": {
+      "~*": [
+        "./*"
+      ]
+    },
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ]
 }

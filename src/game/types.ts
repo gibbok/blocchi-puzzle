@@ -16,6 +16,7 @@ export enum TetroEnum {
   J = 'J',
   T = 'T',
   I = 'I',
+  L = 'L',
   O = 'O'
 }
 
@@ -24,13 +25,13 @@ export enum NoTetroEnum {
 }
 export const NoTetro = NoTetroEnum.NoTetro;
 
-export type Block = NoTetroEnum.NoTetro | TetroEnum;
+export type Tile = NoTetroEnum.NoTetro | TetroEnum;
 
 export type TetroPieces = Record<TetroEnum, Record<DirectionEnum, Tetro>>;
 
-export type TetroRow = readonly Block[];
+export type TetroRow = readonly Tile[];
 
-export type Tetro = readonly (TetroRow)[];
+export type Tetro = readonly TetroRow[];
 
 export type TetroDef = Readonly<{
   type: TetroEnum;
@@ -44,13 +45,14 @@ export const S = TetroEnum.S;
 export const J = TetroEnum.J;
 export const T = TetroEnum.T;
 export const I = TetroEnum.I;
+export const L = TetroEnum.L;
 export const O = TetroEnum.O;
 
 export type Position = number;
 
-export type BoardRow = readonly Block[];
+export type BoardRow = readonly Tile[];
 
-export type Board = readonly (BoardRow)[];
+export type Board = readonly BoardRow[];
 
 export type InternalState = Readonly<{
   board: Board;

@@ -1,10 +1,10 @@
-import { TetroEnum, Tetro, DirectionEnum, Board, Block } from './types';
+import { TetroEnum, Tetro, DirectionEnum, Board, Tile } from './types';
 import { randomInt } from 'fp-ts/lib/Random';
 import { IO, io } from 'fp-ts/lib/IO';
 import { none, some, exists, Option } from 'fp-ts/lib/Option';
 import { pipe } from 'fp-ts/lib/pipeable';
 import { pieces } from './pieces';
-import { TOT_BOARD_CELLS, TOT_BOARD_ROWS } from './board';
+import { BOARD_CELLS, BOARD_ROWS } from './settings';
 
 export const getTetroFromPieces = (t: TetroEnum, d: DirectionEnum): Tetro => pieces[t][d];
 
@@ -26,7 +26,7 @@ export const eachblock = (
   return result;
 };
 
-export const getBlock = (x: number, y: number, b: Board): Option<Block> =>
+export const getBlock = (x: number, y: number, b: Board): Option<Tile> =>
   b && b[y] ? some(b[y][x]) : none;
 
 export const occupied = (t: TetroEnum, d: DirectionEnum, x: number, y: number, b: Board): boolean =>
@@ -35,16 +35,15 @@ export const occupied = (t: TetroEnum, d: DirectionEnum, x: number, y: number, b
       getBlock(x, y, b),
       exists(a => a !== 0)
     );
-    const isInvalidPosX = x < 0 || x >= TOT_BOARD_CELLS;
-    const isInvalidPosY = y < 0 || y >= TOT_BOARD_ROWS;
+    const isInvalidPosX = x < 0 || x >= BOARD_CELLS;
+    const isInvalidPosY = y < 0 || y >= BOARD_ROWS;
     return isInvalidPosX || isInvalidPosY || isTetroBlockAlredyOnBoard;
   });
 
-export const rotateTetroDirectionACW = (d: DirectionEnum) => {
+export const rotateTetroDirectionCW = (d: DirectionEnum) => {
   const values = Object.values(DirectionEnum);
-  const len = values.length - 1;
   const index = values.indexOf(d);
-  const prev = values[index - 1];
-  const newDirection = prev === undefined ? values[len] : prev;
+  const next = values[index + 1];
+  const newDirection = next === undefined ? values[0] : next;
   return newDirection;
 };

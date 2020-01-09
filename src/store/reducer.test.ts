@@ -1,4 +1,3 @@
-import { InternalState, I, S, NO, WE, ES, PubicState } from '../game';
 import {
   BOARD_HALF_S_Y,
   BOARD_ROW_EMPTY,
@@ -7,7 +6,11 @@ import {
   BOARD_EMPTY
 } from '../utils';
 import { mkInitialState, mkPublicState, gameSlice } from '.';
-const { actions, reducer } = gameSlice;
+import { InternalState, I, S, NO, ES, PubicState, TetroEnum } from '../game/types';
+const {
+  actions: { moveDown, moveLeft, moveRight, moveUp, checkBoard },
+  reducer
+} = gameSlice;
 
 const INITIAL_STATE = mkInitialState();
 const INVALID_ACTION = { type: 'invalid-action' };
@@ -30,7 +33,7 @@ describe('reducer', () => {
           ...INITIAL_STATE,
           currentTetro: { ...INITIAL_STATE.currentTetro, y: 1 }
         };
-        const r = reducer(INITIAL_STATE, actions.moveDown);
+        const r = reducer(INITIAL_STATE, moveDown);
         expect(r).toEqual(test);
       });
 
@@ -45,7 +48,7 @@ describe('reducer', () => {
           board: BOARD_HALF_S_Y,
           currentTetro: { ...INITIAL_STATE.currentTetro, y: 2 }
         };
-        const r = reducer(initialState, actions.moveDown);
+        const r = reducer(initialState, moveDown);
         expect(r).toEqual(finalState);
       });
 
@@ -62,9 +65,9 @@ describe('reducer', () => {
             ...Array(4).fill([I, ...Array(9).fill(0)]),
             ...Array(14).fill(Array(10).fill(S))
           ],
-          currentTetro: { ...INITIAL_STATE.currentTetro, y: 2 }
+          currentTetro: { ...INITIAL_STATE.currentTetro, type: TetroEnum.L }
         };
-        const r = reducer(initialState, actions.moveDown);
+        const r = reducer(initialState, moveDown);
         expect(r).toEqual(finalState);
       });
     });
@@ -75,7 +78,7 @@ describe('reducer', () => {
           ...INITIAL_STATE,
           currentTetro: { ...INITIAL_STATE.currentTetro, x: 1 }
         };
-        const r = reducer(INITIAL_STATE, actions.moveRight);
+        const r = reducer(INITIAL_STATE, moveRight);
         expect(r).toEqual(test);
       });
 
@@ -90,7 +93,7 @@ describe('reducer', () => {
           board: BOARD_HALF_S_X,
           currentTetro: { ...INITIAL_STATE.currentTetro, x: 2 }
         };
-        const r = reducer(initialState, actions.moveRight);
+        const r = reducer(initialState, moveRight);
         expect(r).toEqual(finalState);
       });
 
@@ -108,7 +111,7 @@ describe('reducer', () => {
           ],
           currentTetro: { ...INITIAL_STATE.currentTetro, x: 4 }
         };
-        const r = reducer(initialState, actions.moveRight);
+        const r = reducer(initialState, moveRight);
         expect(r).toEqual(finalState);
       });
     });
@@ -123,7 +126,7 @@ describe('reducer', () => {
           ...INITIAL_STATE,
           currentTetro: { ...INITIAL_STATE.currentTetro, x: 0 }
         };
-        const r = reducer(initialState, actions.moveLeft);
+        const r = reducer(initialState, moveLeft);
         expect(r).toEqual(finalState);
       });
 
@@ -138,7 +141,7 @@ describe('reducer', () => {
           board: BOARD_HALF_S_X,
           currentTetro: { ...INITIAL_STATE.currentTetro, x: 0 }
         };
-        const r = reducer(initialState, actions.moveLeft);
+        const r = reducer(initialState, moveLeft);
         expect(r).toEqual(finalState);
       });
 
@@ -156,22 +159,22 @@ describe('reducer', () => {
           ],
           currentTetro: { ...INITIAL_STATE.currentTetro, x: 5 }
         };
-        const r = reducer(initialState, actions.moveLeft);
+        const r = reducer(initialState, moveLeft);
         expect(r).toEqual(finalState);
       });
     });
 
     describe('Move Up', () => {
-      it('should rotate the tetro direction ACW, no collision', () => {
+      it('should rotate the tetro direction CW, no collision', () => {
         const initialState: InternalState = {
           ...INITIAL_STATE,
           currentTetro: { ...INITIAL_STATE.currentTetro, direction: NO }
         };
         const finalState: InternalState = {
           ...INITIAL_STATE,
-          currentTetro: { ...INITIAL_STATE.currentTetro, direction: WE }
+          currentTetro: { ...INITIAL_STATE.currentTetro, direction: ES }
         };
-        const r = reducer(initialState, actions.moveUp);
+        const r = reducer(initialState, moveUp);
         expect(r).toEqual(finalState);
       });
 
@@ -186,7 +189,7 @@ describe('reducer', () => {
           board: BOARD_HALF_S_Y,
           currentTetro: { ...INITIAL_STATE.currentTetro, direction: ES, x: 0, y: 5 }
         };
-        const r = reducer(initialState, actions.moveUp);
+        const r = reducer(initialState, moveUp);
         expect(r).toEqual(finalState);
       });
     });
@@ -206,20 +209,20 @@ describe('reducer', () => {
           lines: 14,
           score: 1400
         };
-        const r = reducer(initialState, actions.checkBoard);
+        const r = reducer(initialState, checkBoard);
         expect(r).toEqual(finalState);
       });
 
       it('should not update level, lines, score when no row completed are detected', () => {
         const initialState: InternalState = { ...INITIAL_STATE };
         const finalState: InternalState = { ...INITIAL_STATE };
-        const r = reducer(initialState, actions.checkBoard);
+        const r = reducer(initialState, checkBoard);
         expect(r).toEqual(finalState);
       });
     });
 
     describe('mkPublicState', () => {
-      it('should return  the pubic state included computed board to render and removed hidden properties', () => {
+      it('should return the pubic state included computed board to render and removed hidden properties', () => {
         const input: InternalState = INITIAL_STATE;
         const { score, level, lines, nextTetro } = INITIAL_STATE;
         const board = [
