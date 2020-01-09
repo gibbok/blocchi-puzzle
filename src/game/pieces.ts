@@ -1,5 +1,4 @@
 import { TetroPieces, Z, S, J, T, I, L, O } from './types';
-/* eslint-disable prettier/prettier */
 export const pieces: TetroPieces = {
   Z: {
     N: [

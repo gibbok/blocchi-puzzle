@@ -51,7 +51,7 @@ describe('reducer', () => {
         const r = reducer(initialState, moveDown);
         expect(r).toEqual(finalState);
       });
-      // XXX
+
       it('should not increase current tetro y position, lock current tetro on board, collision ', () => {
         const initialState: InternalState = {
           ...INITIAL_STATE,

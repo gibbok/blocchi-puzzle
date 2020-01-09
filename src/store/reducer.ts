@@ -1,7 +1,6 @@
 import { InternalState, TetroEnum, DirectionEnum, PubicState } from '~game/types';
 import { Store } from 'redux';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
-
 import { mkEmptyBoard, addTetroToBoard } from '~game';
 import { BOARD_ROWS, BOARD_CELLS } from '../game/settings';
 import { moveUp, moveDown, moveRight, moveLeft, checkBoard } from './board/actions';
