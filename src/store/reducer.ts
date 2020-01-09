@@ -2,20 +2,9 @@ import { InternalState, TetroEnum, DirectionEnum, PubicState } from '~game/types
 import { Store } from 'redux';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
-import {
-  mkEmptyBoard,
-  addTetroToBoard,
-  recFindAvailablePosY,
-  recFindAvailablePosX,
-  detectAndRemoveCompletedRows,
-  getCompleteRowIdxs,
-  calcLevel,
-  calcScore,
-  occupied,
-  rotateTetroDirectionACW
-} from '~game';
-import { pipe } from 'fp-ts/lib/pipeable';
+import { mkEmptyBoard, addTetroToBoard } from '~game';
 import { BOARD_ROWS, BOARD_CELLS } from '../game/settings';
+import { moveUp, moveDown, moveRight, moveLeft, checkBoard } from './board/actions';
 
 export const mkInitialState = () => ({
   board: mkEmptyBoard(BOARD_ROWS, BOARD_CELLS),
@@ -37,154 +26,15 @@ export const mkInitialState = () => ({
   isPlay: true // TODO pause before start game
 });
 
-const logicMoveDown = (prevState: InternalState) => {
-  const {
-    board,
-    score,
-    level,
-    lines,
-    currentTetro: { type, direction, x, y },
-    nextTetro,
-    isPlay
-  } = prevState;
-  const newY = y + 1;
-  const isOccupiedDown = occupied(type, direction, x, newY, board);
-  const foundPosY = recFindAvailablePosY(type, direction, x, newY, board, 1);
-  const newState = {
-    board: isOccupiedDown ? addTetroToBoard(type, direction, x, foundPosY, board) : board,
-    score,
-    level,
-    lines,
-    currentTetro: {
-      type: isOccupiedDown ? TetroEnum.L : type, // get random here
-      direction: isOccupiedDown ? DirectionEnum.N : direction, //get random here
-      x: isOccupiedDown ? 0 : x,
-      y: isOccupiedDown ? 0 : foundPosY
-    },
-    nextTetro,
-    isPlay
-  };
-  return newState;
-};
-
-const logicMoveRight = (prevState: InternalState) => {
-  const {
-    board,
-    score,
-    level,
-    lines,
-    currentTetro: { type, direction, x, y },
-    nextTetro,
-    isPlay
-  } = prevState;
-  const newRightX = x + 1;
-  const isOccupiedRight = occupied(type, direction, newRightX, y, board);
-  const foundRightPosX = recFindAvailablePosX(type, direction, newRightX, y, board, 1);
-
-  return {
-    board: isOccupiedRight ? addTetroToBoard(type, direction, foundRightPosX, y, board) : board,
-    score,
-    level,
-    lines,
-    currentTetro: {
-      type,
-      direction,
-      x: isOccupiedRight ? foundRightPosX : newRightX,
-      y
-    },
-    nextTetro,
-    isPlay
-  };
-};
-
-const logicMoveUp = (prevState: InternalState) => {
-  const {
-    board,
-    score,
-    level,
-    lines,
-    currentTetro: { type, direction, x, y },
-    nextTetro,
-    isPlay
-  } = prevState;
-  const directionNew = rotateTetroDirectionACW(direction);
-  const isOccupiedUp = occupied(type, directionNew, x, y, board);
-  return {
-    board,
-    score,
-    level,
-    lines,
-    currentTetro: {
-      type,
-      direction: isOccupiedUp ? direction : directionNew,
-      x,
-      y
-    },
-    nextTetro,
-    isPlay
-  };
-};
-
-const logicMoveLeft = (prevState: InternalState) => {
-  const {
-    board,
-    score,
-    level,
-    lines,
-    currentTetro: { type, direction, x, y },
-    nextTetro,
-    isPlay
-  } = prevState;
-  const newLeftX = x - 1;
-  const isOccupiedLeft = occupied(type, direction, newLeftX, y, board);
-  const foundLeftPosX = recFindAvailablePosX(type, direction, newLeftX, y, board, -1);
-  return {
-    board: isOccupiedLeft ? addTetroToBoard(type, direction, foundLeftPosX, y, board) : board,
-    score,
-    level,
-    lines,
-    currentTetro: {
-      type,
-      direction,
-      x: isOccupiedLeft ? foundLeftPosX : newLeftX,
-      y
-    },
-    nextTetro,
-    isPlay
-  };
-};
-
-const logicCheckBoard = (prevState: InternalState) => {
-  const {
-    board,
-    lines,
-    currentTetro: { type, direction, x, y },
-    nextTetro,
-    isPlay
-  } = prevState;
-  const totRowCompleted = getCompleteRowIdxs(board);
-  const totRowCompletedLen = totRowCompleted.length;
-  const newScore = pipe(totRowCompletedLen, calcScore);
-  return {
-    board: detectAndRemoveCompletedRows(board),
-    score: newScore,
-    level: calcLevel(newScore),
-    lines: lines + totRowCompletedLen,
-    currentTetro: { type, direction, x, y },
-    nextTetro,
-    isPlay
-  };
-};
-
 export const gameSlice = createSlice({
   name: 'game',
   initialState: mkInitialState(),
   reducers: {
-    checkBoard: logicCheckBoard,
-    moveUp: logicMoveUp,
-    moveLeft: logicMoveLeft,
-    moveRight: logicMoveRight,
-    moveDown: logicMoveDown
+    checkBoard: checkBoard,
+    moveUp: moveUp,
+    moveLeft: moveLeft,
+    moveRight: moveRight,
+    moveDown: moveDown
   }
 });
 
