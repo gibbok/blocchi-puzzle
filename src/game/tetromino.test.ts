@@ -1,4 +1,4 @@
-import { getRandomTetro, getTetroFromPieces, occupied, getBlock, rotateTetroDirectionACW } from '.';
+import { getRandomTetro, getTetroFromPieces, occupied, getBlock, rotateTetroDirectionCW } from '.';
 import { stub } from 'sinon';
 import { dataPieces, BOARD_EMPTY, BOARD_HALF_I_Y } from '../utils';
 import { none, isSome, toUndefined } from 'fp-ts/lib/Option';
@@ -81,14 +81,12 @@ describe('tetromino', () => {
     });
   });
 
-  describe('rotateTetroDirectionACW', () => {
-    it('should get the previous direction type anti clock wise', () => {
-      expect(rotateTetroDirectionACW(DirectionEnum.W)).toEqual(DirectionEnum.S);
-      expect(rotateTetroDirectionACW(DirectionEnum.S)).toEqual(DirectionEnum.E);
-    });
-
-    it('should get the last direction, if input tetro direction was the first one', () => {
-      expect(rotateTetroDirectionACW(DirectionEnum.N)).toEqual(DirectionEnum.W);
+  describe('rotateTetroDirectionCW', () => {
+    it('should get the next direction type clock wise', () => {
+      expect(rotateTetroDirectionCW(DirectionEnum.N)).toEqual(DirectionEnum.E);
+      expect(rotateTetroDirectionCW(DirectionEnum.E)).toEqual(DirectionEnum.S);
+      expect(rotateTetroDirectionCW(DirectionEnum.S)).toEqual(DirectionEnum.W);
+      expect(rotateTetroDirectionCW(DirectionEnum.W)).toEqual(DirectionEnum.N);
     });
   });
 });

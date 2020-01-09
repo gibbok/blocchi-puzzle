@@ -6,12 +6,27 @@ import { BOARD_CELLS } from './settings';
 export const mkEmptyBoard = (rows: number, columns: number): Board =>
   [...Array(rows)].fill([...Array(columns).fill(NoTetro)]);
 
+// TODO add test
+export const copyBoard = (b: Board) => b.map(r => r.map(c => c));
+
 export const addTetroToBoard = (t: TetroEnum, d: DirectionEnum, x: number, y: number, b: Board) => {
   const tetro = getTetroFromPieces(t, d);
-  const bn = b.map(r => r.map(c => c));
-  tetro.forEach((tR, tRx) => tR.forEach((tC, tCx) => (bn[tRx + y][tCx + x] = t)));
+  const bn = copyBoard(b); // copy board
+  tetro.forEach((tR, tRx) =>
+    tR.forEach(
+      (tC, tCx) =>
+        (bn[tRx + y][tCx + x] = tetro[tRx][tCx] !== 0 ? tetro[tRx][tCx] : bn[tRx + y][tCx + x])
+    )
+  );
   return bn;
 };
+
+// export const addTetroToBoard = (t: TetroEnum, d: DirectionEnum, x: number, y: number, b: Board) => {
+//   const tetro = getTetroFromPieces(t, d);
+//   const bn = b.map(r => r.map(c => c));
+//   tetro.forEach((tR, tRx) => tR.forEach((tC, tCx) => (bn[tRx + y][tCx + x] = t)));
+//   return bn;
+// };
 
 export const recFindAvailablePos = (
   type: TetroEnum,
