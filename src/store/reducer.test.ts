@@ -6,7 +6,7 @@ import {
   BOARD_EMPTY
 } from '../utils';
 import { mkInitialState, mkPublicState, gameSlice } from '.';
-import { InternalState, I, S, NO, WE, ES, PubicState, TetroEnum } from '../game/types';
+import { InternalState, I, S, NO, ES, PubicState, TetroEnum } from '../game/types';
 const {
   actions: { moveDown, moveLeft, moveRight, moveUp, checkBoard },
   reducer
@@ -165,14 +165,14 @@ describe('reducer', () => {
     });
 
     describe('Move Up', () => {
-      it('should rotate the tetro direction ACW, no collision', () => {
+      it('should rotate the tetro direction CW, no collision', () => {
         const initialState: InternalState = {
           ...INITIAL_STATE,
           currentTetro: { ...INITIAL_STATE.currentTetro, direction: NO }
         };
         const finalState: InternalState = {
           ...INITIAL_STATE,
-          currentTetro: { ...INITIAL_STATE.currentTetro, direction: WE }
+          currentTetro: { ...INITIAL_STATE.currentTetro, direction: ES }
         };
         const r = reducer(initialState, moveUp);
         expect(r).toEqual(finalState);
