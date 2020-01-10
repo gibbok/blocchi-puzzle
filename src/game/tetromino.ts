@@ -64,9 +64,7 @@ export const occupied = (
       const isInvalidPosY = futureBoardTetroY >= BOARD_ROWS;
       const isInvalidPosX = futureBoardTetroX >= BOARD_CELLS;
 
-      console.log(futureBoardTetroY, futureBoardTetroX);
       if (isInvalidPosX || isInvalidPosY) {
-        console.log('invalid');
         return true;
       }
 
@@ -87,59 +85,7 @@ export const occupied = (
   });
 
   return isInvalidPosX || isInvalidPosY || doesTetroCollideOnBoard;
-  // // take the value for data tetro, change their position as new argument, check for collision
-  // const checkCollision = tetroBlocks.some((row, rowIdx) => {
-  //   console.log('row', row);
-  //   const result = row.some((cell, cellIdx) => {
-  //     const targetBlockTetro = tetroBlocks[rowIdx][cellIdx];
-  //     const targetBlockBoard = b[y][x];
-  //     console.log('targetBlockTetro', targetBlockTetro);
-  //     console.log('targetBlockBoard', targetBlockBoard);
-  //     if (targetBlockBoard !== 0 && targetBlockTetro !== 0) {
-  //       return true;
-  //     } else {
-  //       return false;
-  //     }
-  //   });
-  //   console.log('result', result);
-  //   return result;
-  // });
-  // console.log(x, y, checkCollision);
-  // // check if there is a collision
-  // return checkCollision;
 };
-
-// export const occupied = (
-//   t: TetroEnum,
-//   d: DirectionEnum,
-//   x: number,
-//   y: number,
-//   b: Board
-// ): boolean => {
-//   return eachblock(t, d, x, y, (x, y) => {
-//     const isTetroBlockAlredyOnBoard = pipe(
-//       getBlockFromBoard(x, y, b),
-//       exists(tileBlock => {
-//         const hasBlockOnBoard = tileBlock !== 0;
-//         const hasBlockOnTetro = pipe(
-//           getBlockFromTetro(x, y, t, d),
-//           exists(tileTetro => tileTetro !== 0)
-//         );
-//         console.log({
-//           y: y,
-//           x: x,
-//           hasBlockOnBoard: hasBlockOnBoard,
-//           hasBlockOnTetro: hasBlockOnTetro
-//         });
-//         return false;
-//         // return hasBlockOnBoard && !hasBlockOnTetro ? true : false;
-//       })
-//     );
-//     const isInvalidPosX = x < 0 || x >= BOARD_CELLS;
-//     const isInvalidPosY = y < 0 || y >= BOARD_ROWS;
-//     return isInvalidPosX || isInvalidPosY || isTetroBlockAlredyOnBoard;
-//   });
-// };
 
 export const rotateTetroDirectionCW = (d: DirectionEnum) => {
   const values = Object.values(DirectionEnum);
