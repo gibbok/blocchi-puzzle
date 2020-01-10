@@ -49,6 +49,14 @@ export const occupied = (
 ): boolean => {
   // take current tetro data
   const tetroBlocks = getTetroFromPieces(t, d);
+
+  const isInvalidPosX = x < 0 || x >= BOARD_CELLS;
+  const isInvalidPosY = y < 0 || y >= BOARD_ROWS;
+
+  if (isInvalidPosX || isInvalidPosY) {
+    return true;
+  }
+
   const doesTetroCollideOnBoard = tetroBlocks.some((tetroRow, tetroRowIdx) => {
     const resultTetroRow = tetroRow.some((tetroCell, tetroCellIdx) => {
       const futureBoardTetroY = y + tetroRowIdx;
@@ -69,7 +77,7 @@ export const occupied = (
     return resultTetroRow;
   });
 
-  return doesTetroCollideOnBoard;
+  return isInvalidPosX || isInvalidPosY || doesTetroCollideOnBoard;
   // // take the value for data tetro, change their position as new argument, check for collision
   // const checkCollision = tetroBlocks.some((row, rowIdx) => {
   //   console.log('row', row);
