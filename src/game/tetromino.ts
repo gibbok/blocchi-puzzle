@@ -1,10 +1,11 @@
 import { TetroEnum, Tetro, DirectionEnum, Board, Tile } from './types';
 import { randomInt } from 'fp-ts/lib/Random';
 import { IO, io } from 'fp-ts/lib/IO';
-import { none, some, exists, Option } from 'fp-ts/lib/Option';
+import { none, some, exists, Option, getOrElse } from 'fp-ts/lib/Option';
 import { pipe } from 'fp-ts/lib/pipeable';
 import { pieces } from './pieces';
 import { BOARD_CELLS, BOARD_ROWS } from './settings';
+import { identity } from 'fp-ts/lib/function';
 
 export const getTetroFromPieces = (t: TetroEnum, d: DirectionEnum): Tetro => pieces[t][d];
 
@@ -36,7 +37,7 @@ export const getBlockFromBoard = (x: number, y: number, b: Board): Option<Tile> 
 
 export const getBlockFromTetro = (x: number, y: number, t: TetroEnum, d: DirectionEnum) => {
   const tetro = getTetroFromPieces(t, d);
-  const r = tetro && tetro[y] ? tetro[y][x] : undefined;
+  const r = tetro && tetro[y] ? some(tetro[y][x]) : none;
   return r;
 };
 
@@ -50,10 +51,17 @@ export const occupied = (
   return eachblock(t, d, x, y, (x, y) => {
     const isTetroBlockAlredyOnBoard = pipe(
       getBlockFromBoard(x, y, b),
-      exists(a => {
-        const bt = getBlockFromTetro(x, y, t, d);
-        return a !== 0 && bt !== 0;
+      exists(tileBlock => {
+        const tileTetro = pipe(
+          getBlockFromTetro(x, y, t, d),
+          exists(tileTetro => tileTetro !== 0)
+        );
+        return tileBlock !== 0 && tileTetro;
       })
+      // exists(a => {
+      //   const bt = getBlockFromTetro(x, y, t, d);
+      //   return a !== 0 && bt !== 0;
+      // })
     );
     const isInvalidPosX = x < 0 || x >= BOARD_CELLS;
     const isInvalidPosY = y < 0 || y >= BOARD_ROWS;

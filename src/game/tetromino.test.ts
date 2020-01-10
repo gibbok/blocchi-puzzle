@@ -34,7 +34,7 @@ describe('tetromino', () => {
     });
   });
 
-  describe('occupied', () => {
+  describe.only('occupied', () => {
     it('should return true if tetro new position is occupied on the board', () => {
       const test = occupied(I, NO, 7, 7, BOARD_HALF_I_Y);
       expect(test).toStrictEqual(true);
@@ -69,7 +69,7 @@ describe('tetromino', () => {
       expect(test).toStrictEqual(true);
     });
     // FIXME bug this test must be pass
-    it('xxx should return false considering internal 0', () => {
+    it.only('xxx should return false considering internal 0', () => {
       console.log('xxxxxxxxxxxxx');
       const boardTest = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
