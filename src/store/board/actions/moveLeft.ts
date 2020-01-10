@@ -1,5 +1,5 @@
 import { InternalState } from '~game/types';
-import { occupied, recFindAvailablePosX, addTetroToBoard } from '~game';
+import { occupied } from '~game';
 
 export const moveLeft = (prevState: InternalState) => {
   const {
@@ -13,16 +13,15 @@ export const moveLeft = (prevState: InternalState) => {
   } = prevState;
   const newLeftX = x - 1;
   const isOccupiedLeft = occupied(type, direction, newLeftX, y, board);
-  const foundLeftPosX = recFindAvailablePosX(type, direction, newLeftX, y, board, -1);
   return {
-    board: isOccupiedLeft ? addTetroToBoard(type, direction, foundLeftPosX, y, board) : board,
+    board,
     score,
     level,
     lines,
     currentTetro: {
       type,
       direction,
-      x: isOccupiedLeft ? foundLeftPosX : newLeftX,
+      x: isOccupiedLeft ? x : newLeftX,
       y
     },
     nextTetro,

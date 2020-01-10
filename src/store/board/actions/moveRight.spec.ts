@@ -8,14 +8,31 @@ export const {
   reducer
 } = gameSlice;
 
-describe('Move Right', () => {
-  it('should increase current tetro x position, leaving the board un tocuched, no collission', () => {
+describe.only('Move Right', () => {
+  it('should increase current tetro x position, leaving the board un touched, no collission', () => {
     const test: InternalState = {
       ...INITIAL_STATE,
       currentTetro: { ...INITIAL_STATE.currentTetro, x: 1 }
     };
     const r = reducer(INITIAL_STATE, moveRight);
     expect(r).toEqual(test);
+  });
+  // DOING
+  it.only('SPO 1 - should not push current tetro x position over the edge, leaving the board un touched, no collission', () => {
+    const initialState: InternalState = {
+      ...INITIAL_STATE,
+      currentTetro: { ...INITIAL_STATE.currentTetro, x: 6 }
+    };
+    const finalState: InternalState = {
+      ...INITIAL_STATE,
+      currentTetro: { ...INITIAL_STATE.currentTetro, x: 6 }
+    };
+    const r = reducer(initialState, moveRight);
+    console.log('XXX');
+    logger(initialState.board);
+    logger(finalState.board);
+    logger(r.board);
+    expect(r).toEqual(finalState);
   });
 
   it('should increase current tetro x position, leaving the board un touched, no collision', () => {
@@ -48,9 +65,10 @@ describe('Move Right', () => {
       currentTetro: { ...INITIAL_STATE.currentTetro, x: 3 }
     };
     const r = reducer(initialState, moveRight);
-    // logger(initialState.board);
-    // logger(finalState.board);
-    // logger(r.board);
+    console.log('XXX');
+    logger(initialState.board);
+    logger(finalState.board);
+    logger(r.board);
     expect(r).toEqual(finalState);
   });
 });

@@ -146,7 +146,7 @@ describe('tetromino', () => {
       const test = occupied(L, ES, 0, 0, boardTest);
       expect(test).toStrictEqual(true);
     });
-    it.only('SPO 1 - should return false when tetro is on the edge', () => {
+    it('SPO 1 - should return false when tetro is on the edge', () => {
       const boardTest = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

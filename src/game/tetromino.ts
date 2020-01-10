@@ -51,12 +51,12 @@ export const occupied = (
 
   const isInvalidPosY = y < 0 || y >= BOARD_ROWS;
   const isInvalidPosX = x < 0 || x >= BOARD_CELLS;
-  console.log('Xxx', {
-    y: y,
-    x: x,
-    isInvalidPosY: isInvalidPosY,
-    isInvalidPosX: isInvalidPosX
-  });
+  // console.log('Xxx', {
+  //   y: y,
+  //   x: x,
+  //   isInvalidPosY: isInvalidPosY,
+  //   isInvalidPosX: isInvalidPosX
+  // });
   if (isInvalidPosY || isInvalidPosX) {
     return true;
   }
