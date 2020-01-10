@@ -1,6 +1,6 @@
 import { mkInitialState, gameSlice } from '~store';
 import { InternalState, TetroEnum, I, S } from '~game/types';
-import { BOARD_HALF_S_Y, BOARD_ROW_EMPTY } from '~utils';
+import { BOARD_HALF_S_Y, BOARD_ROW_EMPTY, logger } from '~utils';
 
 const INITIAL_STATE = mkInitialState();
 export const {
@@ -33,7 +33,7 @@ describe('Move Down', () => {
     expect(r).toEqual(finalState);
   });
 
-  it('should not increase current tetro y position, lock current tetro on board, collision ', () => {
+  it.only('should not increase current tetro y position, lock current tetro on board, collision', () => {
     const initialState: InternalState = {
       ...INITIAL_STATE,
       board: BOARD_HALF_S_Y,
@@ -43,7 +43,7 @@ describe('Move Down', () => {
       ...INITIAL_STATE,
       board: [
         ...Array(2).fill(BOARD_ROW_EMPTY),
-        ...Array(4).fill([0, I, ...Array(8).fill(0)]),
+        ...Array(4).fill([I, 0, ...Array(8).fill(0)]),
         ...Array(14).fill(Array(10).fill(S))
       ],
       currentTetro: { ...INITIAL_STATE.currentTetro, type: TetroEnum.L }

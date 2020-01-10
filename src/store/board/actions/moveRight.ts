@@ -1,6 +1,5 @@
 import { InternalState } from '~game/types';
 import { occupied } from '~game';
-import { logger } from '~utils';
 
 export const moveRight = (prevState: InternalState) => {
   const {
@@ -28,6 +27,5 @@ export const moveRight = (prevState: InternalState) => {
     nextTetro,
     isPlay
   };
-  logger(newState.board);
   return newState;
 };

@@ -1,5 +1,5 @@
 import { mkInitialState, gameSlice } from '~store';
-import { InternalState, I, S } from '~game/types';
+import { InternalState } from '~game/types';
 import { BOARD_HALF_S_X, BOARD_HALF_S_X_REV, logger } from '~utils';
 
 const INITIAL_STATE = mkInitialState();
@@ -37,7 +37,7 @@ describe('Move Left', () => {
     expect(r).toEqual(finalState);
   });
 
-  it('should decrease current tetro x position and push next to the edge', () => {
+  it.only('XXX - should not decrease current tetro x position and kept it next to edge', () => {
     const initialState: InternalState = {
       ...INITIAL_STATE,
       board: BOARD_HALF_S_X_REV,
@@ -45,7 +45,7 @@ describe('Move Left', () => {
     };
     const finalState: InternalState = {
       ...initialState,
-      currentTetro: { ...INITIAL_STATE.currentTetro, x: 4 }
+      currentTetro: { ...INITIAL_STATE.currentTetro, x: 5 }
     };
     const r = reducer(initialState, moveLeft);
     expect(r).toEqual(finalState);
