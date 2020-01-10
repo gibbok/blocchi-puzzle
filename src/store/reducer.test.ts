@@ -1,4 +1,4 @@
-import { BOARD_ROW_EMPTY } from '../utils';
+import { BOARD_ROW_EMPTY, logger } from '../utils';
 import { mkInitialState, mkPublicState, gameSlice } from '.';
 import { InternalState, I, PubicState } from '../game/types';
 export const {
@@ -26,7 +26,7 @@ describe('reducer', () => {
         const input: InternalState = INITIAL_STATE;
         const { score, level, lines, nextTetro } = INITIAL_STATE;
         const board = [
-          ...Array(4).fill([0, I, 0, 0, 0, 0, 0, 0, 0, 0]),
+          ...Array(4).fill([I, 0, 0, 0, 0, 0, 0, 0, 0, 0]),
           ...Array(16).fill(BOARD_ROW_EMPTY)
         ];
         const output: PubicState = { board, score, level, lines, nextTetro };

@@ -49,10 +49,15 @@ export const occupied = (
   // take current tetro data
   const tetroBlocks = getTetroFromPieces(t, d);
 
-  const isInvalidPosX = x < 0 || x >= BOARD_CELLS;
   const isInvalidPosY = y < 0 || y >= BOARD_ROWS;
-
-  if (isInvalidPosX || isInvalidPosY) {
+  const isInvalidPosX = x < 0 || x >= BOARD_CELLS;
+  // console.log('Xxx', {
+  //   y: y,
+  //   x: x,
+  //   isInvalidPosY: isInvalidPosY,
+  //   isInvalidPosX: isInvalidPosX
+  // });
+  if (isInvalidPosY || isInvalidPosX) {
     return true;
   }
 

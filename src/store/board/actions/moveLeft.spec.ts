@@ -1,6 +1,6 @@
 import { mkInitialState, gameSlice } from '~store';
-import { InternalState, I, S } from '~game/types';
-import { BOARD_HALF_S_X, BOARD_HALF_S_X_REV } from '~utils';
+import { InternalState } from '~game/types';
+import { BOARD_HALF_S_X, BOARD_HALF_S_X_REV, logger } from '~utils';
 
 const INITIAL_STATE = mkInitialState();
 export const {
@@ -8,7 +8,7 @@ export const {
   reducer
 } = gameSlice;
 
-describe.skip('Move Left', () => {
+describe('Move Left', () => {
   it('should decrease current tetro x position, leaving the board un tocuched, no collission', () => {
     const initialState: InternalState = {
       ...INITIAL_STATE,
@@ -37,19 +37,27 @@ describe.skip('Move Left', () => {
     expect(r).toEqual(finalState);
   });
 
-  it('should not decrease current tetro x position, lock current tetro on board, collision ', () => {
+  it.only('XXX - should not decrease current tetro x position and kept it next to edge', () => {
     const initialState: InternalState = {
       ...INITIAL_STATE,
       board: BOARD_HALF_S_X_REV,
       currentTetro: { ...INITIAL_STATE.currentTetro, x: 5 }
     };
     const finalState: InternalState = {
-      ...INITIAL_STATE,
-      board: [
-        ...Array(4).fill([...Array(5).fill(S), I, ...Array(4).fill(0)]),
-        ...Array(16).fill([...Array(5).fill(S), ...Array(5).fill(0)])
-      ],
+      ...initialState,
       currentTetro: { ...INITIAL_STATE.currentTetro, x: 5 }
+    };
+    const r = reducer(initialState, moveLeft);
+    expect(r).toEqual(finalState);
+  });
+  it('should not decrease current tetro x position and leave it next to the edge', () => {
+    const initialState: InternalState = {
+      ...INITIAL_STATE,
+      board: BOARD_HALF_S_X_REV,
+      currentTetro: { ...INITIAL_STATE.currentTetro, x: 4 }
+    };
+    const finalState: InternalState = {
+      ...initialState
     };
     const r = reducer(initialState, moveLeft);
     expect(r).toEqual(finalState);
