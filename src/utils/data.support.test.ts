@@ -1,8 +1,5 @@
 /* eslint-disable prettier/prettier */
-import {
-  mkEmptyRow,
-  mkRow
-} from '../game';
+import { mkEmptyRow, mkRow } from '../game';
 import { TetroPieces, Z, S, J, T, I, L, O, BoardRow, Board, TetroEnum } from '~game/types';
 
 export const dataPieces: TetroPieces = {
@@ -87,14 +84,41 @@ export const dataPieces: TetroPieces = {
     ]
   },
   I: {
-    N: [[I], [I], [I], [I]],
-    E: [[I, I, I, I]],
-    S: [[I], [I], [I], [I]],
-    W: [[I, I, I, I]]
+    N: [
+      [0, I, 0, 0],
+      [0, I, 0, 0],
+      [0, I, 0, 0],
+      [0, I, 0, 0]
+    ],
+    E: [
+      [0, 0, 0, 0],
+      [I, I, I, I],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0]
+    ],
+    S: [
+      [0, I, 0, 0],
+      [0, I, 0, 0],
+      [0, I, 0, 0],
+      [0, I, 0, 0]
+    ],
+    W: [
+      [0, 0, 0, 0],
+      [I, I, I, I],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0]
+    ]
   },
   L: {
-    N: [[L], [L], [L, L]],
-    E: [[L, L, L], [L]],
+    N: [
+      [L, 0],
+      [L, 0],
+      [L, L]
+    ],
+    E: [
+      [L, L, L],
+      [L, 0, 0]
+    ],
     S: [
       [L, L],
       [0, L],

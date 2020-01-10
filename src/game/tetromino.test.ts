@@ -1,8 +1,14 @@
-import { getRandomTetro, getTetroFromPieces, occupied, getBlock, rotateTetroDirectionCW } from '.';
+import {
+  getRandomTetro,
+  getTetroFromPieces,
+  occupied,
+  rotateTetroDirectionCW,
+  getBlockFromBoard
+} from '.';
 import { stub } from 'sinon';
 import { dataPieces, BOARD_EMPTY, BOARD_HALF_I_Y } from '../utils';
 import { none, isSome, toUndefined } from 'fp-ts/lib/Option';
-import { TetroEnum, DirectionEnum, I, NO, Z } from './types';
+import { TetroEnum, DirectionEnum, I, NO, Z, ES, L } from './types';
 
 describe('tetromino', () => {
   describe('getTetroFromPieces', () => {
@@ -62,21 +68,99 @@ describe('tetromino', () => {
       const test = occupied(I, NO, 0, 5, BOARD_HALF_I_Y);
       expect(test).toStrictEqual(true);
     });
+    it('should return false, board piece is within space of tetro but there is no collision', () => {
+      const boardTest = [
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0]
+      ];
+      const test = occupied(L, ES, 0, 0, boardTest);
+      expect(test).toStrictEqual(false);
+    });
+    it('should return true, piece in board collide with tetro space', () => {
+      const boardTest = [
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [I, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0]
+      ];
+      const test = occupied(L, ES, 0, 0, boardTest);
+      expect(test).toStrictEqual(true);
+    });
+    it('should return true, piece in board collide with tetro space 2', () => {
+      const boardTest = [
+        [0, 0, I, 0, 0, 0, 0, 0, 0, 0],
+        [I, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0]
+      ];
+      const test = occupied(L, ES, 0, 0, boardTest);
+      expect(test).toStrictEqual(true);
+    });
   });
 
   describe('getBlock', () => {
     it('should return a block if it is present 1', () => {
-      const test = getBlock(0, 0, BOARD_EMPTY);
+      const test = getBlockFromBoard(0, 0, BOARD_EMPTY);
       expect(isSome(test)).toStrictEqual(true);
       expect(toUndefined(test)).toStrictEqual(0);
     });
     it('should return a block if it is present 2', () => {
-      const test = getBlock(0, 7, BOARD_HALF_I_Y);
+      const test = getBlockFromBoard(0, 7, BOARD_HALF_I_Y);
       expect(isSome(test)).toStrictEqual(true);
       expect(toUndefined(test)).toStrictEqual(I);
     });
     it('should return none if block does not exist', () => {
-      const test = getBlock(-100, -100, BOARD_HALF_I_Y);
+      const test = getBlockFromBoard(-100, -100, BOARD_HALF_I_Y);
       expect(test).toStrictEqual(none);
     });
   });
