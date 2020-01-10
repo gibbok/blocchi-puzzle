@@ -61,6 +61,15 @@ export const occupied = (
     const resultTetroRow = tetroRow.some((tetroCell, tetroCellIdx) => {
       const futureBoardTetroY = y + tetroRowIdx;
       const futureBoardTetroX = x + tetroCellIdx;
+      const isInvalidPosY = futureBoardTetroY >= BOARD_ROWS;
+      const isInvalidPosX = futureBoardTetroX >= BOARD_CELLS;
+
+      console.log(futureBoardTetroY, futureBoardTetroX);
+      if (isInvalidPosX || isInvalidPosY) {
+        console.log('invalid');
+        return true;
+      }
+
       const futureBoardCell = b[futureBoardTetroY][futureBoardTetroX];
       const hasTetroCellValue = tetroCell !== 0;
       const hasFutureBoardCellValue = futureBoardCell !== 0;
