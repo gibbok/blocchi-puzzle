@@ -26,8 +26,14 @@ export const eachblock = (
   return result;
 };
 
-export const getBlock = (x: number, y: number, b: Board): Option<Tile> =>
-  b && b[y] ? some(b[y][x]) : none;
+export const getBlock = (x: number, y: number, b: Board): Option<Tile> => {
+  const r = b && b[y] ? some(b[y][x]) : none;
+  // console.log(r);
+  return r;
+};
+
+// export const getBlock = (x: number, y: number, b: Board): Option<Tile> =>
+//   b && b[y] ? some(b[y][x]) : none;
 
 export const occupied = (
   t: TetroEnum,
@@ -36,12 +42,16 @@ export const occupied = (
   y: number,
   b: Board
 ): boolean => {
-  console.clear();
-  console.log(JSON.parse(JSON.stringify(b)));
   return eachblock(t, d, x, y, (x, y) => {
     const isTetroBlockAlredyOnBoard = pipe(
       getBlock(x, y, b),
-      exists(a => a !== 0)
+      j => {
+        // console.log('x', j);
+        return j;
+      },
+      exists(a => {
+        return a !== 0;
+      })
     );
     const isInvalidPosX = x < 0 || x >= BOARD_CELLS;
     const isInvalidPosY = y < 0 || y >= BOARD_ROWS;

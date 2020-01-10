@@ -96,8 +96,6 @@ describe('reducer', () => {
           currentTetro: { ...INITIAL_STATE.currentTetro, x: 2 }
         };
         const r = reducer(initialState, moveRight);
-        logger(r.board);
-        logger(finalState.board);
         expect(r).toEqual(finalState);
       });
 

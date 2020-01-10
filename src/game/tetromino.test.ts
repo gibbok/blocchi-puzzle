@@ -1,8 +1,8 @@
 import { getRandomTetro, getTetroFromPieces, occupied, getBlock, rotateTetroDirectionCW } from '.';
 import { stub } from 'sinon';
-import { dataPieces, BOARD_EMPTY, BOARD_HALF_I_Y } from '../utils';
+import { dataPieces, BOARD_EMPTY, BOARD_HALF_I_Y, logger, BOARD_ROW_EMPTY } from '../utils';
 import { none, isSome, toUndefined } from 'fp-ts/lib/Option';
-import { TetroEnum, DirectionEnum, I, NO, Z } from './types';
+import { TetroEnum, DirectionEnum, I, NO, Z, ES, L } from './types';
 
 describe('tetromino', () => {
   describe('getTetroFromPieces', () => {
@@ -28,7 +28,7 @@ describe('tetromino', () => {
     });
   });
 
-  describe('occupied', () => {
+  describe.only('occupied', () => {
     it('should return true if tetro new position is occupied on the board', () => {
       const test = occupied(I, NO, 7, 7, BOARD_HALF_I_Y);
       expect(test).toStrictEqual(true);
@@ -61,6 +61,33 @@ describe('tetromino', () => {
     it('should return true if tetro new position is occupied on the board 4', () => {
       const test = occupied(I, NO, 0, 5, BOARD_HALF_I_Y);
       expect(test).toStrictEqual(true);
+    });
+    // FIXME bug this test must be pass
+    it('xxx should return false considering internal 0', () => {
+      const boardTest = [
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0]
+      ];
+      const test = occupied(L, ES, 0, 0, boardTest);
+      expect(test).toStrictEqual(false);
     });
   });
 
