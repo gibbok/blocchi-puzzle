@@ -96,6 +96,34 @@ describe('tetromino', () => {
       const test = occupied(L, ES, 0, 0, boardTest);
       expect(test).toStrictEqual(false);
     });
+    // FIXME bug this test must be pass
+    it.only('xxx2222 should return false considering internal 0', () => {
+      console.log('xxxxxxxxxxxxx');
+      const boardTest = [
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [I, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0]
+      ];
+      const test = occupied(L, ES, 0, 0, boardTest);
+      expect(test).toStrictEqual(true);
+    });
   });
 
   describe('getBlock', () => {

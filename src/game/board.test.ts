@@ -37,10 +37,16 @@ describe('board', () => {
       ];
       expect(test).toEqual(result);
     });
-    //FIXME
-    it.skip('sould return new board with locked tetro overwritting any present tetro', () => {
+
+    it('sould return new board with locked tetro overwritting any present tetro', () => {
       const test = addTetroToBoard(TetroEnum.I, DirectionEnum.E, 0, 0, BOARD_FULL_S);
-      const result: Board = [[I, I, I, I, S, S, S, S, S, S], ...Array(19).fill(BOARD_ROW_S)];
+      const result: Board = [
+        BOARD_ROW_S,
+        [I, I, I, I, S, S, S, S, S, S],
+        ...Array(18).fill(BOARD_ROW_S)
+      ];
+      logger(test);
+      logger(result);
       expect(test).toEqual(result);
     });
   });
