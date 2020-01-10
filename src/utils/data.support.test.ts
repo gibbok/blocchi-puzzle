@@ -117,7 +117,7 @@ export const dataPieces: TetroPieces = {
     ],
     E: [
       [L, L, L],
-      [0, 0, L]
+      [L, 0, 0]
     ],
     S: [
       [L, L],
