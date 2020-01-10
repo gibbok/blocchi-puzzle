@@ -1,6 +1,6 @@
 import { mkInitialState, gameSlice } from '~store';
 import { InternalState, I, S } from '~game/types';
-import { BOARD_HALF_S_X } from '~utils';
+import { BOARD_HALF_S_X, logger } from '~utils';
 
 const INITIAL_STATE = mkInitialState();
 export const {
@@ -8,7 +8,7 @@ export const {
   reducer
 } = gameSlice;
 
-describe.skip('Move Right', () => {
+describe('Move Right', () => {
   it('should increase current tetro x position, leaving the board un tocuched, no collission', () => {
     const test: InternalState = {
       ...INITIAL_STATE,
@@ -45,9 +45,12 @@ describe.skip('Move Right', () => {
         ...Array(4).fill([...Array(4).fill(0), I, ...Array(5).fill(S)]),
         ...Array(16).fill([...Array(5).fill(0), ...Array(5).fill(S)])
       ],
-      currentTetro: { ...INITIAL_STATE.currentTetro, x: 4 }
+      currentTetro: { ...INITIAL_STATE.currentTetro, x: 3 }
     };
     const r = reducer(initialState, moveRight);
+    // logger(initialState.board);
+    // logger(finalState.board);
+    // logger(r.board);
     expect(r).toEqual(finalState);
   });
 });
