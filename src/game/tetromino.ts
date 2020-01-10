@@ -52,16 +52,13 @@ export const occupied = (
     const isTetroBlockAlredyOnBoard = pipe(
       getBlockFromBoard(x, y, b),
       exists(tileBlock => {
-        const tileTetro = pipe(
+        const hasBlockOnBoard = tileBlock !== 0;
+        const hasBlockOnTetro = pipe(
           getBlockFromTetro(x, y, t, d),
           exists(tileTetro => tileTetro !== 0)
         );
-        return tileBlock !== 0 && tileTetro;
+        return hasBlockOnBoard && hasBlockOnTetro;
       })
-      // exists(a => {
-      //   const bt = getBlockFromTetro(x, y, t, d);
-      //   return a !== 0 && bt !== 0;
-      // })
     );
     const isInvalidPosX = x < 0 || x >= BOARD_CELLS;
     const isInvalidPosY = y < 0 || y >= BOARD_ROWS;
