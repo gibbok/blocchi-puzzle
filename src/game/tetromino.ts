@@ -1,8 +1,7 @@
 import { TetroEnum, Tetro, DirectionEnum, Board, Tile } from './types';
 import { randomInt } from 'fp-ts/lib/Random';
 import { IO, io } from 'fp-ts/lib/IO';
-import { none, some, exists, Option, getOrElse } from 'fp-ts/lib/Option';
-import { pipe } from 'fp-ts/lib/pipeable';
+import { none, some, Option } from 'fp-ts/lib/Option';
 import { pieces } from './pieces';
 import { BOARD_CELLS, BOARD_ROWS } from './settings';
 

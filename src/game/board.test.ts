@@ -14,8 +14,7 @@ import {
   BOARD_FULL_S,
   BOARD_ROW_S,
   BOARD_HALF_S_Y,
-  BOARD_RANDOM_S_1,
-  logger
+  BOARD_RANDOM_S_1
 } from '../utils';
 import { I, TetroEnum, DirectionEnum, Board, S, J, Z } from './types';
 
@@ -45,8 +44,6 @@ describe('board', () => {
         [I, I, I, I, S, S, S, S, S, S],
         ...Array(18).fill(BOARD_ROW_S)
       ];
-      logger(test);
-      logger(result);
       expect(test).toEqual(result);
     });
   });

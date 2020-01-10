@@ -3,8 +3,7 @@ import {
   BOARD_ROW_EMPTY,
   BOARD_HALF_S_X,
   BOARD_HALF_S_X_REV,
-  BOARD_EMPTY,
-  logger
+  BOARD_EMPTY
 } from '../utils';
 import { mkInitialState, mkPublicState, gameSlice } from '.';
 import { InternalState, I, S, NO, ES, PubicState, TetroEnum } from '../game/types';
@@ -29,7 +28,7 @@ describe('reducer', () => {
     });
 
     describe('Move Down', () => {
-      it.skip('should increase current tetro y position, leaving the board un touched, no collision', () => {
+      it('should increase current tetro y position, leaving the board un touched, no collision', () => {
         const test: InternalState = {
           ...INITIAL_STATE,
           currentTetro: { ...INITIAL_STATE.currentTetro, y: 1 }
@@ -38,22 +37,21 @@ describe('reducer', () => {
         expect(r).toEqual(test);
       });
 
-      it.skip('should increase current tetro y position, leaving the board un touched, no collision', () => {
+      it('should increase current tetro y position, leaving the board un touched, no collision', () => {
         const initialState: InternalState = {
           ...INITIAL_STATE,
           board: BOARD_HALF_S_Y,
-          currentTetro: { ...INITIAL_STATE.currentTetro, y: 1 }
+          currentTetro: { ...INITIAL_STATE.currentTetro, type: TetroEnum.L, y: 1 }
         };
         const finalState: InternalState = {
           ...INITIAL_STATE,
           board: BOARD_HALF_S_Y,
-          currentTetro: { ...INITIAL_STATE.currentTetro, y: 2 }
+          currentTetro: { ...INITIAL_STATE.currentTetro, type: TetroEnum.L, y: 2 }
         };
         const r = reducer(initialState, moveDown);
         expect(r).toEqual(finalState);
       });
-      //FIXME
-      it.skip('should not increase current tetro y position, lock current tetro on board, collision ', () => {
+      it('should not increase current tetro y position, lock current tetro on board, collision ', () => {
         const initialState: InternalState = {
           ...INITIAL_STATE,
           board: BOARD_HALF_S_Y,
@@ -69,9 +67,6 @@ describe('reducer', () => {
           currentTetro: { ...INITIAL_STATE.currentTetro, type: TetroEnum.L }
         };
         const r = reducer(initialState, moveDown);
-        logger(initialState.board);
-        logger(r.board);
-        logger(finalState.board);
         expect(r).toEqual(finalState);
       });
     });
@@ -183,8 +178,7 @@ describe('reducer', () => {
         const r = reducer(initialState, moveUp);
         expect(r).toEqual(finalState);
       });
-      //FIXME
-      it.skip('should not be able to rotate, collision', () => {
+      it('should not be able to rotate, collision', () => {
         const initialState: InternalState = {
           ...INITIAL_STATE,
           board: BOARD_HALF_S_Y,
