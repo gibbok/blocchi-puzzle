@@ -29,8 +29,16 @@ export const eachblock = (
 export const getBlock = (x: number, y: number, b: Board): Option<Tile> =>
   b && b[y] ? some(b[y][x]) : none;
 
-export const occupied = (t: TetroEnum, d: DirectionEnum, x: number, y: number, b: Board): boolean =>
-  eachblock(t, d, x, y, (x, y) => {
+export const occupied = (
+  t: TetroEnum,
+  d: DirectionEnum,
+  x: number,
+  y: number,
+  b: Board
+): boolean => {
+  console.clear();
+  console.log(JSON.parse(JSON.stringify(b)));
+  return eachblock(t, d, x, y, (x, y) => {
     const isTetroBlockAlredyOnBoard = pipe(
       getBlock(x, y, b),
       exists(a => a !== 0)
@@ -39,6 +47,7 @@ export const occupied = (t: TetroEnum, d: DirectionEnum, x: number, y: number, b
     const isInvalidPosY = y < 0 || y >= BOARD_ROWS;
     return isInvalidPosX || isInvalidPosY || isTetroBlockAlredyOnBoard;
   });
+};
 
 export const rotateTetroDirectionCW = (d: DirectionEnum) => {
   const values = Object.values(DirectionEnum);
