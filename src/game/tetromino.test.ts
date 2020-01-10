@@ -68,9 +68,7 @@ describe('tetromino', () => {
       const test = occupied(I, NO, 0, 5, BOARD_HALF_I_Y);
       expect(test).toStrictEqual(true);
     });
-    // FIXME bug this test must be pass
-    it.only('SPO 1 - should return false, board piece is wihtin space of tetro but there is no collision', () => {
-      console.log('SPO 1');
+    it('should return false, board piece is within space of tetro but there is no collision', () => {
       const boardTest = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -96,11 +94,35 @@ describe('tetromino', () => {
       const test = occupied(L, ES, 0, 0, boardTest);
       expect(test).toStrictEqual(false);
     });
-    // FIXME bug this test must be pass
-    it.only('SPO 2 - should return true, piece in board collide with tetro space', () => {
-      console.log('SPO 2');
+    it('should return true, piece in board collide with tetro space', () => {
       const boardTest = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [I, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0]
+      ];
+      const test = occupied(L, ES, 0, 0, boardTest);
+      expect(test).toStrictEqual(true);
+    });
+    it('should return true, piece in board collide with tetro space 2', () => {
+      const boardTest = [
+        [0, 0, I, 0, 0, 0, 0, 0, 0, 0],
         [I, I, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
