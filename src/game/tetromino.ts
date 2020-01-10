@@ -14,6 +14,9 @@ export const getRandomTetro = (): IO<Tetro> => {
   return io.of(pieces[rndEnum as TetroEnum][DirectionEnum.N]);
 };
 
+// I need to see if item is in the board and compare with the same position of item in the tetro,
+// because if tetro is `0` and board is `I` is actually not occupied
+
 export const eachblock = (
   t: TetroEnum,
   d: DirectionEnum,
@@ -26,14 +29,16 @@ export const eachblock = (
   return result;
 };
 
-export const getBlock = (x: number, y: number, b: Board): Option<Tile> => {
+export const getBlockFromBoard = (x: number, y: number, b: Board): Option<Tile> => {
   const r = b && b[y] ? some(b[y][x]) : none;
-  // console.log(r);
   return r;
 };
 
-// export const getBlock = (x: number, y: number, b: Board): Option<Tile> =>
-//   b && b[y] ? some(b[y][x]) : none;
+export const getBlockFromTetro = (x: number, y: number, t: TetroEnum, d: DirectionEnum) => {
+  const tetro = getTetroFromPieces(t, d);
+  const r = tetro && tetro[y] ? tetro[y][x] : undefined;
+  return r;
+};
 
 export const occupied = (
   t: TetroEnum,
@@ -44,13 +49,10 @@ export const occupied = (
 ): boolean => {
   return eachblock(t, d, x, y, (x, y) => {
     const isTetroBlockAlredyOnBoard = pipe(
-      getBlock(x, y, b),
-      j => {
-        // console.log('x', j);
-        return j;
-      },
+      getBlockFromBoard(x, y, b),
       exists(a => {
-        return a !== 0;
+        const bt = getBlockFromTetro(x, y, t, d);
+        return a !== 0 && bt !== 0;
       })
     );
     const isInvalidPosX = x < 0 || x >= BOARD_CELLS;
