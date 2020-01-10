@@ -29,7 +29,7 @@ describe('reducer', () => {
     });
 
     describe('Move Down', () => {
-      it('should increase current tetro y position, leaving the board un touched, no collision', () => {
+      it.skip('should increase current tetro y position, leaving the board un touched, no collision', () => {
         const test: InternalState = {
           ...INITIAL_STATE,
           currentTetro: { ...INITIAL_STATE.currentTetro, y: 1 }
@@ -38,7 +38,7 @@ describe('reducer', () => {
         expect(r).toEqual(test);
       });
 
-      it('should increase current tetro y position, leaving the board un touched, no collision', () => {
+      it.skip('should increase current tetro y position, leaving the board un touched, no collision', () => {
         const initialState: InternalState = {
           ...INITIAL_STATE,
           board: BOARD_HALF_S_Y,
@@ -57,7 +57,7 @@ describe('reducer', () => {
         const initialState: InternalState = {
           ...INITIAL_STATE,
           board: BOARD_HALF_S_Y,
-          currentTetro: { ...INITIAL_STATE.currentTetro, y: 4 }
+          currentTetro: { ...INITIAL_STATE.currentTetro, y: 3 }
         };
         const finalState: InternalState = {
           ...INITIAL_STATE,
@@ -69,6 +69,9 @@ describe('reducer', () => {
           currentTetro: { ...INITIAL_STATE.currentTetro, type: TetroEnum.L }
         };
         const r = reducer(initialState, moveDown);
+        logger(initialState.board);
+        logger(r.board);
+        logger(finalState.board);
         expect(r).toEqual(finalState);
       });
     });

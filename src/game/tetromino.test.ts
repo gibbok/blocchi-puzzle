@@ -2,8 +2,8 @@ import {
   getRandomTetro,
   getTetroFromPieces,
   occupied,
-  getBlockFromBoard,
-  rotateTetroDirectionCW
+  rotateTetroDirectionCW,
+  getBlockFromBoard
 } from '.';
 import { stub } from 'sinon';
 import { dataPieces, BOARD_EMPTY, BOARD_HALF_I_Y } from '../utils';
@@ -34,7 +34,7 @@ describe('tetromino', () => {
     });
   });
 
-  describe.only('occupied', () => {
+  describe('occupied', () => {
     it('should return true if tetro new position is occupied on the board', () => {
       const test = occupied(I, NO, 7, 7, BOARD_HALF_I_Y);
       expect(test).toStrictEqual(true);
@@ -69,8 +69,8 @@ describe('tetromino', () => {
       expect(test).toStrictEqual(true);
     });
     // FIXME bug this test must be pass
-    it.only('xxx should return false considering internal 0', () => {
-      console.log('xxxxxxxxxxxxx');
+    it.only('SPO 1 - should return false, board piece is wihtin space of tetro but there is no collision', () => {
+      console.log('SPO 1');
       const boardTest = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -97,8 +97,8 @@ describe('tetromino', () => {
       expect(test).toStrictEqual(false);
     });
     // FIXME bug this test must be pass
-    it.only('xxx2222 should return false considering internal 0', () => {
-      console.log('xxxxxxxxxxxxx');
+    it.only('SPO 2 - should return true, piece in board collide with tetro space', () => {
+      console.log('SPO 2');
       const boardTest = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [I, I, 0, 0, 0, 0, 0, 0, 0, 0],
