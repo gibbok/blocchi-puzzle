@@ -1,8 +1,9 @@
 import { TetroEnum, Tetro, DirectionEnum, Board, Tile, NoTetro } from './types';
 import { randomInt } from 'fp-ts/lib/Random';
 import { IO, io } from 'fp-ts/lib/IO';
-import { none, some, Option } from 'fp-ts/lib/Option';
+import { none, some, Option, fromNullable, getOrElse } from 'fp-ts/lib/Option';
 import { pieces } from './pieces';
+import { pipe } from 'fp-ts/lib/pipeable';
 
 export const getTetroFromPieces = (t: TetroEnum, d: DirectionEnum): Tetro => pieces[t][d];
 
@@ -68,7 +69,8 @@ export const isOccupied = (
 export const rotateTetroDirectionCW = (d: DirectionEnum) => {
   const values = Object.values(DirectionEnum);
   const index = values.indexOf(d);
-  const next = values[index + 1];
-  const newDirection = next === undefined ? values[0] : next;
-  return newDirection;
+  return pipe(
+    fromNullable(values[index + 1]),
+    getOrElse(() => values[0])
+  );
 };
