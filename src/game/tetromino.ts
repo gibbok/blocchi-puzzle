@@ -60,15 +60,7 @@ export const occupied = (
       const futureBoardCell = b[futureBoardTetroY][futureBoardTetroX];
       const hasTetroCellValue = tetroCell !== 0;
       const hasFutureBoardCellValue = futureBoardCell !== 0;
-      if (hasTetroCellValue && hasFutureBoardCellValue) {
-        return true;
-      } else if (!hasTetroCellValue && hasFutureBoardCellValue) {
-        return false;
-      } else if (hasTetroCellValue && !hasFutureBoardCellValue) {
-        return false;
-      } else {
-        return false;
-      }
+      return hasTetroCellValue && hasFutureBoardCellValue;
     });
     return resultTetroRow;
   });
