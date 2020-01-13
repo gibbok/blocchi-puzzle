@@ -33,7 +33,7 @@ describe('Move Down', () => {
     expect(r).toEqual(finalState);
   });
 
-  it.only('should not increase current tetro y position, lock current tetro on board, collision', () => {
+  it('should not increase current tetro y position, lock current tetro on board, collision', () => {
     const initialState: InternalState = {
       ...INITIAL_STATE,
       board: BOARD_HALF_S_Y,

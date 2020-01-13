@@ -8,7 +8,7 @@ export const {
   reducer
 } = gameSlice;
 
-describe.only('Move Right', () => {
+describe('Move Right', () => {
   it('should increase current tetro x position, leaving the board un touched, no collission', () => {
     const test: InternalState = {
       ...INITIAL_STATE,

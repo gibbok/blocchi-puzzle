@@ -13,31 +13,32 @@ export const getRandomTetro = (): IO<Tetro> => {
   return io.of(pieces[rndEnum as TetroEnum][DirectionEnum.N]);
 };
 
-// I need to see if item is in the board and compare with the same position of item in the tetro,
-// because if tetro is `0` and board is `I` is actually not occupied
-
-// export const eachblock = (
-//   t: TetroEnum,
-//   d: DirectionEnum,
-//   x: number,
-//   y: number,
-//   fn: (x: number, y: number) => boolean
-// ) => {
-//   const tetro = getTetroFromPieces(t, d);
-//   const result = tetro.some((r, rIdx) => r.some((c, cIdx) => fn(cIdx + x, rIdx + y)));
-//   return result;
-// };
-
 export const getBlockFromBoard = (x: number, y: number, b: Board): Option<Tile> => {
   const r = b && b[y] ? some(b[y][x]) : none;
   return r;
 };
 
-// export const getBlockFromTetro = (x: number, y: number, t: TetroEnum, d: DirectionEnum) => {
-//   const tetro = getTetroFromPieces(t, d);
-//   const r = tetro && tetro[y] ? some(tetro[y][x]) : none;
-//   return r;
-// };
+export const canTetroFitWithinBoard = (
+  t: TetroEnum,
+  d: DirectionEnum,
+  x: number,
+  y: number,
+  b: Board
+) => {
+  const tetroBlocks = getTetroFromPieces(t, d);
+  const tetroHeight = tetroBlocks.length - 1;
+  const tetroWidth = tetroBlocks[0].length - 1;
+  const boardHeight = b.length - 1;
+  const boardWidth = b[0].length - 1;
+
+  const isValidY = y >= 0 && y <= boardHeight;
+  const isValidX = x >= 0 && x <= boardWidth;
+
+  const isValidHeight = y + tetroHeight <= boardHeight;
+  const isValidWidth = x + tetroWidth <= boardWidth;
+
+  return isValidY && isValidX && isValidWidth && isValidHeight && isValidWidth;
+};
 
 export const occupied = (
   t: TetroEnum,
@@ -46,18 +47,10 @@ export const occupied = (
   y: number,
   b: Board
 ): boolean => {
-  // take current tetro data
   const tetroBlocks = getTetroFromPieces(t, d);
 
-  const isInvalidPosY = y < 0 || y >= BOARD_ROWS;
-  const isInvalidPosX = x < 0 || x >= BOARD_CELLS;
-  // console.log('Xxx', {
-  //   y: y,
-  //   x: x,
-  //   isInvalidPosY: isInvalidPosY,
-  //   isInvalidPosX: isInvalidPosX
-  // });
-  if (isInvalidPosY || isInvalidPosX) {
+  const canFit = canTetroFitWithinBoard(t, d, x, y, b);
+  if (!canFit) {
     return true;
   }
 
@@ -65,13 +58,9 @@ export const occupied = (
     const resultTetroRow = tetroRow.some((tetroCell, tetroCellIdx) => {
       const futureBoardTetroY = y + tetroRowIdx;
       const futureBoardTetroX = x + tetroCellIdx;
-      const isInvalidPosY = futureBoardTetroY >= BOARD_ROWS;
-      const isInvalidPosX = futureBoardTetroX >= BOARD_CELLS;
-
-      if (isInvalidPosX || isInvalidPosY) {
+      if (!canTetroFitWithinBoard(t, d, x, y, b)) {
         return true;
       }
-
       const futureBoardCell = b[futureBoardTetroY][futureBoardTetroX];
       const hasTetroCellValue = tetroCell !== 0;
       const hasFutureBoardCellValue = futureBoardCell !== 0;
@@ -88,7 +77,7 @@ export const occupied = (
     return resultTetroRow;
   });
 
-  return isInvalidPosX || isInvalidPosY || doesTetroCollideOnBoard;
+  return !canFit || doesTetroCollideOnBoard;
 };
 
 export const rotateTetroDirectionCW = (d: DirectionEnum) => {
