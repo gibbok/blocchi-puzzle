@@ -1,4 +1,4 @@
-import { TetroEnum, Tetro, DirectionEnum, Board, Tile } from './types';
+import { TetroEnum, Tetro, DirectionEnum, Board, Tile, NoTetro } from './types';
 import { randomInt } from 'fp-ts/lib/Random';
 import { IO, io } from 'fp-ts/lib/IO';
 import { none, some, Option } from 'fp-ts/lib/Option';
@@ -13,7 +13,7 @@ export const getRandomTetro = (): IO<Tetro> => {
 };
 
 export const getBlockFromBoard = (x: number, y: number, b: Board): Option<Tile> => {
-  const r = b && b[y] ? some(b[y][x]) : none;
+  const r = b[y] ? some(b[y][x]) : none;
   return r;
 };
 
@@ -50,18 +50,18 @@ export const isOccupied = (
   if (!canFit) {
     return true;
   }
+
   const hasCollisionWithBoard = getTetroFromPieces(t, d).some((tetroRow, tetroRowIdx) => {
     const resultTetroRow = tetroRow.some((tetroCell, tetroCellIdx) => {
       const futureBoardTetroY = y + tetroRowIdx;
       const futureBoardTetroX = x + tetroCellIdx;
       const futureBoardCell = b[futureBoardTetroY][futureBoardTetroX];
-      const hasTetroCellValue = tetroCell !== 0;
-      const hasFutureBoardCellValue = futureBoardCell !== 0;
+      const hasTetroCellValue = tetroCell !== NoTetro;
+      const hasFutureBoardCellValue = futureBoardCell !== NoTetro;
       return hasTetroCellValue && hasFutureBoardCellValue;
     });
     return resultTetroRow;
   });
-
   return hasCollisionWithBoard;
 };
 
