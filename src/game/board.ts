@@ -1,5 +1,5 @@
 import { Board, Tile, TetroEnum, DirectionEnum, NoTetro } from './types';
-import { getTetroFromPieces, occupied } from './tetromino';
+import { getTetroFromPieces, isOccupied } from './tetromino';
 import { pipe } from 'fp-ts/lib/pipeable';
 import { BOARD_CELLS } from './settings';
 
@@ -30,8 +30,8 @@ export const recFindAvailablePos = (
   towardsX: number,
   towardsY: number
 ): number => {
-  const isOccupied = occupied(type, d, x, y, b);
-  return isOccupied
+  const occupied = isOccupied(type, d, x, y, b);
+  return occupied
     ? recFindAvailablePos(type, d, x - towardsX, y - towardsY, b, towardsX, towardsY)
     : y !== 0
     ? y

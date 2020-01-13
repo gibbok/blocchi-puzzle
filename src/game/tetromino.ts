@@ -3,7 +3,6 @@ import { randomInt } from 'fp-ts/lib/Random';
 import { IO, io } from 'fp-ts/lib/IO';
 import { none, some, Option } from 'fp-ts/lib/Option';
 import { pieces } from './pieces';
-import { BOARD_CELLS, BOARD_ROWS } from './settings';
 
 export const getTetroFromPieces = (t: TetroEnum, d: DirectionEnum): Tetro => pieces[t][d];
 
@@ -18,7 +17,7 @@ export const getBlockFromBoard = (x: number, y: number, b: Board): Option<Tile> 
   return r;
 };
 
-export const canTetroFitWithinBoard = (
+export const canTetroFitBoard = (
   t: TetroEnum,
   d: DirectionEnum,
   x: number,
@@ -28,6 +27,7 @@ export const canTetroFitWithinBoard = (
   const tetroBlocks = getTetroFromPieces(t, d);
   const tetroHeight = tetroBlocks.length - 1;
   const tetroWidth = tetroBlocks[0].length - 1;
+
   const boardHeight = b.length - 1;
   const boardWidth = b[0].length - 1;
 
@@ -39,21 +39,18 @@ export const canTetroFitWithinBoard = (
   return isValidY && isValidX && isValidWidth && isValidHeight && isValidWidth;
 };
 
-export const occupied = (
+export const isOccupied = (
   t: TetroEnum,
   d: DirectionEnum,
   x: number,
   y: number,
   b: Board
 ): boolean => {
-  const canFit = canTetroFitWithinBoard(t, d, x, y, b);
+  const canFit = canTetroFitBoard(t, d, x, y, b);
   if (!canFit) {
     return true;
   }
-
-  const tetroBlocks = getTetroFromPieces(t, d);
-
-  const hasCollisionWithBoard = tetroBlocks.some((tetroRow, tetroRowIdx) => {
+  const hasCollisionWithBoard = getTetroFromPieces(t, d).some((tetroRow, tetroRowIdx) => {
     const resultTetroRow = tetroRow.some((tetroCell, tetroCellIdx) => {
       const futureBoardTetroY = y + tetroRowIdx;
       const futureBoardTetroX = x + tetroCellIdx;

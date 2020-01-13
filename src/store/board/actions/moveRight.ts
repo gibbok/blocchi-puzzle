@@ -1,5 +1,5 @@
 import { InternalState } from '~game/types';
-import { occupied } from '~game';
+import { isOccupied } from '~game';
 
 export const moveRight = (prevState: InternalState) => {
   const {
@@ -12,7 +12,7 @@ export const moveRight = (prevState: InternalState) => {
     isPlay
   } = prevState;
   const newRightX = x + 1;
-  const isOccupiedRight = occupied(type, direction, newRightX, y, board);
+  const isOccupiedRight = isOccupied(type, direction, newRightX, y, board);
   const newState = {
     board,
     score,

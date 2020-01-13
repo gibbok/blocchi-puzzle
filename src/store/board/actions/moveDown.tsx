@@ -1,5 +1,5 @@
 import { InternalState, TetroEnum, DirectionEnum } from '~game/types';
-import { occupied, recFindAvailablePosY, addTetroToBoard } from '~game';
+import { isOccupied, recFindAvailablePosY, addTetroToBoard } from '~game';
 
 export const moveDown = (prevState: InternalState) => {
   const {
@@ -12,7 +12,7 @@ export const moveDown = (prevState: InternalState) => {
     isPlay
   } = prevState;
   const newY = y + 1;
-  const isOccupiedDown = occupied(type, direction, x, newY + 1, board);
+  const isOccupiedDown = isOccupied(type, direction, x, newY + 1, board);
   const foundPosY = recFindAvailablePosY(type, direction, x, newY, board, 1);
   const newState = {
     board: isOccupiedDown ? addTetroToBoard(type, direction, x, foundPosY, board) : board,
