@@ -33,7 +33,6 @@ export const canTetroFitWithinBoard = (
 
   const isValidY = y >= 0 && y <= boardHeight;
   const isValidX = x >= 0 && x <= boardWidth;
-
   const isValidHeight = y + tetroHeight <= boardHeight;
   const isValidWidth = x + tetroWidth <= boardWidth;
 
@@ -47,20 +46,17 @@ export const occupied = (
   y: number,
   b: Board
 ): boolean => {
-  const tetroBlocks = getTetroFromPieces(t, d);
-
   const canFit = canTetroFitWithinBoard(t, d, x, y, b);
   if (!canFit) {
     return true;
   }
 
-  const doesTetroCollideOnBoard = tetroBlocks.some((tetroRow, tetroRowIdx) => {
+  const tetroBlocks = getTetroFromPieces(t, d);
+
+  const hasCollisionWithBoard = tetroBlocks.some((tetroRow, tetroRowIdx) => {
     const resultTetroRow = tetroRow.some((tetroCell, tetroCellIdx) => {
       const futureBoardTetroY = y + tetroRowIdx;
       const futureBoardTetroX = x + tetroCellIdx;
-      if (!canTetroFitWithinBoard(t, d, x, y, b)) {
-        return true;
-      }
       const futureBoardCell = b[futureBoardTetroY][futureBoardTetroX];
       const hasTetroCellValue = tetroCell !== 0;
       const hasFutureBoardCellValue = futureBoardCell !== 0;
@@ -77,7 +73,7 @@ export const occupied = (
     return resultTetroRow;
   });
 
-  return !canFit || doesTetroCollideOnBoard;
+  return hasCollisionWithBoard;
 };
 
 export const rotateTetroDirectionCW = (d: DirectionEnum) => {
