@@ -1,9 +1,9 @@
 import { TetroEnum, Tetro, DirectionEnum, Board, Tile, NoTetro } from './types';
 import { randomInt } from 'fp-ts/lib/Random';
-import { IO, io } from 'fp-ts/lib/IO';
-import { none, some, Option, fromNullable, getOrElse } from 'fp-ts/lib/Option';
-import { pieces } from './pieces';
+import { none, some, Option, fromNullable, getOrElse, map, exists } from 'fp-ts/lib/Option';
 import { pipe } from 'fp-ts/lib/pipeable';
+import { IO, io } from 'fp-ts/lib/IO';
+import { pieces } from '~game';
 
 export const getTetroFromPieces = (t: TetroEnum, d: DirectionEnum): Tetro => pieces[t][d];
 
@@ -18,6 +18,36 @@ export const getBlockFromBoard = (x: number, y: number, b: Board): Option<Tile> 
   return r;
 };
 
+const getHeight = <T>(blocks: ReadonlyArray<T>): number =>
+  pipe(
+    some(blocks),
+    map(x => x.length - 1),
+    getOrElse(() => -1)
+  );
+
+const getWidth = <T>(blocks: ReadonlyArray<ReadonlyArray<T>>): number =>
+  pipe(
+    fromNullable(blocks[0]),
+    map(x => x.length - 1),
+    getOrElse(() => -1)
+  );
+
+const isValidY = (y: number, b: Board): boolean =>
+  pipe(
+    some(getHeight(b)),
+    exists(bh => y >= 0 && y <= bh)
+  );
+
+const isValidX = (x: number, b: Board): boolean =>
+  pipe(
+    some(getWidth(b)),
+    exists(bw => x >= 0 && x <= bw)
+  );
+
+const isValidHeight = (y: number, th: number, bh: number) => y + th <= bh;
+
+const isValidWidth = (x: number, tw: number, bw: number) => x + tw <= bw;
+
 export const canTetroFitBoard = (
   t: TetroEnum,
   d: DirectionEnum,
@@ -26,18 +56,17 @@ export const canTetroFitBoard = (
   b: Board
 ) => {
   const tetroBlocks = getTetroFromPieces(t, d);
-  const tetroHeight = tetroBlocks.length - 1;
-  const tetroWidth = tetroBlocks[0].length - 1;
+  const tetroHeight = getHeight(tetroBlocks);
+  const tetroWidth = getWidth(tetroBlocks);
+  const boardHeight = getHeight(b);
+  const boardWidth = getWidth(b);
 
-  const boardHeight = b.length - 1;
-  const boardWidth = b[0].length - 1;
-
-  const isValidY = y >= 0 && y <= boardHeight;
-  const isValidX = x >= 0 && x <= boardWidth;
-  const isValidHeight = y + tetroHeight <= boardHeight;
-  const isValidWidth = x + tetroWidth <= boardWidth;
-
-  return isValidY && isValidX && isValidWidth && isValidHeight && isValidWidth;
+  return (
+    isValidY(y, b) &&
+    isValidX(x, b) &&
+    isValidHeight(y, tetroHeight, boardHeight) &&
+    isValidWidth(x, tetroWidth, boardWidth)
+  );
 };
 
 export const isOccupied = (
