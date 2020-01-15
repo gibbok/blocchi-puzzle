@@ -1,6 +1,6 @@
 import { TetroEnum, Tetro, DirectionEnum, Board, Tile, NoTetro } from './types';
 import { randomInt } from 'fp-ts/lib/Random';
-import { none, some, Option, fromNullable, getOrElse } from 'fp-ts/lib/Option';
+import { none, some, Option, fromNullable, getOrElse, map } from 'fp-ts/lib/Option';
 import { pipe } from 'fp-ts/lib/pipeable';
 import { IO, io } from 'fp-ts/lib/IO';
 import { pieces } from '~game';
@@ -20,7 +20,12 @@ export const getBlockFromBoard = (x: number, y: number, b: Board): Option<Tile> 
 
 const getHeight = <T>(blocks: ReadonlyArray<T>): number => blocks.length - 1;
 
-const getWidth = <T>(blocks: ReadonlyArray<ReadonlyArray<T>>): number => blocks[0].length - 1;
+const getWidth = <T>(blocks: ReadonlyArray<ReadonlyArray<T>>): number =>
+  pipe(
+    fromNullable(blocks[0]),
+    map(x => x.length - 1),
+    getOrElse(() => -1)
+  );
 
 const isValidY = (y: number, b: Board): boolean => y >= 0 && y <= getHeight(b);
 
