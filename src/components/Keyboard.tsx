@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { KeyEnum } from '~game/types';
 import { useDispatch } from 'react-redux';
 import { gameSlice } from '~store';
+import { moveDownLogicThunk } from '~store/board/actions/moveDownLogic';
 const {
   actions: { moveLeft, moveUp, moveRight, moveDown }
 } = gameSlice;
@@ -28,7 +29,7 @@ export const Keyboard = ({}: Props) => {
           dispatch(moveRight());
           break;
         case KeyEnum.Down:
-          dispatch(moveDown());
+          dispatch(moveDownLogicThunk());
           break;
       }
     })

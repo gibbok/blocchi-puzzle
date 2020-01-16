@@ -1,9 +1,19 @@
 import { InternalState, TetroEnum, DirectionEnum, PubicState } from '~game/types';
 import { Store } from 'redux';
-import { configureStore, createSlice } from '@reduxjs/toolkit';
+import { configureStore, createSlice, Action } from '@reduxjs/toolkit';
+import { ThunkAction } from 'redux-thunk';
 import { mkEmptyBoard, addTetroToBoard } from '~game';
 import { BOARD_ROWS, BOARD_CELLS } from '../game/settings';
-import { moveUp, moveDown, moveRight, moveLeft, checkBoard } from './board/actions';
+import {
+  moveUp,
+  // moveDown,
+  moveRight,
+  moveLeft,
+  checkBoard,
+  // moveDownThunk,
+  moveDown
+} from './board/actions';
+export type AppThunk = ThunkAction<void, InternalState, null, Action<string>>;
 
 export const mkInitialState = () => ({
   board: mkEmptyBoard(BOARD_ROWS, BOARD_CELLS),
