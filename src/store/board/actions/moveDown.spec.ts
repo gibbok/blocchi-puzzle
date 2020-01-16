@@ -1,6 +1,6 @@
 import { mkInitialState, gameSlice } from '~store';
 import { InternalState, TetroEnum, I, S } from '~game/types';
-import { BOARD_HALF_S_Y, BOARD_ROW_EMPTY, logger } from '~utils';
+import { BOARD_HALF_S_Y, BOARD_ROW_EMPTY } from '~utils';
 
 const INITIAL_STATE = mkInitialState();
 export const {

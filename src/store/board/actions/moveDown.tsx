@@ -1,6 +1,5 @@
-import { InternalState, TetroEnum, DirectionEnum, Action } from '~game/types';
+import { InternalState, TetroEnum, DirectionEnum } from '~game/types';
 import { isOccupied, recFindAvailablePosY, addTetroToBoard } from '~game';
-// import { AppThunk } from '~store';
 
 export const moveDown = (prevState: InternalState) => {
   const {

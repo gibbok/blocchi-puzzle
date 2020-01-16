@@ -1,4 +1,4 @@
-import { BOARD_ROW_EMPTY, logger } from '../utils';
+import { BOARD_ROW_EMPTY } from '../utils';
 import { mkInitialState, mkPublicState, gameSlice } from '.';
 import { InternalState, I, PubicState } from '../game/types';
 export const {
