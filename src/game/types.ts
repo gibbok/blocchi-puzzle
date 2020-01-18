@@ -54,6 +54,12 @@ export type BoardRow = readonly Tile[];
 
 export type Board = readonly BoardRow[];
 
+export enum ScreenEnum {
+  Intro,
+  Game,
+  Over
+}
+
 export type InternalState = Readonly<{
   board: Board;
   score: number; // some point based on lines done
@@ -62,9 +68,11 @@ export type InternalState = Readonly<{
   currentTetro: TetroDef;
   nextTetro: TetroDef;
   isPlay: boolean;
+  isGameOver: boolean;
+  screen: ScreenEnum;
 }>;
 
-export type PubicState = Omit<InternalState, 'currentTetro' | 'isPlay'>;
+export type PubicState = Omit<InternalState, 'currentTetro' | 'isPlay' | 'isGameOver' | 'screen'>;
 
 export enum KeyEnum {
   Esc = 27,

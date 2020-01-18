@@ -1,4 +1,4 @@
-import { InternalState, TetroEnum, DirectionEnum, PubicState } from '~game/types';
+import { InternalState, TetroEnum, DirectionEnum, PubicState, ScreenEnum } from '~game/types';
 import { Store } from 'redux';
 import { configureStore, createSlice, Action } from '@reduxjs/toolkit';
 import { ThunkAction } from 'redux-thunk';
@@ -13,6 +13,7 @@ import {
   // moveDownThunk,
   moveDown
 } from './board/actions';
+import { gameOver } from './board/actions/gameOver';
 export type AppThunk = ThunkAction<void, InternalState, null, Action<string>>;
 
 export const mkInitialState = () => ({
@@ -32,7 +33,9 @@ export const mkInitialState = () => ({
     x: 0,
     y: 0
   },
-  isPlay: true // TODO pause before start game
+  isPlay: true, // TODO pause before start game
+  isGameOver: false,
+  screen: ScreenEnum.Intro
 });
 
 export const gameSlice = createSlice({
@@ -43,7 +46,8 @@ export const gameSlice = createSlice({
     moveUp: moveUp,
     moveLeft: moveLeft,
     moveRight: moveRight,
-    moveDown: moveDown
+    moveDown: moveDown,
+    gameOver: gameOver
   }
 });
 

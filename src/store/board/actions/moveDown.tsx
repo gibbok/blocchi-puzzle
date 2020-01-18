@@ -10,11 +10,13 @@ export const moveDown = (prevState: InternalState) => {
     lines,
     currentTetro: { type, direction, x, y },
     nextTetro,
-    isPlay
+    isPlay,
+    screen
   } = prevState;
   const newY = y + 1;
   const isOccupiedDown = isOccupied(type, direction, x, newY + 1, board);
   const foundPosY = recFindAvailablePosY(type, direction, x, newY, board, 1);
+  const isGameOver = newY === 1 && isOccupiedDown;
   const newState = {
     board: isOccupiedDown ? addTetroToBoard(type, direction, x, foundPosY, board) : board,
     score,
@@ -27,7 +29,9 @@ export const moveDown = (prevState: InternalState) => {
       y: isOccupiedDown ? 0 : foundPosY
     },
     nextTetro,
-    isPlay
+    isPlay,
+    isGameOver,
+    screen
   };
   return newState;
 };

@@ -8,7 +8,9 @@ export const checkBoard = (prevState: InternalState) => {
     lines,
     currentTetro: { type, direction, x, y },
     nextTetro,
-    isPlay
+    isPlay,
+    isGameOver,
+    screen
   } = prevState;
   const totRowCompleted = getCompleteRowIdxs(board);
   const totRowCompletedLen = totRowCompleted.length;
@@ -20,6 +22,8 @@ export const checkBoard = (prevState: InternalState) => {
     lines: lines + totRowCompletedLen,
     currentTetro: { type, direction, x, y },
     nextTetro,
-    isPlay
+    isPlay,
+    isGameOver,
+    screen
   };
 };
