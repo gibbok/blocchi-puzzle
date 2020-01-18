@@ -31,7 +31,7 @@ export const recFindAvailablePos = (
   towardsY: number
 ): number => {
   const occupied = isOccupied(type, d, x, y, b);
-  return occupied
+  return occupied && y !== 0
     ? recFindAvailablePos(type, d, x - towardsX, y - towardsY, b, towardsX, towardsY)
     : y !== 0
     ? y

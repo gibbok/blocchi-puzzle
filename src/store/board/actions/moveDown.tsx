@@ -2,6 +2,7 @@ import { InternalState, TetroEnum, DirectionEnum } from '~game/types';
 import { isOccupied, recFindAvailablePosY, addTetroToBoard } from '~game';
 
 export const moveDown = (prevState: InternalState) => {
+  // SPO
   const {
     board,
     score,
