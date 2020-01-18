@@ -4,15 +4,7 @@ import { configureStore, createSlice, Action } from '@reduxjs/toolkit';
 import { ThunkAction } from 'redux-thunk';
 import { mkEmptyBoard, addTetroToBoard } from '~game';
 import { BOARD_ROWS, BOARD_CELLS } from '../game/settings';
-import {
-  moveUp,
-  // moveDown,
-  moveRight,
-  moveLeft,
-  checkBoard,
-  // moveDownThunk,
-  moveDown
-} from './board/actions';
+import { moveUp, moveRight, moveLeft, checkBoard, moveDown, screenGame } from './board/actions';
 import { gameOver } from './board/actions/gameOver';
 export type AppThunk = ThunkAction<void, InternalState, null, Action<string>>;
 
@@ -42,12 +34,13 @@ export const gameSlice = createSlice({
   name: 'game',
   initialState: mkInitialState(),
   reducers: {
-    checkBoard: checkBoard,
-    moveUp: moveUp,
-    moveLeft: moveLeft,
-    moveRight: moveRight,
-    moveDown: moveDown,
-    gameOver: gameOver
+    screenGame,
+    checkBoard,
+    moveUp,
+    moveLeft,
+    moveRight,
+    moveDown,
+    gameOver
   }
 });
 
@@ -55,13 +48,14 @@ export const store: Store = configureStore({ reducer: gameSlice.reducer });
 // TODO rename this file to gameSlice or smt, use slice in the title
 
 export const mkPublicState = (state: InternalState): PubicState => {
-  const { board, currentTetro, score, level, lines, nextTetro } = state;
+  const { board, currentTetro, score, level, lines, nextTetro, screen } = state;
   const { type, direction, x, y } = currentTetro;
   return {
     board: addTetroToBoard(type, direction, x, y, board),
     score,
     level,
     lines,
-    nextTetro
+    nextTetro,
+    screen
   };
 };

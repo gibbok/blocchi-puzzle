@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { mkPublicState } from '~store/reducer';
 import { Board } from '~components';
 
-const mapStateToProps = (state: InternalState): { board: BoardType } => {
-  const { board } = mkPublicState(state);
+const mapStateToProps = (prevState: InternalState): { board: BoardType } => {
+  const { board } = mkPublicState(prevState);
   return { board };
 };
 

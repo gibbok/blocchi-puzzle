@@ -55,9 +55,9 @@ export type BoardRow = readonly Tile[];
 export type Board = readonly BoardRow[];
 
 export enum ScreenEnum {
-  Intro,
-  Game,
-  Over
+  Intro = 'Intro',
+  Game = 'Game',
+  Over = 'Over'
 }
 
 export type InternalState = Readonly<{
@@ -72,7 +72,7 @@ export type InternalState = Readonly<{
   screen: ScreenEnum;
 }>;
 
-export type PubicState = Omit<InternalState, 'currentTetro' | 'isPlay' | 'isGameOver' | 'screen'>;
+export type PubicState = Omit<InternalState, 'currentTetro' | 'isPlay' | 'isGameOver'>;
 
 export enum KeyEnum {
   Esc = 27,
