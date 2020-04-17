@@ -3,7 +3,7 @@ import { none, some, Option, fromNullable, getOrElse, map } from 'fp-ts/lib/Opti
 import { pipe } from 'fp-ts/lib/pipeable';
 import { IO, io } from 'fp-ts/lib/IO';
 import { pieces } from '~game';
-import { getRandomValueFromStringEnum } from '~utils';
+import { getRandomValueFromStringEnum } from '~utils/misc'; // FIXME: use index from utils
 
 export const getTetroFromPieces = (t: TetroEnum, d: DirectionEnum): Tetro => pieces[t][d];
 
