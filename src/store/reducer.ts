@@ -2,7 +2,7 @@ import { InternalState, TetroEnum, DirectionEnum, PubicState, ScreenEnum } from 
 import { Store } from 'redux';
 import { configureStore, createSlice, Action } from '@reduxjs/toolkit';
 import { ThunkAction } from 'redux-thunk';
-import { mkEmptyBoard, addTetroToBoard } from '~game';
+import { mkEmptyBoard, addTetroToBoard, getRandomTetroEnum } from '~game';
 import { BOARD_ROWS, BOARD_CELLS } from '../game/settings';
 import { moveUp, moveRight, moveLeft, checkBoard, moveDown, screenGame } from './board/actions';
 import { gameOver } from './board/actions/gameOver';
@@ -14,7 +14,8 @@ export const mkInitialState = () => ({
   level: 1,
   lines: 0,
   currentTetro: {
-    type: TetroEnum.I, // TODO random
+    type: getRandomTetroEnum()(),
+    // type: TetroEnum.I, // TODO random
     direction: DirectionEnum.N, // TODO random
     x: 0,
     y: 0

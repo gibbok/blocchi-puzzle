@@ -7,10 +7,15 @@ import { pieces } from '~game';
 
 export const getTetroFromPieces = (t: TetroEnum, d: DirectionEnum): Tetro => pieces[t][d];
 
-export const getRandomTetro = (): IO<Tetro> => {
+export const getRandomTetroEnum = (): IO<TetroEnum> => {
   const rndInt = randomInt(0, Object.keys(TetroEnum).length - 1)();
-  const rndEnum = Object.keys(TetroEnum)[rndInt];
-  return io.of(pieces[rndEnum as TetroEnum][DirectionEnum.N]);
+  const rndEnum = Object.keys(TetroEnum)[rndInt] as TetroEnum; // FIXME: better type here
+  return io.of(TetroEnum[rndEnum]);
+};
+
+export const getRandomTetro = (): IO<Tetro> => {
+  const rndEnum = getRandomTetroEnum()();
+  return io.of(pieces[rndEnum][DirectionEnum.N]);
 };
 
 export const getBlockFromBoard = (x: number, y: number, b: Board): Option<Tile> => {
