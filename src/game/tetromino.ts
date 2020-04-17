@@ -1,23 +1,13 @@
 import { TetroEnum, Tetro, DirectionEnum, Board, Tile, NoTetro } from './types';
-import { randomInt } from 'fp-ts/lib/Random';
 import { none, some, Option, fromNullable, getOrElse, map } from 'fp-ts/lib/Option';
 import { pipe } from 'fp-ts/lib/pipeable';
 import { IO, io } from 'fp-ts/lib/IO';
 import { pieces } from '~game';
+import { getRandomValueFromStringEnum } from '~utils';
 
 export const getTetroFromPieces = (t: TetroEnum, d: DirectionEnum): Tetro => pieces[t][d];
 
-export const getRandomValueFromStringEnum = <T>(x: T): IO<T[keyof T]> => {
-  const rndInt = randomInt(0, Object.keys(x).length - 1)();
-  const rndEnum = Object.keys(x)[rndInt] as keyof T;
-  return io.of(x[rndEnum]);
-};
-
-export const getRandomTetroEnum = (): IO<TetroEnum> => {
-  const rndInt = randomInt(0, Object.keys(TetroEnum).length - 1)();
-  const rndEnum = Object.keys(TetroEnum)[rndInt] as TetroEnum; // FIXME: better type here
-  return io.of(TetroEnum[rndEnum]);
-};
+export const getRandomTetroEnum = (): IO<TetroEnum> => getRandomValueFromStringEnum(TetroEnum);
 
 export const getRandomTetro = (): IO<Tetro> => {
   const rndEnum = getRandomTetroEnum()();
