@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TetroDef, TetroEnum, NoTetroEnum, NoTetro } from '~game/types';
+import { TetroDef, NoTetro } from '~game/types';
 import styled from 'styled-components';
 import { TILE_WIDTH } from '~game/settings';
 import { Tile } from './Tile';
@@ -16,6 +16,8 @@ const StyledNext = styled.div`
   grid-template-columns: repeat(${SIZE_NEXT}, 1fr);
 `;
 
+const EmptyTile = styled.div``;
+
 export const Next = ({ nextTetro }: { nextTetro: TetroDef }) => (
   <div>
     <StyledNext>
@@ -27,20 +29,15 @@ export const Next = ({ nextTetro }: { nextTetro: TetroDef }) => (
             const piece = tetro[rowIdxB][cmlIdxB];
             const hasPieceInTetro = piece !== NoTetro;
             if (hasPieceInTetro) {
-              return <Tile key={cmlIdxB} variant={piece} debug={{ y: rowIdxB, x: cmlIdxB }} />;
+              return <Tile key={cmlIdxB} variant={piece} />;
             } else {
-              return <div key={cmlIdxB}>{hasPieceInTetro}</div>;
+              return <EmptyTile key={cmlIdxB} />;
             }
           } else {
-            return <div key={cmlIdxB}>xx</div>;
+            return <EmptyTile key={cmlIdxB} />;
           }
         })
       )}
-      {/* {getTetroFromPieces(nextTetro.type, nextTetro.direction).map((row, rowX) =>
-        row.map((tileVariant, idx) => (
-          <Tile key={idx} variant={tileVariant} debug={{ y: rowX, x: idx }} />
-        ))
-      )} */}
     </StyledNext>
     {JSON.stringify(nextTetro)}
   </div>
