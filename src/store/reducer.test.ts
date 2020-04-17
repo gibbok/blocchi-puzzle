@@ -24,12 +24,12 @@ describe('reducer', () => {
     describe('mkPublicState', () => {
       it('should return the pubic state included computed board to render and removed hidden properties', () => {
         const input: InternalState = INITIAL_STATE;
-        const { score, level, lines, nextTetro } = INITIAL_STATE;
+        const { score, level, lines, nextTetro, screen } = INITIAL_STATE;
         const board = [
           ...Array(4).fill([I, 0, 0, 0, 0, 0, 0, 0, 0, 0]),
           ...Array(16).fill(BOARD_ROW_EMPTY)
         ];
-        const output: PubicState = { board, score, level, lines, nextTetro };
+        const output: PubicState = { board, score, level, lines, nextTetro, screen };
         expect(mkPublicState(input)).toEqual(output);
       });
     });
