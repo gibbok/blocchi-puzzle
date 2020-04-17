@@ -1,6 +1,7 @@
 import { BOARD_ROW_EMPTY } from '../utils';
 import { mkInitialState, mkPublicState, gameSlice } from '.';
-import { InternalState, I, PubicState } from '../game/types';
+import { InternalState, I, PubicState, TetroEnum } from '../game/types';
+import * as sinon from 'sinon';
 
 export const {
   actions: { moveDown, moveLeft, moveRight, moveUp, checkBoard },
@@ -13,8 +14,27 @@ const INVALID_ACTION = { type: 'invalid-action' };
 describe('reducer', () => {
   describe('reducer', () => {
     it('should return default state if no state is passed', () => {
-      const r = reducer(undefined, INVALID_ACTION);
-      expect(r).toEqual(INITIAL_STATE);
+      const currentTetro = {
+        ...INITIAL_STATE.currentTetro,
+        type: TetroEnum.I
+      };
+      const nextTetro = {
+        ...INITIAL_STATE.nextTetro,
+        type: TetroEnum.S
+      };
+      const mkInitialStateStub = sinon.stub().returns({
+        ...INITIAL_STATE,
+        currentTetro,
+        nextTetro
+      });
+      const initialStateStub = mkInitialStateStub();
+      const reducerStub = sinon.stub().returns({
+        ...reducer(undefined, INVALID_ACTION),
+        currentTetro,
+        nextTetro
+      });
+      const r = reducerStub(undefined, INVALID_ACTION);
+      expect(r).toEqual(initialStateStub);
     });
 
     it('should return prevState if action passed is not valid', () => {
