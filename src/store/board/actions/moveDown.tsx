@@ -1,5 +1,5 @@
-import { InternalState, TetroEnum, DirectionEnum } from '~game/types';
-import { isOccupied, recFindAvailablePosY, addTetroToBoard } from '~game';
+import { InternalState, DirectionEnum } from '~game/types';
+import { isOccupied, recFindAvailablePosY, addTetroToBoard, getRandomTetroEnum } from '~game';
 
 export const moveDown = (prevState: InternalState) => {
   // SPO
@@ -23,8 +23,8 @@ export const moveDown = (prevState: InternalState) => {
     level,
     lines,
     currentTetro: {
-      type: isOccupiedDown ? TetroEnum.L : type, // get random here
-      direction: isOccupiedDown ? DirectionEnum.N : direction, //get random here
+      type: isOccupiedDown ? getRandomTetroEnum()() : type,
+      direction: isOccupiedDown ? DirectionEnum.N : direction,
       x: isOccupiedDown ? 0 : x,
       y: isOccupiedDown ? 0 : foundPosY
     },

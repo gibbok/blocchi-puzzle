@@ -1,4 +1,4 @@
-import { InternalState, TetroEnum, DirectionEnum, PubicState, ScreenEnum } from '~game/types';
+import { InternalState, DirectionEnum, PubicState, ScreenEnum } from '~game/types';
 import { Store } from 'redux';
 import { configureStore, createSlice, Action } from '@reduxjs/toolkit';
 import { ThunkAction } from 'redux-thunk';
@@ -20,8 +20,9 @@ export const mkInitialState = () => ({
     y: 0
   },
   nextTetro: {
-    type: TetroEnum.S, // TODO random
-    direction: DirectionEnum.N, // TODO randome
+    // type: TetroEnum.S, // TODO random
+    type: getRandomTetroEnum()(),
+    direction: DirectionEnum.N,
     x: 0,
     y: 0
   },
