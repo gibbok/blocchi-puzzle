@@ -38,8 +38,6 @@ export const moveDown = (prevState: InternalState) => {
     isGameOver,
     screen
   };
-  console.clear();
-  console.log('CURRENT', newState.currentTetro.type, 'NEXT', newState.nextTetro.type);
   return newState;
 };
 

@@ -34,10 +34,11 @@ describe('Move Down', () => {
   });
 
   it('should not increase current tetro y position, lock current tetro on board, collision', () => {
-    const initialState: InternalState = {
+    const initialStateStub: InternalState = {
       ...INITIAL_STATE,
       board: BOARD_HALF_S_Y,
-      currentTetro: { ...INITIAL_STATE.currentTetro, y: 3 }
+      currentTetro: { ...INITIAL_STATE.currentTetro, type: TetroEnum.I, y: 3 },
+      nextTetro: { ...INITIAL_STATE.nextTetro, type: TetroEnum.Z }
     };
     const finalState: InternalState = {
       ...INITIAL_STATE,
@@ -46,9 +47,14 @@ describe('Move Down', () => {
         ...Array(4).fill([I, 0, ...Array(8).fill(0)]),
         ...Array(14).fill(Array(10).fill(S))
       ],
-      currentTetro: { ...INITIAL_STATE.currentTetro, type: TetroEnum.L }
+      currentTetro: { ...INITIAL_STATE.currentTetro, type: TetroEnum.I },
+      nextTetro: { ...INITIAL_STATE.nextTetro, type: TetroEnum.Z }
     };
-    const r = reducer(initialState, moveDown);
-    expect(r).toEqual(finalState);
+    const reducerStab = {
+      ...reducer(initialStateStub, moveDown),
+      currentTetro: { ...INITIAL_STATE.currentTetro, type: TetroEnum.I },
+      nextTetro: { ...INITIAL_STATE.nextTetro, type: TetroEnum.Z }
+    };
+    expect(reducerStab).toEqual(finalState);
   });
 });
