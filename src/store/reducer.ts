@@ -20,7 +20,6 @@ export const mkInitialState = () => ({
     y: 0
   },
   nextTetro: {
-    // type: TetroEnum.S, // TODO random
     type: getRandomTetroEnum()(),
     direction: DirectionEnum.N,
     x: 0,

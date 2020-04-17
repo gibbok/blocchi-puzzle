@@ -23,16 +23,23 @@ export const moveDown = (prevState: InternalState) => {
     level,
     lines,
     currentTetro: {
-      type: isOccupiedDown ? getRandomTetroEnum()() : type,
+      type: isOccupiedDown ? nextTetro.type : type,
       direction: isOccupiedDown ? DirectionEnum.N : direction,
       x: isOccupiedDown ? 0 : x,
       y: isOccupiedDown ? 0 : foundPosY
     },
-    nextTetro,
+    nextTetro: {
+      type: isOccupiedDown ? getRandomTetroEnum()() : nextTetro.type,
+      direction: DirectionEnum.N,
+      x: 0,
+      y: 0
+    },
     isPlay,
     isGameOver,
     screen
   };
+  console.clear();
+  console.log('CURRENT', newState.currentTetro.type, 'NEXT', newState.nextTetro.type);
   return newState;
 };
 

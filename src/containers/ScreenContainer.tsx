@@ -5,7 +5,6 @@ import { Screen } from '~components';
 
 const mapStateToProps = (state: InternalState): { screen: ScreenEnum } => {
   const { screen } = mkPublicState(state);
-  console.log('CONTAINER MAIN', screen);
   return { screen };
 };
 
