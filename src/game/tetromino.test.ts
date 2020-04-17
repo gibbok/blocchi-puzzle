@@ -13,6 +13,7 @@ import { TetroEnum, DirectionEnum, I, NO, Z, ES, L } from './types';
 
 describe('tetromino', () => {
   beforeAll(() => stub(Math, 'random').returns(0));
+
   afterAll(() => stub().restore());
 
   describe('getTetroFromPieces', () => {
