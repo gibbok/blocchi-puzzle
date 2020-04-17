@@ -15,7 +15,6 @@ export const mkInitialState = () => ({
   lines: 0,
   currentTetro: {
     type: getRandomTetroEnum()(),
-    // type: TetroEnum.I, // TODO random
     direction: DirectionEnum.N, // TODO random
     x: 0,
     y: 0

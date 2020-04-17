@@ -3,7 +3,8 @@ import {
   getTetroFromPieces,
   isOccupied,
   rotateTetroDirectionCW,
-  getBlockFromBoard
+  getBlockFromBoard,
+  getRandomTetroEnum
 } from '.';
 import { stub } from 'sinon';
 import { dataPieces, BOARD_EMPTY, BOARD_HALF_I_Y } from '../utils';
@@ -11,6 +12,9 @@ import { none, isSome, toUndefined } from 'fp-ts/lib/Option';
 import { TetroEnum, DirectionEnum, I, NO, Z, ES, L } from './types';
 
 describe('tetromino', () => {
+  beforeAll(() => stub(Math, 'random').returns(0));
+  afterAll(() => stub().restore());
+
   describe('getTetroFromPieces', () => {
     const tetroKeys = Object.keys(TetroEnum);
     const directionKeys = Object.keys(DirectionEnum);
@@ -25,10 +29,13 @@ describe('tetromino', () => {
     );
   });
 
-  describe('getRandomTetro', () => {
-    beforeAll(() => stub(Math, 'random').returns(0));
-    afterAll(() => stub().restore());
+  describe('getRandomTetroEnum', () => {
+    it('should return a random tetro enum', () => {
+      expect(getRandomTetroEnum()()).toEqual(TetroEnum.Z);
+    });
+  });
 
+  describe('getRandomTetro', () => {
     it('should return a random tetro', () => {
       expect(getRandomTetro()()).toEqual(dataPieces[TetroEnum.Z][DirectionEnum.N]);
     });

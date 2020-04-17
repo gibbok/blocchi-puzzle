@@ -7,6 +7,12 @@ import { pieces } from '~game';
 
 export const getTetroFromPieces = (t: TetroEnum, d: DirectionEnum): Tetro => pieces[t][d];
 
+export const getRandomValueFromStringEnum = <T>(x: T): IO<T[keyof T]> => {
+  const rndInt = randomInt(0, Object.keys(x).length - 1)();
+  const rndEnum = Object.keys(x)[rndInt] as keyof T;
+  return io.of(x[rndEnum]);
+};
+
 export const getRandomTetroEnum = (): IO<TetroEnum> => {
   const rndInt = randomInt(0, Object.keys(TetroEnum).length - 1)();
   const rndEnum = Object.keys(TetroEnum)[rndInt] as TetroEnum; // FIXME: better type here
