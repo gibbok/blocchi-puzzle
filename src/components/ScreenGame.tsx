@@ -3,16 +3,14 @@ import styled from 'styled-components';
 import { Keyboard } from './Keyboard';
 import { BoardContainer, NextContainer } from '~containers';
 
-const StyledScreenGame = styled.div``;
+const StyledScreenGame = styled.div`
+  display: flex;
+`;
 
 export const ScreenGame = ({}: {}) => (
   <StyledScreenGame>
     <Keyboard />
-    <div>
-      <BoardContainer />
-    </div>
-    <div>
-      <NextContainer />
-    </div>
+    <BoardContainer />
+    <NextContainer />
   </StyledScreenGame>
 );
