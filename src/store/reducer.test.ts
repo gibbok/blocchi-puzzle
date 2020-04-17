@@ -1,7 +1,7 @@
 import { BOARD_ROW_EMPTY } from '../utils';
 import { mkInitialState, mkPublicState, gameSlice } from '.';
 import { InternalState, I, PubicState } from '../game/types';
-import { stub } from 'sinon';
+
 export const {
   actions: { moveDown, moveLeft, moveRight, moveUp, checkBoard },
   reducer
@@ -11,10 +11,6 @@ const INITIAL_STATE = mkInitialState();
 const INVALID_ACTION = { type: 'invalid-action' };
 
 describe('reducer', () => {
-  beforeAll(() => stub(Math, 'random').returns(0));
-
-  afterAll(() => stub().restore());
-
   describe('reducer', () => {
     it('should return default state if no state is passed', () => {
       const r = reducer(undefined, INVALID_ACTION);
