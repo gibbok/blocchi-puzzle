@@ -37,7 +37,7 @@ describe('Move Left', () => {
     expect(r).toEqual(finalState);
   });
 
-  it.only('XXX - should not decrease current tetro x position and kept it next to edge', () => {
+  it('should not decrease current tetro x position and kept it next to edge', () => {
     const initialState: InternalState = {
       ...INITIAL_STATE,
       board: BOARD_HALF_S_X_REV,
