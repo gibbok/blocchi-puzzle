@@ -2,10 +2,13 @@ import { connect } from 'react-redux';
 import { mkPublicState } from '../store/reducer';
 import { GameLoop } from '~components/GameLoop';
 import { InternalState } from '~game/types';
+import { moveDownThunk } from '~store/board/actions/thunks';
 
-const mapStateToProps = (prevState: InternalState): { level: number } => {
+const cb = moveDownThunk;
+
+const mapStateToProps = (prevState: InternalState): { level: number; cb: () => void } => {
   const { level } = mkPublicState(prevState);
-  return { level };
+  return { level, cb };
 };
 
 export const GameLoopContainer = connect(mapStateToProps)(GameLoop);

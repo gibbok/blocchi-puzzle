@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Action } from '@reduxjs/toolkit';
-import { moveDownThunk } from '~store/board/actions/thunks';
 
-type Props = Readonly<{ level: number }>;
+type Props = Readonly<{ level: number; cb: () => void }>;
 
 let animId = -1;
 
-export const GameLoop = ({ level }: Props) => {
+export const GameLoop = ({ level, cb }: Props) => {
   const dispatch = useDispatch();
   const [lastTime, setLastTime] = React.useState(0);
 
@@ -17,7 +16,7 @@ export const GameLoop = ({ level }: Props) => {
     if (progress >= 1000) {
       // TODO change speed based on level
       setLastTime(time);
-      dispatch(moveDownThunk());
+      dispatch(cb());
       return undefined;
     }
     animId = window.requestAnimationFrame(loop);
