@@ -4,7 +4,7 @@ import { Action } from '@reduxjs/toolkit';
 
 type Props = Readonly<{ level: number; cb: () => void }>;
 
-const TICK_MS = 1000;
+const TICK_MS = 800;
 
 const calcTimeClockByLevel = (base: number, level: number) => base - level * 100;
 

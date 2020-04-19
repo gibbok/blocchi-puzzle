@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TetroDef, NoTetro, TetroEnum } from '~game/types';
+import { TetroDef, NoTetro } from '~game/types';
 import styled from 'styled-components';
 import { TILE_WIDTH } from '~game/settings';
 import { Tile } from './Tile';
