@@ -14,7 +14,8 @@ export const moveDown = (prevState: InternalState) => {
     screen
   } = prevState;
   const newY = y + 1;
-  const isOccupiedDown = isOccupied(type, direction, x, newY + 1, board);
+  // const isOccupiedDown = isOccupied(type, direction, x, newY + 1, board); BUG
+  const isOccupiedDown = isOccupied(type, direction, x, newY, board);
   const foundPosY = recFindAvailablePosY(type, direction, x, newY, board, 1);
   const isGameOver = newY === 1 && isOccupiedDown;
   const newState = {
