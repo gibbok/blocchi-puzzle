@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TetroDef, NoTetro } from '~game/types';
+import { TetroDef, NoTetro, TetroEnum } from '~game/types';
 import styled from 'styled-components';
 import { TILE_WIDTH } from '~game/settings';
 import { Tile } from './Tile';
@@ -18,24 +18,28 @@ const StyledNext = styled.div`
 
 const EmptyTile = styled.div``;
 
-export const Next = ({ nextTetro }: { nextTetro: TetroDef }) => (
-  <StyledNext>
-    {new Array(SIZE_NEXT_BOARD).fill(0).map((_rowB, rowIdxB) =>
-      new Array(SIZE_NEXT_BOARD).fill(0).map((_cellB: number, cellIdxB: number) => {
-        const tetro = getTetroFromPieces(nextTetro.type, nextTetro.direction);
-        const hasPiece = tetro[rowIdxB] !== undefined && tetro[cellIdxB] !== undefined;
-        if (hasPiece) {
-          const piece = tetro[rowIdxB][cellIdxB];
-          const isPieceTetro = piece !== NoTetro;
-          if (isPieceTetro) {
-            return <Tile key={cellIdxB} variant={piece} />;
+// FIXME I do not need a tetro def only the type
+export const Next = ({ nextTetro }: { nextTetro: TetroDef }) => {
+  const tetro = getTetroFromPieces(nextTetro.type, nextTetro.direction);
+  return (
+    <StyledNext>
+      {new Array(SIZE_NEXT_BOARD).fill(0).map((_rowB, rowIdxB) =>
+        new Array(SIZE_NEXT_BOARD).fill(0).map((_cellB: number, cellIdxB: number) => {
+          const hasPiece = tetro[rowIdxB] !== undefined && tetro[rowIdxB][cellIdxB] !== undefined;
+          if (hasPiece) {
+            const piece = tetro[rowIdxB][cellIdxB];
+            console.log(piece);
+            const isPieceTetro = piece !== NoTetro;
+            if (isPieceTetro) {
+              return <Tile key={cellIdxB} variant={piece} />;
+            } else {
+              return <EmptyTile key={cellIdxB} />;
+            }
           } else {
             return <EmptyTile key={cellIdxB} />;
           }
-        } else {
-          return <EmptyTile key={cellIdxB} />;
-        }
-      })
-    )}
-  </StyledNext>
-);
+        })
+      )}
+    </StyledNext>
+  );
+};
