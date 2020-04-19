@@ -1,9 +1,9 @@
-import React, { useEffect, Dispatch } from 'react';
+import React, { useEffect } from 'react';
 import { KeyEnum } from '~game/types';
 import { useDispatch } from 'react-redux';
 import { gameSlice } from '~store';
 import { moveDownThunk } from '~store/board/actions/thunks';
-import { ActionCreatorWithoutPayload } from '@reduxjs/toolkit';
+
 const {
   actions: { moveLeft, moveUp, moveRight }
 } = gameSlice;
