@@ -12,7 +12,6 @@ const StyledScreen = styled.div`
 // FIXME change to intro
 export const Screen = ({ screen }: { screen: ScreenEnum }) => (
   <StyledScreen>
-    {console.log('SCREEN', screen)}
     {screen === ScreenEnum.Intro ? (
       <ScreenIntro />
     ) : screen === ScreenEnum.Game ? (

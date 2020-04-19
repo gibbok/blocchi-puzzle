@@ -1,4 +1,2 @@
-[ ] Fix bug test I need to stub the behaviour the function which contain usage of getRandomTetroEnum()
-    Think about solvuing my passing the random functioj which get the number
-[ ] Create main loop
+[ ] Center random tetro on init reducer or when a new current tetro is generated
 [ ] Add responsibe graphic

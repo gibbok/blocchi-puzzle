@@ -28,7 +28,6 @@ export const Next = ({ nextTetro }: { nextTetro: TetroDef }) => {
           const hasPiece = tetro[rowIdxB] !== undefined && tetro[rowIdxB][cellIdxB] !== undefined;
           if (hasPiece) {
             const piece = tetro[rowIdxB][cellIdxB];
-            console.log(piece);
             const isPieceTetro = piece !== NoTetro;
             if (isPieceTetro) {
               return <Tile key={cellIdxB} variant={piece} />;

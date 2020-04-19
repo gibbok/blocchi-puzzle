@@ -9,6 +9,17 @@ export const getTetroFromPieces = (t: TetroEnum, d: DirectionEnum): Tetro => pie
 
 export const getRandomTetroEnum = (): IO<TetroEnum> => getRandomValueFromStringEnum(TetroEnum);
 
+export const setTetroPositionXCenterBoard = (
+  boardWidth: number,
+  t: TetroEnum,
+  d: DirectionEnum
+) => {
+  const data = getTetroFromPieces(t, d);
+  const tetroWidth = data[0].length;
+  const posX = Math.floor((boardWidth - tetroWidth) / 2);
+  return posX;
+};
+
 export const getRandomTetro = (): IO<Tetro> => {
   const rndEnum = getRandomTetroEnum()();
   return io.of(pieces[rndEnum][DirectionEnum.N]);

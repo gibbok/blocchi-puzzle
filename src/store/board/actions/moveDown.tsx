@@ -1,5 +1,12 @@
 import { InternalState, DirectionEnum } from '~game/types';
-import { isOccupied, recFindAvailablePosY, addTetroToBoard, getRandomTetroEnum } from '~game';
+import {
+  isOccupied,
+  recFindAvailablePosY,
+  addTetroToBoard,
+  getRandomTetroEnum,
+  setTetroPositionXCenterBoard
+} from '~game';
+import { BOARD_CELLS } from '~game/settings';
 
 export const moveDown = (prevState: InternalState) => {
   // SPO
@@ -18,6 +25,10 @@ export const moveDown = (prevState: InternalState) => {
   const isOccupiedDown = isOccupied(type, direction, x, newY, board);
   const foundPosY = recFindAvailablePosY(type, direction, x, newY, board, 1);
   const isGameOver = newY === 1 && isOccupiedDown;
+  const nextTetroType = isOccupiedDown ? getRandomTetroEnum()() : nextTetro.type;
+  console.clear();
+
+  const nextTetroX = setTetroPositionXCenterBoard(BOARD_CELLS, nextTetroType, DirectionEnum.N);
   const newState = {
     board: isOccupiedDown ? addTetroToBoard(type, direction, x, foundPosY, board) : board,
     score,
@@ -26,13 +37,15 @@ export const moveDown = (prevState: InternalState) => {
     currentTetro: {
       type: isOccupiedDown ? nextTetro.type : type,
       direction: isOccupiedDown ? DirectionEnum.N : direction,
-      x: isOccupiedDown ? 0 : x,
+      x: isOccupiedDown
+        ? setTetroPositionXCenterBoard(BOARD_CELLS, nextTetro.type, DirectionEnum.N)
+        : x,
       y: isOccupiedDown ? 0 : foundPosY
     },
     nextTetro: {
-      type: isOccupiedDown ? getRandomTetroEnum()() : nextTetro.type,
+      type: nextTetroType,
       direction: DirectionEnum.N,
-      x: 0,
+      x: nextTetroX,
       y: 0
     },
     isPlay,
