@@ -16,10 +16,11 @@ export const checkBoard = (prevState: InternalState) => {
   const totRowCompleted = getCompleteRowIdxs(board);
   const totRowCompletedLen = totRowCompleted.length;
   const newScore = pipe(totRowCompletedLen, calcScore);
+  const newScoreTotal = score + newScore;
   return {
     board: detectAndRemoveCompletedRows(board),
-    score: score + newScore,
-    level: calcLevel(newScore),
+    score: newScoreTotal,
+    level: calcLevel(newScoreTotal),
     lines: lines + totRowCompletedLen,
     currentTetro: { type, direction, x, y },
     nextTetro,
