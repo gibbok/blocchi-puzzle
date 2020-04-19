@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { Keyboard } from './Keyboard';
 import { BoardContainer, NextContainer, InfoContainer } from '~containers';
-import { GameLoop } from './GameLoop';
+import { GameLoopContainer } from '~containers/GameLoopContainer';
 
 const StyledScreenGame = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ const StyledScreenGame = styled.div`
 
 export const ScreenGame = ({}: {}) => (
   <StyledScreenGame>
-    <GameLoop />
+    <GameLoopContainer />
     <Keyboard />
     <BoardContainer />
     <div>

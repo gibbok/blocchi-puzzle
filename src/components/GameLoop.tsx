@@ -6,17 +6,19 @@ const {
   actions: { moveDown }
 } = gameSlice;
 
-type Props = Readonly<{}>;
+type Props = Readonly<{ level: number }>;
 
 let animId = -1;
 
-export const GameLoop = ({}: Props) => {
+export const GameLoop = ({ level }: Props) => {
   const dispatch = useDispatch();
   const [lastTime, setLastTime] = React.useState(0);
 
   const loop = (time: number): void | Action => {
+    console.log('level', level);
     const progress = time - lastTime;
     if (progress >= 1000) {
+      // TODO change speed based on level
       setLastTime(time);
       return dispatch(moveDown());
     }
