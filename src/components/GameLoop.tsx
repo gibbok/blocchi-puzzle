@@ -4,6 +4,10 @@ import { Action } from '@reduxjs/toolkit';
 
 type Props = Readonly<{ level: number; cb: () => void }>;
 
+const TICK_MS = 1000;
+
+const calcTimeClockByLevel = (base: number, level: number) => base - level * 100;
+
 let animId = -1;
 
 export const GameLoop = ({ level, cb }: Props) => {
@@ -11,10 +15,10 @@ export const GameLoop = ({ level, cb }: Props) => {
   const [lastTime, setLastTime] = React.useState(0);
 
   const loop = (time: number): void | Action => {
-    console.log('level', level);
+    const threshold = calcTimeClockByLevel(TICK_MS, level);
     const progress = time - lastTime;
-    if (progress >= 1000) {
-      // TODO change speed based on level
+    const canGameAdvance = progress >= threshold;
+    if (canGameAdvance) {
       setLastTime(time);
       dispatch(cb());
       return undefined;
