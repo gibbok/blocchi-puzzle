@@ -9,7 +9,7 @@ export const {
 } = gameSlice;
 
 describe('Move Down', () => {
-  it('should increase current tetro y position, leaving the board un touched, no collision', () => {
+  it('should increase current tetro y position, leaving the board un touched, no collision 1', () => {
     const test: InternalState = {
       ...INITIAL_STATE,
       currentTetro: { ...INITIAL_STATE.currentTetro, y: 1 }
@@ -18,7 +18,7 @@ describe('Move Down', () => {
     expect(r).toEqual(test);
   });
 
-  it('should increase current tetro y position, leaving the board un touched, no collision', () => {
+  it('should increase current tetro y position, leaving the board un touched, no collision 2', () => {
     const initialState: InternalState = {
       ...INITIAL_STATE,
       board: BOARD_HALF_S_Y,
@@ -33,25 +33,25 @@ describe('Move Down', () => {
     expect(r).toEqual(finalState);
   });
 
-  it('should not increase current tetro y position, lock current tetro on board, collision', () => {
-    const initialState: InternalState = {
+  it('should not increase current tetro y position, lock current tetro on board, collision 3', () => {
+    const initialStateStab: InternalState = {
       ...INITIAL_STATE,
       board: BOARD_HALF_S_Y,
-      currentTetro: { ...INITIAL_STATE.currentTetro, type: TetroEnum.I, y: 3 },
+      currentTetro: { ...INITIAL_STATE.currentTetro, type: TetroEnum.I, x: 4, y: 3 },
       nextTetro: { ...INITIAL_STATE.nextTetro, type: TetroEnum.Z }
     };
     const finalState: InternalState = {
       ...INITIAL_STATE,
       board: [
         ...Array(2).fill(BOARD_ROW_EMPTY),
-        ...Array(4).fill([0, 0, 0, I, 0, 0, 0, 0, 0, 0]),
+        ...Array(4).fill([0, 0, 0, 0, I, 0, 0, 0, 0, 0]),
         ...Array(14).fill(Array(10).fill(S))
       ],
       currentTetro: { ...INITIAL_STATE.currentTetro, type: TetroEnum.I },
       nextTetro: { ...INITIAL_STATE.nextTetro, type: TetroEnum.Z }
     };
     const reducerStab = {
-      ...reducer(initialState, moveDown),
+      ...reducer(initialStateStab, moveDown),
       currentTetro: { ...INITIAL_STATE.currentTetro, type: TetroEnum.I },
       nextTetro: { ...INITIAL_STATE.nextTetro, type: TetroEnum.Z }
     };
