@@ -55,8 +55,6 @@ describe('reducer', () => {
           ...mkPublicState(initialStateStub),
           nextTetro
         };
-        logger(mkPublicStateStub.board);
-        logger(output.board);
         expect(mkPublicStateStub).toEqual(output);
       });
     });
