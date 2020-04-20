@@ -4,7 +4,9 @@ import {
   isOccupied,
   rotateTetroDirectionCW,
   getBlockFromBoard,
-  getRandomTetroEnum
+  getRandomTetroEnum,
+  getHeight,
+  getWidth
 } from '.';
 import { stub } from 'sinon';
 import { dataPieces, BOARD_EMPTY, BOARD_HALF_I_Y } from '../utils';
@@ -205,6 +207,25 @@ describe('tetromino', () => {
       expect(rotateTetroDirectionCW(DirectionEnum.E)).toEqual(DirectionEnum.S);
       expect(rotateTetroDirectionCW(DirectionEnum.S)).toEqual(DirectionEnum.W);
       expect(rotateTetroDirectionCW(DirectionEnum.W)).toEqual(DirectionEnum.N);
+    });
+  });
+
+  describe('getHeight', () => {
+    it('should return the number of rows (height) for a board', () => {
+      const test = getHeight(BOARD_EMPTY);
+      expect(test).toBe(19);
+    });
+  });
+
+  describe('getWidth', () => {
+    it('should return some with number of cells (width) for a board', () => {
+      const test = getWidth(BOARD_EMPTY);
+      expect(test).toBe(9);
+    });
+
+    it('should return -1 if board no cells are found', () => {
+      const test = getWidth([]);
+      expect(test).toBe(-1);
     });
   });
 });

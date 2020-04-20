@@ -30,9 +30,9 @@ export const getBlockFromBoard = (x: number, y: number, b: Board): Option<Tile> 
   return r;
 };
 
-const getHeight = <T>(blocks: ReadonlyArray<T>): number => blocks.length - 1;
+export const getHeight = <T>(blocks: ReadonlyArray<T>): number => blocks.length - 1;
 
-const getWidth = <T>(blocks: ReadonlyArray<ReadonlyArray<T>>): number =>
+export const getWidth = <T>(blocks: ReadonlyArray<ReadonlyArray<T>>): number =>
   pipe(
     fromNullable(blocks[0]),
     map(x => x.length - 1),
