@@ -6,7 +6,9 @@ import {
   getBlockFromBoard,
   getRandomTetroEnum,
   getHeight,
-  getWidth
+  getWidth,
+  isValidY,
+  isValidX
 } from '.';
 import { stub } from 'sinon';
 import { dataPieces, BOARD_EMPTY, BOARD_HALF_I_Y } from '../utils';
@@ -226,6 +228,30 @@ describe('tetromino', () => {
     it('should return -1 if board no cells are found', () => {
       const test = getWidth([]);
       expect(test).toBe(-1);
+    });
+  });
+
+  describe('isValidY', () => {
+    it('should return true if Y position is wihtin the board', () => {
+      const test = isValidY(1, BOARD_EMPTY);
+      expect(test).toBe(true);
+    });
+
+    it('should return false if Y position not is wihtin the board', () => {
+      const test = isValidY(100, BOARD_EMPTY);
+      expect(test).toBe(false);
+    });
+  });
+
+  describe('isValidX', () => {
+    it('should return true if X position is wihtin the board', () => {
+      const test = isValidX(1, BOARD_EMPTY);
+      expect(test).toBe(true);
+    });
+
+    it('should return false if X position not is wihtin the board', () => {
+      const test = isValidX(100, BOARD_EMPTY);
+      expect(test).toBe(false);
     });
   });
 });

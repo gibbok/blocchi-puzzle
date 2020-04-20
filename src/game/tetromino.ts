@@ -39,9 +39,9 @@ export const getWidth = <T>(blocks: ReadonlyArray<ReadonlyArray<T>>): number =>
     getOrElse(() => -1)
   );
 
-const isValidY = (y: number, b: Board): boolean => y >= 0 && y <= getHeight(b);
+export const isValidY = (y: number, b: Board): boolean => y >= 0 && y <= getHeight(b);
 
-const isValidX = (x: number, b: Board): boolean => x >= 0 && x <= getWidth(b);
+export const isValidX = (x: number, b: Board): boolean => x >= 0 && x <= getWidth(b);
 
 const isValidHeight = (y: number, tetroHeight: number, boardHeight: number) =>
   y + tetroHeight <= boardHeight;
