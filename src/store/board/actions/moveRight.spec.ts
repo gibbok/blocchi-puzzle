@@ -1,5 +1,5 @@
 import { mkInitialState, gameSlice } from '~store';
-import { InternalState } from '~game/types';
+import { InternalState, TetroEnum } from '~game/types';
 import { BOARD_HALF_S_X } from '~utils';
 
 const INITIAL_STATE = mkInitialState();
@@ -10,12 +10,17 @@ export const {
 
 describe('Move Right', () => {
   it('should increase current tetro x position, leaving the board un touched, no collission', () => {
-    const test: InternalState = {
+    const inputStab = {
       ...INITIAL_STATE,
-      currentTetro: { ...INITIAL_STATE.currentTetro, x: 4 }
+      currentTetro: { ...INITIAL_STATE.currentTetro, type: TetroEnum.J, x: 1 }
     };
-    const r = reducer(INITIAL_STATE, moveRight);
-    expect(r).toEqual(test);
+
+    const testStab: InternalState = {
+      ...INITIAL_STATE,
+      currentTetro: { ...INITIAL_STATE.currentTetro, type: TetroEnum.J, x: 2 }
+    };
+    const r = reducer(inputStab, moveRight);
+    expect(r).toEqual(testStab);
   });
 
   it('should not push current tetro x position over the edge, leaving the board un touched, no collission', () => {
