@@ -38,9 +38,6 @@ describe('Move Down', () => {
       nextTetro: { ...INITIAL_STATE.nextTetro, type: TetroEnum.L, x: 4, y: 0 }
     };
     const r = reducer(initialStateStab, moveDown);
-    console.log(initialStateStab);
-    console.log(r);
-    console.log(finalStateStab);
     expect(r).toEqual(finalStateStab);
   });
 

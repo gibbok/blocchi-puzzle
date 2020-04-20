@@ -13,7 +13,8 @@ const INVALID_ACTION = { type: 'invalid-action' };
 
 const currentTetroStub = {
   ...INITIAL_STATE.currentTetro,
-  type: TetroEnum.I
+  type: TetroEnum.I,
+  x: 4
 };
 const nextTetroStub = {
   ...INITIAL_STATE.nextTetro,
