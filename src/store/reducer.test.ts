@@ -27,6 +27,7 @@ const mkInitialStateStub = sinon.stub().returns({
 });
 
 const initialStateStub = mkInitialStateStub();
+
 describe('reducer', () => {
   describe('reducer', () => {
     it('should return default state if no state is passed', () => {
