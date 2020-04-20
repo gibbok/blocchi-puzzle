@@ -46,7 +46,7 @@ describe('reducer', () => {
     describe('mkPublicState', () => {
       it('should return the pubic state included computed board to render and removed hidden properties', () => {
         const board = [
-          ...Array(4).fill([0, 0, 0, 0, I, 0, 0, 0, 0, 0]),
+          ...Array(4).fill([0, 0, 0, I, 0, 0, 0, 0, 0, 0]),
           ...Array(16).fill(BOARD_ROW_EMPTY)
         ];
         const { score, level, lines, nextTetro, screen } = initialStateStub;
@@ -55,6 +55,8 @@ describe('reducer', () => {
           ...mkPublicState(initialStateStub),
           nextTetro
         };
+        logger(mkPublicStateStub.board);
+        logger(output.board);
         expect(mkPublicStateStub).toEqual(output);
       });
     });
