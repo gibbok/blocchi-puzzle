@@ -18,6 +18,11 @@ const TileStyled = styled.div<Props>`
   align-items: center;
   justify-content: center;
   clip-path: polygon(1% 0%, 99% 0%, 100% 1%, 100% 99%, 99% 100%, 1% 100%, 0% 99%, 0% 1%);
+  box-shadow: ${({ variant }) =>
+    variant === NoTetro
+      ? 'inset 1px 1px 1px 1px rgba(255,255,255, 0.01), inset -1px -1px 1px 1px rgba(0,0,0, 0.02)'
+      : 'none'};
+  border: ${({ variant }) => (variant === NoTetro ? '1px solid rgba(0, 0, 0, 0.1)' : 'none')};
 `;
 
 const SHORT = 25;
