@@ -6,7 +6,8 @@ import { ScreenGame } from './ScreenGame';
 import { ScreenOver } from './ScreenOver';
 
 const StyledScreen = styled.div`
-  background-color: red;
+  background-color: #140801;
+  color: white;
 `;
 
 // FIXME change to intro

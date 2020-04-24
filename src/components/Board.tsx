@@ -6,7 +6,7 @@ import { Tile } from './Tile';
 
 const BoardStyled = styled.div`
   display: grid;
-  background-color: darkgray;
+  /* background-color: darkgray; */
   width: ${TILE_WIDTH * BOARD_CELLS}rem;
   height: ${TILE_WIDTH * BOARD_ROWS}rem;
   grid-template-rows: repeat(${BOARD_ROWS}, 1fr);

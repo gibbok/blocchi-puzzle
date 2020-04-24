@@ -11,16 +11,17 @@ const TileStyled = styled.div<Props>`
   position: relative;
   background: ${({ variant }) =>
     variant === NoTetro ? TILE_COLOR_NOTETRO : TITLE_COLOR_ENUM[variant]};
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 95%;
   font-size: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-const SHORT = 15;
-const LONG = 85;
+const SHORT = 25;
+const LONG = 75;
+const OPACTITY = 1;
 
 const UpSide = styled.div`
   position: absolute;
@@ -29,6 +30,8 @@ const UpSide = styled.div`
   width: 100%;
   height: ${`${SHORT}%`};
   clip-path: ${`polygon(0 0, 100% 0, ${LONG}% 100%, ${SHORT}% 100%)`};
+  background: linear-gradient(190deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.5) 100%);
+  opacity: ${OPACTITY};
 `;
 
 const DownSide = styled.div`
@@ -37,7 +40,9 @@ const DownSide = styled.div`
   background-color: red;
   width: 100%;
   height: ${`${SHORT}%`};
-  clip-path: ${`polygon(SHORT 0%, ${LONG}% 0%, 100% 100%, 0% 100%)`};
+  clip-path: ${`polygon(${SHORT}% 0%, ${LONG}% 0%, 100% 100%, 0% 100%)`};
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%);
+  opacity: ${OPACTITY};
 `;
 
 const LeftSide = styled.div`
@@ -48,6 +53,8 @@ const LeftSide = styled.div`
   width: ${`${SHORT}%`};
   height: 100%;
   clip-path: ${`polygon(0 0, 100% ${SHORT}%, 100% ${LONG}%, 0 100%)`};
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.6) 100%);
+  opacity: ${OPACTITY};
 `;
 
 const RightSide = styled.div`
@@ -58,6 +65,13 @@ const RightSide = styled.div`
   width: ${`${SHORT}%`};
   height: 100%;
   clip-path: ${`polygon(0 ${SHORT}%, 100% 0, 100% 100%, 0 ${LONG}%)`};
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(128, 128, 128, 0) 50%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  opacity: ${OPACTITY};
 `;
 
 const TopSide = styled.div`
@@ -66,7 +80,8 @@ const TopSide = styled.div`
   right: ${`${SHORT}%`};
   width: ${`${LONG - SHORT}%`};
   height: ${`${LONG - SHORT}%`};
-  background-color: transparent;
+  opacity: ${OPACTITY};
+  background: linear-gradient(180deg, rgba(120, 120, 120, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
 `;
 
 export const Tile = ({ variant }: Props) => (
