@@ -19,10 +19,10 @@ const TileStyled = styled.div<Props>`
   justify-content: center;
 `;
 
-const SHORT = 50;
-const LONG = 50;
+const SHORT = 25;
+const LONG = 75;
 const OPACTITY = 1;
-const BLUR = 0.25;
+const BLUR = 0.1;
 
 const UpSide = styled.div`
   position: absolute;
@@ -31,9 +31,9 @@ const UpSide = styled.div`
   width: 100%;
   height: ${`${SHORT}%`};
   clip-path: ${`polygon(0 0, 100% 0, ${LONG}% 100%, ${SHORT}% 100%)`};
-  background: linear-gradient(190deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.5) 100%);
+  background: linear-gradient(190deg, rgba(100, 100, 100, 0.1) 0%, rgba(255, 255, 255, 0.7) 100%);
   opacity: ${OPACTITY};
-  filter: blur(1rem);
+  filter: ${`blur(${BLUR}rem)`};
 `;
 
 const DownSide = styled.div`
@@ -45,7 +45,7 @@ const DownSide = styled.div`
   clip-path: ${`polygon(${SHORT}% 0%, ${LONG}% 0%, 100% 100%, 0% 100%)`};
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%);
   opacity: ${OPACTITY};
-  filter: ${`blur(${BLUR})`};
+  filter: ${`blur(${BLUR}rem)`};
 `;
 
 const LeftSide = styled.div`
@@ -58,7 +58,7 @@ const LeftSide = styled.div`
   clip-path: ${`polygon(0 0, 100% ${SHORT}%, 100% ${LONG}%, 0 100%)`};
   background: linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.6) 100%);
   opacity: ${OPACTITY};
-  filter: ${`blur(${BLUR})`};
+  filter: ${`blur(${BLUR}rem)`};
 `;
 
 const RightSide = styled.div`
@@ -76,7 +76,7 @@ const RightSide = styled.div`
     rgba(255, 255, 255, 0.5) 100%
   );
   opacity: ${OPACTITY};
-  filter: ${`blur(${BLUR})`};
+  filter: ${`blur(${BLUR}rem)`};
 `;
 
 const TopSide = styled.div`
@@ -86,8 +86,9 @@ const TopSide = styled.div`
   width: ${`${LONG - SHORT}%`};
   height: ${`${LONG - SHORT}%`};
   opacity: ${OPACTITY};
-  background: linear-gradient(180deg, rgba(120, 120, 120, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
-  filter: ${`blur(${BLUR})`};
+  background: linear-gradient(0deg, rgba(120, 120, 120, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
+  /* background: linear-gradient(180deg, rgba(120, 120, 120, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%); */
+  filter: ${`blur(${BLUR * 2})`};
 `;
 
 export const Tile = ({ variant }: Props) => (
