@@ -21,6 +21,6 @@ const StyledTile = styled.div<Props>`
 
 export const Tile = ({ variant, debug }: Props) => (
   <StyledTile variant={variant} debug={debug}>
-    {debug?.x} / {debug?.y}
+    {debug && `${debug?.x} / ${debug?.y}`}
   </StyledTile>
 );

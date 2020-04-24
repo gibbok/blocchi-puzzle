@@ -1,5 +1,5 @@
 import { Board, Tile, TetroEnum, DirectionEnum, NoTetro } from './types';
-import { getTetroFromPieces, occupied } from './tetromino';
+import { getTetroFromPieces, isOccupied } from './tetromino';
 import { pipe } from 'fp-ts/lib/pipeable';
 import { BOARD_CELLS } from './settings';
 
@@ -21,6 +21,7 @@ export const addTetroToBoard = (t: TetroEnum, d: DirectionEnum, x: number, y: nu
   return bn;
 };
 
+// TODO add test
 export const recFindAvailablePos = (
   type: TetroEnum,
   d: DirectionEnum,
@@ -30,14 +31,15 @@ export const recFindAvailablePos = (
   towardsX: number,
   towardsY: number
 ): number => {
-  const isOccupied = occupied(type, d, x, y, b);
-  return isOccupied
+  const occupied = isOccupied(type, d, x, y, b);
+  return occupied && y !== 0
     ? recFindAvailablePos(type, d, x - towardsX, y - towardsY, b, towardsX, towardsY)
     : y !== 0
     ? y
     : x;
 };
 
+// TODO add test
 export const recFindAvailablePosX = (
   type: TetroEnum,
   d: DirectionEnum,
@@ -47,6 +49,7 @@ export const recFindAvailablePosX = (
   towardsX: number
 ): number => recFindAvailablePos(type, d, x, y, b, towardsX, 0);
 
+// TODO add test
 export const recFindAvailablePosY = (
   type: TetroEnum,
   d: DirectionEnum,
@@ -74,6 +77,7 @@ export const removeCompleteRowFromBoard = (
 };
 
 export const mkRow = (len: number, b: Tile) => [...Array(len).fill(b)];
+
 export const mkEmptyRow = mkRow(BOARD_CELLS, NoTetro);
 
 export const appendEmptyRowsToBoard = (b: Board, amount: number): Board => [

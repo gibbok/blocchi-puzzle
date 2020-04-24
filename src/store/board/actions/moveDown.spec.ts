@@ -1,54 +1,81 @@
 import { mkInitialState, gameSlice } from '~store';
 import { InternalState, TetroEnum, I, S } from '~game/types';
-import { BOARD_HALF_S_Y, BOARD_ROW_EMPTY, logger } from '~utils';
+import { BOARD_HALF_S_Y, BOARD_ROW_EMPTY } from '~utils';
+import sinon from 'sinon';
 
 const INITIAL_STATE = mkInitialState();
+
 export const {
   actions: { moveDown, moveLeft, moveRight, moveUp, checkBoard },
   reducer
 } = gameSlice;
 
+const currentTetroStub = {
+  ...INITIAL_STATE.currentTetro,
+  type: TetroEnum.I,
+  x: 4
+};
+const nextTetroStub = {
+  ...INITIAL_STATE.nextTetro,
+  type: TetroEnum.L,
+  x: 4
+};
+const mkInitialStateStub = sinon.stub().returns({
+  ...INITIAL_STATE,
+  currentTetro: currentTetroStub,
+  nextTetro: nextTetroStub
+});
+const initialStateStub = mkInitialStateStub();
+
 describe('Move Down', () => {
-  it('should increase current tetro y position, leaving the board un touched, no collision', () => {
-    const test: InternalState = {
-      ...INITIAL_STATE,
-      currentTetro: { ...INITIAL_STATE.currentTetro, y: 1 }
+  it('should increase current tetro y position, leaving the board un touched, no collision 1', () => {
+    const initialStateStab = {
+      ...initialStateStub,
+      currentTetro: { ...initialStateStub.currentTetro, y: 0 }
     };
-    const r = reducer(INITIAL_STATE, moveDown);
-    expect(r).toEqual(test);
+    const testStab: InternalState = {
+      ...initialStateStub,
+      currentTetro: { ...initialStateStub.currentTetro, y: 1 }
+    };
+    const r = reducer(initialStateStab, moveDown);
+    expect(r).toEqual(testStab);
   });
 
-  it('should increase current tetro y position, leaving the board un touched, no collision', () => {
-    const initialState: InternalState = {
-      ...INITIAL_STATE,
+  it('should increase current tetro y position, leaving the board un touched, no collision 2', () => {
+    const initialStateStab: InternalState = {
+      ...initialStateStub,
       board: BOARD_HALF_S_Y,
-      currentTetro: { ...INITIAL_STATE.currentTetro, type: TetroEnum.L, y: 1 }
+      currentTetro: { ...initialStateStub.currentTetro, y: 1 }
     };
-    const finalState: InternalState = {
-      ...INITIAL_STATE,
+    const finalStateStab: InternalState = {
+      ...initialStateStub,
       board: BOARD_HALF_S_Y,
-      currentTetro: { ...INITIAL_STATE.currentTetro, type: TetroEnum.L, y: 2 }
+      currentTetro: { ...initialStateStub.currentTetro, y: 2 }
     };
-    const r = reducer(initialState, moveDown);
-    expect(r).toEqual(finalState);
+    const r = reducer(initialStateStab, moveDown);
+    expect(r).toEqual(finalStateStab);
   });
 
-  it.only('should not increase current tetro y position, lock current tetro on board, collision', () => {
-    const initialState: InternalState = {
-      ...INITIAL_STATE,
+  it('should not increase current tetro y position, lock current tetro on board, collision 3', () => {
+    const initialStateStab: InternalState = {
+      ...initialStateStub,
       board: BOARD_HALF_S_Y,
-      currentTetro: { ...INITIAL_STATE.currentTetro, y: 3 }
+      currentTetro: { ...initialStateStub.currentTetro, y: 3 }
     };
     const finalState: InternalState = {
-      ...INITIAL_STATE,
+      ...initialStateStub,
       board: [
         ...Array(2).fill(BOARD_ROW_EMPTY),
-        ...Array(4).fill([I, 0, ...Array(8).fill(0)]),
+        ...Array(4).fill([0, 0, 0, 0, I, 0, 0, 0, 0, 0]),
         ...Array(14).fill(Array(10).fill(S))
       ],
-      currentTetro: { ...INITIAL_STATE.currentTetro, type: TetroEnum.L }
+      currentTetro: { ...initialStateStub.currentTetro }
     };
-    const r = reducer(initialState, moveDown);
-    expect(r).toEqual(finalState);
+    const reducerStab = {
+      ...reducer(initialStateStab, moveDown),
+      currentTetro: { ...initialStateStub.currentTetro },
+      nextTetro: { ...initialStateStub.nextTetro }
+    };
+    expect(reducerStab).toEqual(finalState);
   });
 });

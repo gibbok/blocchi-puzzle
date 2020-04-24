@@ -19,7 +19,7 @@ describe('CheckBoard', () => {
       ...INITIAL_STATE,
       board: BOARD_EMPTY,
       currentTetro: { ...INITIAL_STATE.currentTetro, direction: ES, x: 0, y: 5 },
-      level: 2,
+      level: 3,
       lines: 14,
       score: 1400
     };

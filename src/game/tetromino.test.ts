@@ -1,9 +1,14 @@
 import {
   getRandomTetro,
   getTetroFromPieces,
-  occupied,
+  isOccupied,
   rotateTetroDirectionCW,
-  getBlockFromBoard
+  getBlockFromBoard,
+  getRandomTetroEnum,
+  getHeight,
+  getWidth,
+  isValidY,
+  isValidX
 } from '.';
 import { stub } from 'sinon';
 import { dataPieces, BOARD_EMPTY, BOARD_HALF_I_Y } from '../utils';
@@ -11,6 +16,10 @@ import { none, isSome, toUndefined } from 'fp-ts/lib/Option';
 import { TetroEnum, DirectionEnum, I, NO, Z, ES, L } from './types';
 
 describe('tetromino', () => {
+  beforeAll(() => stub(Math, 'random').returns(0));
+
+  afterAll(() => stub().restore());
+
   describe('getTetroFromPieces', () => {
     const tetroKeys = Object.keys(TetroEnum);
     const directionKeys = Object.keys(DirectionEnum);
@@ -25,10 +34,13 @@ describe('tetromino', () => {
     );
   });
 
-  describe('getRandomTetro', () => {
-    beforeAll(() => stub(Math, 'random').returns(0));
-    afterAll(() => stub().restore());
+  describe('getRandomTetroEnum', () => {
+    it('should return a random tetro enum', () => {
+      expect(getRandomTetroEnum()()).toEqual(TetroEnum.Z);
+    });
+  });
 
+  describe('getRandomTetro', () => {
     it('should return a random tetro', () => {
       expect(getRandomTetro()()).toEqual(dataPieces[TetroEnum.Z][DirectionEnum.N]);
     });
@@ -36,36 +48,36 @@ describe('tetromino', () => {
 
   describe('occupied', () => {
     it('should return true if tetro new position is occupied on the board', () => {
-      const test = occupied(I, NO, 7, 7, BOARD_HALF_I_Y);
+      const test = isOccupied(I, NO, 7, 7, BOARD_HALF_I_Y);
       expect(test).toStrictEqual(true);
     });
     it('should return true if tetro new position is not within board 1', () => {
-      const test = occupied(I, NO, -10, -10, BOARD_EMPTY);
+      const test = isOccupied(I, NO, -10, -10, BOARD_EMPTY);
       expect(test).toStrictEqual(true);
     });
     it('should return true if tetro new position is not within board 1', () => {
-      const test = occupied(Z, NO, 100, 100, BOARD_EMPTY);
+      const test = isOccupied(Z, NO, 100, 100, BOARD_EMPTY);
       expect(test).toStrictEqual(true);
     });
     it('should return false if tetro new position is within board 2', () => {
-      const test = occupied(Z, NO, 0, 15, BOARD_EMPTY);
+      const test = isOccupied(Z, NO, 0, 15, BOARD_EMPTY);
       expect(test).toStrictEqual(false);
     });
 
     it('should return false if tetro new position is not occupied on the board 1', () => {
-      const test = occupied(I, NO, 0, 0, BOARD_EMPTY);
+      const test = isOccupied(I, NO, 0, 0, BOARD_EMPTY);
       expect(test).toStrictEqual(false);
     });
     it('should return false if tetro new position is not occupied on the board 2', () => {
-      const test = occupied(I, NO, 0, 0, BOARD_HALF_I_Y);
+      const test = isOccupied(I, NO, 0, 0, BOARD_HALF_I_Y);
       expect(test).toStrictEqual(false);
     });
     it('should return false if tetro new position is not occupied on the board 3', () => {
-      const test = occupied(Z, NO, 0, 0, BOARD_EMPTY);
+      const test = isOccupied(Z, NO, 0, 0, BOARD_EMPTY);
       expect(test).toStrictEqual(false);
     });
     it('should return true if tetro new position is occupied on the board 4', () => {
-      const test = occupied(I, NO, 0, 5, BOARD_HALF_I_Y);
+      const test = isOccupied(I, NO, 0, 5, BOARD_HALF_I_Y);
       expect(test).toStrictEqual(true);
     });
     it('should return false, board piece is within space of tetro but there is no collision', () => {
@@ -91,7 +103,7 @@ describe('tetromino', () => {
         [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, I, 0, 0, 0, 0, 0, 0, 0, 0]
       ];
-      const test = occupied(L, ES, 0, 0, boardTest);
+      const test = isOccupied(L, ES, 0, 0, boardTest);
       expect(test).toStrictEqual(false);
     });
     it('should return true, piece in board collide with tetro space', () => {
@@ -117,7 +129,7 @@ describe('tetromino', () => {
         [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, I, 0, 0, 0, 0, 0, 0, 0, 0]
       ];
-      const test = occupied(L, ES, 0, 0, boardTest);
+      const test = isOccupied(L, ES, 0, 0, boardTest);
       expect(test).toStrictEqual(true);
     });
     it('should return true, piece in board collide with tetro space 2', () => {
@@ -143,7 +155,7 @@ describe('tetromino', () => {
         [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, I, 0, 0, 0, 0, 0, 0, 0, 0]
       ];
-      const test = occupied(L, ES, 0, 0, boardTest);
+      const test = isOccupied(L, ES, 0, 0, boardTest);
       expect(test).toStrictEqual(true);
     });
     it('SPO 1 - should return false when tetro is on the edge', () => {
@@ -169,7 +181,7 @@ describe('tetromino', () => {
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //  [0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] //   [0, 0, 0, 0],
       ];
-      const test = occupied(I, ES, 0, 16, boardTest);
+      const test = isOccupied(I, ES, 0, 16, boardTest);
       expect(test).toStrictEqual(false);
     });
   });
@@ -197,6 +209,49 @@ describe('tetromino', () => {
       expect(rotateTetroDirectionCW(DirectionEnum.E)).toEqual(DirectionEnum.S);
       expect(rotateTetroDirectionCW(DirectionEnum.S)).toEqual(DirectionEnum.W);
       expect(rotateTetroDirectionCW(DirectionEnum.W)).toEqual(DirectionEnum.N);
+    });
+  });
+
+  describe('getHeight', () => {
+    it('should return the number of rows (height) for a board', () => {
+      const test = getHeight(BOARD_EMPTY);
+      expect(test).toBe(19);
+    });
+  });
+
+  describe('getWidth', () => {
+    it('should return some with number of cells (width) for a board', () => {
+      const test = getWidth(BOARD_EMPTY);
+      expect(test).toBe(9);
+    });
+
+    it('should return -1 if board no cells are found', () => {
+      const test = getWidth([]);
+      expect(test).toBe(-1);
+    });
+  });
+
+  describe('isValidY', () => {
+    it('should return true if Y position is wihtin the board', () => {
+      const test = isValidY(1, BOARD_EMPTY);
+      expect(test).toBe(true);
+    });
+
+    it('should return false if Y position not is wihtin the board', () => {
+      const test = isValidY(100, BOARD_EMPTY);
+      expect(test).toBe(false);
+    });
+  });
+
+  describe('isValidX', () => {
+    it('should return true if X position is wihtin the board', () => {
+      const test = isValidX(1, BOARD_EMPTY);
+      expect(test).toBe(true);
+    });
+
+    it('should return false if X position not is wihtin the board', () => {
+      const test = isValidX(100, BOARD_EMPTY);
+      expect(test).toBe(false);
     });
   });
 });

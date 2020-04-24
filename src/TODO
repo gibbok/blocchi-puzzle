@@ -1,3 +1,3 @@
- - fix bugs with the board
- - make sure data for all pieces are in the right format
- - create minimal action for app, for example INIT, ADD-TETRO, MOVE-DOWN, CLEAN-CURRENT-TETRO and so on
+[ ] Add responsibe graphic
+[ ] Add counting 3-1 go component
+[ ] Add more test look at all file

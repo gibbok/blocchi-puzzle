@@ -1,5 +1,5 @@
 import { InternalState } from '~game/types';
-import { occupied } from '~game';
+import { isOccupied } from '~game';
 
 export const moveLeft = (prevState: InternalState) => {
   const {
@@ -9,10 +9,12 @@ export const moveLeft = (prevState: InternalState) => {
     lines,
     currentTetro: { type, direction, x, y },
     nextTetro,
-    isPlay
+    isPlay,
+    isGameOver,
+    screen
   } = prevState;
   const newLeftX = x - 1;
-  const isOccupiedLeft = occupied(type, direction, newLeftX, y, board);
+  const isOccupiedLeft = isOccupied(type, direction, newLeftX, y, board);
   return {
     board,
     score,
@@ -25,6 +27,8 @@ export const moveLeft = (prevState: InternalState) => {
       y
     },
     nextTetro,
-    isPlay
+    isPlay,
+    isGameOver,
+    screen
   };
 };

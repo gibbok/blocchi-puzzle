@@ -14,9 +14,11 @@ import {
   BOARD_FULL_S,
   BOARD_ROW_S,
   BOARD_HALF_S_Y,
-  BOARD_RANDOM_S_1
+  BOARD_RANDOM_S_1,
+  BOARD_HALF_I_Y
 } from '../utils';
 import { I, TetroEnum, DirectionEnum, Board, S, J, Z } from './types';
+import { copyBoard } from './board';
 
 describe('board', () => {
   describe('mkEmptyBoard', () => {
@@ -119,6 +121,14 @@ describe('board', () => {
       ];
       const test = detectAndRemoveCompletedRows(input);
       expect(test).toStrictEqual(output);
+    });
+  });
+
+  describe('copyBoard', () => {
+    it('should copy the board', () => {
+      const test = copyBoard(BOARD_HALF_I_Y);
+      expect(test).not.toBe(BOARD_HALF_I_Y);
+      expect(test).toEqual(BOARD_HALF_I_Y);
     });
   });
 });
