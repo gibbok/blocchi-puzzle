@@ -17,10 +17,6 @@ const BoardStyled = styled.div`
 
 export const Board = ({ board }: { board: BoardType }) => (
   <BoardStyled>
-    {board.map((row, rowX) =>
-      row.map((tileVariant, idx) => (
-        <Tile key={idx} variant={tileVariant} debug={{ y: rowX, x: idx }} />
-      ))
-    )}
+    {board.map(row => row.map((tileVariant, idx) => <Tile key={idx} variant={tileVariant} />))}
   </BoardStyled>
 );
