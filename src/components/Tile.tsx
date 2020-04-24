@@ -17,6 +17,7 @@ const TileStyled = styled.div<Props>`
   display: flex;
   align-items: center;
   justify-content: center;
+  clip-path: polygon(1% 0%, 99% 0%, 100% 1%, 100% 99%, 99% 100%, 1% 100%, 0% 99%, 0% 1%);
 `;
 
 const SHORT = 25;
@@ -87,7 +88,6 @@ const TopSide = styled.div`
   height: ${`${LONG - SHORT}%`};
   opacity: ${OPACTITY};
   background: linear-gradient(0deg, rgba(120, 120, 120, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
-  /* background: linear-gradient(180deg, rgba(120, 120, 120, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%); */
   filter: ${`blur(${BLUR * 2})`};
 `;
 
