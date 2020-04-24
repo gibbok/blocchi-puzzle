@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { Tile as TileType, NoTetroEnum } from '~game/types';
-import { TILE_COLOR_NOTETRO, TITLE_COLOR_ENUM } from '~game/settings';
+import { Tile as TileType, NoTetroEnum } from '../game/types';
+import { TILE_COLOR_NOTETRO, TITLE_COLOR_ENUM } from '../game/settings';
 
 type Props = {
   debug?: Readonly<{ x: number; y: number }>;
