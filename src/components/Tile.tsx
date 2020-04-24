@@ -19,9 +19,10 @@ const TileStyled = styled.div<Props>`
   justify-content: center;
 `;
 
-const SHORT = 25;
-const LONG = 75;
+const SHORT = 50;
+const LONG = 50;
 const OPACTITY = 1;
+const BLUR = 0.25;
 
 const UpSide = styled.div`
   position: absolute;
@@ -32,6 +33,7 @@ const UpSide = styled.div`
   clip-path: ${`polygon(0 0, 100% 0, ${LONG}% 100%, ${SHORT}% 100%)`};
   background: linear-gradient(190deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.5) 100%);
   opacity: ${OPACTITY};
+  filter: blur(1rem);
 `;
 
 const DownSide = styled.div`
@@ -43,6 +45,7 @@ const DownSide = styled.div`
   clip-path: ${`polygon(${SHORT}% 0%, ${LONG}% 0%, 100% 100%, 0% 100%)`};
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%);
   opacity: ${OPACTITY};
+  filter: ${`blur(${BLUR})`};
 `;
 
 const LeftSide = styled.div`
@@ -55,6 +58,7 @@ const LeftSide = styled.div`
   clip-path: ${`polygon(0 0, 100% ${SHORT}%, 100% ${LONG}%, 0 100%)`};
   background: linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.6) 100%);
   opacity: ${OPACTITY};
+  filter: ${`blur(${BLUR})`};
 `;
 
 const RightSide = styled.div`
@@ -72,6 +76,7 @@ const RightSide = styled.div`
     rgba(255, 255, 255, 0.5) 100%
   );
   opacity: ${OPACTITY};
+  filter: ${`blur(${BLUR})`};
 `;
 
 const TopSide = styled.div`
@@ -82,6 +87,7 @@ const TopSide = styled.div`
   height: ${`${LONG - SHORT}%`};
   opacity: ${OPACTITY};
   background: linear-gradient(180deg, rgba(120, 120, 120, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
+  filter: ${`blur(${BLUR})`};
 `;
 
 export const Tile = ({ variant }: Props) => (

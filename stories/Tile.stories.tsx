@@ -4,49 +4,59 @@ import { Tile } from '../src/components/Tile';
 import { TetroEnum, NoTetro } from '../src/game/types';
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
-  width: 500px;
-  height: 500px;
+const WrapperBig = styled.div`
+  width: 30rem;
+  height: 30rem;
+`;
+
+const WrapperSmall = styled.div`
+  width: 2rem;
+  height: 2rem;
 `;
 
 storiesOf('Tile', module)
   .add('Z', () => (
-    <Wrapper>
+    <WrapperBig>
       <Tile variant={TetroEnum.Z} />
-    </Wrapper>
+    </WrapperBig>
   ))
   .add('S', () => (
-    <Wrapper>
+    <WrapperBig>
       <Tile variant={TetroEnum.S} />
-    </Wrapper>
+    </WrapperBig>
   ))
   .add('J', () => (
-    <Wrapper>
+    <WrapperBig>
       <Tile variant={TetroEnum.J} />
-    </Wrapper>
+    </WrapperBig>
   ))
   .add('T', () => (
-    <Wrapper>
+    <WrapperBig>
       <Tile variant={TetroEnum.T} />
-    </Wrapper>
+    </WrapperBig>
   ))
   .add('I', () => (
-    <Wrapper>
+    <WrapperBig>
       <Tile variant={TetroEnum.I} />
-    </Wrapper>
+    </WrapperBig>
   ))
   .add('L', () => (
-    <Wrapper>
+    <WrapperBig>
       <Tile variant={TetroEnum.L} />
-    </Wrapper>
+    </WrapperBig>
   ))
   .add('O', () => (
-    <Wrapper>
+    <WrapperBig>
       <Tile variant={TetroEnum.O} />
-    </Wrapper>
+    </WrapperBig>
   ))
   .add('none', () => (
-    <Wrapper>
+    <WrapperBig>
       <Tile variant={NoTetro} />
-    </Wrapper>
+    </WrapperBig>
+  ))
+  .add('small', () => (
+    <WrapperSmall>
+      <Tile variant={TetroEnum.O} />
+    </WrapperSmall>
   ));
