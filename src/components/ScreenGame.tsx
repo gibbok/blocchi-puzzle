@@ -4,12 +4,13 @@ import { Keyboard } from './Keyboard';
 import { BoardContainer, NextContainer, InfoContainer } from '~containers';
 import { GameLoopContainer } from '~containers/GameLoopContainer';
 
-const StyledScreenGame = styled.div`
+const ScreenGameStyled = styled.div`
   display: flex;
+  justify-content: center;
 `;
 
 export const ScreenGame = ({}: {}) => (
-  <StyledScreenGame>
+  <ScreenGameStyled>
     <GameLoopContainer />
     <Keyboard />
     <BoardContainer />
@@ -17,5 +18,5 @@ export const ScreenGame = ({}: {}) => (
       <NextContainer />
       <InfoContainer />
     </div>
-  </StyledScreenGame>
+  </ScreenGameStyled>
 );

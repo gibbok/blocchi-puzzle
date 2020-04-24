@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { BOARD_CELLS, BOARD_ROWS, TILE_WIDTH } from '~game/settings';
 import { Tile } from './Tile';
 
-const StyledBoard = styled.div`
+const BoardStyled = styled.div`
   display: grid;
   background-color: darkgray;
   width: ${TILE_WIDTH * BOARD_CELLS}rem;
@@ -16,11 +16,11 @@ const StyledBoard = styled.div`
 `;
 
 export const Board = ({ board }: { board: BoardType }) => (
-  <StyledBoard>
+  <BoardStyled>
     {board.map((row, rowX) =>
       row.map((tileVariant, idx) => (
         <Tile key={idx} variant={tileVariant} debug={{ y: rowX, x: idx }} />
       ))
     )}
-  </StyledBoard>
+  </BoardStyled>
 );
