@@ -14,7 +14,7 @@ const Group = styled.div`
   color: #442217;
   opacity: 0.8;
   text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.4), 0px -1px 0px rgba(0, 0, 0, 0.8);
-  padding: 3rem 0 3rem 0;
+  padding: 3.5rem 0 3.5rem 0;
 `;
 
 const Line = styled.div`
@@ -45,16 +45,8 @@ const Divider = styled.div`
     height: 14px;
     transform: rotate(45deg);
     background-image: url(${wood});
-    /* background: linear-gradient(0deg, rgb(100, 68, 51) 0%, rgb(161, 122, 100) 100%); */
-    /* background: linear-gradient(
-      125deg,
-      rgba(224, 193, 153, 0) 0%,
-      rgb(224, 193, 153) 20%,
-      rgb(225, 195, 155) 100%
-    ); */
-    /* background-color: #e0c096; */
-    border-bottom: 1px solid rgb(48, 49, 51);
-    border-right: 1px solid rgb(48, 49, 51);
+    border: 1px solid rgb(48, 49, 51);
+    box-shadow: inset 1px 1px 3px 0px rgba(0, 0, 0, 0.4);
   }
 `;
 
