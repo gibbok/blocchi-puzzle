@@ -2,8 +2,8 @@ export const BOARD_ROWS = 20;
 export const BOARD_CELLS = 10;
 export const BOARD_GAP = 0.5;
 
-export const TILE_WIDTH = 3;
-export const TILE_HEIGHT = 3;
+export const TILE_WIDTH = 4;
+export const TILE_HEIGHT = 4;
 
 export enum TITLE_COLOR_ENUM {
   Z = '#926eff',
