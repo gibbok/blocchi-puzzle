@@ -7,6 +7,7 @@ import { ScreenOver } from './ScreenOver';
 import { wood } from '../assets/images';
 
 const StyledScreen = styled.div`
+  background-color: #d7b185;
   background-image: url(${wood});
   width: 100vw;
   height: 100vh;
