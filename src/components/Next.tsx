@@ -9,7 +9,6 @@ const SIZE_NEXT_BOARD = 4;
 
 const StyledNext = styled.div`
   display: grid;
-  background-color: white;
   width: ${TILE_WIDTH * SIZE_NEXT_BOARD}rem;
   height: ${TILE_WIDTH * SIZE_NEXT_BOARD}rem;
   grid-template-rows: repeat(${SIZE_NEXT_BOARD}, 1fr);
