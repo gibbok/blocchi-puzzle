@@ -32,24 +32,24 @@ const Frame = styled.div`
   position: relative;
   text-align: center;
   &:before {
+    position: absolute;
+    top: -1vmin;
+    right: -1vmin;
+    bottom: -1vmin;
+    left: -1vmin;
     border-radius: 2px;
-    bottom: -0.5vmin;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25) inset;
     content: '';
-    left: -0.5vmin;
-    position: absolute;
-    right: -0.5vmin;
-    top: -0.5vmin;
   }
   &:after {
+    top: -1vmin;
+    right: -1vmin;
+    bottom: -1vmin;
+    left: -1vmin;
+    position: absolute;
     border-radius: 2px;
-    bottom: -0.5vmin;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
     content: '';
-    left: -0.5vmin;
-    position: absolute;
-    right: -0.5vmin;
-    top: -0.5vmin;
   }
 `;
 
