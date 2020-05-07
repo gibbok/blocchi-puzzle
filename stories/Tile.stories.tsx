@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Tile } from '../src/components/Tile';
 import { TetroEnum, NoTetro } from '../src/game/types';
 import styled from 'styled-components';
+import { globalStylesDecorator } from '../src/utils/storybook';
 
 const WrapperBig = styled.div`
   width: 48rem;
@@ -15,6 +16,7 @@ const WrapperSmall = styled.div`
 `;
 
 storiesOf('Tile', module)
+  .addDecorator(globalStylesDecorator)
   .add('Z', () => (
     <WrapperBig>
       <Tile variant={TetroEnum.Z} />

@@ -5,7 +5,9 @@ import { TetroEnum, NoTetro } from '../src/game/types';
 import styled from 'styled-components';
 import { Board } from '../src/components/Board';
 import { BOARD_EMPTY, BOARD_RANDOM_S_1 } from '../src/utils/data.support.test';
+import { globalStylesDecorator } from '../src/utils/storybook';
 
 storiesOf('Board', module)
+  .addDecorator(globalStylesDecorator)
   .add('non empty', () => <Board board={BOARD_RANDOM_S_1} />)
   .add('empty', () => <Board board={BOARD_EMPTY} />);
