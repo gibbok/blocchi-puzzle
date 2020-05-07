@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { Tile as TileType, NoTetro } from '../game/types';
 import { TITLE_COLOR_ENUM } from '../game/settings';
-import { dots } from '~assets/patterns';
+import { dots } from '../assets/patterns';
 
 type Props = {
   variant: TileType;
@@ -11,8 +11,8 @@ type Props = {
 const TileStyled = styled.div<Props>`
   position: relative;
   background: ${({ variant }) => (variant === NoTetro ? `${dots}` : TITLE_COLOR_ENUM[variant])};
-  width: 95%;
-  height: 95%;
+  width: 100%;
+  height: 100%;
   font-size: 12px;
   display: flex;
   align-items: center;
@@ -96,16 +96,25 @@ const TopSide = styled.div`
   filter: ${`blur(${BLUR * 2})`};
 `;
 
+const Shadow = styled.div<{ variant: TileType }>`
+  width: 100%;
+  height: 100%;
+  filter: ${({ variant }) =>
+    variant === NoTetro ? 'none' : 'drop-shadow(0.3vmin 0.3vmin 0.3vmin rgba(50, 50, 0, 0.5))'};
+`;
+
 export const Tile = ({ variant }: Props) => (
-  <TileStyled variant={variant}>
-    {variant !== NoTetro && (
-      <>
-        <UpSide />
-        <DownSide />
-        <LeftSide />
-        <RightSide />
-        <TopSide />
-      </>
-    )}
-  </TileStyled>
+  <Shadow variant={variant}>
+    <TileStyled variant={variant}>
+      {variant !== NoTetro && (
+        <>
+          <UpSide />
+          <DownSide />
+          <LeftSide />
+          <RightSide />
+          <TopSide />
+        </>
+      )}
+    </TileStyled>
+  </Shadow>
 );

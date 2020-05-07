@@ -5,8 +5,8 @@ import { TetroEnum, NoTetro } from '../src/game/types';
 import styled from 'styled-components';
 
 const WrapperBig = styled.div`
-  width: 30rem;
-  height: 30rem;
+  width: 48rem;
+  height: 48rem;
 `;
 
 const WrapperSmall = styled.div`

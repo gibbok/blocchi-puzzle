@@ -15,4 +15,4 @@ export enum TITLE_COLOR_ENUM {
   O = '#39a6ff'
 }
 
-export const TILE_COLOR_NOTETRO = '#3d1d0f';
+export const TILE_COLOR_NOTETRO = '#32180c';

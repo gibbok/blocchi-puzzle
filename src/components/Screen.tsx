@@ -6,7 +6,7 @@ import { ScreenGame } from './ScreenGame';
 import { ScreenOver } from './ScreenOver';
 
 const StyledScreen = styled.div`
-  background-color: #140801;
+  background-color: #bd7952;
   color: white;
 `;
 
