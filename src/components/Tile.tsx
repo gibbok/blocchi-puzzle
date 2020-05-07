@@ -1,7 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { Tile as TileType, NoTetro } from '../game/types';
-import { TILE_COLOR_NOTETRO, TITLE_COLOR_ENUM } from '../game/settings';
+import { TITLE_COLOR_ENUM } from '../game/settings';
+import { dots } from '~assets/patterns';
 
 type Props = {
   variant: TileType;
@@ -9,8 +10,7 @@ type Props = {
 
 const TileStyled = styled.div<Props>`
   position: relative;
-  background: ${({ variant }) =>
-    variant === NoTetro ? TILE_COLOR_NOTETRO : TITLE_COLOR_ENUM[variant]};
+  background: ${({ variant }) => (variant === NoTetro ? `${dots}` : TITLE_COLOR_ENUM[variant])};
   width: 95%;
   height: 95%;
   font-size: 12px;
