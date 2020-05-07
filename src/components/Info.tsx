@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import 'typeface-oleo-script';
+import { wood } from '../assets/images';
 
 const InfoStyled = styled.div`
   width: 100%;
@@ -43,7 +44,15 @@ const Divider = styled.div`
     width: 14px;
     height: 14px;
     transform: rotate(45deg);
-    background-color: #e0c096;
+    background-image: url(${wood});
+    /* background: linear-gradient(0deg, rgb(100, 68, 51) 0%, rgb(161, 122, 100) 100%); */
+    /* background: linear-gradient(
+      125deg,
+      rgba(224, 193, 153, 0) 0%,
+      rgb(224, 193, 153) 20%,
+      rgb(225, 195, 155) 100%
+    ); */
+    /* background-color: #e0c096; */
     border-bottom: 1px solid rgb(48, 49, 51);
     border-right: 1px solid rgb(48, 49, 51);
   }
