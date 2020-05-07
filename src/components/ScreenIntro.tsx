@@ -6,15 +6,13 @@ const {
   actions: { screenGame }
 } = gameSlice;
 
-const StyledScreenIntro = styled.div``;
+const ScreenIntroStyled = styled.div``;
 
 export const ScreenIntro = ({}: {}) => {
   const dispatch = useDispatch();
   return (
-    <StyledScreenIntro>
-      <div style={{ height: 200 }} onClick={() => dispatch(screenGame())}>
-        INTRO - Click here to start
-      </div>
-    </StyledScreenIntro>
+    <ScreenIntroStyled>
+      <div onClick={() => dispatch(screenGame())}>INTRO - Click here to start</div>
+    </ScreenIntroStyled>
   );
 };

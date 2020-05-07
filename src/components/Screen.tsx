@@ -7,9 +7,9 @@ import { ScreenOver } from './ScreenOver';
 import { wood } from '../assets/images';
 
 const StyledScreen = styled.div`
-  background-color: #bd7952;
   background-image: url(${wood});
-  color: white;
+  width: 100vw;
+  height: 100vh;
 `;
 
 // FIXME change to intro

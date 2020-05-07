@@ -17,7 +17,6 @@ const Status = styled.div`
 
 export const ScreenGame = ({}: {}) => (
   <>
-    <GlobalStyle />
     <GameLoopContainer />
     <Keyboard />
     <ScreenGameStyled>

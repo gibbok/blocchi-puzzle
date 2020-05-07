@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-size: 62.5%; /* 10px simplification 62.5% of 16px = 10px */
     font-family: 'Oleo Script', cursive;
+    background-color: #d7b185;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     -o-font-feature-settings: 'salt' 1;
@@ -24,6 +25,8 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
   body {
+    margin: 0;
+    padding: 0;
   }
 `;
 
