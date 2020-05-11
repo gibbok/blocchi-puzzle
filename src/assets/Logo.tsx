@@ -8,8 +8,8 @@ export function Logo() {
       height="208.96"
       viewBox="0 0 510.06 208.96"
     >
-      <g data-name="Layer 2">
-        <g strokeMiterlimit="10" data-name="Layer 1">
+      <g>
+        <g strokeMiterlimit="10">
           <path
             stroke="#fff"
             d="M69.4 29.89q0-5.57-.85-7.29c-9.15-2.31-23.49 0-30.5 4.46l-.18 1.2c9.41 10.42.7 26.8-4.71 53.63q-8.82 34.11-9.68 44.9c8.61 1.5 19.23-.42 26.73-2.4-.58-12.03 18.79-84.23 19.19-94.5z"
