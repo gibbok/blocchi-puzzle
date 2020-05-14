@@ -21,6 +21,7 @@ export function Logo({}: Props) {
       viewBox="0 0 509.06 207.94"
     >
       <Timeline
+        duration={6}
         target={
           <>
             <path
