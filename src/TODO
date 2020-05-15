@@ -1,6 +1,11 @@
 [ ] Add responsibe graphic
-[ ] Add counting 3-1 go component
-[ ] Add more test look at all file
+[ ] Add counting 3-1 go game screen
+[ ] Add more tests
 [ ] Clean up deps and audit
+[ ] Clean up rename
 [ ] Fix storybook does not load tsconfig like 20 paths
-[ ] Tetro I does not rotate
+[ ] Fix bug with re-replay
+[ ] Add end to end testing
+[ ] Add loki visual regression
+[ ] Convert px to rem
+[ ] Add music
