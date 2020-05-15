@@ -72,7 +72,7 @@ export type InternalState = Readonly<{
   screen: ScreenEnum;
 }>;
 
-export type PubicState = Omit<InternalState, 'currentTetro' | 'isPlay' | 'isGameOver'>;
+export type PublicState = Omit<InternalState, 'currentTetro' | 'isPlay' | 'isGameOver'>;
 
 export enum KeyEnum {
   Esc = 27,

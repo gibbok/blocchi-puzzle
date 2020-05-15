@@ -9,10 +9,15 @@ const Screen = styled.div`
   color: red;
 `;
 
+const Wrapper = styled.div`
+  font-size: 4rem;
+  font-family: sans-serif;
+`;
+
 const renderScreenTransaction = (defaultCurrent: ScreenEnum) => {
   const [current, setCurrent] = React.useState(defaultCurrent);
   return (
-    <>
+    <Wrapper>
       <ScreenTransaction
         current={current}
         intro={<Screen>Intro</Screen>}
@@ -23,7 +28,7 @@ const renderScreenTransaction = (defaultCurrent: ScreenEnum) => {
       <button onClick={() => setCurrent(ScreenEnum.Intro)}>Intro</button>
       <button onClick={() => setCurrent(ScreenEnum.Game)}>Game</button>
       <button onClick={() => setCurrent(ScreenEnum.Over)}>Over</button>
-    </>
+    </Wrapper>
   );
 };
 

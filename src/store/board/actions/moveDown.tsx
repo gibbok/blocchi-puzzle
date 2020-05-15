@@ -26,7 +26,6 @@ export const moveDown = (prevState: InternalState) => {
   const foundPosY = recFindAvailablePosY(type, direction, x, newY, board, 1);
   const isGameOver = newY === 1 && isOccupiedDown;
   const nextTetroType = isOccupiedDown ? getRandomTetroEnum()() : nextTetro.type;
-  console.clear();
 
   const nextTetroX = setTetroPositionXCenterBoard(BOARD_CELLS, nextTetroType, DirectionEnum.N);
   const newState = {
