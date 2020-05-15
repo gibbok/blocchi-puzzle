@@ -10,9 +10,9 @@ const Screen = styled.div``;
 const renderScreenTransaction = (current: ScreenEnum) => (
   <ScreenTransaction
     current={current}
-    intro={<Screen>{current}</Screen>}
-    game={<Screen>{current}</Screen>}
-    over={<Screen>{current}</Screen>}
+    intro={<Screen>Intro</Screen>}
+    game={<Screen>Game</Screen>}
+    over={<Screen>Over</Screen>}
   />
 );
 
