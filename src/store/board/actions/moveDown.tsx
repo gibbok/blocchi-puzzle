@@ -1,12 +1,12 @@
-import { InternalState, DirectionEnum } from '~game/types';
+import { InternalState, DirectionEnum } from '../../../game/types';
 import {
   isOccupied,
   recFindAvailablePosY,
   addTetroToBoard,
   getRandomTetroEnum,
   setTetroPositionXCenterBoard
-} from '~game';
-import { BOARD_CELLS } from '~game/settings';
+} from '../../../game';
+import { BOARD_CELLS } from '../../../game/settings';
 
 export const moveDown = (prevState: InternalState) => {
   // SPO

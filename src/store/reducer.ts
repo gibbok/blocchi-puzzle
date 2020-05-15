@@ -1,4 +1,4 @@
-import { InternalState, DirectionEnum, PubicState, ScreenEnum } from '~game/types';
+import { InternalState, DirectionEnum, PubicState, ScreenEnum } from '../game/types';
 import { Store } from 'redux';
 import { configureStore, createSlice, Action } from '@reduxjs/toolkit';
 import { ThunkAction } from 'redux-thunk';
@@ -7,7 +7,7 @@ import {
   addTetroToBoard,
   getRandomTetroEnum,
   setTetroPositionXCenterBoard
-} from '~game';
+} from '../game';
 import { BOARD_ROWS, BOARD_CELLS } from '../game/settings';
 import { moveUp, moveRight, moveLeft, checkBoard, moveDown, screenGame } from './board/actions';
 import { gameOver } from './board/actions/gameOver';

@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { TetroDef, NoTetro } from '~game/types';
+import { TetroDef, NoTetro } from '../game/types';
 import styled from 'styled-components';
-import { TILE_WIDTH } from '~game/settings';
+import { TILE_WIDTH } from '../game/settings';
 import { Tile } from './Tile';
-import { getTetroFromPieces } from '~game';
+import { getTetroFromPieces } from '../game';
 
 const SIZE_NEXT_BOARD = 4;
 

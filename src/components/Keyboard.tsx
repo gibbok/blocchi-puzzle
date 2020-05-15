@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { KeyEnum } from '~game/types';
+import { KeyEnum } from '../game/types';
 import { useDispatch } from 'react-redux';
-import { gameSlice } from '~store';
-import { moveDownThunk } from '~store/board/actions/thunks';
+import { gameSlice } from '../store';
+import { moveDownThunk } from '../store/board/actions/thunks';
 
 const {
   actions: { moveLeft, moveUp, moveRight }

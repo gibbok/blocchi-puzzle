@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ScreenEnum } from '~game/types';
+import { ScreenEnum } from '../game/types';
 import styled from 'styled-components';
 import { ScreenIntro } from './ScreenIntro';
 import { ScreenGame } from './ScreenGame';

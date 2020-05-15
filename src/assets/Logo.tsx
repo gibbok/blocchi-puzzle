@@ -2,6 +2,7 @@ import React from 'react';
 import { Tween, Timeline } from 'react-gsap';
 
 const COLOR_MAIN = '#442217';
+const ANIM_DURATION_S = 4;
 
 const STYLE_PATH = {
   stroke: COLOR_MAIN,
@@ -21,7 +22,7 @@ export function Logo({}: Props) {
       viewBox="0 0 509.06 207.94"
     >
       <Timeline
-        duration={6}
+        duration={ANIM_DURATION_S}
         target={
           <>
             <path

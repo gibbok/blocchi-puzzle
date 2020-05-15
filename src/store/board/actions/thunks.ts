@@ -1,4 +1,4 @@
-import { AppThunk, gameSlice } from '~store/reducer';
+import { AppThunk, gameSlice } from '../../../store/reducer';
 const {
   actions: { moveDown, checkBoard, gameOver }
 } = gameSlice;

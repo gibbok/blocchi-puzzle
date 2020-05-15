@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { gameSlice } from '~store';
+import { gameSlice } from '../store';
 import { useDispatch } from 'react-redux';
 import { Logo } from '../assets/Logo';
 import { Button } from './Button';
@@ -9,6 +9,18 @@ const {
   actions: { screenGame }
 } = gameSlice;
 
+const buttonFadeAnim = keyframes`
+  from {
+    transform: translateY(2rem);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+`;
+
 const ScreenIntroStyled = styled.div`
   display: flex;
   justify-content: center;
@@ -16,20 +28,11 @@ const ScreenIntroStyled = styled.div`
   flex-direction: column;
 `;
 
-const rotate = keyframes`
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-`;
-
 const ButtonWrapper = styled.div`
   opacity: 0;
   margin-top: 4rem;
-  animation: ${rotate} 2s linear 3s normal forwards;
+  animation: ${buttonFadeAnim} 1.5s linear 2s normal forwards;
+  transition: all 0.3s;
 `;
 
 export const ScreenIntro = ({}: {}) => {

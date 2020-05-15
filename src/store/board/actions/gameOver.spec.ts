@@ -1,5 +1,5 @@
-import { mkInitialState } from '~store';
-import { InternalState, ScreenEnum } from '~game/types';
+import { mkInitialState } from '../../../store';
+import { InternalState, ScreenEnum } from '../../../game/types';
 import { gameOver } from './gameOver';
 
 const prevState: InternalState = mkInitialState();

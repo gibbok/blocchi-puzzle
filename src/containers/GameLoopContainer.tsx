@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { mkPublicState } from '../store/reducer';
-import { GameLoop } from '~components/GameLoop';
-import { InternalState } from '~game/types';
-import { moveDownThunk } from '~store/board/actions/thunks';
+import { GameLoop } from '../components/GameLoop';
+import { InternalState } from '../game/types';
+import { moveDownThunk } from '../store/board/actions/thunks';
 
 const cb = moveDownThunk;
 
