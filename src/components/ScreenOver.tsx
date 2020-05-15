@@ -14,8 +14,8 @@ export const ScreenOver = ({}: {}) => {
   const dispatch = useDispatch();
 
   const handleClickPlay = () => {
-    dispatch(screenGame());
     dispatch(resetGame());
+    dispatch(screenGame());
   };
 
   return (
