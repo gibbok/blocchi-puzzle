@@ -8,7 +8,7 @@ const InfoStyled = styled.div`
   height: 8rem;
 `;
 
-const Group = styled.div`
+export const Group = styled.div`
   font-family: 'Oleo Script', cursive;
   font-size: 4rem;
   color: #442217;
@@ -17,7 +17,7 @@ const Group = styled.div`
   padding: 3.5rem 0 3.5rem 0;
 `;
 
-const Line = styled.div`
+export const Line = styled.div`
   display: flex;
   justify-content: center;
 `;

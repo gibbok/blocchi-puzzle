@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Button } from './Button';
 import { gameSlice } from '../store';
 import { useDispatch } from 'react-redux';
+import { ScoreContainer } from '../containers';
 
 const {
   actions: { screenGame, resetGame }
@@ -20,7 +21,7 @@ export const ScreenOver = ({}: {}) => {
 
   return (
     <StyledScreenOver>
-      Your score:
+      <ScoreContainer />
       <Button onClick={handleClickPlay}>Play again!</Button>
     </StyledScreenOver>
   );

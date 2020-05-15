@@ -5,7 +5,7 @@ const ButtonStyled = styled.button`
   cursor: pointer;
   border: none;
   display: block;
-  font-size: 2.5rem;
+  font-size: 5rem;
   color: white;
   background: linear-gradient(
     0deg,
