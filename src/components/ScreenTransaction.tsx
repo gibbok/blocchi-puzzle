@@ -1,6 +1,5 @@
 import * as React from 'react';
-import styled from 'styled-components';
-import { ScreenEnum } from '../game/types';
+import { ScreenEnum, TransitionState, TransitionStyles } from '../game/types';
 import { Transition, TransitionGroup } from 'react-transition-group';
 
 type Props = Readonly<{
@@ -18,7 +17,7 @@ const defaultStyle = {
   fontSize: '3rem'
 };
 
-const transitionStyles: any = {
+const transitionStyles: TransitionStyles = {
   // entering: { opacity: 1 },
   entered: { opacity: 1 }
   // exiting: { opacity: 0.5 },
@@ -36,7 +35,7 @@ export function ScreenTransaction({ current, intro, game, over }: Props) {
     <TransitionGroup>
       {screens.map(x => (
         <Transition key={x} timeout={ANIM_DURATION_MS}>
-          {state => (
+          {(state: TransitionState) => (
             <div
               style={{
                 ...defaultStyle,
