@@ -37,11 +37,14 @@ const ButtonWrapper = styled.div`
 
 export const ScreenIntro = ({}: {}) => {
   const dispatch = useDispatch();
+
+  const handleClickPlay = () => dispatch(screenGame());
+
   return (
     <ScreenIntroStyled>
       <Logo />
       <ButtonWrapper>
-        <Button onClick={() => dispatch(screenGame())}>Play!</Button>
+        <Button onClick={handleClickPlay}>Play!</Button>
       </ButtonWrapper>
     </ScreenIntroStyled>
   );

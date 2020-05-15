@@ -20,6 +20,7 @@ export const ScreenOver = ({}: {}) => {
 
   return (
     <StyledScreenOver>
+      Your score:
       <Button onClick={handleClickPlay}>Play again!</Button>
     </StyledScreenOver>
   );
