@@ -5,6 +5,7 @@ import { ScreenIntro } from './ScreenIntro';
 import { ScreenGame } from './ScreenGame';
 import { ScreenOver } from './ScreenOver';
 import { wood } from '../assets/images';
+import { ScreenTransaction } from '../components/ScreenTransaction';
 
 const StyledScreen = styled.div`
   background-color: #d7b185;
@@ -26,13 +27,12 @@ const Center = styled.div`
 export const Screen = ({ screen }: { screen: ScreenEnum }) => (
   <StyledScreen>
     <Center>
-      {screen === ScreenEnum.Intro ? (
-        <ScreenIntro />
-      ) : screen === ScreenEnum.Game ? (
-        <ScreenGame />
-      ) : (
-        <ScreenOver />
-      )}
+      <ScreenTransaction
+        current={screen}
+        intro={<ScreenIntro />}
+        game={<ScreenGame />}
+        over={<ScreenOver />}
+      />
     </Center>
   </StyledScreen>
 );
