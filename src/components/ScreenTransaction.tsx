@@ -9,19 +9,20 @@ type Props = Readonly<{
   over: JSX.Element;
 }>;
 
-const ANIM_DURATION_MS = 300;
+const ANIM_DURATION_MS = 750;
 
-const defaultStyle = {
+const defaultStyle: React.CSSProperties = {
+  position: 'absolute',
   transition: `opacity ${ANIM_DURATION_MS}ms ease-in-out`,
-  opacity: 0.5,
+  opacity: 0,
   fontSize: '3rem'
 };
 
 const transitionStyles: TransitionStyles = {
-  // entering: { opacity: 1 },
+  // entering: { opacity: 0 },
   entered: { opacity: 1 }
-  // exiting: { opacity: 0.5 },
-  // exited: { opacity: 0.5 }
+  // exited: { opacity: 0 },
+  // exiting: { opacity: 0 }
 };
 
 const Intro = ScreenEnum.Intro;
@@ -32,7 +33,7 @@ export function ScreenTransaction({ current, intro, game, over }: Props) {
   const screens = current === Intro ? [Intro] : current === Game ? [Game] : [Over];
 
   return (
-    <TransitionGroup>
+    <TransitionGroup component={null}>
       {screens.map(x => (
         <Transition key={x} timeout={ANIM_DURATION_MS}>
           {(state: TransitionState) => (
@@ -43,54 +44,10 @@ export function ScreenTransaction({ current, intro, game, over }: Props) {
               }}
             >
               {x === Intro ? intro : x === Game ? game : over}
-              {`${x} ${state}`}
             </div>
           )}
         </Transition>
       ))}
     </TransitionGroup>
   );
-}
-
-{
-  /* <Transition in={true} timeout={ANIMATION_DURATIO_MS}>
-        {state => (
-          <Wrapper
-            style={{
-              ...defaultStyle,
-              ...transitionStyles[state]
-            }}
-            active={visibility[ScreenEnum.Intro]}
-          >
-            {intro}
-          </Wrapper>
-        )}
-      </Transition>
-      <Transition in={true} timeout={ANIMATION_DURATIO_MS}>
-        {state => (
-          <Wrapper
-            style={{
-              ...defaultStyle,
-              ...transitionStyles[state]
-            }}
-            active={visibility[ScreenEnum.Game]}
-          >
-            {game}
-          </Wrapper>
-        )}
-      </Transition>
-      <Transition in={true} timeout={ANIMATION_DURATIO_MS}>
-        {state => (
-          <Wrapper
-            style={{
-              ...defaultStyle,
-              ...transitionStyles[state]
-            }}
-            active={visibility[ScreenEnum.Over]}
-          >
-            {over}
-          </Wrapper>
-        )}
-      </Transition>
-    </TransitionGroup> */
 }

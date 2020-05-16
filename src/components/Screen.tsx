@@ -19,20 +19,13 @@ const StyledScreen = styled.div`
   padding-top: -5rem;
 `;
 
-const Center = styled.div`
-  position: absolute;
-  top: 6%;
-`;
-
 export const Screen = ({ screen }: { screen: ScreenEnum }) => (
   <StyledScreen>
-    <Center>
-      <ScreenTransaction
-        current={screen}
-        intro={<ScreenIntro />}
-        game={<ScreenGame />}
-        over={<ScreenOver />}
-      />
-    </Center>
+    <ScreenTransaction
+      current={screen}
+      intro={<ScreenIntro />}
+      game={<ScreenGame />}
+      over={<ScreenOver />}
+    />
   </StyledScreen>
 );

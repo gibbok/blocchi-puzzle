@@ -26,6 +26,7 @@ const ScreenIntroStyled = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: -50%;
 `;
 
 const ButtonWrapper = styled.div`

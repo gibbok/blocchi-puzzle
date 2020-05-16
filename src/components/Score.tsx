@@ -8,10 +8,10 @@ type Props = Readonly<{
 }>;
 
 const ScoreStyled = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 2rem;
 `;
 
 export function Score({ score, level }: Props) {

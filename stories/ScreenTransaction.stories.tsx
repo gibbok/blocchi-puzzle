@@ -18,16 +18,16 @@ const renderScreenTransaction = (defaultCurrent: ScreenEnum) => {
   const [current, setCurrent] = React.useState(defaultCurrent);
   return (
     <Wrapper>
+      <button onClick={() => setCurrent(ScreenEnum.Intro)}>Intro</button>
+      <button onClick={() => setCurrent(ScreenEnum.Game)}>Game</button>
+      <button onClick={() => setCurrent(ScreenEnum.Over)}>Over</button>
+      Default: {defaultCurrent} / Current: {current}
       <ScreenTransaction
         current={current}
         intro={<Screen>Intro</Screen>}
         game={<Screen>Game</Screen>}
         over={<Screen>Over</Screen>}
       />
-      Default: {defaultCurrent} / Current: {current}
-      <button onClick={() => setCurrent(ScreenEnum.Intro)}>Intro</button>
-      <button onClick={() => setCurrent(ScreenEnum.Game)}>Game</button>
-      <button onClick={() => setCurrent(ScreenEnum.Over)}>Over</button>
     </Wrapper>
   );
 };

@@ -9,7 +9,13 @@ const {
   actions: { screenGame, resetGame }
 } = gameSlice;
 
-const StyledScreenOver = styled.div``;
+const StyledScreenOver = styled.div`
+  margin-top: -100%;
+`;
+
+const ButtonWrapper = styled.div`
+  margin-top: 4rem;
+`;
 
 export const ScreenOver = ({}: {}) => {
   const dispatch = useDispatch();
@@ -22,7 +28,9 @@ export const ScreenOver = ({}: {}) => {
   return (
     <StyledScreenOver>
       <ScoreContainer />
-      <Button onClick={handleClickPlay}>Play again!</Button>
+      <ButtonWrapper>
+        <Button onClick={handleClickPlay}>Play again!</Button>
+      </ButtonWrapper>
     </StyledScreenOver>
   );
 };
