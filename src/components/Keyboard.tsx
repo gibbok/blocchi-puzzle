@@ -3,10 +3,13 @@ import { KeyEnum } from '../game/types';
 import { useDispatch } from 'react-redux';
 import { gameSlice } from '../store';
 import { moveDownThunk } from '../store/board/actions/thunks';
+import { throttle } from 'throttle-debounce';
 
 const {
   actions: { moveLeft, moveUp, moveRight }
 } = gameSlice;
+
+const THROTTLE_MS = 100;
 
 type Props = Readonly<{}>;
 
@@ -37,7 +40,7 @@ export const Keyboard = ({}: Props) => {
   const cleanUpHandleKeydown = () => document.removeEventListener('keydown', handleKeydown);
 
   useEffect(() => {
-    document.addEventListener('keydown', handleKeydown);
+    document.addEventListener('keydown', throttle(THROTTLE_MS, handleKeydown));
     return cleanUpHandleKeydown;
   });
   return <></>;
