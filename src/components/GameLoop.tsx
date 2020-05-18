@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Action } from '@reduxjs/toolkit';
+import { detectorKeyHolding } from './detectorKeyHolding';
 
 type Props = Readonly<{ level: number; cb: () => void }>;
 
@@ -15,11 +16,16 @@ export const GameLoop = ({ level, cb }: Props) => {
   const [lastTime, setLastTime] = React.useState(0);
 
   const loop = (time: number): void | Action => {
+    const isKeyHeld = detectorKeyHolding.get();
     const threshold = calcTimeClockByLevel(TICK_MS, level);
     const progress = time - lastTime;
     const canGameAdvance = progress >= threshold;
     if (canGameAdvance) {
       setLastTime(time);
+      if (isKeyHeld) {
+        console.log('skip');
+        return;
+      }
       dispatch(cb());
       return undefined;
     }
