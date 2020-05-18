@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux';
 import { Action } from '@reduxjs/toolkit';
 import { DetectorKeyRepeat } from './detectorKeyRepeat';
 
-const TICK_MS = 800;
+const TICK_MS = 1000;
 
-const calcTimeClockByLevel = (base: number, level: number) => base - level * 100;
+const calcTimeClockByLevel = (base: number, level: number) => base - level * (TICK_MS / 100);
 
 let animId = -1;
 
