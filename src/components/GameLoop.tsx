@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Action } from '@reduxjs/toolkit';
-import { detectorKeyHolding } from './detectorKeyHolding';
-
-type Props = Readonly<{ level: number; cb: () => void }>;
+import { DetectorKeyRepeat } from './detectorKeyRepeat';
 
 const TICK_MS = 800;
 
@@ -11,22 +9,22 @@ const calcTimeClockByLevel = (base: number, level: number) => base - level * 100
 
 let animId = -1;
 
-export const GameLoop = ({ level, cb }: Props) => {
+type Props = Readonly<{ level: number; detectionKeyRepeat: DetectorKeyRepeat; cb: () => void }>;
+
+export const GameLoop = ({ level, detectionKeyRepeat, cb }: Props) => {
   const dispatch = useDispatch();
   const [lastTime, setLastTime] = React.useState(0);
 
   const loop = (time: number): void | Action => {
-    const isKeyHeld = detectorKeyHolding.get();
+    const isKeyHeld = detectionKeyRepeat.get();
     const threshold = calcTimeClockByLevel(TICK_MS, level);
     const progress = time - lastTime;
     const canGameAdvance = progress >= threshold;
     if (canGameAdvance) {
       setLastTime(time);
-      if (isKeyHeld) {
-        console.log('skip');
-        return;
+      if (!isKeyHeld) {
+        dispatch(cb());
       }
-      dispatch(cb());
       return undefined;
     }
     animId = window.requestAnimationFrame(loop);

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Keyboard } from './Keyboard';
 import { BoardContainer, NextContainer, InfoContainer } from '../containers';
 import { GameLoopContainer } from '../containers/GameLoopContainer';
+import { detectorKeyRepeat } from './detectorKeyRepeat';
 
 const ScreenGameStyled = styled.div`
   display: flex;
@@ -16,8 +17,8 @@ const Status = styled.div`
 
 export const ScreenGame = ({}: {}) => (
   <>
-    <GameLoopContainer />
-    <Keyboard />
+    <GameLoopContainer detectionKeyRepeat={detectorKeyRepeat} />
+    <Keyboard detectionKeyRepeat={detectorKeyRepeat} />
     <ScreenGameStyled>
       <BoardContainer />
       <Status>

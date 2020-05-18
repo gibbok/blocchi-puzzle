@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { gameSlice } from '../store';
 import { moveDownThunk } from '../store/board/actions/thunks';
 import { throttle } from 'throttle-debounce';
-import { detectorKeyHolding } from './detectorKeyHolding';
+import { DetectorKeyRepeat } from './detectorKeyRepeat';
 
 const {
   actions: { moveLeft, moveUp, moveRight }
@@ -12,13 +12,15 @@ const {
 
 const THROTTLE_MS = 100;
 
-type Props = Readonly<{}>;
+type Props = Readonly<{
+  detectionKeyRepeat: DetectorKeyRepeat;
+}>;
 
-export const Keyboard = ({}: Props) => {
+export const Keyboard = ({ detectionKeyRepeat }: Props) => {
   const dispatch = useDispatch();
 
   const handleKeydown = ({ keyCode, repeat }: KeyboardEvent) => {
-    detectorKeyHolding.set(repeat);
+    detectionKeyRepeat.set(repeat);
 
     switch (keyCode) {
       case KeyEnum.Esc:
