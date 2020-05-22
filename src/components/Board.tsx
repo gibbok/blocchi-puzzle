@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Board as BoardType } from '../game/types';
+import { Board as BoardType, Tile as TileType } from '../game/types';
 import styled from 'styled-components';
 import { BOARD_CELLS, BOARD_ROWS, TILE_WIDTH, TILE_COLOR_NOTETRO } from '../game/settings';
 import { Tile } from './Tile';
@@ -53,10 +53,15 @@ const Frame = styled.div`
   }
 `;
 
-export const Board = ({ board }: { board: BoardType }) => (
-  <Frame>
-    <BoardStyled>
-      {board.map(row => row.map((tileVariant, idx) => <Tile key={idx} variant={tileVariant} />))}
-    </BoardStyled>
-  </Frame>
-);
+const renderTileMemo = (variant: TileType, idx: number) =>
+  React.useMemo(() => <Tile key={idx} variant={variant} />, [variant]);
+
+export function Board({ board }: { board: BoardType }) {
+  return (
+    <Frame>
+      <BoardStyled>
+        {board.map(row => row.map((tileVariant, idx) => renderTileMemo(tileVariant, idx)))}
+      </BoardStyled>
+    </Frame>
+  );
+}

@@ -103,18 +103,21 @@ const Shadow = styled.div<{ variant: TileType }>`
     variant === NoTetro ? 'none' : 'drop-shadow(0.3vmin 0.3vmin 0.3vmin rgba(50, 50, 0, 0.5))'};
 `;
 
-export const Tile = ({ variant }: Props) => (
-  <Shadow variant={variant}>
-    <TileStyled variant={variant}>
-      {variant !== NoTetro && (
-        <>
-          <UpSide />
-          <DownSide />
-          <LeftSide />
-          <RightSide />
-          <TopSide />
-        </>
-      )}
-    </TileStyled>
-  </Shadow>
-);
+export function Tile({ variant }: Props) {
+  return (
+    <Shadow variant={variant}>
+      {console.log('render')}
+      <TileStyled variant={variant}>
+        {variant !== NoTetro && (
+          <>
+            <UpSide />
+            <DownSide />
+            <LeftSide />
+            <RightSide />
+            <TopSide />
+          </>
+        )}
+      </TileStyled>
+    </Shadow>
+  );
+}
