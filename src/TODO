@@ -3,9 +3,9 @@
 [ ] Add more tests
 [ ] Clean up deps and audit
 [ ] Clean up rename
-[ ] Fix storybook does not load tsconfig like 20 paths
 [ ] Add end to end testing
 [ ] Add loki visual regression
 [ ] Add music
 [ ] Rename repo
 [ ] Write small article and better readme
+[ ] Publish storybook on github page

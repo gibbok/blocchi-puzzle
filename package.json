@@ -62,7 +62,7 @@
     "@storybook/addons": "^5.3.18",
     "@storybook/preset-typescript": "^3.0.0",
     "@storybook/react": "^5.3.18",
-    "@storybook/storybook-deployer": "^2.8.5",
+    "@storybook/storybook-deployer": "^2.8.6",
     "@storybook/theming": "^5.3.18",
     "@types/jest": "^24.0.25",
     "@types/node": "^13.1.4",
