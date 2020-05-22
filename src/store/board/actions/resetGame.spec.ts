@@ -1,6 +1,4 @@
 import { mkInitialState, gameSlice } from '../../../store';
-import { TetroEnum, ES } from '../../../game/types';
-import sinon from 'sinon';
 
 const INITIAL_STATE = mkInitialState();
 
