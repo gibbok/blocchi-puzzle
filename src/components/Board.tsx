@@ -12,9 +12,9 @@ const BoardStyled = styled.div`
   grid-template-columns: repeat(${BOARD_CELLS}, 1fr);
   align-items: center;
   justify-items: center;
-  grid-gap: 2px;
+  grid-gap: 0.2rem;
   background-color: ${TILE_COLOR_NOTETRO};
-  box-shadow: inset 0px 2px 30px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0.2rem 3rem 1rem rgba(0, 0, 0, 0.5);
 `;
 
 const Frame = styled.div`
@@ -22,10 +22,10 @@ const Frame = styled.div`
   border: solid 2vmin #eee;
   border-bottom-color: #765039;
   border-left-color: #412013;
-  border-radius: 2px;
+  border-radius: 0.2rem;
   border-right-color: #39190e;
   border-top-color: #583b27;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25) inset, 0 5px 10px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.25) inset, 0 0.5rem 1rem 0.5rem rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   display: inline-block;
   padding: 0.5vmin;
@@ -37,8 +37,8 @@ const Frame = styled.div`
     right: -1vmin;
     bottom: -1vmin;
     left: -1vmin;
-    border-radius: 2px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25) inset;
+    border-radius: 0.2rem;
+    box-shadow: 0 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.25) inset;
     content: '';
   }
   &:after {
@@ -47,8 +47,8 @@ const Frame = styled.div`
     bottom: -1vmin;
     left: -1vmin;
     position: absolute;
-    border-radius: 2px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 0.2rem;
+    box-shadow: 0 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.25);
     content: '';
   }
 `;
