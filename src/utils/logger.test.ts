@@ -1,6 +1,6 @@
 import { logger } from './logger';
-import { pieces } from '~game';
-import { TetroEnum, DirectionEnum } from '~game/types';
+import { pieces } from '../game';
+import { TetroEnum, DirectionEnum } from '../game/types';
 import { spy } from 'sinon';
 
 describe('logger', () => {
