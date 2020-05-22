@@ -1,6 +1,6 @@
 import { BOARD_ROW_EMPTY } from '../utils';
 import { mkInitialState, mkPublicState, gameSlice } from '.';
-import { I, PubicState, TetroEnum } from '../game/types';
+import { I, PublicState, TetroEnum } from '../game/types';
 import * as sinon from 'sinon';
 
 export const {
@@ -52,7 +52,7 @@ describe('reducer', () => {
           ...Array(16).fill(BOARD_ROW_EMPTY)
         ];
         const { score, level, lines, nextTetro, screen } = initialStateStub;
-        const output: PubicState = { board, score, level, lines, nextTetro, screen };
+        const output: PublicState = { board, score, level, lines, nextTetro, screen };
         const mkPublicStateStub = {
           ...mkPublicState(initialStateStub),
           nextTetro

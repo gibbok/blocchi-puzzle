@@ -72,7 +72,7 @@ export type InternalState = Readonly<{
   screen: ScreenEnum;
 }>;
 
-export type PubicState = Omit<InternalState, 'currentTetro' | 'isPlay' | 'isGameOver'>;
+export type PublicState = Omit<InternalState, 'currentTetro' | 'isPlay' | 'isGameOver'>;
 
 export enum KeyEnum {
   Esc = 27,
@@ -88,3 +88,11 @@ export type CallBack = () => void;
 export type Action = Readonly<{
   type: string;
 }>;
+
+export type TransitionState = 'entering' | 'entered' | 'exiting' | 'exited';
+export interface TransitionStyles {
+  entering?: React.CSSProperties;
+  entered?: React.CSSProperties;
+  exiting?: React.CSSProperties;
+  exited?: React.CSSProperties;
+}

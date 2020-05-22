@@ -1,11 +1,18 @@
-import { InternalState, TetroDef } from '~game/types';
+import { InternalState, TetroEnum, DirectionEnum } from '../game/types';
 import { connect } from 'react-redux';
-import { mkPublicState } from '~store/reducer';
-import { Next } from '~components/Next';
+import { mkPublicState } from '../store/reducer';
+import { Next } from '../components/Next';
 
-const mapStateToProps = (prevState: InternalState): { nextTetro: TetroDef } => {
-  const { nextTetro } = mkPublicState(prevState);
-  return { nextTetro };
+type Out = Readonly<{
+  type: TetroEnum;
+  direction: DirectionEnum;
+}>;
+
+const mapStateToProps = (prevState: InternalState): Out => {
+  const {
+    nextTetro: { type, direction }
+  } = mkPublicState(prevState);
+  return { type, direction };
 };
 
 export const NextContainer = connect(mapStateToProps)(Next);

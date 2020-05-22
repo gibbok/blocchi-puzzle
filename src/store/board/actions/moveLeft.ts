@@ -1,5 +1,5 @@
-import { InternalState } from '~game/types';
-import { isOccupied } from '~game';
+import { InternalState } from '../../../game/types';
+import { isOccupied } from '../../../game';
 
 export const moveLeft = (prevState: InternalState) => {
   const {

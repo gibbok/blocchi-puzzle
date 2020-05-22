@@ -1,19 +1,27 @@
 import React, { useEffect } from 'react';
-import { KeyEnum } from '~game/types';
+import { KeyEnum } from '../game/types';
 import { useDispatch } from 'react-redux';
-import { gameSlice } from '~store';
-import { moveDownThunk } from '~store/board/actions/thunks';
+import { gameSlice } from '../store';
+import { moveDownThunk } from '../store/board/actions/thunks';
+import { throttle } from 'throttle-debounce';
+import { DetectorKeyRepeat } from './detectorKeyRepeat';
 
 const {
   actions: { moveLeft, moveUp, moveRight }
 } = gameSlice;
 
-type Props = Readonly<{}>;
+const THROTTLE_MS = 100;
 
-export const Keyboard = ({}: Props) => {
+type Props = Readonly<{
+  detectionKeyRepeat: DetectorKeyRepeat;
+}>;
+
+export const Keyboard = ({ detectionKeyRepeat }: Props) => {
   const dispatch = useDispatch();
 
-  const handleKeydown = ({ keyCode }: KeyboardEvent) => {
+  const handleKeydown = ({ keyCode, repeat }: KeyboardEvent) => {
+    detectionKeyRepeat.set(repeat);
+
     switch (keyCode) {
       case KeyEnum.Esc:
         break;
@@ -37,7 +45,7 @@ export const Keyboard = ({}: Props) => {
   const cleanUpHandleKeydown = () => document.removeEventListener('keydown', handleKeydown);
 
   useEffect(() => {
-    document.addEventListener('keydown', handleKeydown);
+    document.addEventListener('keydown', throttle(THROTTLE_MS, handleKeydown));
     return cleanUpHandleKeydown;
   });
   return <></>;

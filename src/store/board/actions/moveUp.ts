@@ -1,5 +1,5 @@
-import { InternalState } from '~game/types';
-import { rotateTetroDirectionCW, isOccupied } from '~game';
+import { InternalState } from '../../../game/types';
+import { rotateTetroDirectionCW, isOccupied } from '../../../game';
 
 export const moveUp = (prevState: InternalState) => {
   const {

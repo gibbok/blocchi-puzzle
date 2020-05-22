@@ -1,5 +1,10 @@
-import { InternalState } from '~game/types';
-import { getCompleteRowIdxs, calcScore, detectAndRemoveCompletedRows, calcLevel } from '~game';
+import { InternalState } from '../../../game/types';
+import {
+  getCompleteRowIdxs,
+  calcScore,
+  detectAndRemoveCompletedRows,
+  calcLevel
+} from '../../../game';
 import { pipe } from 'fp-ts/lib/pipeable';
 
 export const checkBoard = (prevState: InternalState) => {

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { mkPublicState } from '../store/reducer';
 import { Info } from '../components/Info';
-import { InternalState } from '~game/types';
+import { InternalState } from '../game/types';
 
 const mapStateToProps = (
   prevState: InternalState

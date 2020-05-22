@@ -1,4 +1,4 @@
-import { InternalState, DirectionEnum, PubicState, ScreenEnum } from '~game/types';
+import { InternalState, DirectionEnum, PublicState, ScreenEnum } from '../game/types';
 import { Store } from 'redux';
 import { configureStore, createSlice, Action } from '@reduxjs/toolkit';
 import { ThunkAction } from 'redux-thunk';
@@ -7,9 +7,17 @@ import {
   addTetroToBoard,
   getRandomTetroEnum,
   setTetroPositionXCenterBoard
-} from '~game';
+} from '../game';
 import { BOARD_ROWS, BOARD_CELLS } from '../game/settings';
-import { moveUp, moveRight, moveLeft, checkBoard, moveDown, screenGame } from './board/actions';
+import {
+  moveUp,
+  moveRight,
+  moveLeft,
+  checkBoard,
+  moveDown,
+  screenGame,
+  resetGame
+} from './board/actions';
 import { gameOver } from './board/actions/gameOver';
 export type AppThunk = ThunkAction<void, InternalState, null, Action<string>>;
 
@@ -48,14 +56,15 @@ export const gameSlice = createSlice({
     moveLeft,
     moveRight,
     moveDown,
-    gameOver
+    gameOver,
+    resetGame
   }
 });
 
 export const store: Store = configureStore({ reducer: gameSlice.reducer });
 // TODO rename this file to gameSlice or smt, use slice in the title
 
-export const mkPublicState = (state: InternalState): PubicState => {
+export const mkPublicState = (state: InternalState): PublicState => {
   const { board, currentTetro, score, level, lines, nextTetro, screen } = state;
   const { type, direction, x, y } = currentTetro;
   return {

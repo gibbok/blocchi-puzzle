@@ -1,4 +1,11 @@
+[ ] Add navigation icons for tablets
 [ ] Add responsibe graphic
-[ ] Add counting 3-1 go component
-[ ] Add more test look at all file
+[ ] Add more tests
 [ ] Clean up deps and audit
+[ ] Clean up rename
+[ ] Add end to end testing
+[ ] Add loki visual regression
+[ ] Add music
+[ ] Rename repo
+[ ] Write small article and better readme
+[ ] Publish storybook on github page

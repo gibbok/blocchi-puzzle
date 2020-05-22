@@ -1,6 +1,6 @@
-import { mkInitialState, gameSlice } from '~store';
-import { InternalState, ES } from '~game/types';
-import { BOARD_HALF_S_Y, BOARD_EMPTY } from '~utils';
+import { mkInitialState, gameSlice } from '../../../store';
+import { InternalState, ES } from '../../../game/types';
+import { BOARD_HALF_S_Y, BOARD_EMPTY } from '../../../utils';
 
 const INITIAL_STATE = mkInitialState();
 export const {

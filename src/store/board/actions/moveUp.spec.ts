@@ -1,6 +1,6 @@
-import { mkInitialState, gameSlice } from '~store';
-import { InternalState, NO, ES, TetroEnum } from '~game/types';
-import { BOARD_HALF_S_Y } from '~utils';
+import { mkInitialState, gameSlice } from '../../../store';
+import { InternalState, NO, ES, TetroEnum } from '../../../game/types';
+import { BOARD_HALF_S_Y } from '../../../utils';
 import sinon from 'sinon';
 
 const INITIAL_STATE = mkInitialState();

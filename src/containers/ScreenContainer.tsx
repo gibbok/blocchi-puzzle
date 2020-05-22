@@ -1,7 +1,7 @@
-import { InternalState, ScreenEnum } from '~game/types';
+import { InternalState, ScreenEnum } from '../game/types';
 import { connect } from 'react-redux';
-import { mkPublicState } from '~store/reducer';
-import { Screen } from '~components';
+import { mkPublicState } from '../store/reducer';
+import { Screen } from '../components';
 
 const mapStateToProps = (state: InternalState): { screen: ScreenEnum } => {
   const { screen } = mkPublicState(state);
