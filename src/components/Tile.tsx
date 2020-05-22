@@ -13,16 +13,15 @@ const TileStyled = styled.div<Props>`
   background: ${({ variant }) => (variant === NoTetro ? `${dots}` : TITLE_COLOR_ENUM[variant])};
   width: 100%;
   height: 100%;
-  font-size: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   clip-path: polygon(1% 0%, 99% 0%, 100% 1%, 100% 99%, 99% 100%, 1% 100%, 0% 99%, 0% 1%);
   box-shadow: ${({ variant }) =>
     variant === NoTetro
-      ? 'inset 1px 1px 1px 1px rgba(255,255,255, 0.01), inset -1px -1px 1px 1px rgba(0,0,0, 0.02)'
+      ? 'inset 0.1rem 0.1rem 0.1rem 0.1rem rgba(255,255,255, 0.01), inset -0.1rem -0.1rem 0.1rem 0.1rem rgba(0,0,0, 0.02)'
       : 'none'};
-  border: ${({ variant }) => (variant === NoTetro ? '1px solid rgba(0, 0, 0, 0.1)' : 'none')};
+  border: ${({ variant }) => (variant === NoTetro ? '0.1rem solid rgba(0, 0, 0, 0.1)' : 'none')};
 `;
 
 const SHORT = 25;
