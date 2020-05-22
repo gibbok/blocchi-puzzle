@@ -15,7 +15,7 @@ const ButtonStyled = styled.button`
     rgba(63, 173, 2, 1) 100%
   );
   border-radius: 0.6rem;
-  box-shadow: 0 4px 7px 0px #165801, inset 0px 0px 4px 0px #1a6f00;
+  box-shadow: 0 0.4rem 0.7rem 0 #165801, inset 0 0 0.4rem 0 #1a6f00;
   &:focus {
     outline: none;
   }
