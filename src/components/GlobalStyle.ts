@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
   ${normalize}
   html {
     box-sizing: border-box;
-    font-size: 62.5%; /* 10px simplification 62.5% of 16px = 10px */
+    font-size: 62.5%; /* 10px simplification 62.5% of 16px = for 10px we can use simply 1rem */
     font-family: 'Oleo Script', cursive;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
