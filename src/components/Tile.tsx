@@ -106,7 +106,6 @@ const Shadow = styled.div<{ variant: TileType }>`
 export function Tile({ variant }: Props) {
   return (
     <Shadow variant={variant}>
-      {console.log('render')}
       <TileStyled variant={variant}>
         {variant !== NoTetro && (
           <>
