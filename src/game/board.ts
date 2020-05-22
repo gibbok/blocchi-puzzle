@@ -39,7 +39,6 @@ export const recFindAvailablePos = (
     : x;
 };
 
-// TODO add test
 export const recFindAvailablePosX = (
   type: TetroEnum,
   d: DirectionEnum,
@@ -49,7 +48,6 @@ export const recFindAvailablePosX = (
   towardsX: number
 ): number => recFindAvailablePos(type, d, x, y, b, towardsX, 0);
 
-// TODO add test
 export const recFindAvailablePosY = (
   type: TetroEnum,
   d: DirectionEnum,

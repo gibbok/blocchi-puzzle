@@ -18,7 +18,7 @@ import {
   BOARD_HALF_I_Y
 } from '../utils';
 import { I, TetroEnum, DirectionEnum, Board, S, J, Z } from './types';
-import { copyBoard } from './board';
+import { copyBoard, recFindAvailablePos, recFindAvailablePosX } from './board';
 
 describe('board', () => {
   describe('mkEmptyBoard', () => {
@@ -129,6 +129,27 @@ describe('board', () => {
       const test = copyBoard(BOARD_HALF_I_Y);
       expect(test).not.toBe(BOARD_HALF_I_Y);
       expect(test).toEqual(BOARD_HALF_I_Y);
+    });
+  });
+
+  describe('recFindAvailablePos', () => {
+    it('should return the same current position if new position has no collusion', () => {
+      const result = recFindAvailablePos(TetroEnum.I, DirectionEnum.N, 0, 0, BOARD_EMPTY, 0, 0);
+      expect(result).toBe(0);
+    });
+  });
+
+  describe('recFindAvailablePosX', () => {
+    it('should return the same current position X if new position has no collusion', () => {
+      const result = recFindAvailablePosX(TetroEnum.I, DirectionEnum.N, 0, 0, BOARD_EMPTY, 0);
+      expect(result).toBe(0);
+    });
+  });
+
+  describe('recFindAvailablePosY', () => {
+    it('should return the same current position Y if new position has no collusion', () => {
+      const result = recFindAvailablePosX(TetroEnum.I, DirectionEnum.N, 0, 0, BOARD_EMPTY, 0);
+      expect(result).toBe(0);
     });
   });
 });
