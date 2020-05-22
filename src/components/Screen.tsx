@@ -12,7 +12,7 @@ const StyledScreen = styled.div`
   background-image: url(${wood});
   width: 100vw;
   height: 100vh;
-  box-shadow: inset 0px 0px 40px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 0 4rem 0 rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
