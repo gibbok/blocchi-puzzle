@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TetroDef, NoTetro } from '../game/types';
+import { NoTetro, TetroEnum, DirectionEnum } from '../game/types';
 import styled from 'styled-components';
 import { TILE_WIDTH } from '../game/settings';
 import { Tile } from './Tile';
@@ -17,9 +17,13 @@ const StyledNext = styled.div`
 
 const EmptyTile = styled.div``;
 
-// FIXME I do not need a tetro def only the type
-export const Next = ({ nextTetro }: { nextTetro: TetroDef }) => {
-  const tetro = getTetroFromPieces(nextTetro.type, nextTetro.direction);
+type Props = Readonly<{
+  type: TetroEnum;
+  direction: DirectionEnum;
+}>;
+
+export function Next({ type, direction }: Props) {
+  const tetro = getTetroFromPieces(type, direction);
   return (
     <StyledNext>
       {new Array(SIZE_NEXT_BOARD).fill(0).map((_rowB, rowIdxB) =>
@@ -40,4 +44,4 @@ export const Next = ({ nextTetro }: { nextTetro: TetroDef }) => {
       )}
     </StyledNext>
   );
-};
+}
