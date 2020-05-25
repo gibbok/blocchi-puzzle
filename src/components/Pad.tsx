@@ -6,35 +6,44 @@ const PadStyled = styled.div`
   position: relative;
   width: 8rem;
   height: 8rem;
-  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  border-radius: 4rem;
   font-size: 5rem;
   font-family: sans-serif;
   box-shadow: inset 0.1rem 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.4);
-  background: linear-gradient(180deg, rgba(33, 14, 8, 1) 0%, rgba(118, 80, 57, 1) 100%);
+  transform: rotate(90deg);
+  clip-path: circle(50% at 50% 50%);
+  border: 0.2rem solid rgba(0, 0, 0, 0.1);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.12);
 `;
 
-const Content = styled.div`
+const PadBackground = styled.div`
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
-  top: 5px;
-  left: 5px;
-  width: calc(8rem - 10px);
-  height: calc(8rem - 10px);
+  align-items: center;
   background-image: url(${wood});
-  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-  box-shadow: inset -8px 8px 20px 0px rgba(0, 0, 0, 0.4);
+  clip-path: circle(50% at 50% 50%);
+`;
+
+const Shadow = styled.div`
+  filter: drop-shadow(-0.2rem 0.3rem 0.3rem rgba(50, 50, 0, 0.4));
 `;
 
 type Props = Readonly<{
-  icon: string;
+  icon: React.ReactNode;
   onClick: () => void;
 }>;
 
 export function Pad({ icon, onClick }: Props) {
   return (
-    <PadStyled onClick={onClick}>
-      <Content>{icon}</Content>
-    </PadStyled>
+    <Shadow>
+      <PadStyled onClick={onClick}>
+        <PadBackground>{icon}</PadBackground>
+      </PadStyled>
+    </Shadow>
   );
 }
