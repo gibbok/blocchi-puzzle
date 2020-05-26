@@ -6,9 +6,10 @@ import { ScreenGame } from './ScreenGame';
 import { ScreenOver } from './ScreenOver';
 import { wood } from '../assets/images';
 import { ScreenTransaction } from '../components/ScreenTransaction';
+import { PaletteEnum } from '../game/settings';
 
 const StyledScreen = styled.div`
-  background-color: #d7b185;
+  background-color: ${PaletteEnum.Tan};
   background-image: url(${wood});
   width: 100vw;
   height: 100vh;
