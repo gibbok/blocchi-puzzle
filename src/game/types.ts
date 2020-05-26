@@ -31,6 +31,7 @@ export type TetroPieces = Record<TetroEnum, Record<DirectionEnum, Tetro>>;
 
 export type TetroRow = readonly Tile[];
 
+// The tetromino, a geometric shape composed of four squares/tiles
 export type Tetro = readonly TetroRow[];
 
 export type TetroDef = Readonly<{
@@ -52,6 +53,8 @@ export type Position = number;
 
 export type BoardRow = readonly Tile[];
 
+// This is the space on which the game is played.
+// Tetriminos fall from the top of the Board, and then players turn and move them into their desired places at the bottom.
 export type Board = readonly BoardRow[];
 
 export enum ScreenEnum {

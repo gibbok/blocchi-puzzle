@@ -1,7 +1,8 @@
 import React from 'react';
 import { Tween, Timeline } from 'react-gsap';
+import { PaletteEnum } from '../game/settings';
 
-const COLOR_MAIN = '#442217';
+const COLOR_MAIN = PaletteEnum.Cedar;
 const ANIM_DURATION_S = 4;
 
 const STYLE_PATH = {
