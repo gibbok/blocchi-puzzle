@@ -1,8 +1,6 @@
 [ ] Add responsibe graphic
 [ ] Add tests UI
 [ ] Clean up deps and audit
-[ ] Clean up rename
-[ ] Clean up logic moveDown and related
 [ ] Add end to end testing
 [ ] Add loki visual regression
 [ ] Rename repo
