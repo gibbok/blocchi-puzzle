@@ -1,4 +1,4 @@
-import { Board, Tile, TetroEnum, DirectionEnum, NoTetro, BoardRow } from './types';
+import { Board, Tile, TetroEnum, DirectionEnum, NoTetro, BoardRow, BoardMutable } from './types';
 import { getTetroFromPieces, isOccupied } from './tetromino';
 import { pipe } from 'fp-ts/lib/pipeable';
 import { BOARD_CELLS } from './settings';
@@ -7,9 +7,15 @@ export const mkEmptyBoard = (rows: number, columns: number): Board =>
   [...Array(rows)].fill([...Array(columns).fill(NoTetro)]);
 
 // TODO add test
-export const copyBoard = (b: Board) => b.map((r) => r.map((c) => c));
+export const copyBoard = (b: Board): BoardMutable => b.map((r) => r.map((c) => c));
 
-export const addTetroToBoard = (t: TetroEnum, d: DirectionEnum, x: number, y: number, b: Board) => {
+export const addTetroToBoard = (
+  t: TetroEnum,
+  d: DirectionEnum,
+  x: number,
+  y: number,
+  b: Board
+): Board => {
   const tetro = getTetroFromPieces(t, d);
   const bn = copyBoard(b); // copy board
   tetro.forEach((tR, tRx) =>
