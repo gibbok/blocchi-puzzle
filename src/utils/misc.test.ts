@@ -9,7 +9,7 @@ describe('misc', () => {
     it('should return a random value from String enum', () => {
       enum Test {
         A = 'a',
-        B = 'b'
+        B = 'b',
       }
       const result = getRandomValueFromStringEnum(Test)();
       expect(result).toBe('a');

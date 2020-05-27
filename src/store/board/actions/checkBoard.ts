@@ -3,7 +3,7 @@ import {
   getCompleteRowIdxs,
   calcScore,
   detectAndRemoveCompletedRows,
-  calcLevel
+  calcLevel,
 } from '../../../game';
 import { pipe } from 'fp-ts/lib/pipeable';
 
@@ -16,7 +16,7 @@ export const checkBoard = (prevState: InternalState) => {
     nextTetro,
     isPlay,
     isGameOver,
-    screen
+    screen,
   } = prevState;
   const totRowCompleted = getCompleteRowIdxs(board);
   const totRowCompletedLen = totRowCompleted.length;
@@ -31,6 +31,6 @@ export const checkBoard = (prevState: InternalState) => {
     nextTetro,
     isPlay,
     isGameOver,
-    screen
+    screen,
   };
 };

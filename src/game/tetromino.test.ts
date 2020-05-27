@@ -8,7 +8,7 @@ import {
   getHeight,
   getWidth,
   isValidY,
-  isValidX
+  isValidX,
 } from '.';
 import { stub } from 'sinon';
 import { dataPieces, BOARD_EMPTY, BOARD_HALF_I_Y } from '../utils';
@@ -101,7 +101,7 @@ describe('tetromino', () => {
         [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, I, 0, 0, 0, 0, 0, 0, 0, 0]
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
       ];
       const test = isOccupied(L, ES, 0, 0, boardTest);
       expect(test).toStrictEqual(false);
@@ -127,7 +127,7 @@ describe('tetromino', () => {
         [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, I, 0, 0, 0, 0, 0, 0, 0, 0]
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
       ];
       const test = isOccupied(L, ES, 0, 0, boardTest);
       expect(test).toStrictEqual(true);
@@ -153,7 +153,7 @@ describe('tetromino', () => {
         [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, I, 0, 0, 0, 0, 0, 0, 0, 0]
+        [0, I, 0, 0, 0, 0, 0, 0, 0, 0],
       ];
       const test = isOccupied(L, ES, 0, 0, boardTest);
       expect(test).toStrictEqual(true);
@@ -179,7 +179,7 @@ describe('tetromino', () => {
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //  [0, 0, 0, 0], x:0,y:16
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //  [I, I, I, I],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //  [0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] //   [0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //   [0, 0, 0, 0],
       ];
       const test = isOccupied(I, ES, 0, 16, boardTest);
       expect(test).toStrictEqual(false);

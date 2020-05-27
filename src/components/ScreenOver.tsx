@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { ScoreContainer } from '../containers';
 
 const {
-  actions: { screenGame, resetGame }
+  actions: { screenGame, resetGame },
 } = gameSlice;
 
 const StyledScreenOver = styled.div`

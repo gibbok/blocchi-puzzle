@@ -11,7 +11,7 @@ export const moveLeft = (prevState: InternalState) => {
     nextTetro,
     isPlay,
     isGameOver,
-    screen
+    screen,
   } = prevState;
   const newLeftX = x - 1;
   const isOccupiedLeft = isOccupied(type, direction, newLeftX, y, board);
@@ -24,11 +24,11 @@ export const moveLeft = (prevState: InternalState) => {
       type,
       direction,
       x: isOccupiedLeft ? x : newLeftX,
-      y
+      y,
     },
     nextTetro,
     isPlay,
     isGameOver,
-    screen
+    screen,
   };
 };

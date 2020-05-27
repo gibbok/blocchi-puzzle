@@ -7,7 +7,7 @@ import { throttle } from 'throttle-debounce';
 import { DetectorKeyRepeat } from './detectorKeyRepeat';
 
 const {
-  actions: { moveLeft, moveUp, moveRight }
+  actions: { moveLeft, moveUp, moveRight },
 } = gameSlice;
 
 const THROTTLE_MS = 100;

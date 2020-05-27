@@ -6,7 +6,7 @@ import { Logo } from '../assets/Logo';
 import { Button } from './Button';
 
 const {
-  actions: { screenGame }
+  actions: { screenGame },
 } = gameSlice;
 
 const buttonFadeAnim = keyframes`

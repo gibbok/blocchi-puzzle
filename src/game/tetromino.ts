@@ -35,7 +35,7 @@ export const getHeight = <T>(blocks: ReadonlyArray<T>): number => blocks.length 
 export const getWidth = <T>(blocks: ReadonlyArray<ReadonlyArray<T>>): number =>
   pipe(
     fromNullable(blocks[0]),
-    map(x => x.length - 1),
+    map((x) => x.length - 1),
     getOrElse(() => -1)
   );
 

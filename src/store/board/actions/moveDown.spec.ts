@@ -7,23 +7,23 @@ const INITIAL_STATE = mkInitialState();
 
 export const {
   actions: { moveDown, moveLeft, moveRight, moveUp, checkBoard },
-  reducer
+  reducer,
 } = gameSlice;
 
 const currentTetroStub = {
   ...INITIAL_STATE.currentTetro,
   type: TetroEnum.I,
-  x: 4
+  x: 4,
 };
 const nextTetroStub = {
   ...INITIAL_STATE.nextTetro,
   type: TetroEnum.L,
-  x: 4
+  x: 4,
 };
 const mkInitialStateStub = sinon.stub().returns({
   ...INITIAL_STATE,
   currentTetro: currentTetroStub,
-  nextTetro: nextTetroStub
+  nextTetro: nextTetroStub,
 });
 const initialStateStub = mkInitialStateStub();
 
@@ -31,11 +31,11 @@ describe('Move Down', () => {
   it('should increase current tetro y position, leaving the board un touched, no collision 1', () => {
     const initialStateStab = {
       ...initialStateStub,
-      currentTetro: { ...initialStateStub.currentTetro, y: 0 }
+      currentTetro: { ...initialStateStub.currentTetro, y: 0 },
     };
     const testStab: InternalState = {
       ...initialStateStub,
-      currentTetro: { ...initialStateStub.currentTetro, y: 1 }
+      currentTetro: { ...initialStateStub.currentTetro, y: 1 },
     };
     const r = reducer(initialStateStab, moveDown);
     expect(r).toEqual(testStab);
@@ -45,12 +45,12 @@ describe('Move Down', () => {
     const initialStateStab: InternalState = {
       ...initialStateStub,
       board: BOARD_HALF_S_Y,
-      currentTetro: { ...initialStateStub.currentTetro, y: 1 }
+      currentTetro: { ...initialStateStub.currentTetro, y: 1 },
     };
     const finalStateStab: InternalState = {
       ...initialStateStub,
       board: BOARD_HALF_S_Y,
-      currentTetro: { ...initialStateStub.currentTetro, y: 2 }
+      currentTetro: { ...initialStateStub.currentTetro, y: 2 },
     };
     const r = reducer(initialStateStab, moveDown);
     expect(r).toEqual(finalStateStab);
@@ -60,21 +60,21 @@ describe('Move Down', () => {
     const initialStateStab: InternalState = {
       ...initialStateStub,
       board: BOARD_HALF_S_Y,
-      currentTetro: { ...initialStateStub.currentTetro, y: 3 }
+      currentTetro: { ...initialStateStub.currentTetro, y: 3 },
     };
     const finalState: InternalState = {
       ...initialStateStub,
       board: [
         ...Array(2).fill(BOARD_ROW_EMPTY),
         ...Array(4).fill([0, 0, 0, 0, I, 0, 0, 0, 0, 0]),
-        ...Array(14).fill(Array(10).fill(S))
+        ...Array(14).fill(Array(10).fill(S)),
       ],
-      currentTetro: { ...initialStateStub.currentTetro }
+      currentTetro: { ...initialStateStub.currentTetro },
     };
     const reducerStab = {
       ...reducer(initialStateStab, moveDown),
       currentTetro: { ...initialStateStub.currentTetro },
-      nextTetro: { ...initialStateStub.nextTetro }
+      nextTetro: { ...initialStateStub.nextTetro },
     };
     expect(reducerStab).toEqual(finalState);
   });

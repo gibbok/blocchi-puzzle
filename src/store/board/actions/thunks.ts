@@ -1,6 +1,6 @@
 import { AppThunk, gameSlice } from '../../../store/reducer';
 const {
-  actions: { moveDown, checkBoard, gameOver }
+  actions: { moveDown, checkBoard, gameOver },
 } = gameSlice;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

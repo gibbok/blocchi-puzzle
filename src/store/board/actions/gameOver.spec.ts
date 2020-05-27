@@ -8,14 +8,14 @@ describe('gameOver', () => {
     expect(gameOver({ ...prevState, isGameOver: false })).toMatchObject({
       ...prevState,
       isGameOver: false,
-      screen: ScreenEnum.Intro
+      screen: ScreenEnum.Intro,
     });
   });
   it('should return previouse state plus screen Over if game is ended', () => {
     expect(gameOver({ ...prevState, isGameOver: true })).toMatchObject({
       ...prevState,
       isGameOver: true,
-      screen: ScreenEnum.Over
+      screen: ScreenEnum.Over,
     });
   });
 });

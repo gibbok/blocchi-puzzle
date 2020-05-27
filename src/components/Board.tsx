@@ -60,7 +60,7 @@ export function Board({ board }: { board: BoardType }) {
   return (
     <Frame>
       <BoardStyled>
-        {board.map(row => row.map((tileVariant, idx) => renderTileMemo(tileVariant, idx)))}
+        {board.map((row) => row.map((tileVariant, idx) => renderTileMemo(tileVariant, idx)))}
       </BoardStyled>
     </Frame>
   );

@@ -5,7 +5,7 @@ import {
   KeyboardArrowLeft,
   KeyboardArrowRight,
   KeyboardArrowDown,
-  RotateRight
+  RotateRight,
 } from '@styled-icons/material';
 import { StyledIconBase } from '@styled-icons/styled-icon';
 

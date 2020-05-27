@@ -7,7 +7,7 @@ const ANIM_DURATION_S = 4;
 
 const STYLE_PATH = {
   stroke: COLOR_MAIN,
-  fill: 'transparent'
+  fill: 'transparent',
 };
 
 type Props = Readonly<{
@@ -47,10 +47,10 @@ export function Logo({}: Props) {
       >
         <Tween
           from={{
-            svgDraw: [0, 0.5]
+            svgDraw: [0, 0.5],
           }}
           to={{
-            svgDraw: [1, 0]
+            svgDraw: [1, 0],
           }}
           duration={1.25}
         ></Tween>

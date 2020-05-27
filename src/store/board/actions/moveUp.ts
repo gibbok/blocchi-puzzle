@@ -11,7 +11,7 @@ export const moveUp = (prevState: InternalState) => {
     nextTetro,
     isPlay,
     isGameOver,
-    screen
+    screen,
   } = prevState;
   const directionNew = rotateTetroDirectionCW(direction);
   const isOccupiedUp = isOccupied(type, directionNew, x, y, board);
@@ -24,11 +24,11 @@ export const moveUp = (prevState: InternalState) => {
       type,
       direction: isOccupiedUp ? direction : directionNew,
       x,
-      y
+      y,
     },
     nextTetro,
     isPlay,
     isGameOver,
-    screen
+    screen,
   };
 };
