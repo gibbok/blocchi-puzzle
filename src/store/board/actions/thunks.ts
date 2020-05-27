@@ -6,7 +6,9 @@ const {
 } = gameSlice;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const moveDownThunk = (): AppThunk => (dispatch, _getState): void => {
+export const moveDownThunk = (): AppThunk => (
+  dispatch: ThunkDispatch<InternalState, null, Action>
+): void => {
   dispatch(moveDown());
   dispatch(checkBoard());
   dispatch(gameOver());
