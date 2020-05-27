@@ -1,4 +1,4 @@
-import { Board, Tile, TetroEnum, DirectionEnum, NoTetro } from './types';
+import { Board, Tile, TetroEnum, DirectionEnum, NoTetro, BoardRow } from './types';
 import { getTetroFromPieces, isOccupied } from './tetromino';
 import { pipe } from 'fp-ts/lib/pipeable';
 import { BOARD_CELLS } from './settings';
@@ -74,7 +74,7 @@ export const removeCompleteRowFromBoard = (
   };
 };
 
-export const mkRow = (len: number, b: Tile) => [...Array(len).fill(b)];
+export const mkRow = (len: number, b: Tile): BoardRow => [...Array(len).fill(b)];
 
 export const mkEmptyRow = mkRow(BOARD_CELLS, NoTetro);
 
