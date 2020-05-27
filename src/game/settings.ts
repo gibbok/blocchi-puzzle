@@ -8,7 +8,7 @@ export const TILE_HEIGHT = 4;
 export enum PaletteEnum {
   Cedar = '#442217',
   Tan = '#d7b185',
-  Paco = '#32180c'
+  Paco = '#32180c',
 }
 
 export const TILE_COLOR_NOTETRO = PaletteEnum.Paco;
@@ -20,5 +20,5 @@ export enum TITLE_COLOR_ENUM {
   T = '#f2d707',
   I = '#e22b24',
   L = '#ff8839',
-  O = '#39a6ff'
+  O = '#39a6ff',
 }

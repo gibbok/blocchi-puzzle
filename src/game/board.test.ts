@@ -6,7 +6,7 @@ import {
   mkRow,
   mkEmptyRow,
   appendEmptyRowsToBoard,
-  detectAndRemoveCompletedRows
+  detectAndRemoveCompletedRows,
 } from '.';
 import {
   BOARD_EMPTY,
@@ -15,7 +15,7 @@ import {
   BOARD_ROW_S,
   BOARD_HALF_S_Y,
   BOARD_RANDOM_S_1,
-  BOARD_HALF_I_Y
+  BOARD_HALF_I_Y,
 } from '../utils';
 import { I, TetroEnum, DirectionEnum, Board, S, J, Z } from './types';
 import { copyBoard, recFindAvailablePos, recFindAvailablePosX } from './board';
@@ -34,7 +34,7 @@ describe('board', () => {
         BOARD_ROW_EMPTY,
         BOARD_ROW_EMPTY,
         [0, I, I, I, I, 0, 0, 0, 0, 0],
-        ...Array(17).fill(BOARD_ROW_EMPTY)
+        ...Array(17).fill(BOARD_ROW_EMPTY),
       ];
       expect(test).toEqual(result);
     });
@@ -44,7 +44,7 @@ describe('board', () => {
       const result: Board = [
         BOARD_ROW_S,
         [I, I, I, I, S, S, S, S, S, S],
-        ...Array(18).fill(BOARD_ROW_S)
+        ...Array(18).fill(BOARD_ROW_S),
       ];
       expect(test).toEqual(result);
     });
@@ -59,7 +59,7 @@ describe('board', () => {
       expect(getCompleteRowIdxs(BOARD_HALF_S_Y)).toEqual([
         ...Array(14)
           .fill(0)
-          .map((_x, idx) => idx + 6)
+          .map((_x, idx) => idx + 6),
       ]);
     });
   });
@@ -75,9 +75,9 @@ describe('board', () => {
           [0, 0, 0, S, S, S, S, S, S, S],
           [0, 0, S, S, S, S, S, S, S, S],
           [0, 0, J, J, J, J, J, J, J, J],
-          [0, 0, Z, Z, Z, Z, Z, Z, Z, Z]
+          [0, 0, Z, Z, Z, Z, Z, Z, Z, Z],
         ],
-        totRemoved: 4
+        totRemoved: 4,
       };
       const test = removeCompleteRowFromBoard(input, [15, 16, 18, 19]);
       expect(test).toEqual(output);
@@ -117,7 +117,7 @@ describe('board', () => {
         [0, 0, 0, S, S, S, S, S, S, S],
         [0, 0, S, S, S, S, S, S, S, S],
         [0, 0, J, J, J, J, J, J, J, J],
-        [0, 0, Z, Z, Z, Z, Z, Z, Z, Z]
+        [0, 0, Z, Z, Z, Z, Z, Z, Z, Z],
       ];
       const test = detectAndRemoveCompletedRows(input);
       expect(test).toStrictEqual(output);

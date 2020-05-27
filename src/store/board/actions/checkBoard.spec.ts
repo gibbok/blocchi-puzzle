@@ -5,7 +5,7 @@ import { BOARD_HALF_S_Y, BOARD_EMPTY } from '../../../utils';
 const INITIAL_STATE = mkInitialState();
 export const {
   actions: { moveDown, moveLeft, moveRight, moveUp, checkBoard },
-  reducer
+  reducer,
 } = gameSlice;
 
 describe('CheckBoard', () => {
@@ -13,7 +13,7 @@ describe('CheckBoard', () => {
     const initialState: InternalState = {
       ...INITIAL_STATE,
       board: BOARD_HALF_S_Y,
-      currentTetro: { ...INITIAL_STATE.currentTetro, direction: ES, x: 0, y: 5 }
+      currentTetro: { ...INITIAL_STATE.currentTetro, direction: ES, x: 0, y: 5 },
     };
     const finalState: InternalState = {
       ...INITIAL_STATE,
@@ -21,7 +21,7 @@ describe('CheckBoard', () => {
       currentTetro: { ...INITIAL_STATE.currentTetro, direction: ES, x: 0, y: 5 },
       level: 3,
       lines: 14,
-      score: 1400
+      score: 1400,
     };
     const r = reducer(initialState, checkBoard);
     expect(r).toEqual(finalState);

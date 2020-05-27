@@ -10,7 +10,7 @@ import { moveDownThunk } from '../store/board/actions/thunks';
 import { gameSlice } from '../store';
 
 const {
-  actions: { moveLeft, moveUp, moveRight }
+  actions: { moveLeft, moveUp, moveRight },
 } = gameSlice;
 
 const ScreenGameStyled = styled.div`
@@ -25,7 +25,7 @@ const Status = styled.div`
 
 const Board = styled.div``;
 
-export const ScreenGame = ({}: {}) => {
+export const ScreenGame = (): JSX.Element => {
   const dispatch = useDispatch();
   return (
     <>

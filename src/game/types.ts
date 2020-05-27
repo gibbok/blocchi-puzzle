@@ -2,7 +2,7 @@ export enum DirectionEnum {
   N = 'N',
   E = 'E',
   S = 'S',
-  W = 'W'
+  W = 'W',
 }
 
 export const NO = DirectionEnum.N;
@@ -17,11 +17,11 @@ export enum TetroEnum {
   T = 'T',
   I = 'I',
   L = 'L',
-  O = 'O'
+  O = 'O',
 }
 
 export enum NoTetroEnum {
-  NoTetro
+  NoTetro,
 }
 export const NoTetro = NoTetroEnum.NoTetro;
 
@@ -53,6 +53,8 @@ export type Position = number;
 
 export type BoardRow = readonly Tile[];
 
+export type BoardMutable = Tile[][];
+
 // This is the space on which the game is played.
 // Tetriminos fall from the top of the Board, and then players turn and move them into their desired places at the bottom.
 export type Board = readonly BoardRow[];
@@ -60,7 +62,7 @@ export type Board = readonly BoardRow[];
 export enum ScreenEnum {
   Intro = 'Intro',
   Game = 'Game',
-  Over = 'Over'
+  Over = 'Over',
 }
 
 export type InternalState = Readonly<{
@@ -83,7 +85,7 @@ export enum KeyEnum {
   Left = 37,
   Up = 38,
   Right = 39,
-  Down = 40
+  Down = 40,
 }
 
 export type CallBack = () => void;

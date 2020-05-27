@@ -6,7 +6,7 @@ import {
   mkEmptyBoard,
   addTetroToBoard,
   getRandomTetroEnum,
-  setTetroPositionXCenterBoard
+  setTetroPositionXCenterBoard,
 } from '../game';
 import { BOARD_ROWS, BOARD_CELLS } from '../game/settings';
 import {
@@ -16,12 +16,12 @@ import {
   checkBoard,
   moveDown,
   screenGame,
-  resetGame
+  resetGame,
 } from './board/actions';
 import { gameOver } from './board/actions/gameOver';
 export type AppThunk = ThunkAction<void, InternalState, null, Action<string>>;
 
-export const mkInitialState = () => {
+export const mkInitialState = (): InternalState => {
   const type = getRandomTetroEnum()();
   return {
     board: mkEmptyBoard(BOARD_ROWS, BOARD_CELLS),
@@ -32,17 +32,17 @@ export const mkInitialState = () => {
       type,
       direction: DirectionEnum.N, // use default
       x: setTetroPositionXCenterBoard(BOARD_CELLS, type, DirectionEnum.N),
-      y: 0
+      y: 0,
     },
     nextTetro: {
       type: getRandomTetroEnum()(),
       direction: DirectionEnum.N,
       x: setTetroPositionXCenterBoard(BOARD_CELLS, type, DirectionEnum.N),
-      y: 0
+      y: 0,
     },
     isPlay: true, // TODO pause before start game
     isGameOver: false,
-    screen: ScreenEnum.Intro
+    screen: ScreenEnum.Intro,
   };
 };
 
@@ -57,8 +57,8 @@ export const gameSlice = createSlice({
     moveRight,
     moveDown,
     gameOver,
-    resetGame
-  }
+    resetGame,
+  },
 });
 
 export const store: Store = configureStore({ reducer: gameSlice.reducer });
@@ -73,6 +73,6 @@ export const mkPublicState = (state: InternalState): PublicState => {
     level,
     lines,
     nextTetro,
-    screen
+    screen,
   };
 };

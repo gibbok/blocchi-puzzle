@@ -10,7 +10,7 @@ type Out = Readonly<{
 
 const mapStateToProps = (prevState: InternalState): Out => {
   const {
-    nextTetro: { type, direction }
+    nextTetro: { type, direction },
   } = mkPublicState(prevState);
   return { type, direction };
 };

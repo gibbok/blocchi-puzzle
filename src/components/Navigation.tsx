@@ -16,7 +16,12 @@ type Props = Readonly<{
   onClickRotate: () => void;
 }>;
 
-export function Navigation({ onClickLeft, onClickRight, onClickDown, onClickRotate }: Props) {
+export function Navigation({
+  onClickLeft,
+  onClickRight,
+  onClickDown,
+  onClickRotate,
+}: Props): JSX.Element {
   return (
     <NavigationStyled>
       <PadLeft onClick={onClickLeft} />

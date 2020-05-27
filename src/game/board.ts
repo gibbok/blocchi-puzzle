@@ -1,4 +1,4 @@
-import { Board, Tile, TetroEnum, DirectionEnum, NoTetro } from './types';
+import { Board, Tile, TetroEnum, DirectionEnum, NoTetro, BoardRow, BoardMutable } from './types';
 import { getTetroFromPieces, isOccupied } from './tetromino';
 import { pipe } from 'fp-ts/lib/pipeable';
 import { BOARD_CELLS } from './settings';
@@ -7,9 +7,15 @@ export const mkEmptyBoard = (rows: number, columns: number): Board =>
   [...Array(rows)].fill([...Array(columns).fill(NoTetro)]);
 
 // TODO add test
-export const copyBoard = (b: Board) => b.map(r => r.map(c => c));
+export const copyBoard = (b: Board): BoardMutable => b.map((r) => r.map((c) => c));
 
-export const addTetroToBoard = (t: TetroEnum, d: DirectionEnum, x: number, y: number, b: Board) => {
+export const addTetroToBoard = (
+  t: TetroEnum,
+  d: DirectionEnum,
+  x: number,
+  y: number,
+  b: Board
+): Board => {
   const tetro = getTetroFromPieces(t, d);
   const bn = copyBoard(b); // copy board
   tetro.forEach((tR, tRx) =>
@@ -58,7 +64,7 @@ export const recFindAvailablePosY = (
 ): number => recFindAvailablePos(type, d, x, y, b, 0, towardsY);
 
 export const getCompleteRowIdxs = (b: Board): number[] =>
-  b.flatMap((row, idx) => (row.every(cell => cell !== NoTetro) ? [idx] : []));
+  b.flatMap((row, idx) => (row.every((cell) => cell !== NoTetro) ? [idx] : []));
 
 export const removeCompleteRowFromBoard = (
   b: Board,
@@ -67,25 +73,25 @@ export const removeCompleteRowFromBoard = (
   board: Board;
   totRemoved: number;
 }> => {
-  const newBoard = b.filter((_row, ridx) => !lineIdxs.some(idx => idx === ridx));
+  const newBoard = b.filter((_row, ridx) => !lineIdxs.some((idx) => idx === ridx));
   return {
     board: newBoard,
-    totRemoved: b.length - newBoard.length
+    totRemoved: b.length - newBoard.length,
   };
 };
 
-export const mkRow = (len: number, b: Tile) => [...Array(len).fill(b)];
+export const mkRow = (len: number, b: Tile): BoardRow => [...Array(len).fill(b)];
 
 export const mkEmptyRow = mkRow(BOARD_CELLS, NoTetro);
 
 export const appendEmptyRowsToBoard = (b: Board, amount: number): Board => [
   ...Array(amount).fill(mkEmptyRow),
-  ...b
+  ...b,
 ];
 
 export const detectAndRemoveCompletedRows = (b: Board): Board =>
   pipe(
     getCompleteRowIdxs(b),
-    idxsRowCompleted => removeCompleteRowFromBoard(b, idxsRowCompleted),
+    (idxsRowCompleted) => removeCompleteRowFromBoard(b, idxsRowCompleted),
     ({ board, totRemoved }) => appendEmptyRowsToBoard(board, totRemoved)
   );

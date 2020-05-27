@@ -102,7 +102,7 @@ const Shadow = styled.div<{ variant: TileType }>`
     variant === NoTetro ? 'none' : 'drop-shadow(0.3vmin 0.3vmin 0.3vmin rgba(50, 50, 0, 0.5))'};
 `;
 
-export function Tile({ variant }: Props) {
+export function Tile({ variant }: Props): JSX.Element {
   return (
     <Shadow variant={variant}>
       <TileStyled variant={variant}>

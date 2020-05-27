@@ -20,7 +20,7 @@ const StyledScreen = styled.div`
   padding-top: -5rem;
 `;
 
-export const Screen = ({ screen }: { screen: ScreenEnum }) => (
+export const Screen = ({ screen }: { screen: ScreenEnum }): JSX.Element => (
   <StyledScreen>
     <ScreenTransaction
       current={screen}

@@ -5,7 +5,7 @@ import {
   KeyboardArrowLeft,
   KeyboardArrowRight,
   KeyboardArrowDown,
-  RotateRight
+  RotateRight,
 } from '@styled-icons/material';
 import { StyledIconBase } from '@styled-icons/styled-icon';
 
@@ -57,7 +57,7 @@ type PadProps = Readonly<{
 
 type PadSpecific = Omit<PadProps, 'icon'>;
 
-export function Pad({ icon, onClick }: PadProps) {
+export function Pad({ icon, onClick }: PadProps): JSX.Element {
   return (
     <Shadow>
       <PadStyled onClick={onClick}>
@@ -67,7 +67,7 @@ export function Pad({ icon, onClick }: PadProps) {
   );
 }
 
-export function PadLeft({ onClick }: PadSpecific) {
+export function PadLeft({ onClick }: PadSpecific): JSX.Element {
   return (
     <Pad
       onClick={onClick}
@@ -80,7 +80,7 @@ export function PadLeft({ onClick }: PadSpecific) {
   );
 }
 
-export function PadRight({ onClick }: PadSpecific) {
+export function PadRight({ onClick }: PadSpecific): JSX.Element {
   return (
     <Pad
       onClick={onClick}
@@ -92,7 +92,7 @@ export function PadRight({ onClick }: PadSpecific) {
     />
   );
 }
-export function PadDown({ onClick }: PadSpecific) {
+export function PadDown({ onClick }: PadSpecific): JSX.Element {
   return (
     <Pad
       onClick={onClick}
@@ -104,7 +104,7 @@ export function PadDown({ onClick }: PadSpecific) {
     />
   );
 }
-export function PadRotate({ onClick }: PadSpecific) {
+export function PadRotate({ onClick }: PadSpecific): JSX.Element {
   return (
     <Pad
       onClick={onClick}

@@ -4,7 +4,7 @@ const INITIAL_STATE = mkInitialState();
 
 export const {
   actions: { resetGame },
-  reducer
+  reducer,
 } = gameSlice;
 
 describe('resetGame', () => {
@@ -17,7 +17,7 @@ describe('resetGame', () => {
   it('should reset internal state if game is over', () => {
     const stateGameOver = {
       ...INITIAL_STATE,
-      isGameOver: true
+      isGameOver: true,
     };
     const r = reducer(stateGameOver, resetGame);
     expect(r.isGameOver).toEqual(false);

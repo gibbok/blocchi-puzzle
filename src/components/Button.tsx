@@ -33,7 +33,7 @@ type Props = Readonly<{
   onClick: () => void;
 }>;
 
-export function Button({ children, onClick }: Props) {
+export function Button({ children, onClick }: Props): JSX.Element {
   return (
     <ButtonStyled onClick={onClick}>
       <Content>{children}</Content>

@@ -22,7 +22,7 @@ type Props = Readonly<{
   direction: DirectionEnum;
 }>;
 
-export function Next({ type, direction }: Props) {
+export function Next({ type, direction }: Props): JSX.Element {
   const tetro = getTetroFromPieces(type, direction);
   return (
     <StyledNext>

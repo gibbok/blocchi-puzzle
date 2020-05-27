@@ -1,7 +1,7 @@
 import { InternalState } from '../../../game/types';
 import { rotateTetroDirectionCW, isOccupied } from '../../../game';
 
-export const moveUp = (prevState: InternalState) => {
+export const moveUp = (prevState: InternalState): InternalState => {
   const {
     board,
     score,
@@ -11,7 +11,7 @@ export const moveUp = (prevState: InternalState) => {
     nextTetro,
     isPlay,
     isGameOver,
-    screen
+    screen,
   } = prevState;
   const directionNew = rotateTetroDirectionCW(direction);
   const isOccupiedUp = isOccupied(type, directionNew, x, y, board);
@@ -24,11 +24,11 @@ export const moveUp = (prevState: InternalState) => {
       type,
       direction: isOccupiedUp ? direction : directionNew,
       x,
-      y
+      y,
     },
     nextTetro,
     isPlay,
     isGameOver,
-    screen
+    screen,
   };
 };

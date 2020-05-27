@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { ScoreContainer } from '../containers';
 
 const {
-  actions: { screenGame, resetGame }
+  actions: { screenGame, resetGame },
 } = gameSlice;
 
 const StyledScreenOver = styled.div`
@@ -17,7 +17,7 @@ const ButtonWrapper = styled.div`
   margin-top: 4rem;
 `;
 
-export const ScreenOver = ({}: {}) => {
+export const ScreenOver = (): JSX.Element => {
   const dispatch = useDispatch();
 
   const handleClickPlay = () => {

@@ -7,7 +7,7 @@ import { throttle } from 'throttle-debounce';
 import { DetectorKeyRepeat } from './detectorKeyRepeat';
 
 const {
-  actions: { moveLeft, moveUp, moveRight }
+  actions: { moveLeft, moveUp, moveRight },
 } = gameSlice;
 
 const THROTTLE_MS = 100;
@@ -16,7 +16,7 @@ type Props = Readonly<{
   detectionKeyRepeat: DetectorKeyRepeat;
 }>;
 
-export const Keyboard = ({ detectionKeyRepeat }: Props) => {
+export const Keyboard = ({ detectionKeyRepeat }: Props): JSX.Element => {
   const dispatch = useDispatch();
 
   const handleKeydown = ({ keyCode, repeat }: KeyboardEvent) => {

@@ -50,7 +50,15 @@ const Divider = styled.div`
   }
 `;
 
-export const Info = ({ score, level, lines }: { score: number; level: number; lines: number }) => (
+export const Info = ({
+  score,
+  level,
+  lines,
+}: {
+  score: number;
+  level: number;
+  lines: number;
+}): JSX.Element => (
   <InfoStyled>
     <Group>
       <Line>Score</Line>
