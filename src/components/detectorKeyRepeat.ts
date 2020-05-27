@@ -3,7 +3,7 @@ export type DetectorKeyRepeat = Readonly<{
   get: () => boolean;
 }>;
 
-export const detectorKeyRepeat: DetectorKeyRepeat = (() => {
+export const detectorKeyRepeat = ((): DetectorKeyRepeat => {
   let isKeyHeld = false;
   return {
     set: (value: boolean): boolean => (isKeyHeld = value),
