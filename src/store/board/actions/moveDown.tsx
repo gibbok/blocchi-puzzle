@@ -8,7 +8,7 @@ import {
 } from '../../../game';
 import { BOARD_CELLS } from '../../../game/settings';
 
-export const moveDown = (prevState: InternalState) => {
+export const moveDown = (prevState: InternalState): InternalState => {
   const {
     board,
     score,

@@ -13,7 +13,7 @@ export const setTetroPositionXCenterBoard = (
   boardWidth: number,
   t: TetroEnum,
   d: DirectionEnum
-) => {
+): number => {
   const data = getTetroFromPieces(t, d);
   const tetroWidth = data[0].length;
   const posX = Math.floor((boardWidth - tetroWidth) / 2);
@@ -55,7 +55,7 @@ export const canTetroFitBoard = (
   x: number,
   y: number,
   b: Board
-) => {
+): boolean => {
   const tetroBlocks = getTetroFromPieces(t, d);
   const tetroHeight = getHeight(tetroBlocks);
   const tetroWidth = getWidth(tetroBlocks);
@@ -96,7 +96,7 @@ export const isOccupied = (
   return hasCollisionWithBoard;
 };
 
-export const rotateTetroDirectionCW = (d: DirectionEnum) => {
+export const rotateTetroDirectionCW = (d: DirectionEnum): DirectionEnum => {
   const values = Object.values(DirectionEnum);
   const index = values.indexOf(d);
   return pipe(

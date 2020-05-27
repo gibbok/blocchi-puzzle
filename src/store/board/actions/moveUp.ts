@@ -1,7 +1,7 @@
 import { InternalState } from '../../../game/types';
 import { rotateTetroDirectionCW, isOccupied } from '../../../game';
 
-export const moveUp = (prevState: InternalState) => {
+export const moveUp = (prevState: InternalState): InternalState => {
   const {
     board,
     score,
