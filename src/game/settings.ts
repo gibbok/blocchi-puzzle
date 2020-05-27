@@ -14,7 +14,7 @@ export enum PaletteEnum {
 export const TILE_COLOR_NOTETRO = PaletteEnum.Paco;
 
 export enum TITLE_COLOR_ENUM {
-  Z = '#926eff ',
+  Z = '#926eff',
   S = '#e04ac0',
   J = '#4ac309',
   T = '#f2d707',
