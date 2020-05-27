@@ -56,7 +56,7 @@ const Frame = styled.div`
 const renderTileMemo = (variant: TileType, idx: number) =>
   React.useMemo(() => <Tile key={idx} variant={variant} />, [variant]);
 
-export function Board({ board }: { board: BoardType }) {
+export function Board({ board }: { board: BoardType }): JSX.Element {
   return (
     <Frame>
       <BoardStyled>

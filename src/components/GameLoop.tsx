@@ -11,7 +11,7 @@ let animId = -1;
 
 type Props = Readonly<{ level: number; detectionKeyRepeat: DetectorKeyRepeat; cb: () => void }>;
 
-export const GameLoop = ({ level, detectionKeyRepeat, cb }: Props) => {
+export const GameLoop = ({ level, detectionKeyRepeat, cb }: Props): JSX.Element => {
   const dispatch = useDispatch();
   const [lastTime, setLastTime] = React.useState(0);
 

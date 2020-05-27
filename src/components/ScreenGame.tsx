@@ -25,7 +25,7 @@ const Status = styled.div`
 
 const Board = styled.div``;
 
-export const ScreenGame = ({}: {}) => {
+export const ScreenGame = (): JSX.Element => {
   const dispatch = useDispatch();
   return (
     <>

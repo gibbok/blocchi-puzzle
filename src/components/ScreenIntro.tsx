@@ -36,7 +36,7 @@ const ButtonWrapper = styled.div`
   transition: all 0.3s;
 `;
 
-export const ScreenIntro = ({}: {}) => {
+export const ScreenIntro = (): JSX.Element => {
   const dispatch = useDispatch();
 
   const handleClickPlay = () => dispatch(screenGame());

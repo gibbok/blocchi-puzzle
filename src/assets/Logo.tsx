@@ -14,7 +14,7 @@ type Props = Readonly<{
   children?: React.ReactNode;
 }>;
 
-export function Logo({}: Props) {
+export function Logo({}: Props): JSX.Element {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

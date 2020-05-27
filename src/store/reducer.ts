@@ -21,7 +21,7 @@ import {
 import { gameOver } from './board/actions/gameOver';
 export type AppThunk = ThunkAction<void, InternalState, null, Action<string>>;
 
-export const mkInitialState = () => {
+export const mkInitialState = (): InternalState => {
   const type = getRandomTetroEnum()();
   return {
     board: mkEmptyBoard(BOARD_ROWS, BOARD_CELLS),

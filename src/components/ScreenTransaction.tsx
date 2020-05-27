@@ -29,7 +29,7 @@ const Intro = ScreenEnum.Intro;
 const Game = ScreenEnum.Game;
 const Over = ScreenEnum.Over;
 
-export function ScreenTransaction({ current, intro, game, over }: Props) {
+export function ScreenTransaction({ current, intro, game, over }: Props): JSX.Element {
   const screens = current === Intro ? [Intro] : current === Game ? [Game] : [Over];
 
   return (

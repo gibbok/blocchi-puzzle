@@ -17,7 +17,7 @@ const ButtonWrapper = styled.div`
   margin-top: 4rem;
 `;
 
-export const ScreenOver = ({}: {}) => {
+export const ScreenOver = (): JSX.Element => {
   const dispatch = useDispatch();
 
   const handleClickPlay = () => {

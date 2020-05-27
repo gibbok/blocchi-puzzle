@@ -9,7 +9,6 @@ import {
 import { BOARD_CELLS } from '../../../game/settings';
 
 export const moveDown = (prevState: InternalState) => {
-  // SPO
   const {
     board,
     score,

@@ -7,7 +7,7 @@ import {
 } from '../../../game';
 import { pipe } from 'fp-ts/lib/pipeable';
 
-export const checkBoard = (prevState: InternalState) => {
+export const checkBoard = (prevState: InternalState): InternalState => {
   const {
     board,
     lines,

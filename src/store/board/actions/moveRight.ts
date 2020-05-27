@@ -1,7 +1,7 @@
 import { InternalState } from '../../../game/types';
 import { isOccupied } from '../../../game';
 
-export const moveRight = (prevState: InternalState) => {
+export const moveRight = (prevState: InternalState): InternalState => {
   const {
     board,
     score,

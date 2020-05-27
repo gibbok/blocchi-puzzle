@@ -3,7 +3,7 @@ import GlobalStyle from '../components/GlobalStyle';
 import styled from 'styled-components';
 import { wood } from '../assets/images';
 
-export const globalStylesDecorator = (story: () => unknown) => (
+export const globalStylesDecorator = (story: () => unknown): JSX.Element => (
   <React.Fragment>
     <GlobalStyle />
     {story()}
@@ -16,4 +16,4 @@ const Bkg = styled.div`
   height: 100vh;
 `;
 
-export const pageBackground = (story: () => React.ReactNode) => <Bkg>{story()}</Bkg>;
+export const pageBackground = (story: () => React.ReactNode): JSX.Element => <Bkg>{story()}</Bkg>;

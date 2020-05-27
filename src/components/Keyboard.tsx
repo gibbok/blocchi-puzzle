@@ -16,7 +16,7 @@ type Props = Readonly<{
   detectionKeyRepeat: DetectorKeyRepeat;
 }>;
 
-export const Keyboard = ({ detectionKeyRepeat }: Props) => {
+export const Keyboard = ({ detectionKeyRepeat }: Props): JSX.Element => {
   const dispatch = useDispatch();
 
   const handleKeydown = ({ keyCode, repeat }: KeyboardEvent) => {

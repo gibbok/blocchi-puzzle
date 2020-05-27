@@ -14,7 +14,7 @@ const ScoreStyled = styled.div`
   grid-column-gap: 2rem;
 `;
 
-export function Score({ score, level }: Props) {
+export function Score({ score, level }: Props): JSX.Element {
   return (
     <ScoreStyled>
       <Group>
