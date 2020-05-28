@@ -1,11 +1,12 @@
-import { mkInitialState, gameSlice } from '../../../store';
+import { mkInitialState, gameSliceXXX } from '../../../store';
+import { TetroEnum } from 'game/types';
 
-const INITIAL_STATE = mkInitialState();
+const INITIAL_STATE = mkInitialState(TetroEnum.I, TetroEnum.J);
 
 export const {
   actions: { resetGame },
   reducer,
-} = gameSlice;
+} = gameSliceXXX;
 
 describe('resetGame', () => {
   it('should not reset internal state if game is ongoing', () => {

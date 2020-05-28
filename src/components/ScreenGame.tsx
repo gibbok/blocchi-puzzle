@@ -7,11 +7,11 @@ import { detectorKeyRepeat } from './detectorKeyRepeat';
 import { Navigation } from './Navigation';
 import { useDispatch } from 'react-redux';
 import { moveDownThunk } from '../store/board/actions/thunks';
-import { gameSlice } from '../store';
+import { gameSliceXXX } from '../store';
 
 const {
   actions: { moveLeft, moveUp, moveRight },
-} = gameSlice;
+} = gameSliceXXX;
 
 const ScreenGameStyled = styled.div`
   display: flex;
@@ -27,6 +27,8 @@ const Board = styled.div``;
 
 export const ScreenGame = (): JSX.Element => {
   const dispatch = useDispatch();
+
+
   return (
     <>
       <GameLoopContainer detectionKeyRepeat={detectorKeyRepeat} />

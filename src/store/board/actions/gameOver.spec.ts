@@ -1,8 +1,8 @@
 import { mkInitialState } from '../../../store';
-import { InternalState, ScreenEnum } from '../../../game/types';
+import { InternalState, ScreenEnum, TetroEnum } from '../../../game/types';
 import { gameOver } from './gameOver';
 
-const prevState: InternalState = mkInitialState();
+const prevState: InternalState = mkInitialState(TetroEnum.I, TetroEnum.J);
 describe('gameOver', () => {
   it('should return previouse state plus screen Intro if game is not ended', () => {
     expect(gameOver({ ...prevState, isGameOver: false })).toMatchObject({

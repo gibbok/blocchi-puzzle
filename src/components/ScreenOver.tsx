@@ -1,13 +1,13 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { Button } from './Button';
-import { gameSlice } from '../store';
+import { gameSliceXXX } from '../store';
 import { useDispatch } from 'react-redux';
 import { ScoreContainer } from '../containers';
 
 const {
   actions: { screenGame, resetGame },
-} = gameSlice;
+} = gameSliceXXX;
 
 const StyledScreenOver = styled.div`
   margin-top: -100%;

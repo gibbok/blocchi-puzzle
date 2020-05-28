@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { KeyEnum } from '../game/types';
 import { useDispatch } from 'react-redux';
-import { gameSlice } from '../store';
+import { gameSliceXXX } from '../store';
 import { moveDownThunk } from '../store/board/actions/thunks';
 import { throttle } from 'throttle-debounce';
 import { DetectorKeyRepeat } from './detectorKeyRepeat';
 
 const {
   actions: { moveLeft, moveUp, moveRight },
-} = gameSlice;
+} = gameSliceXXX;
 
 const THROTTLE_MS = 100;
 

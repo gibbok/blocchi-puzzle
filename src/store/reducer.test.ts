@@ -1,14 +1,14 @@
 import { BOARD_ROW_EMPTY } from '../utils';
-import { mkInitialState, mkPublicState, gameSlice } from '.';
+import { mkInitialState, mkPublicState, gameSliceXXX } from '.';
 import { I, PublicState, TetroEnum } from '../game/types';
 import * as sinon from 'sinon';
 
 export const {
   actions: { moveDown, moveLeft, moveRight, moveUp, checkBoard },
   reducer,
-} = gameSlice;
+} = gameSliceXXX;
 
-const INITIAL_STATE = mkInitialState();
+const INITIAL_STATE = mkInitialState(TetroEnum.I, TetroEnum.J);
 const INVALID_ACTION = { type: 'invalid-action' };
 
 const currentTetroStub = {
