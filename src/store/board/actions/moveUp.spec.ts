@@ -4,8 +4,8 @@ import { BOARD_HALF_S_Y } from '../../../utils';
 
 const INITIAL_STATE = mkInitialState(TetroEnum.I, TetroEnum.J);
 
-export const {
-  actions: { moveDown, moveLeft, moveRight, moveUp, checkBoard },
+const {
+  actions: { moveUp },
   reducer,
 } = gameSlicePure(TetroEnum.I, TetroEnum.J);
 
