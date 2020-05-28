@@ -1,12 +1,13 @@
-import { mkInitialState, gameSlice } from '../../../store';
+import { mkInitialState, gameSlicePure } from '../../../store';
 import { InternalState, ES, TetroEnum } from '../../../game/types';
 import { BOARD_HALF_S_Y, BOARD_EMPTY } from '../../../utils';
 
 const INITIAL_STATE = mkInitialState(TetroEnum.I, TetroEnum.J);
-export const {
-  actions: { moveDown, moveLeft, moveRight, moveUp, checkBoard },
+
+const {
+  actions: { checkBoard },
   reducer,
-} = gameSlice;
+} = gameSlicePure(TetroEnum.I, TetroEnum.J);
 
 describe('CheckBoard', () => {
   it('should update level, lines, score when row completed are detected on the board', () => {
