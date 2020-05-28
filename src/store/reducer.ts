@@ -46,6 +46,7 @@ export const mkInitialState = (current: TetroEnum, next: TetroEnum): InternalSta
   };
 };
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const gameSlicePure = (current: TetroEnum, next: TetroEnum) =>
   createSlice({
     name: 'game',

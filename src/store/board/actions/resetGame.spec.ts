@@ -1,5 +1,5 @@
 import { mkInitialState, gameSlice } from '../../../store';
-import { TetroEnum } from 'game/types';
+import { TetroEnum } from '../../../game/types';
 
 const INITIAL_STATE = mkInitialState(TetroEnum.I, TetroEnum.J);
 
