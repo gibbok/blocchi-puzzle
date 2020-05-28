@@ -3,7 +3,7 @@ import { TetroEnum } from '../../../game/types';
 
 const INITIAL_STATE = mkInitialState(TetroEnum.I, TetroEnum.J);
 
-export const {
+const {
   actions: { resetGame },
   reducer,
 } = gameSlicePure(TetroEnum.I, TetroEnum.J);
