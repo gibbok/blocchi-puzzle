@@ -1,14 +1,14 @@
-import { mkInitialState, gameSlice } from '../../../store';
+import { mkInitialState, gameSlicePure } from '../../../store';
 import { InternalState, TetroEnum, I, S } from '../../../game/types';
 import { BOARD_HALF_S_Y, BOARD_ROW_EMPTY } from '../../../utils';
 import sinon from 'sinon';
 
 const INITIAL_STATE = mkInitialState(TetroEnum.I, TetroEnum.J);
 
-export const {
-  actions: { moveDown, moveLeft, moveRight, moveUp, checkBoard },
+const {
+  actions: { moveDown },
   reducer,
-} = gameSlice;
+} = gameSlicePure(TetroEnum.I, TetroEnum.J);
 
 const currentTetroStub = {
   ...INITIAL_STATE.currentTetro,
