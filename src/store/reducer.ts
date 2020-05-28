@@ -17,7 +17,6 @@ import {
   moveDown,
   screenGame,
   resetGame,
-  initGame,
 } from './board/actions';
 import { gameOver } from './board/actions/gameOver';
 export type AppThunk = ThunkAction<void, InternalState, null, Action<string>>;
@@ -47,7 +46,7 @@ export const mkInitialState = (current: TetroEnum, next: TetroEnum): InternalSta
   };
 };
 
-export const gameSlice = (current: TetroEnum, next: TetroEnum) =>
+export const gameSlicePure = (current: TetroEnum, next: TetroEnum) =>
   createSlice({
     name: 'game',
     initialState: mkInitialState(current, next),
@@ -60,13 +59,12 @@ export const gameSlice = (current: TetroEnum, next: TetroEnum) =>
       moveDown,
       gameOver,
       resetGame,
-      initGame,
     },
   });
 
-export const gameSliceXXX = gameSlice(getRandomTetroEnum()(), getRandomTetroEnum()());
+export const gameSlice = gameSlicePure(getRandomTetroEnum()(), getRandomTetroEnum()());
 
-export const store: Store = configureStore({ reducer: gameSliceXXX.reducer });
+export const store: Store = configureStore({ reducer: gameSlice.reducer });
 
 export const mkPublicState = (state: InternalState): PublicState => {
   const { board, currentTetro, score, level, lines, nextTetro, screen } = state;

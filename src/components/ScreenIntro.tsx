@@ -1,13 +1,13 @@
 import * as React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { gameSliceXXX } from '../store';
+import { gameSlice } from '../store';
 import { useDispatch } from 'react-redux';
 import { Logo } from '../assets/Logo';
 import { Button } from './Button';
 
 const {
   actions: { screenGame },
-} = gameSliceXXX;
+} = gameSlice;
 
 const buttonFadeAnim = keyframes`
   from {

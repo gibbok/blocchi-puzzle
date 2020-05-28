@@ -7,11 +7,11 @@ import { detectorKeyRepeat } from './detectorKeyRepeat';
 import { Navigation } from './Navigation';
 import { useDispatch } from 'react-redux';
 import { moveDownThunk } from '../store/board/actions/thunks';
-import { gameSliceXXX } from '../store';
+import { gameSlice } from '../store';
 
 const {
   actions: { moveLeft, moveUp, moveRight },
-} = gameSliceXXX;
+} = gameSlice;
 
 const ScreenGameStyled = styled.div`
   display: flex;
@@ -27,7 +27,6 @@ const Board = styled.div``;
 
 export const ScreenGame = (): JSX.Element => {
   const dispatch = useDispatch();
-
 
   return (
     <>
