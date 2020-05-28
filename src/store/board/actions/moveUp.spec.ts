@@ -1,41 +1,23 @@
-import { mkInitialState, gameSlice } from '../../../store';
+import { mkInitialState, gameSlicePure } from '../../../store';
 import { InternalState, NO, ES, TetroEnum } from '../../../game/types';
 import { BOARD_HALF_S_Y } from '../../../utils';
-import sinon from 'sinon';
 
-const INITIAL_STATE = mkInitialState();
+const INITIAL_STATE = mkInitialState(TetroEnum.I, TetroEnum.J);
 
-export const {
-  actions: { moveDown, moveLeft, moveRight, moveUp, checkBoard },
+const {
+  actions: { moveUp },
   reducer,
-} = gameSlice;
-
-const currentTetroStub = {
-  ...INITIAL_STATE.currentTetro,
-  type: TetroEnum.I,
-  x: 1,
-};
-const nextTetroStub = {
-  ...INITIAL_STATE.nextTetro,
-  type: TetroEnum.L,
-  x: 1,
-};
-const mkInitialStateStub = sinon.stub().returns({
-  ...INITIAL_STATE,
-  currentTetro: currentTetroStub,
-  nextTetro: nextTetroStub,
-});
-const initialStateStub = mkInitialStateStub();
+} = gameSlicePure(TetroEnum.I, TetroEnum.J);
 
 describe('Move Up', () => {
   it('should rotate the tetro direction CW, no collision', () => {
     const initialState: InternalState = {
-      ...initialStateStub,
-      currentTetro: { ...initialStateStub.currentTetro, direction: NO },
+      ...INITIAL_STATE,
+      currentTetro: { ...INITIAL_STATE.currentTetro, direction: NO },
     };
     const finalState: InternalState = {
-      ...initialStateStub,
-      currentTetro: { ...initialStateStub.currentTetro, direction: ES },
+      ...INITIAL_STATE,
+      currentTetro: { ...INITIAL_STATE.currentTetro, direction: ES },
     };
     const r = reducer(initialState, moveUp);
     expect(r).toEqual(finalState);
@@ -43,14 +25,14 @@ describe('Move Up', () => {
 
   it('should not be able to rotate, collision', () => {
     const initialState: InternalState = {
-      ...initialStateStub,
+      ...INITIAL_STATE,
       board: BOARD_HALF_S_Y,
-      currentTetro: { ...initialStateStub.currentTetro, direction: ES, x: 0, y: 5 },
+      currentTetro: { ...INITIAL_STATE.currentTetro, direction: ES, x: 0, y: 5 },
     };
     const finalState: InternalState = {
-      ...initialStateStub,
+      ...INITIAL_STATE,
       board: BOARD_HALF_S_Y,
-      currentTetro: { ...initialStateStub.currentTetro, direction: ES, x: 0, y: 5 },
+      currentTetro: { ...INITIAL_STATE.currentTetro, direction: ES, x: 0, y: 5 },
     };
     const r = reducer(initialState, moveUp);
     expect(r).toEqual(finalState);

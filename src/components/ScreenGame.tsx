@@ -27,6 +27,7 @@ const Board = styled.div``;
 
 export const ScreenGame = (): JSX.Element => {
   const dispatch = useDispatch();
+
   return (
     <>
       <GameLoopContainer detectionKeyRepeat={detectorKeyRepeat} />

@@ -1,12 +1,12 @@
-import { InternalState, DirectionEnum, PublicState, ScreenEnum } from '../game/types';
+import { InternalState, DirectionEnum, PublicState, ScreenEnum, TetroEnum } from '../game/types';
 import { Store } from 'redux';
 import { configureStore, createSlice, Action } from '@reduxjs/toolkit';
 import { ThunkAction } from 'redux-thunk';
 import {
   mkEmptyBoard,
   addTetroToBoard,
-  getRandomTetroEnum,
   setTetroPositionXCenterBoard,
+  getRandomTetroEnum,
 } from '../game';
 import { BOARD_ROWS, BOARD_CELLS } from '../game/settings';
 import {
@@ -21,8 +21,8 @@ import {
 import { gameOver } from './board/actions/gameOver';
 export type AppThunk = ThunkAction<void, InternalState, null, Action<string>>;
 
-export const mkInitialState = (): InternalState => {
-  const type = getRandomTetroEnum()();
+export const mkInitialState = (current: TetroEnum, next: TetroEnum): InternalState => {
+  const type = current;
   return {
     board: mkEmptyBoard(BOARD_ROWS, BOARD_CELLS),
     score: 0,
@@ -35,7 +35,7 @@ export const mkInitialState = (): InternalState => {
       y: 0,
     },
     nextTetro: {
-      type: getRandomTetroEnum()(),
+      type: next,
       direction: DirectionEnum.N,
       x: setTetroPositionXCenterBoard(BOARD_CELLS, type, DirectionEnum.N),
       y: 0,
@@ -46,23 +46,26 @@ export const mkInitialState = (): InternalState => {
   };
 };
 
-export const gameSlice = createSlice({
-  name: 'game',
-  initialState: mkInitialState(),
-  reducers: {
-    screenGame,
-    checkBoard,
-    moveUp,
-    moveLeft,
-    moveRight,
-    moveDown,
-    gameOver,
-    resetGame,
-  },
-});
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export const gameSlicePure = (current: TetroEnum, next: TetroEnum) =>
+  createSlice({
+    name: 'game',
+    initialState: mkInitialState(current, next),
+    reducers: {
+      screenGame,
+      checkBoard,
+      moveUp,
+      moveLeft,
+      moveRight,
+      moveDown,
+      gameOver,
+      resetGame,
+    },
+  });
+
+export const gameSlice = gameSlicePure(getRandomTetroEnum()(), getRandomTetroEnum()());
 
 export const store: Store = configureStore({ reducer: gameSlice.reducer });
-// TODO rename this file to gameSlice or smt, use slice in the title
 
 export const mkPublicState = (state: InternalState): PublicState => {
   const { board, currentTetro, score, level, lines, nextTetro, screen } = state;

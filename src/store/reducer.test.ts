@@ -8,7 +8,7 @@ export const {
   reducer,
 } = gameSlice;
 
-const INITIAL_STATE = mkInitialState();
+const INITIAL_STATE = mkInitialState(TetroEnum.I, TetroEnum.J);
 const INVALID_ACTION = { type: 'invalid-action' };
 
 const currentTetroStub = {

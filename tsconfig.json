@@ -12,6 +12,7 @@
     "jsx": "react",
     "esModuleInterop": true,
     "baseUrl": "./src",
+    "noErrorTruncation": true,
     "types": [
       "react",
       "jest"
