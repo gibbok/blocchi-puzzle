@@ -10,7 +10,7 @@ const InfoStyled = styled.div`
 
 export const Group = styled.div`
   font-family: 'Oleo Script', cursive;
-  font-size: 4rem;
+  font-size: clamp(3rem, 5vmin, 7rem);
   color: #442217;
   opacity: 0.8;
   text-shadow: 0 0.1rem 0 rgba(255, 255, 255, 0.4), 0 -0.1rem 0 rgba(0, 0, 0, 0.8);
