@@ -1,6 +1,7 @@
 import React from 'react';
 import { Tween, Timeline } from 'react-gsap';
 import { PaletteEnum } from '../game/settings';
+import styled from 'styled-components';
 
 const COLOR_MAIN = PaletteEnum.Cedar;
 const ANIM_DURATION_S = 4;
@@ -14,9 +15,19 @@ type Props = Readonly<{
   children?: React.ReactNode;
 }>;
 
+const Svg = styled.svg.attrs({
+  xmlns: 'http://www.w3.org/2000/svg',
+  viewBox: '0 0 509.06 207.94',
+})``;
+
+const LogoSvg = styled(Svg)`
+  height: 40vmin;
+  max-height: 60rem;
+`;
+
 export function Logo({}: Props): JSX.Element {
   return (
-    <svg
+    <LogoSvg
       xmlns="http://www.w3.org/2000/svg"
       width="509.06"
       height="207.94"
@@ -56,6 +67,6 @@ export function Logo({}: Props): JSX.Element {
         ></Tween>
         <Tween to={{ fill: COLOR_MAIN }} duration={2} />
       </Timeline>
-    </svg>
+    </LogoSvg>
   );
 }

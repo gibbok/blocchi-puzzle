@@ -22,21 +22,18 @@ const BoardStyled = styled.div`
   grid-gap: 0.2rem;
   background-color: ${TILE_COLOR_NOTETRO};
   box-shadow: inset 0 0.2rem 3rem 1rem rgba(0, 0, 0, 0.5);
-  /* ${mq.sm}{
-    border: 5px solid cyan;
-  } */
-  /* @media ${DEVICE.sm} {
-    border: 5px solid cyan;
-  } */
-  /* @media ${DEVICE.md} {
-    border: 5px solid orange;
+  ${mq.sm} {
+    border: 1px solid cyan;
   }
-  @media ${DEVICE.lg} {
-    border: 5px solid red;
+  ${mq.md} {
+    border: 1px solid yellow;
   }
-  @media ${DEVICE.xl} {
-    border: 5px solid purple;
-  } */
+  ${mq.lg} {
+    border: 1px solid orange;
+  }
+  ${mq.xl} {
+    border: 1px solid orange;
+  }
 `;
 
 const Frame = styled.div`
