@@ -11,10 +11,6 @@ const STYLE_PATH = {
   fill: 'transparent',
 };
 
-type Props = Readonly<{
-  children?: React.ReactNode;
-}>;
-
 const Svg = styled.svg.attrs({
   xmlns: 'http://www.w3.org/2000/svg',
   viewBox: '0 0 509.06 207.94',
@@ -25,7 +21,7 @@ const LogoSvg = styled(Svg)`
   max-height: 60rem;
 `;
 
-export function Logo({}: Props): JSX.Element {
+export function Logo(): JSX.Element {
   return (
     <LogoSvg
       xmlns="http://www.w3.org/2000/svg"
