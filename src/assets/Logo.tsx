@@ -17,7 +17,7 @@ const Svg = styled.svg.attrs({
 })``;
 
 const LogoSvg = styled(Svg)`
-  width: 40vmin;
+  width: 50vmin;
   max-width: 60rem;
 `;
 

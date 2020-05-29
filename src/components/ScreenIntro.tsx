@@ -31,6 +31,7 @@ const ScreenIntroStyled = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
+  margin-top: 3.5vmin;
   opacity: 0;
   animation: ${buttonFadeAnim} 1.5s linear 2s normal forwards;
   transition: all 0.3s;
