@@ -1,14 +1,7 @@
 import * as React from 'react';
 import { Board as BoardType, Tile as TileType } from '../game/types';
 import styled from 'styled-components';
-import {
-  BOARD_CELLS,
-  BOARD_ROWS,
-  TILE_WIDTH,
-  TILE_COLOR_NOTETRO,
-  DEVICE,
-  mq,
-} from '../game/settings';
+import { BOARD_CELLS, BOARD_ROWS, TILE_WIDTH, TILE_COLOR_NOTETRO, mq } from '../game/settings';
 import { Tile } from './Tile';
 
 const BoardStyled = styled.div`

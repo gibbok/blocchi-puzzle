@@ -16,6 +16,9 @@ const defaultStyle: React.CSSProperties = {
   transition: `opacity ${ANIM_DURATION_MS}ms ease-in-out`,
   opacity: 0,
   fontSize: '3rem',
+  width: '100%',
+  height: '100%',
+  border: '5px solid red',
 };
 
 const transitionStyles: TransitionStyles = {

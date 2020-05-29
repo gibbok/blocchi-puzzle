@@ -17,8 +17,8 @@ const Svg = styled.svg.attrs({
 })``;
 
 const LogoSvg = styled(Svg)`
-  height: 40vmin;
-  max-height: 60rem;
+  width: 40vmin;
+  max-width: 60rem;
 `;
 
 export function Logo(): JSX.Element {
