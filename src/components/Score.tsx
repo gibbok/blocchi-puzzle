@@ -18,11 +18,11 @@ export function Score({ score, level }: Props): JSX.Element {
   return (
     <ScoreStyled>
       <Group>
-        <Line>Score:</Line>
+        <Line>Score</Line>
         <Line>{score}</Line>
       </Group>
       <Group>
-        <Line>Level:</Line>
+        <Line>Level</Line>
         <Line>{level}</Line>
       </Group>
     </ScoreStyled>
