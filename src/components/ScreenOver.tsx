@@ -9,12 +9,17 @@ const {
   actions: { screenGame, resetGame },
 } = gameSlice;
 
-const StyledScreenOver = styled.div`
-  margin-top: -100%;
+const ScreenOverStyled = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 `;
 
 const ButtonWrapper = styled.div`
-  margin-top: 4rem;
+  margin-top: 3.5vmin;
 `;
 
 export const ScreenOver = (): JSX.Element => {
@@ -26,11 +31,11 @@ export const ScreenOver = (): JSX.Element => {
   };
 
   return (
-    <StyledScreenOver>
+    <ScreenOverStyled>
       <ScoreContainer />
       <ButtonWrapper>
         <Button onClick={handleClickPlay}>Play again!</Button>
       </ButtonWrapper>
-    </StyledScreenOver>
+    </ScreenOverStyled>
   );
 };

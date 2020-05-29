@@ -11,7 +11,7 @@ const ScoreStyled = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
-  grid-column-gap: 2rem;
+  grid-column-gap: 7vmin;
 `;
 
 export function Score({ score, level }: Props): JSX.Element {
