@@ -57,7 +57,6 @@ const LeftSide = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: yellow;
   width: ${`${SHORT}%`};
   height: 100%;
   clip-path: ${`polygon(0 0, 100% ${SHORT}%, 100% ${LONG}%, 0 100%)`};

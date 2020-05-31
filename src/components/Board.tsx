@@ -16,16 +16,16 @@ const BoardStyled = styled.div`
   background-color: ${TILE_COLOR_NOTETRO};
   box-shadow: inset 0 0.2rem 3rem 1rem rgba(0, 0, 0, 0.5);
   ${mq.sm} {
-    border: 1px solid cyan;
+    /* border: 1px solid cyan; */
   }
   ${mq.md} {
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
   }
   ${mq.lg} {
-    border: 1px solid orange;
+    /* border: 1px solid orange; */
   }
   ${mq.xl} {
-    border: 1px solid orange;
+    /* border: 1px solid orange; */
   }
 `;
 
