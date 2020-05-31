@@ -6,8 +6,8 @@ import { Tile } from './Tile';
 
 const BoardStyled = styled.div`
   display: grid;
-  width: 45vmin;
-  height: 85vmin;
+  width: 40vmin;
+  height: 80vmin;
   grid-template-rows: repeat(${BOARD_ROWS}, 1fr);
   grid-template-columns: repeat(${BOARD_CELLS}, 1fr);
   align-items: center;
