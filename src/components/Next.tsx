@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { NoTetro, TetroEnum, DirectionEnum } from '../game/types';
 import styled from 'styled-components';
-import { TILE_WIDTH } from '../game/settings';
 import { Tile } from './Tile';
 import { getTetroFromPieces } from '../game';
 
@@ -9,10 +8,11 @@ const SIZE_NEXT_BOARD = 4;
 
 const StyledNext = styled.div`
   display: grid;
-  width: ${TILE_WIDTH * SIZE_NEXT_BOARD}rem;
-  height: ${TILE_WIDTH * SIZE_NEXT_BOARD}rem;
+  width: 16.5vmin;
+  height: 16.5vmin;
   grid-template-rows: repeat(${SIZE_NEXT_BOARD}, 1fr);
   grid-template-columns: repeat(${SIZE_NEXT_BOARD}, 1fr);
+  grid-gap: 0.2rem;
 `;
 
 const EmptyTile = styled.div``;
