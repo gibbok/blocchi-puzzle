@@ -17,7 +17,6 @@ const StyledScreen = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: -5rem;
 `;
 
 export const Screen = ({ screen }: { screen: ScreenEnum }): JSX.Element => (
