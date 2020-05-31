@@ -16,6 +16,7 @@ const {
 const ScreenGameStyled = styled.div`
   display: flex;
   justify-content: center;
+  height: 100%;
 `;
 
 const Status = styled.div`
