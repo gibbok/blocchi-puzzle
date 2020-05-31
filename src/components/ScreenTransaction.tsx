@@ -18,14 +18,10 @@ const defaultStyle: React.CSSProperties = {
   fontSize: '3rem',
   width: '100%',
   height: '100%',
-  border: '5px solid red',
 };
 
 const transitionStyles: TransitionStyles = {
-  // entering: { opacity: 0 },
   entered: { opacity: 1 },
-  // exited: { opacity: 0 },
-  // exiting: { opacity: 0 }
 };
 
 const Intro = ScreenEnum.Intro;

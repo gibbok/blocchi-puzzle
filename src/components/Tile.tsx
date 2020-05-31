@@ -44,7 +44,6 @@ const UpSide = styled.div`
 const DownSide = styled.div`
   position: absolute;
   bottom: 0;
-  background-color: red;
   width: 100%;
   height: ${`${SHORT}%`};
   clip-path: ${`polygon(${SHORT}% 0%, ${LONG}% 0%, 100% 100%, 0% 100%)`};
