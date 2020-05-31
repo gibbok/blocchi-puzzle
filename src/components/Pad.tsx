@@ -11,9 +11,9 @@ import { StyledIconBase } from '@styled-icons/styled-icon';
 
 const PadStyled = styled.div`
   position: relative;
-  width: 6.5rem;
-  height: 6.5rem;
-  border-radius: 3.5rem;
+  width: 6.5vmin;
+  height: 6.5vmin;
+  border-radius: 3.5vmin;
   box-shadow: inset 0.1rem 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.4);
   transform: rotate(90deg);
   clip-path: circle(50% at 50% 50%);
@@ -36,8 +36,8 @@ const PadBackground = styled.div`
 
 export const IconStyleWrapper = styled.div`
   ${StyledIconBase} {
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 4.5vmin;
+    height: 4.5vmin;
     color: #5c3e2e;
     opacity: 0.8;
     transform: rotate(-90deg);
