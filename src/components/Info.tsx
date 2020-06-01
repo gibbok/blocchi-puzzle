@@ -10,11 +10,11 @@ const InfoStyled = styled.div`
 
 export const Group = styled.div`
   font-family: 'Oleo Script', cursive;
-  font-size: 4rem;
+  font-size: clamp(1.5rem, 5vmin, 7rem);
   color: #442217;
   opacity: 0.8;
   text-shadow: 0 0.1rem 0 rgba(255, 255, 255, 0.4), 0 -0.1rem 0 rgba(0, 0, 0, 0.8);
-  padding: 3.5rem 0 3.5rem 0;
+  padding: 3.5vmin 0 3.5vmin 0;
 `;
 
 export const Line = styled.div`
@@ -39,10 +39,10 @@ const Divider = styled.div`
     content: '';
     position: absolute;
     z-index: 1;
-    top: -0.7rem;
-    left: calc(50% - 0.7rem);
-    width: 1.4rem;
-    height: 1.4rem;
+    top: calc(-0.7vmin + 0.1rem);
+    left: calc(50% - 0.7vmin);
+    width: 1.4vmin;
+    height: 1.4vmin;
     transform: rotate(45deg);
     background-image: url(${wood});
     border: 0.1rem solid rgb(48, 49, 51);

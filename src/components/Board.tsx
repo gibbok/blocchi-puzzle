@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Board as BoardType, Tile as TileType } from '../game/types';
 import styled from 'styled-components';
-import { BOARD_CELLS, BOARD_ROWS, TILE_WIDTH, TILE_COLOR_NOTETRO } from '../game/settings';
+import { BOARD_CELLS, BOARD_ROWS, TILE_COLOR_NOTETRO } from '../game/settings';
 import { Tile } from './Tile';
 
 const BoardStyled = styled.div`
   display: grid;
-  width: ${TILE_WIDTH * BOARD_CELLS}rem;
-  height: ${TILE_WIDTH * BOARD_ROWS}rem;
+  width: 40vmin;
+  height: 80vmin;
   grid-template-rows: repeat(${BOARD_ROWS}, 1fr);
   grid-template-columns: repeat(${BOARD_CELLS}, 1fr);
   align-items: center;

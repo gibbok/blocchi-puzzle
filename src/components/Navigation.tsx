@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { PadRotate, PadLeft, PadRight, PadDown } from './Pad';
 
 const NavigationStyled = styled.div`
-  padding-top: 4.5rem;
+  padding: 2vmin 1vmin 0 1vmin;
   display: flex;
   justify-content: space-between;
   width: 100%;

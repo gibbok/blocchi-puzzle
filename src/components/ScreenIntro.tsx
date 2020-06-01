@@ -26,12 +26,13 @@ const ScreenIntroStyled = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: -50%;
+  width: 100%;
+  height: 100%;
 `;
 
 const ButtonWrapper = styled.div`
+  margin-top: 3.5vmin;
   opacity: 0;
-  margin-top: 4rem;
   animation: ${buttonFadeAnim} 1.5s linear 2s normal forwards;
   transition: all 0.3s;
 `;

@@ -16,11 +16,12 @@ const {
 const ScreenGameStyled = styled.div`
   display: flex;
   justify-content: center;
+  height: 100%;
 `;
 
 const Status = styled.div`
-  margin-top: 4rem;
-  margin-left: 4rem;
+  margin-top: 4vmin;
+  margin-left: 4vmin;
 `;
 
 const Board = styled.div``;

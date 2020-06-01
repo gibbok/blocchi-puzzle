@@ -15,14 +15,10 @@ const defaultStyle: React.CSSProperties = {
   position: 'absolute',
   transition: `opacity ${ANIM_DURATION_MS}ms ease-in-out`,
   opacity: 0,
-  fontSize: '3rem',
 };
 
 const transitionStyles: TransitionStyles = {
-  // entering: { opacity: 0 },
   entered: { opacity: 1 },
-  // exited: { opacity: 0 },
-  // exiting: { opacity: 0 }
 };
 
 const Intro = ScreenEnum.Intro;
