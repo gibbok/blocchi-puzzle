@@ -14,7 +14,7 @@ export const Group = styled.div`
   color: #442217;
   opacity: 0.8;
   text-shadow: 0 0.1rem 0 rgba(255, 255, 255, 0.4), 0 -0.1rem 0 rgba(0, 0, 0, 0.8);
-  padding: 3.5rem 0 3.5rem 0;
+  padding: 3.5vmin 0 3.5vmin 0;
 `;
 
 export const Line = styled.div`
