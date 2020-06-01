@@ -47,6 +47,7 @@ export const DEVICE: Record<Size, string> = {
   xl: `(min-width: ${VP_XL}px)`,
 };
 
+// use with styled as: `${mq.sm}{ color: red; }`
 export const mq: Record<Size, string> = {
   sm: `@media ${DEVICE.sm}`,
   md: `@media ${DEVICE.md}`,
