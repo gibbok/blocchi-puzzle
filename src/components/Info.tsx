@@ -39,10 +39,10 @@ const Divider = styled.div`
     content: '';
     position: absolute;
     z-index: 1;
-    top: -0.7rem;
-    left: calc(50% - 0.7rem);
-    width: 1.4rem;
-    height: 1.4rem;
+    top: calc(-0.7vmin + 0.1rem);
+    left: calc(50% - 0.7vmin);
+    width: 1.4vmin;
+    height: 1.4vmin;
     transform: rotate(45deg);
     background-image: url(${wood});
     border: 0.1rem solid rgb(48, 49, 51);
