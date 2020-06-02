@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ScreenTransaction Game 1`] = `
+<div
+  style={
+    Object {
+      "opacity": 1,
+      "position": "absolute",
+      "transition": "opacity 750ms ease-in-out",
+    }
+  }
+>
+  <div>
+    game
+  </div>
+</div>
+`;
+
+exports[`should render ScreenTransaction Intro 1`] = `
+<div
+  style={
+    Object {
+      "opacity": 1,
+      "position": "absolute",
+      "transition": "opacity 750ms ease-in-out",
+    }
+  }
+>
+  <div>
+    intro
+  </div>
+</div>
+`;
+
+exports[`should render ScreenTransaction Over 1`] = `
+<div
+  style={
+    Object {
+      "opacity": 1,
+      "position": "absolute",
+      "transition": "opacity 750ms ease-in-out",
+    }
+  }
+>
+  <div>
+    over
+  </div>
+</div>
+`;

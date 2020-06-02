@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Next 1`] = `
+<div
+  className="sc-Axmtr hKwgRk"
+>
+  <div
+    className="sc-AxmLO cAKCgh"
+  />
+  <div
+    className="sc-AxmLO cAKCgh"
+  />
+  <div
+    className="sc-AxmLO cAKCgh"
+  />
+  <div
+    className="sc-AxmLO cAKCgh"
+  />
+  <div
+    className="sc-AxheI fUKIku"
+  >
+    <div
+      className="sc-AxjAm hTpnSM"
+    >
+      <div
+        className="sc-AxirZ LYUtQ"
+      />
+      <div
+        className="sc-AxiKw iOnKrh"
+      />
+      <div
+        className="sc-AxhCb xeSXY"
+      />
+      <div
+        className="sc-AxhUy gYjcNl"
+      />
+      <div
+        className="sc-AxgMl dZJlDE"
+      />
+    </div>
+  </div>
+  <div
+    className="sc-AxheI fUKIku"
+  >
+    <div
+      className="sc-AxjAm hTpnSM"
+    >
+      <div
+        className="sc-AxirZ LYUtQ"
+      />
+      <div
+        className="sc-AxiKw iOnKrh"
+      />
+      <div
+        className="sc-AxhCb xeSXY"
+      />
+      <div
+        className="sc-AxhUy gYjcNl"
+      />
+      <div
+        className="sc-AxgMl dZJlDE"
+      />
+    </div>
+  </div>
+  <div
+    className="sc-AxheI fUKIku"
+  >
+    <div
+      className="sc-AxjAm hTpnSM"
+    >
+      <div
+        className="sc-AxirZ LYUtQ"
+      />
+      <div
+        className="sc-AxiKw iOnKrh"
+      />
+      <div
+        className="sc-AxhCb xeSXY"
+      />
+      <div
+        className="sc-AxhUy gYjcNl"
+      />
+      <div
+        className="sc-AxgMl dZJlDE"
+      />
+    </div>
+  </div>
+  <div
+    className="sc-AxheI fUKIku"
+  >
+    <div
+      className="sc-AxjAm hTpnSM"
+    >
+      <div
+        className="sc-AxirZ LYUtQ"
+      />
+      <div
+        className="sc-AxiKw iOnKrh"
+      />
+      <div
+        className="sc-AxhCb xeSXY"
+      />
+      <div
+        className="sc-AxhUy gYjcNl"
+      />
+      <div
+        className="sc-AxgMl dZJlDE"
+      />
+    </div>
+  </div>
+  <div
+    className="sc-AxmLO cAKCgh"
+  />
+  <div
+    className="sc-AxmLO cAKCgh"
+  />
+  <div
+    className="sc-AxmLO cAKCgh"
+  />
+  <div
+    className="sc-AxmLO cAKCgh"
+  />
+  <div
+    className="sc-AxmLO cAKCgh"
+  />
+  <div
+    className="sc-AxmLO cAKCgh"
+  />
+  <div
+    className="sc-AxmLO cAKCgh"
+  />
+  <div
+    className="sc-AxmLO cAKCgh"
+  />
+</div>
+`;

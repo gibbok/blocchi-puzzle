@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Button 1`] = `
+<button
+  className="sc-AxjAm dXSKqi"
+  onClick={[Function]}
+>
+  <div
+    className="sc-AxirZ kCiwbh"
+  >
+    Button
+  </div>
+</button>
+`;
