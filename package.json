@@ -28,7 +28,9 @@
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook -c .storybook -o .out",
     "storybook:build:local": "npx http-server .out",
-    "storybook:deploy": "npm run check && npm run storybook:build && storybook-to-ghpages"
+    "storybook:deploy": "npm run check && npm run storybook:build && storybook-to-ghpages",
+    "test:visual": "loki test --port 6006",
+    "test:visual:approve": "loki approve"
   },
   "dependencies": {
     "@material-ui/icons": "^4.9.1",
@@ -85,11 +87,23 @@
     "eslint-plugin-react": "^7.20.0",
     "fork-ts-checker-webpack-plugin": "^4.1.6",
     "jest": "^26.0.1",
+    "loki": "^0.20.3",
     "parcel-bundler": "^1.12.4",
     "prettier": "^2.0.5",
     "react-docgen-typescript-loader": "^3.7.2",
     "ts-jest": "^26.0.0",
     "ts-loader": "^7.0.5",
     "typescript": "^3.9.3"
+  },
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.app",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      }
+    }
   }
 }
