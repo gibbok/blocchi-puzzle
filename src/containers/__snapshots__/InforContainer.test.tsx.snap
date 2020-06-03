@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InfoContainer /> should return a connected component 1`] = `
+<div
+  className="sc-AxjAm hoSxYA"
+>
+  <div
+    className="sc-AxirZ jPhnSh"
+  >
+    <div
+      className="sc-AxiKw bLKSBM"
+    >
+      Score
+    </div>
+    <div
+      className="sc-AxiKw bLKSBM"
+    >
+      0
+    </div>
+  </div>
+  <div
+    className="sc-AxhCb jNrBnE"
+  />
+  <div
+    className="sc-AxirZ jPhnSh"
+  >
+    <div
+      className="sc-AxiKw bLKSBM"
+    >
+      Level
+    </div>
+    <div
+      className="sc-AxiKw bLKSBM"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="sc-AxhCb jNrBnE"
+  />
+  <div
+    className="sc-AxirZ jPhnSh"
+  >
+    <div
+      className="sc-AxiKw bLKSBM"
+    >
+      Lines
+    </div>
+    <div
+      className="sc-AxiKw bLKSBM"
+    >
+      0
+    </div>
+  </div>
+</div>
+`;
