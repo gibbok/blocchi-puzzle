@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import 'typeface-oleo-script';
+import 'typeface-oleo-script/index.css';
 import { wood } from '../assets/images';
 
 const InfoStyled = styled.div`

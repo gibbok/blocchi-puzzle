@@ -1,0 +1,8 @@
+import React from 'react';
+import { Score } from './Score';
+import renderer from 'react-test-renderer';
+
+it('should render Score', () => {
+  const tree = renderer.create(<Score score={100} level={1} />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
