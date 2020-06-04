@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { mkPublicState } from '../store/reducer';
 import { Screen } from '../components';
 
-const mapStateToProps = (state: InternalState): { screen: ScreenEnum } => {
+export const mapStateToProps = (state: InternalState): { screen: ScreenEnum } => {
   const { screen } = mkPublicState(state);
   return { screen };
 };
