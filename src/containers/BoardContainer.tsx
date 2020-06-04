@@ -3,7 +3,7 @@ import { mkPublicState } from '../store/reducer';
 import { Board } from '../components/Board';
 import { InternalState, Board as BoardType } from '../game/types';
 
-const mapStateToProps = (prevState: InternalState): { board: BoardType } => {
+export const mapStateToProps = (prevState: InternalState): { board: BoardType } => {
   const { board } = mkPublicState(prevState);
   return { board };
 };
