@@ -1,4 +1,4 @@
 export * from './BoardContainer';
-export * from './NextContainer';
-export * from './InfoContainer';
+export { NextContainer } from './NextContainer';
+export { InfoContainer } from './InfoContainer';
 export * from './ScoreContainer';

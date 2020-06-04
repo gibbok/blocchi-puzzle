@@ -8,7 +8,7 @@ type Out = Readonly<{
   direction: DirectionEnum;
 }>;
 
-const mapStateToProps = (prevState: InternalState): Out => {
+export const mapStateToProps = (prevState: InternalState): Out => {
   const {
     nextTetro: { type, direction },
   } = mkPublicState(prevState);
