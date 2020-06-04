@@ -3,7 +3,6 @@ import { TetroEnum } from '../game/types';
 import { mkInitialState } from '../store';
 import renderer from 'react-test-renderer';
 import configureMockStore from 'redux-mock-store';
-import { shallow } from 'enzyme';
 import React from 'react';
 import { Provider } from 'react-redux';
 
