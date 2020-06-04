@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<InfoContainer /> should return a connected component 1`] = `
+exports[`<InfoContainer /> should render correctly 1`] = `
 <div
   className="sc-AxjAm hoSxYA"
 >

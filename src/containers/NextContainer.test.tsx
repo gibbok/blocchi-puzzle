@@ -11,7 +11,6 @@ describe('<NextContainer />', () => {
     const input = mkInitialState(TetroEnum.I, TetroEnum.J);
     const result = mapStateToProps(input);
     const output = { type: TetroEnum.J, direction: DirectionEnum.N };
-    console.log(result, output);
 
     expect(result).toMatchObject(output);
   });
