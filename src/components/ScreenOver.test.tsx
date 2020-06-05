@@ -9,6 +9,19 @@ import { act } from 'react-dom/test-utils';
 
 describe('ScreenOver', () => {
   const store = mockStore();
+  let container: HTMLElement | null;
+
+  beforeEach(() => {
+    container = document.createElement('div');
+    document.body.appendChild(container);
+  });
+
+  afterEach(() => {
+    if (container) {
+      document.body.removeChild(container);
+      container = null;
+    }
+  });
 
   it('should render correctly', () => {
     const tree = renderer
@@ -32,45 +45,29 @@ describe('ScreenOver', () => {
     expect(instance.findByType(Button).props.onClick).toBeTruthy();
   });
 
-  describe('should check dispatch', () => {
-    let container: HTMLElement | null;
+  it('should render button, click and dispatch and action', () => {
+    const store = mockStore();
 
-    beforeEach(() => {
-      container = document.createElement('div');
-      document.body.appendChild(container);
+    // first render
+    act(() => {
+      ReactDOM.render(
+        <Provider store={store}>
+          <ScreenOver />
+        </Provider>,
+        container
+      );
     });
+    const button = container?.querySelector('button');
+    expect(button?.textContent).toBe('Play again!');
 
-    afterEach(() => {
-      if (container) {
-        document.body.removeChild(container);
-        container = null;
-      }
-    });
+    const clicked = button?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    expect(clicked).toBeTruthy();
 
-    it('can render button, click and dispatch and action', () => {
-      const store = mockStore();
-
-      // first render
-      act(() => {
-        ReactDOM.render(
-          <Provider store={store}>
-            <ScreenOver />
-          </Provider>,
-          container
-        );
-      });
-      const button = container?.querySelector('button');
-      expect(button?.textContent).toBe('Play again!');
-
-      const clicked = button?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-      expect(clicked).toBeTruthy();
-
-      const actions = store.getActions();
-      const expectedPayload = [
-        { type: 'game/resetGame', paylaod: undefined },
-        { type: 'game/screenGame', paylaod: undefined },
-      ];
-      expect(actions).toEqual(expectedPayload);
-    });
+    const actions = store.getActions();
+    const expectedPayload = [
+      { type: 'game/resetGame', paylaod: undefined },
+      { type: 'game/screenGame', paylaod: undefined },
+    ];
+    expect(actions).toEqual(expectedPayload);
   });
 });
