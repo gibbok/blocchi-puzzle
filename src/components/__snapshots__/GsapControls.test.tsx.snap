@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GsapControls should render 1`] = `
+<div>
+  <div>
+    test
+  </div>
+  <div
+    style={
+      Object {
+        "backgroundColor": "#f0f0f0",
+        "border": "1px solid #ccc",
+        "fontFamily": "verdana, sans-serif",
+        "fontSize": "16px",
+        "marginTop": "10px",
+        "padding": "10px 10px 0 10px",
+        "position": "relative",
+        "zIndex": 2,
+      }
+    }
+  >
+    <input
+      onChange={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      step="0.001"
+      style={
+        Object {
+          "margin": "0",
+          "width": "100%",
+        }
+      }
+      type="range"
+    />
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexWrap": "wrap",
+          "justifyContent": "space-between",
+          "margin": "0",
+        }
+      }
+    >
+      <div>
+        <button
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#f0f0f0",
+              "border": "1px solid #999",
+              "cursor": "pointer",
+              "margin": "10px 10px 10px 0",
+              "padding": "5px",
+            }
+          }
+          type="button"
+        >
+          Play
+        </button>
+        <button
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#f0f0f0",
+              "border": "1px solid #999",
+              "cursor": "pointer",
+              "margin": "10px 10px 10px 0",
+              "padding": "5px",
+            }
+          }
+          type="button"
+        >
+          Reverse
+        </button>
+        <button
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#f0f0f0",
+              "border": "1px solid #999",
+              "cursor": "pointer",
+              "margin": "10px 10px 10px 0",
+              "padding": "5px",
+            }
+          }
+          type="button"
+        >
+          Pause
+        </button>
+        <button
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#f0f0f0",
+              "border": "1px solid #999",
+              "cursor": "pointer",
+              "margin": "10px 10px 10px 0",
+              "padding": "5px",
+            }
+          }
+          type="button"
+        >
+          Stop
+        </button>
+      </div>
+      <span
+        style={
+          Object {
+            "color": "#999",
+            "fontSize": "14px",
+            "margin": "10px 0",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
