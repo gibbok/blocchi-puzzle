@@ -80,7 +80,6 @@ export type InternalState = Readonly<{
 export type PublicState = Omit<InternalState, 'currentTetro' | 'isPlay' | 'isGameOver'>;
 
 export enum KeyEnum {
-  Esc = 27,
   Space = 32,
   Left = 37,
   Up = 38,
