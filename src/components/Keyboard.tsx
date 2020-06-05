@@ -16,12 +16,13 @@ type Props = Readonly<{
   detectionKeyRepeat: DetectorKeyRepeat;
 }>;
 
-const handleKeydown = (dkr: DetectorKeyRepeat) => (
-  left: () => void,
+export const handleKeydown = (
+  dkr: DetectorKeyRepeat,
   up: () => void,
   right: () => void,
-  down: () => void
-) => ({ keyCode, repeat }: KeyboardEvent) => {
+  down: () => void,
+  left: () => void
+) => (keyCode: string, repeat: boolean): void => {
   dkr.set(repeat);
 
   switch (keyCode) {
@@ -44,17 +45,22 @@ const handleKeydown = (dkr: DetectorKeyRepeat) => (
 export const Keyboard = ({ detectionKeyRepeat }: Props): JSX.Element => {
   const dispatch = useDispatch();
 
-  const hkd = handleKeydown(detectionKeyRepeat)(
-    () => dispatch(moveLeft()),
+  const hkd = handleKeydown(
+    detectionKeyRepeat,
     () => dispatch(moveUp()),
     () => dispatch(moveRight()),
-    () => dispatch(moveDownThunk())
+    () => dispatch(moveDownThunk()),
+    () => dispatch(moveLeft())
   );
 
-  const cleanUpHandleKeydown = () => document.removeEventListener('keydown', hkd);
+  const cleanUpHandleKeydown = () =>
+    document.removeEventListener('keydown', (e) => hkd(String(e.keyCode), e.repeat));
 
   useEffect(() => {
-    document.addEventListener('keydown', throttle(THROTTLE_MS, hkd));
+    document.addEventListener(
+      'keydown',
+      throttle(THROTTLE_MS, (e) => hkd(String(e.keyCode), e.repeat))
+    );
     return cleanUpHandleKeydown;
   });
   return <></>;
