@@ -48,7 +48,7 @@ describe('ScreenOver', () => {
   it('should render button, click and dispatch and action', () => {
     const store = mockStore();
 
-    // first render
+    // check if button is present
     act(() => {
       ReactDOM.render(
         <Provider store={store}>
@@ -60,9 +60,11 @@ describe('ScreenOver', () => {
     const button = container?.querySelector('button');
     expect(button?.textContent).toBe('Play again!');
 
+    // check click on button
     const clicked = button?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     expect(clicked).toBeTruthy();
 
+    // check for dispatched actions
     const actions = store.getActions();
     const expectedPayload = [
       { type: 'game/resetGame', paylaod: undefined },
