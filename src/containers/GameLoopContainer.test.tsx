@@ -2,10 +2,10 @@ import { mapStateToProps, GameLoopContainer } from './GameLoopContainer';
 import { TetroEnum } from '../game/types';
 import { mkInitialState } from '../store';
 import renderer from 'react-test-renderer';
-import configureMockStore from 'redux-mock-store';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { detectorKeyRepeat } from '../components/detectorKeyRepeat';
+import { mockStore } from '../utils';
 
 jest.useFakeTimers();
 
@@ -19,11 +19,9 @@ describe('<GameLoopContainer />', () => {
   });
 
   it('should render correctly', () => {
-    const mockStore = configureMockStore();
-    const initialState = mkInitialState(TetroEnum.I, TetroEnum.J);
-    const store = mockStore(initialState);
+    const mockedStore = mockStore();
     const withProvider = (
-      <Provider store={store}>
+      <Provider store={mockedStore}>
         <GameLoopContainer detectionKeyRepeat={detectorKeyRepeat} />
       </Provider>
     );

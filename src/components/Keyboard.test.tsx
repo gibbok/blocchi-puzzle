@@ -1,10 +1,9 @@
 import { handleKeydown, Keyboard } from './Keyboard';
-import { KeyEnum, TetroEnum } from '../game/types';
+import { KeyEnum } from '../game/types';
 import renderer from 'react-test-renderer';
 import React from 'react';
-import configureMockStore from 'redux-mock-store';
-import { mkInitialState } from '../store';
 import { Provider } from 'react-redux';
+import { mockStore } from '../utils';
 
 describe('Keyboard', () => {
   const dkr = {
@@ -40,16 +39,15 @@ describe('Keyboard', () => {
 
   describe('Keyboard', () => {
     it('should not render any dom', () => {
-      const mockStore = configureMockStore();
-      const initialState = mkInitialState(TetroEnum.I, TetroEnum.J);
-      const store = mockStore(initialState);
+      const mockedStore = mockStore();
       const tree = renderer
         .create(
-          <Provider store={store}>
+          <Provider store={mockedStore}>
             <Keyboard detectionKeyRepeat={dkr} />
           </Provider>
         )
         .toJSON();
+
       expect(tree).toMatchSnapshot();
     });
   });

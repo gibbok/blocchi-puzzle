@@ -2,10 +2,9 @@ import { mapStateToProps, BoardContainer } from './BoardContainer';
 import { TetroEnum, I } from '../game/types';
 import { mkInitialState } from '../store';
 import renderer from 'react-test-renderer';
-import configureMockStore from 'redux-mock-store';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BOARD_ROW_EMPTY } from '../utils';
+import { BOARD_ROW_EMPTY, mockStore } from '../utils';
 
 describe('<BoardContainer />', () => {
   it('should mapStateToProps correctly', () => {
@@ -25,9 +24,7 @@ describe('<BoardContainer />', () => {
   });
 
   it('should render correctly', () => {
-    const mockStore = configureMockStore();
-    const initialState = mkInitialState(TetroEnum.I, TetroEnum.J);
-    const store = mockStore(initialState);
+    const store = mockStore();
     const withProvider = (
       <Provider store={store}>
         <BoardContainer />

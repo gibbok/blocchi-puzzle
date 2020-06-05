@@ -2,9 +2,9 @@ import { mapStateToProps, InfoContainer } from './InfoContainer';
 import { TetroEnum } from '../game/types';
 import { mkInitialState } from '../store';
 import renderer from 'react-test-renderer';
-import configureMockStore from 'redux-mock-store';
 import React from 'react';
 import { Provider } from 'react-redux';
+import { mockStore } from '../utils';
 
 // http://rahulgaba.com/front-end/2018/10/19/unit-testing-redux-containers-the-better-way-using-jest.html
 // https://www.robinwieruch.de/react-connected-component-test
@@ -18,9 +18,7 @@ describe('<InfoContainer />', () => {
   });
 
   it('should render correctly', () => {
-    const mockStore = configureMockStore();
-    const initialState = mkInitialState(TetroEnum.I, TetroEnum.J);
-    const store = mockStore(initialState);
+    const store = mockStore();
     const withProvider = (
       <Provider store={store}>
         <InfoContainer />

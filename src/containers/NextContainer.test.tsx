@@ -1,10 +1,10 @@
 import { mkInitialState } from '../store';
 import { TetroEnum, DirectionEnum } from '../game/types';
 import { mapStateToProps, NextContainer } from './NextContainer';
-import configureMockStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { mockStore } from '../utils';
 
 describe('<NextContainer />', () => {
   it('should mapStateToProps correctly', () => {
@@ -16,9 +16,7 @@ describe('<NextContainer />', () => {
   });
 
   it('should render NextContainer', () => {
-    const mockStore = configureMockStore();
-    const initialState = mkInitialState(TetroEnum.I, TetroEnum.J);
-    const store = mockStore(initialState);
+    const store = mockStore();
     const withProvider = (
       <Provider store={store}>
         <NextContainer />
