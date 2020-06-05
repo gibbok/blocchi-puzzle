@@ -1,7 +1,6 @@
 import React from 'react';
 import { Navigation } from './Navigation';
 import renderer from 'react-test-renderer';
-import { noop } from '../utils';
 import { PadLeft, PadRight, PadDown, PadRotate } from './Pad';
 
 describe('<Navigation />', () => {
