@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render Navigation 1`] = `
+exports[`<Navigation /> should render Navigation 1`] = `
 <div
   className="sc-AxgMl hbmoOe"
 >
@@ -9,7 +9,7 @@ exports[`should render Navigation 1`] = `
   >
     <div
       className="sc-AxirZ jtuuYO"
-      onClick={[Function]}
+      onClick={[MockFunction]}
     >
       <div
         className="sc-AxiKw cWlzsq"
@@ -42,7 +42,7 @@ exports[`should render Navigation 1`] = `
   >
     <div
       className="sc-AxirZ jtuuYO"
-      onClick={[Function]}
+      onClick={[MockFunction]}
     >
       <div
         className="sc-AxiKw cWlzsq"
@@ -75,7 +75,7 @@ exports[`should render Navigation 1`] = `
   >
     <div
       className="sc-AxirZ jtuuYO"
-      onClick={[Function]}
+      onClick={[MockFunction]}
     >
       <div
         className="sc-AxiKw cWlzsq"
@@ -108,7 +108,7 @@ exports[`should render Navigation 1`] = `
   >
     <div
       className="sc-AxirZ jtuuYO"
-      onClick={[Function]}
+      onClick={[MockFunction]}
     >
       <div
         className="sc-AxiKw cWlzsq"
