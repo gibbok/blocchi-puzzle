@@ -5,12 +5,12 @@ import { mockStore } from '../utils';
 import { Provider } from 'react-redux';
 import { Button } from './Button';
 import ReactDOM from 'react-dom';
-
-const { act } = renderer;
+import { act } from 'react-dom/test-utils';
 
 describe('ScreenOver', () => {
   const store = mockStore();
-  it('should render', () => {
+
+  it('should render correctly', () => {
     const tree = renderer
       .create(
         <Provider store={store}>
@@ -32,7 +32,7 @@ describe('ScreenOver', () => {
     expect(instance.findByType(Button).props.onClick).toBeTruthy();
   });
 
-  describe('xx', () => {
+  describe('should check dispatch', () => {
     let container: HTMLElement | null;
 
     beforeEach(() => {
@@ -47,8 +47,9 @@ describe('ScreenOver', () => {
       }
     });
 
-    it('can render and update a counter', () => {
+    it('can render button, click and dispatch and action', () => {
       const store = mockStore();
+
       // first render
       act(() => {
         ReactDOM.render(
@@ -61,17 +62,15 @@ describe('ScreenOver', () => {
       const button = container?.querySelector('button');
       expect(button?.textContent).toBe('Play again!');
 
-      // second render
-      act(() => {
-        const clicked = button?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-        expect(clicked).toBeTruthy();
-        const actions = store.getActions();
-        const expectedPayload = [
-          { type: 'game/resetGame', paylaod: undefined },
-          { type: 'game/screenGame', paylaod: undefined },
-        ];
-        expect(actions).toEqual(expectedPayload);
-      });
+      const clicked = button?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      expect(clicked).toBeTruthy();
+
+      const actions = store.getActions();
+      const expectedPayload = [
+        { type: 'game/resetGame', paylaod: undefined },
+        { type: 'game/screenGame', paylaod: undefined },
+      ];
+      expect(actions).toEqual(expectedPayload);
     });
   });
 });
