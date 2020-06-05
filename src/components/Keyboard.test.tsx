@@ -4,6 +4,8 @@ import renderer from 'react-test-renderer';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { mockStore } from '../utils';
+import { act } from 'react-dom/test-utils';
+import ReactDOM from 'react-dom';
 
 describe('Keyboard', () => {
   const dkr = {
@@ -37,18 +39,53 @@ describe('Keyboard', () => {
     });
   });
 
-  describe('Keyboard', () => {
-    it('should not render any dom', () => {
-      const mockedStore = mockStore();
-      const tree = renderer
-        .create(
-          <Provider store={mockedStore}>
-            <Keyboard detectionKeyRepeat={dkr} />
-          </Provider>
-        )
-        .toJSON();
+  describe('<Keyboard />', () => {
+    const store = mockStore();
+    const tree = renderer.create(
+      <Provider store={store}>
+        <Keyboard detectionKeyRepeat={dkr} />
+      </Provider>
+    );
+    let container: HTMLElement | null;
 
+    beforeEach(() => {
+      container = document.createElement('div');
+      document.body.appendChild(container);
+    });
+
+    afterEach(() => {
+      if (container) {
+        document.body.removeChild(container);
+        container = null;
+      }
+    });
+
+    it('should not render any dom', () => {
+      tree.toJSON();
       expect(tree).toMatchSnapshot();
+    });
+
+    it('should dispatch actions', () => {
+      act(() => {
+        ReactDOM.render(
+          <Provider store={store}>
+            <Keyboard detectionKeyRepeat={dkr} />
+          </Provider>,
+          container
+        );
+        // document.addEventListener('keydown', (x) => {
+        //   console.log('was listening', x.code);
+        // });
+        document.dispatchEvent(
+          new KeyboardEvent('keydown', {
+            code: KeyEnum.Left,
+          })
+        );
+        //FIXME
+        const actions = store.getActions();
+        const expectedPayload = [{ type: 'game/resetGame', paylaod: undefined }];
+        expect(actions).toEqual(expectedPayload);
+      });
     });
   });
 });
