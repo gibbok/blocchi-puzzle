@@ -4,7 +4,6 @@ import renderer from 'react-test-renderer';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { mockStore } from '../utils';
-import { render } from 'react-dom';
 
 describe('Keyboard', () => {
   const dkr = {
