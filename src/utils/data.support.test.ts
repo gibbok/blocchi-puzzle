@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { mkEmptyRow, mkRow } from '../game';
 import { TetroPieces, Z, S, J, T, I, L, O, BoardRow, Board, TetroEnum } from '../game/types';
-import configureMockStore  from 'redux-mock-store';
+import configureMockStore, { MockStoreEnhanced }  from 'redux-mock-store';
 import {mkInitialState} from '../store/reducer'
 
 export const dataPieces: TetroPieces = {
@@ -169,7 +169,7 @@ export const BOARD_RANDOM_S_1: Board = [
 
 export const BOARD_FULL_S: Board = [...Array(20).fill(BOARD_ROW_S)];
 
-export const mockStore = () => {
+export const mockStore = (): MockStoreEnhanced<unknown, unknown> => {
   const mockStore = configureMockStore();
   const initialState = mkInitialState(TetroEnum.I, TetroEnum.J);
   const store = mockStore(initialState);
