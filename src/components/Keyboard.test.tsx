@@ -1,12 +1,17 @@
-import { handleKeydown } from './Keyboard';
-import { KeyEnum } from '../game/types';
+import { handleKeydown, Keyboard } from './Keyboard';
+import { KeyEnum, TetroEnum } from '../game/types';
+import renderer from 'react-test-renderer';
+import React from 'react';
+import configureMockStore from 'redux-mock-store';
+import { mkInitialState } from '../store';
+import { Provider } from 'react-redux';
 
 describe('Keyboard', () => {
+  const dkr = {
+    set: jest.fn(),
+    get: jest.fn(),
+  };
   describe('handleKeydown', () => {
-    const dkr = {
-      set: jest.fn(),
-      get: jest.fn(),
-    };
     const up = jest.fn();
     const right = jest.fn();
     const down = jest.fn();
@@ -30,6 +35,22 @@ describe('Keyboard', () => {
     it('should execute left callback', () => {
       handleKeydown(dkr, up, right, down, left)(KeyEnum.Left, false);
       expect(left).toHaveBeenCalled();
+    });
+  });
+
+  describe('Keyboard', () => {
+    it('should not render any dom', () => {
+      const mockStore = configureMockStore();
+      const initialState = mkInitialState(TetroEnum.I, TetroEnum.J);
+      const store = mockStore(initialState);
+      const tree = renderer
+        .create(
+          <Provider store={store}>
+            <Keyboard detectionKeyRepeat={dkr} />
+          </Provider>
+        )
+        .toJSON();
+      expect(tree).toMatchSnapshot();
     });
   });
 });

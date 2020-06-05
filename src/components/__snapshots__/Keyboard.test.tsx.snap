@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Keyboard Keyboard should not render any dom 1`] = `null`;
