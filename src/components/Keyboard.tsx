@@ -22,7 +22,7 @@ export const handleKeydown = (
   right: () => void,
   down: () => void,
   left: () => void
-) => (keyCode: KeyEnum, repeat: boolean): void => {
+) => (keyCode: string, repeat: boolean): void => {
   dkr.set(repeat);
 
   switch (keyCode) {
@@ -54,12 +54,12 @@ export const Keyboard = ({ detectionKeyRepeat }: Props): JSX.Element => {
   );
 
   const cleanUpHandleKeydown = () =>
-    document.removeEventListener('keydown', (e) => hkd(e.keyCode, e.repeat));
+    document.removeEventListener('keydown', (e) => hkd(e.code, e.repeat));
 
   useEffect(() => {
     document.addEventListener(
       'keydown',
-      throttle(THROTTLE_MS, (e) => hkd(e.keyCode, e.repeat))
+      throttle(THROTTLE_MS, (e) => hkd(e.code, e.repeat))
     );
     return cleanUpHandleKeydown;
   });
