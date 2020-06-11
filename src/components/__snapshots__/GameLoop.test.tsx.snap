@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GameLoop /> should not rendere any dome 1`] = `null`;
