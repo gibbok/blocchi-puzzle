@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test should xx 1`] = `
+<div>
+  5
+</div>
+`;
+
+exports[`test should xx 2`] = `
+<div>
+  15
+</div>
+`;
