@@ -21,13 +21,6 @@ export const loop = (
   const threshold = calcTimeClockByLevel(TICK_MS, level);
   const progress = time - lastTime;
   const canGameAdvance = progress >= threshold;
-
-  console.log('--------------');
-  console.log('isKeyHeld', isKeyHeld);
-  console.log('threshold', isKeyHeld);
-  console.log('progress', progress);
-  console.log('canGameAdvance', canGameAdvance);
-
   if (canGameAdvance) {
     setLastTimeCb(time);
     if (!isKeyHeld) {

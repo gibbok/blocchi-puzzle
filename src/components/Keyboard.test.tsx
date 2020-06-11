@@ -73,15 +73,11 @@ describe('Keyboard', () => {
           </Provider>,
           container
         );
-        // document.addEventListener('keydown', (x) => {
-        //   console.log('was listening', x.code);
-        // });
         document.dispatchEvent(
           new KeyboardEvent('keydown', {
             code: KeyEnum.Left,
           })
         );
-        //FIXME
         const actions = store.getActions();
         const expectedPayload = [{ type: 'game/resetGame', paylaod: undefined }];
         expect(actions).toEqual(expectedPayload);

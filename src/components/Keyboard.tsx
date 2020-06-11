@@ -53,14 +53,17 @@ export const Keyboard = ({ detectionKeyRepeat }: Props): JSX.Element => {
     () => dispatch(moveLeft())
   );
 
-  const cleanUpHandleKeydown = () =>
-    document.removeEventListener('keydown', (e) => hkd(e.code, e.repeat));
-
-  useEffect(() => {
-    document.addEventListener(
+  const cleanUpHandleKeydown = () => {
+    document.removeEventListener(
       'keydown',
       throttle(THROTTLE_MS, (e) => hkd(e.code, e.repeat))
     );
+    document.removeEventListener('keyup', () => detectionKeyRepeat.set(false));
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', (e) => hkd(e.code, e.repeat));
+    document.addEventListener('keyup', () => detectionKeyRepeat.set(false));
     return cleanUpHandleKeydown;
   });
 
