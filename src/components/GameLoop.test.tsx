@@ -26,19 +26,33 @@ describe('<GameLoop />', () => {
   });
 
   describe('loop', () => {
-    const dkr = mkDkr(false);
-    const setLastTimeCbMock = jest.fn();
-    const cbMock = jest.fn();
-    const dispatchCbMock = jest.fn().mockImplementation(() => undefined);
     it('should call dispatch and update last time, if time passed is over threshold and user does not hold key', () => {
+      const dkr = mkDkr(false);
+      const setLastTimeCbMock = jest.fn();
+      const cbMock = jest.fn();
+      const dispatchCbMock = jest.fn().mockImplementation(() => undefined);
       loop(5000, 1, 1000, dkr, setLastTimeCbMock, cbMock, dispatchCbMock);
       expect(setLastTimeCbMock).toHaveBeenCalled();
       expect(dispatchCbMock).toHaveBeenCalled();
     });
 
     it('should do not dispatch and update last time, if time passed is not over threshold', () => {
+      const dkr = mkDkr(false);
+      const setLastTimeCbMock = jest.fn();
+      const cbMock = jest.fn();
+      const dispatchCbMock = jest.fn().mockImplementation(() => undefined);
       loop(4500, 1, 5000, dkr, setLastTimeCbMock, cbMock, dispatchCbMock);
       expect(setLastTimeCbMock).not.toHaveBeenCalled();
+      expect(dispatchCbMock).not.toHaveBeenCalled();
+    });
+
+    it('should call dispatch and update last time, if time passed is over threshold and user hold key', () => {
+      const dkr = mkDkr(true);
+      const setLastTimeCbMock = jest.fn();
+      const cbMock = jest.fn();
+      const dispatchCbMock = jest.fn().mockImplementation(() => undefined);
+      loop(5000, 1, 1000, dkr, setLastTimeCbMock, cbMock, dispatchCbMock);
+      expect(setLastTimeCbMock).toHaveBeenCalled();
       expect(dispatchCbMock).not.toHaveBeenCalled();
     });
   });
