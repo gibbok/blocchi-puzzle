@@ -11,7 +11,7 @@ describe('<GameLoop />', () => {
   };
   const cb = jest.fn();
 
-  it('should not rendere any dome', () => {
+  it('should not render any dom', () => {
     const store = mockStore();
     const tree = renderer
       .create(
