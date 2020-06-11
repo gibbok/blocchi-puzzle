@@ -25,6 +25,24 @@ describe('<GameLoop />', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should mount xx', () => {
+    const dkr = mkDkr(false);
+    const comp = (
+      <Provider store={store}>
+        <GameLoop level={1} detectionKeyRepeat={dkr} cb={cb} />
+      </Provider>
+    );
+    const tree = renderer.create(comp);
+    tree.update(comp);
+    expect(tree).toMatchSnapshot();
+
+    const cbRaf = jest.fn();
+    jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => cbRaf());
+
+    window.requestAnimationFrame = (cb) => cbRaf();
+    expect(cbRaf).toHaveBeenCalled();
+  });
+
   describe('loop', () => {
     it('should call dispatch and update last time, if time passed is over threshold and user does not hold key', () => {
       const dkr = mkDkr(false);
