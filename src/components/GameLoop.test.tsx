@@ -27,6 +27,13 @@ describe('<GameLoop />', () => {
 
   it('should mount xx', () => {
     const dkr = mkDkr(false);
+
+    window.requestAnimationFrame = function (callback) {
+      return setTimeout(callback, 0);
+    };
+    const cbRaf = jest.fn();
+    window.requestAnimationFrame = (x) => cbRaf(x);
+
     const comp = (
       <Provider store={store}>
         <GameLoop level={1} detectionKeyRepeat={dkr} cb={cb} />
@@ -34,12 +41,8 @@ describe('<GameLoop />', () => {
     );
     const tree = renderer.create(comp);
     tree.update(comp);
+
     expect(tree).toMatchSnapshot();
-
-    const cbRaf = jest.fn();
-    jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => cbRaf());
-
-    window.requestAnimationFrame = (cb) => cbRaf();
     expect(cbRaf).toHaveBeenCalled();
   });
 
