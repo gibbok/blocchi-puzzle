@@ -7,6 +7,10 @@ describe('test', () => {
   it('should xx', () => {
     act(() => {
       const tree = renderer.create(<Test />);
+
+      jest.advanceTimersByTime(0);
+      expect(tree).toMatchSnapshot();
+
       jest.advanceTimersByTime(5000);
       expect(tree).toMatchSnapshot();
 
