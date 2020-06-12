@@ -29,7 +29,6 @@ export const loop = (
     return undefined;
   }
   animId = window.requestAnimationFrame((time) =>
-    /* istanbul ignore next */
     loop(time, level, lastTime, detectionKeyRepeat, setLastTimeCb, cb, () => dispatchCb(() => cb()))
   );
   return undefined;

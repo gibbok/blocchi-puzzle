@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 import { mkEmptyRow, mkRow } from '../game';
 import { TetroPieces, Z, S, J, T, I, L, O, BoardRow, Board, TetroEnum } from '../game/types';
-import configureMockStore, { MockStoreEnhanced }  from 'redux-mock-store';
-import {mkInitialState} from '../store/reducer'
+import configureMockStore, { MockStoreEnhanced } from 'redux-mock-store';
+import { mkInitialState } from '../store/reducer';
 import thunk from 'redux-thunk';
 import { DetectorKeyRepeat } from 'components/detectorKeyRepeat';
 
