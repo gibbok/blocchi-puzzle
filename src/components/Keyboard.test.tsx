@@ -47,6 +47,15 @@ describe('Keyboard', () => {
       </Provider>
     );
     let container: HTMLElement | null;
+    let mockUseEffect: jest.SpyInstance;
+
+    beforeAll(() => {
+      mockUseEffect = jest.spyOn(React, 'useEffect').mockImplementation(React.useLayoutEffect);
+    });
+
+    afterAll(() => {
+      mockUseEffect.mockRestore();
+    });
 
     beforeEach(() => {
       container = document.createElement('div');
@@ -65,7 +74,6 @@ describe('Keyboard', () => {
       expect(tree).toMatchSnapshot();
     });
 
-    beforeAll(() => jest.spyOn(React, 'useEffect').mockImplementation(React.useLayoutEffect));
     it('should listen to events and dispatch actions', () => {
       act(() => {
         ReactDOM.render(
@@ -74,9 +82,18 @@ describe('Keyboard', () => {
           </Provider>,
           container
         );
-        document.addEventListener('keydown', (e) => {
-          console.log(e);
-        });
+        document.dispatchEvent(
+          new KeyboardEvent('keydown', {
+            code: KeyEnum.Up,
+            bubbles: true,
+          })
+        );
+        document.dispatchEvent(
+          new KeyboardEvent('keydown', {
+            code: KeyEnum.Right,
+            bubbles: true,
+          })
+        );
         document.dispatchEvent(
           new KeyboardEvent('keydown', {
             code: KeyEnum.Left,
@@ -84,7 +101,11 @@ describe('Keyboard', () => {
           })
         );
         const actions = store.getActions();
-        const expectedPayload = [{ type: 'game/moveLeft', paylaod: undefined }];
+        const expectedPayload = [
+          { type: 'game/moveUp', paylaod: undefined },
+          { type: 'game/moveRight', paylaod: undefined },
+          { type: 'game/moveLeft', paylaod: undefined },
+        ];
         expect(actions).toEqual(expectedPayload);
       });
     });
