@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render Logo 1`] = `
+exports[`<Logo /> should render Logo 1`] = `
 <svg
   className="sc-AxjAm sc-AxirZ iKHiMF"
   height="207.94"

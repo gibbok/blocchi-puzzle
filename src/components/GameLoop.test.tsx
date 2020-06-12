@@ -3,6 +3,8 @@ import renderer from 'react-test-renderer';
 import { GameLoop, loop } from './GameLoop';
 import { mockStore } from '../utils';
 import { Provider } from 'react-redux';
+import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from 'react-dom/test-utils';
 
 const mkDkr = (isKeyHold: boolean) => ({
   get: jest.fn().mockImplementation(() => isKeyHold),
@@ -25,25 +27,43 @@ describe('<GameLoop />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should mount xx', () => {
+  let container: any = null;
+  beforeEach(() => {
+    // setup a DOM element as a render target
+    container = document.createElement('div');
+    document.body.appendChild(container);
+  });
+
+  afterEach(() => {
+    // cleanup on exiting
+    unmountComponentAtNode(container);
+    container.remove();
+    container = null;
+  });
+
+  it('should mount cann within requestAnimationFrame', () => {
     const cb = jest.fn();
     const dkr = mkDkr(false);
     const store = mockStore();
-
-    jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => setTimeout(cb, 0));
     const cbRaf = jest.fn();
-    window.requestAnimationFrame = (x) => cbRaf(x);
 
-    const comp = (
-      <Provider store={store}>
-        <GameLoop level={1} detectionKeyRepeat={dkr} cb={cb} />
-      </Provider>
-    );
-    const tree = renderer.create(comp);
-    tree.update(comp);
+    jest.useFakeTimers();
+    act(() => {
+      jest
+        .spyOn(window, 'requestAnimationFrame')
+        .mockImplementation(() => setTimeout(() => cbRaf(), 0));
 
-    expect(tree).toMatchSnapshot();
-    expect(cbRaf).toHaveBeenCalled();
+      jest.advanceTimersByTime(5000);
+      const comp = (
+        <Provider store={store}>
+          <GameLoop level={1} detectionKeyRepeat={dkr} cb={cb} />
+        </Provider>
+      );
+      render(comp, container);
+
+      expect(cbRaf).toHaveBeenCalled();
+      console.log(store.getActions());
+    });
   });
 
   describe('loop', () => {

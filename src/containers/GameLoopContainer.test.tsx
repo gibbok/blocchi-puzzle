@@ -7,9 +7,8 @@ import { Provider } from 'react-redux';
 import { detectorKeyRepeat } from '../components/detectorKeyRepeat';
 import { mockStore } from '../utils';
 
-jest.useFakeTimers();
-
 describe('<GameLoopContainer />', () => {
+  jest.useFakeTimers();
   it('should mapStateToProps correctly', () => {
     const input = mkInitialState(TetroEnum.I, TetroEnum.J);
     const output = mapStateToProps(input);

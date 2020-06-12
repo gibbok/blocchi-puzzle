@@ -10,7 +10,7 @@ const {
   actions: { moveLeft, moveUp, moveRight },
 } = gameSlice;
 
-const THROTTLE_MS = 100;
+const THROTTLE_MS = 500;
 
 type Props = Readonly<{
   detectionKeyRepeat: DetectorKeyRepeat;
