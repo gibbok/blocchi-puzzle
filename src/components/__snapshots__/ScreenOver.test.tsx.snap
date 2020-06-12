@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScreenOver should render correctly 1`] = `
+<div
+  className="sc-fzqNJr dCjklm"
+>
+  <div
+    className="sc-fzqBZW ckAzKi"
+  >
+    <div
+      className="sc-fznKkj dBOSXt"
+    >
+      <div
+        className="sc-fznZeY ihsglE"
+      >
+        Score
+      </div>
+      <div
+        className="sc-fznZeY ihsglE"
+      >
+        0
+      </div>
+    </div>
+    <div
+      className="sc-fznKkj dBOSXt"
+    >
+      <div
+        className="sc-fznZeY ihsglE"
+      >
+        Level
+      </div>
+      <div
+        className="sc-fznZeY ihsglE"
+      >
+        1
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-fzoyAV fqmqGy"
+  >
+    <button
+      className="sc-AxjAm dXSKqi"
+      onClick={[Function]}
+    >
+      <div
+        className="sc-AxirZ kCiwbh"
+      >
+        Play again!
+      </div>
+    </button>
+  </div>
+</div>
+`;

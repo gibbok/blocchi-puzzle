@@ -6,3 +6,5 @@ export const getRandomValueFromStringEnum = <T>(strEnum: T): IO<T[keyof T]> => {
   const rndValue = Object.keys(strEnum)[rndInt] as keyof T;
   return io.of(strEnum[rndValue]);
 };
+
+export const noop = (): void => undefined;

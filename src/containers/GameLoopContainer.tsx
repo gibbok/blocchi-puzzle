@@ -6,7 +6,7 @@ import { moveDownThunk } from '../store/board/actions/thunks';
 
 const cb = moveDownThunk;
 
-const mapStateToProps = (prevState: InternalState): { level: number; cb: () => void } => {
+export const mapStateToProps = (prevState: InternalState): { level: number; cb: () => void } => {
   const { level } = mkPublicState(prevState);
   return { level, cb };
 };

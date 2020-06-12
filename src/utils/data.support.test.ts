@@ -1,6 +1,10 @@
 /* eslint-disable prettier/prettier */
 import { mkEmptyRow, mkRow } from '../game';
 import { TetroPieces, Z, S, J, T, I, L, O, BoardRow, Board, TetroEnum } from '../game/types';
+import configureMockStore, { MockStoreEnhanced } from 'redux-mock-store';
+import { mkInitialState } from '../store/reducer';
+import thunk from 'redux-thunk';
+import { DetectorKeyRepeat } from 'components/detectorKeyRepeat';
 
 export const dataPieces: TetroPieces = {
   Z: {
@@ -166,3 +170,15 @@ export const BOARD_RANDOM_S_1: Board = [
 ];
 
 export const BOARD_FULL_S: Board = [...Array(20).fill(BOARD_ROW_S)];
+
+export const mockStore = (middleware = false): MockStoreEnhanced<unknown, unknown> => {
+  const mockStore = configureMockStore(middleware ? [thunk] : undefined);
+  const initialState = mkInitialState(TetroEnum.I, TetroEnum.J);
+  const store = mockStore(initialState);
+  return store;
+};
+
+export const mkDkr = (isKeyHold: boolean): DetectorKeyRepeat => ({
+  get: jest.fn().mockImplementation(() => isKeyHold),
+  set: jest.fn(),
+});

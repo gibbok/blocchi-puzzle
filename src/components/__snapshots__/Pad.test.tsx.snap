@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Pad 1`] = `
+<div
+  className="sc-AxhUy ehyRyD"
+>
+  <div
+    className="sc-AxirZ jtuuYO"
+    onClick={[Function]}
+  >
+    <div
+      className="sc-AxiKw cWlzsq"
+    >
+      close
+    </div>
+  </div>
+</div>
+`;

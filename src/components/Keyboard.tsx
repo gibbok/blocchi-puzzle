@@ -10,43 +10,62 @@ const {
   actions: { moveLeft, moveUp, moveRight },
 } = gameSlice;
 
-const THROTTLE_MS = 100;
+const THROTTLE_MS = 500;
 
 type Props = Readonly<{
   detectionKeyRepeat: DetectorKeyRepeat;
 }>;
 
+export const handleKeydown = (
+  dkr: DetectorKeyRepeat,
+  up: () => void,
+  right: () => void,
+  down: () => void,
+  left: () => void
+) => (keyCode: string, repeat: boolean): void => {
+  dkr.set(repeat);
+
+  switch (keyCode) {
+    case KeyEnum.Left:
+      left();
+      break;
+    case KeyEnum.Up:
+      up();
+      break;
+    case KeyEnum.Right:
+      right();
+      break;
+    case KeyEnum.Down:
+    case KeyEnum.Space:
+      down();
+      break;
+  }
+};
+
 export const Keyboard = ({ detectionKeyRepeat }: Props): JSX.Element => {
   const dispatch = useDispatch();
 
-  const handleKeydown = ({ keyCode, repeat }: KeyboardEvent) => {
-    detectionKeyRepeat.set(repeat);
+  const hkd = handleKeydown(
+    detectionKeyRepeat,
+    () => dispatch(moveUp()),
+    () => dispatch(moveRight()),
+    () => dispatch(moveDownThunk()),
+    () => dispatch(moveLeft())
+  );
 
-    switch (keyCode) {
-      case KeyEnum.Esc:
-        break;
-      case KeyEnum.Space:
-        break;
-      case KeyEnum.Left:
-        dispatch(moveLeft());
-        break;
-      case KeyEnum.Up:
-        dispatch(moveUp());
-        break;
-      case KeyEnum.Right:
-        dispatch(moveRight());
-        break;
-      case KeyEnum.Down:
-        dispatch(moveDownThunk());
-        break;
-    }
+  const cleanUpHandleKeydown = () => {
+    document.removeEventListener(
+      'keydown',
+      throttle(THROTTLE_MS, (e) => hkd(e.code, e.repeat))
+    );
+    document.removeEventListener('keyup', () => detectionKeyRepeat.set(false));
   };
 
-  const cleanUpHandleKeydown = () => document.removeEventListener('keydown', handleKeydown);
-
   useEffect(() => {
-    document.addEventListener('keydown', throttle(THROTTLE_MS, handleKeydown));
+    document.addEventListener('keydown', (e) => hkd(e.code, e.repeat));
+    document.addEventListener('keyup', () => detectionKeyRepeat.set(false));
     return cleanUpHandleKeydown;
   });
+
   return <></>;
 };

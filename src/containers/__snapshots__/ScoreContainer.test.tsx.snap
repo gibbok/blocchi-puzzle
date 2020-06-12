@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ScoreContainer /> should render correctly 1`] = `
+<div
+  className="sc-AxhUy liFohR"
+>
+  <div
+    className="sc-AxirZ jPhnSh"
+  >
+    <div
+      className="sc-AxiKw bLKSBM"
+    >
+      Score
+    </div>
+    <div
+      className="sc-AxiKw bLKSBM"
+    >
+      0
+    </div>
+  </div>
+  <div
+    className="sc-AxirZ jPhnSh"
+  >
+    <div
+      className="sc-AxiKw bLKSBM"
+    >
+      Level
+    </div>
+    <div
+      className="sc-AxiKw bLKSBM"
+    >
+      1
+    </div>
+  </div>
+</div>
+`;

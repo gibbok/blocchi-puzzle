@@ -1,4 +1,4 @@
-import { getRandomValueFromStringEnum } from './misc';
+import { getRandomValueFromStringEnum, noop } from './misc';
 import { stub } from 'sinon';
 
 describe('misc', () => {
@@ -13,6 +13,12 @@ describe('misc', () => {
       }
       const result = getRandomValueFromStringEnum(Test)();
       expect(result).toBe('a');
+    });
+  });
+
+  describe('noop', () => {
+    it('should return noop', () => {
+      expect(noop()).toBeUndefined();
     });
   });
 });
