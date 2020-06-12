@@ -1,13 +1,8 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { GameLoop, loop } from './GameLoop';
-import { mockStore } from '../utils';
+import { mockStore, mkDkr } from '../utils';
 import { Provider } from 'react-redux';
-
-const mkDkr = (isKeyHold: boolean) => ({
-  get: jest.fn().mockImplementation(() => isKeyHold),
-  set: jest.fn(),
-});
 
 describe('<GameLoop />', () => {
   it('should not render any dom', () => {

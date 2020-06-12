@@ -3,7 +3,7 @@ import { KeyEnum } from '../game/types';
 import renderer from 'react-test-renderer';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { mockStore } from '../utils';
+import { mockStore, mkDkr } from '../utils';
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
@@ -17,10 +17,8 @@ const dispatchEvent = (key: KeyEnum) => {
 };
 
 describe('Keyboard', () => {
-  const dkr = {
-    set: jest.fn(),
-    get: jest.fn(),
-  };
+  const dkr = mkDkr(false);
+
   describe('handleKeydown', () => {
     const up = jest.fn();
     const right = jest.fn();
@@ -83,8 +81,10 @@ describe('Keyboard', () => {
       expect(tree).toMatchSnapshot();
     });
 
-    it('should listen to events and dispatch actions', () => {
+    it('should listen to events keydown and keyup execute appropriate actions', () => {
       const store = mockStore(true);
+      const dkr = mkDkr(false);
+
       act(() => {
         ReactDOM.render(
           <Provider store={store}>
@@ -109,6 +109,10 @@ describe('Keyboard', () => {
         ];
 
         expect(actions).toEqual(expectedPayload);
+
+        document.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
+
+        expect(dkr.get()).toBeFalsy();
       });
     });
   });

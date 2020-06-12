@@ -176,3 +176,8 @@ export const mockStore = (middleware = false): MockStoreEnhanced<unknown, unknow
   const store = mockStore(initialState);
   return store;
 };
+
+export const mkDkr = (isKeyHold: boolean) => ({
+  get: jest.fn().mockImplementation(() => isKeyHold),
+  set: jest.fn(),
+});
