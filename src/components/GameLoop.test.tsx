@@ -58,17 +58,17 @@ describe('<GameLoop />', () => {
         </Provider>,
         container
       );
+
+      const cancelAnimationFrameMock: jest.SpyInstance = jest
+        .spyOn(window, 'cancelAnimationFrame')
+        .mockImplementation(cbCafMock);
+
+      if (container) {
+        ReactDOM.unmountComponentAtNode(container);
+        expect(cbCafMock).toHaveBeenCalled();
+      }
+      cancelAnimationFrameMock.mockRestore();
     });
-
-    const cancelAnimationFrameMock: jest.SpyInstance = jest
-      .spyOn(window, 'cancelAnimationFrame')
-      .mockImplementation(cbCafMock);
-
-    if (container) {
-      ReactDOM.unmountComponentAtNode(container);
-      expect(cbCafMock).toHaveBeenCalled();
-    }
-    cancelAnimationFrameMock.mockRestore();
   });
 
   describe('loop', () => {
