@@ -14,4 +14,12 @@ module.exports = {
   testPathIgnorePatterns: ['/node_modules/', '.+support\\.test\\.ts', '/dist/'],
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.{ts,tsx}'],
+  coverageThreshold: {
+    global: {
+      statements: 98,
+      branches: 100,
+      functions: 95,
+      lines: 99,
+    },
+  },
 };
