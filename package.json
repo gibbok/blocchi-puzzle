@@ -1,19 +1,18 @@
 {
-  "name": "fp-tetris",
+  "name": "blocchi-puzzle",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gibbok/fp-tetris.git"
+    "url": "git+https://github.com/gibbok/blocchi-puzzle.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "GibboK",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gibbok/fp-tetris/issues"
+    "url": "https://github.com/gibbok/blocchi-puzzle/issues"
   },
-  "homepage": "https://github.com/gibbok/fp-tetris#readme",
+  "homepage": "https://github.com/gibbok/blocchi-puzzle#readme",
   "scripts": {
     "clean": "shx rm -rf build && shx rm -rf dist && shx rm -rf .cache && shx rm -rf .out",
     "check": "npm run tsc && npm run lint && npm run test",
