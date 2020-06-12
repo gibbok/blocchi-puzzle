@@ -6,7 +6,7 @@ addParameters({
   options: {
     theme: create({
       base: 'light',
-      brandTitle: 'fp-tetris',
+      brandTitle: 'Blocchi puzzle',
     }),
   },
 })
