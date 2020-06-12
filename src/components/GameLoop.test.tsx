@@ -44,9 +44,6 @@ describe('<GameLoop />', () => {
 
     expect(tree).toMatchSnapshot();
     expect(cbRaf).toHaveBeenCalled();
-    const actions = store.getActions();
-    const expectedPayload = { type: 'ADD_TODO' };
-    expect(actions).toEqual([expectedPayload]);
   });
 
   describe('loop', () => {
@@ -55,7 +52,9 @@ describe('<GameLoop />', () => {
       const setLastTimeCbMock = jest.fn();
       const cbMock = jest.fn();
       const dispatchCbMock = jest.fn().mockImplementation(() => undefined);
+
       loop(5000, 1, 1000, dkr, setLastTimeCbMock, cbMock, dispatchCbMock);
+
       expect(setLastTimeCbMock).toHaveBeenCalled();
       expect(dispatchCbMock).toHaveBeenCalled();
     });
@@ -65,7 +64,9 @@ describe('<GameLoop />', () => {
       const setLastTimeCbMock = jest.fn();
       const cbMock = jest.fn();
       const dispatchCbMock = jest.fn().mockImplementation(() => undefined);
+
       loop(4500, 1, 5000, dkr, setLastTimeCbMock, cbMock, dispatchCbMock);
+
       expect(setLastTimeCbMock).not.toHaveBeenCalled();
       expect(dispatchCbMock).not.toHaveBeenCalled();
     });
@@ -75,7 +76,9 @@ describe('<GameLoop />', () => {
       const setLastTimeCbMock = jest.fn();
       const cbMock = jest.fn();
       const dispatchCbMock = jest.fn().mockImplementation(() => undefined);
+
       loop(5000, 1, 1000, dkr, setLastTimeCbMock, cbMock, dispatchCbMock);
+
       expect(setLastTimeCbMock).toHaveBeenCalled();
       expect(dispatchCbMock).not.toHaveBeenCalled();
     });

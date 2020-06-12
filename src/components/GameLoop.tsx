@@ -43,9 +43,10 @@ export const GameLoop = ({ level, detectionKeyRepeat, cb }: Props): JSX.Element 
   const cleanAnimation = (id: number) => window.cancelAnimationFrame(id);
 
   useEffect(() => {
-    animId = window.requestAnimationFrame((time) =>
-      loop(time, level, lastTime, detectionKeyRepeat, setLastTime, cb, () => dispatch(cb()))
-    );
+    animId = window.requestAnimationFrame((time) => {
+      console.log('xxxxx INIT');
+      loop(time, level, lastTime, detectionKeyRepeat, setLastTime, cb, () => dispatch(cb()));
+    });
     return () => cleanAnimation(animId);
   });
   return <></>;
