@@ -4,13 +4,11 @@ import { store } from './store/reducer';
 import { ScreenContainer } from './containers/ScreenContainer';
 import GlobalStyle from './components/GlobalStyle';
 
-export class App extends React.Component {
-  public render(): JSX.Element {
-    return (
-      <Provider store={store}>
-        <GlobalStyle />
-        <ScreenContainer />
-      </Provider>
-    );
-  }
+export function App(): JSX.Element {
+  return (
+    <Provider store={store}>
+      <GlobalStyle />
+      <ScreenContainer />
+    </Provider>
+  );
 }
