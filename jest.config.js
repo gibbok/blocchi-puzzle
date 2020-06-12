@@ -9,7 +9,6 @@ module.exports = {
   },
   modulePathIgnorePatterns: ['<rootDir>/dist/'],
   preset: 'ts-jest',
-  setupFiles: ['<rootDir>jest.setup.js'],
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules/', '.+support\\.test\\.ts', '/dist/'],
   collectCoverage: true,
@@ -19,7 +18,7 @@ module.exports = {
       statements: 98,
       branches: 100,
       functions: 95,
-      lines: 99,
+      lines: 98,
     },
   },
 };
