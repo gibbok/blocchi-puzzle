@@ -26,11 +26,11 @@ describe('<GameLoop />', () => {
   });
 
   it('should mount xx', () => {
+    const cb = jest.fn();
     const dkr = mkDkr(false);
+    const store = mockStore();
 
-    window.requestAnimationFrame = function (callback) {
-      return setTimeout(callback, 0);
-    };
+    jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => setTimeout(cb, 0));
     const cbRaf = jest.fn();
     window.requestAnimationFrame = (x) => cbRaf(x);
 
@@ -44,6 +44,9 @@ describe('<GameLoop />', () => {
 
     expect(tree).toMatchSnapshot();
     expect(cbRaf).toHaveBeenCalled();
+    const actions = store.getActions();
+    const expectedPayload = { type: 'ADD_TODO' };
+    expect(actions).toEqual([expectedPayload]);
   });
 
   describe('loop', () => {
