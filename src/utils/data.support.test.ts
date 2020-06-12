@@ -4,6 +4,7 @@ import { TetroPieces, Z, S, J, T, I, L, O, BoardRow, Board, TetroEnum } from '..
 import configureMockStore, { MockStoreEnhanced }  from 'redux-mock-store';
 import {mkInitialState} from '../store/reducer'
 import thunk from 'redux-thunk';
+import { DetectorKeyRepeat } from 'components/detectorKeyRepeat';
 
 export const dataPieces: TetroPieces = {
   Z: {
@@ -177,7 +178,7 @@ export const mockStore = (middleware = false): MockStoreEnhanced<unknown, unknow
   return store;
 };
 
-export const mkDkr = (isKeyHold: boolean) => ({
+export const mkDkr = (isKeyHold: boolean): DetectorKeyRepeat => ({
   get: jest.fn().mockImplementation(() => isKeyHold),
   set: jest.fn(),
 });
