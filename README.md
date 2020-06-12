@@ -1,5 +1,6 @@
 # empty-project
-Empty project.
+
+Blocchi puzzle
 
 ## Building and running on localhost
 
