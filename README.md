@@ -1,27 +1,28 @@
-# empty-project
+# Blocchi puzzle
 
-Blocchi puzzle
+A tetromino game based on React, Redux, TypeScript and function programming.
 
-## Building and running on localhost
+🚀 Play the game: https://gibbok.github.io/blocchi-puzzle/game/
 
-First install dependencies:
+👨‍💻 UI components: https://gibbok.github.io/blocchi-puzzle/storybook/
 
-```sh
-npm install
-```
+## Introduction
 
-To run in hot module reloading mode:
+Recently I took some time to work through the remaking of a classic tetromino game as a side project, although the game logic is fairly straightforward, I wanted to implement it using a professional approach and most modern front-end technologies and techniques.
 
-```sh
-npm start
-```
+## Technology overview
 
-To create a production build:
+The game is built in [TypeScript](https://www.typescriptlang.org/), using functional programming techniques with [fp-ts](https://github.com/gcanti/fp-ts).
 
-```sh
-npm run build-prod
-```
+UI components are written in [React](https://reactjs.org/) in isolation using [Storybook](https://storybook.js.org/).
+Application state management is handled using [Redux](https://redux.js.org/) with middleware [redux-thunk](https://github.com/reduxjs/redux-thunk).
 
-## Running
+The layout is fluid and based on CSS3 written using [styled-components](https://styled-components.com/).
 
-Open the file `dist/index.html` in your browser
+All tests are written using [Jest](https://jestjs.io/) with coverage to near 100%.
+UI snapshots and behavioral testing is performed using [react-test-renderer](https://reactjs.org/docs/test-renderer.html).
+
+Additional visual regression testing is setup using [Loki](https://loki.js.org/).
+End-to-end testing via [Cypress](https://www.cypress.io/) (coming soon).
+
+Continuous integration by [Travis Ci](https://travis-ci.com/).
