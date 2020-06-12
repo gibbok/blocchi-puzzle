@@ -29,6 +29,7 @@ export const loop = (
     return undefined;
   }
   animId = window.requestAnimationFrame((time) =>
+    /* istanbul ignore next */
     loop(time, level, lastTime, detectionKeyRepeat, setLastTimeCb, cb, () => dispatchCb(() => cb()))
   );
   return undefined;
@@ -44,6 +45,7 @@ export const GameLoop = ({ level, detectionKeyRepeat, cb }: Props): JSX.Element 
 
   useEffect(() => {
     animId = window.requestAnimationFrame((time) =>
+      /* istanbul ignore next */
       loop(time, level, lastTime, detectionKeyRepeat, setLastTime, cb, () => dispatch(cb()))
     );
     return () => cleanAnimation(animId);

@@ -35,10 +35,6 @@ describe('<GameLoop />', () => {
     const cb = jest.fn();
     const store = mockStore();
 
-    jest.useFakeTimers();
-    jest.spyOn(window, 'requestAnimationFrame').mockImplementation(jest.fn());
-
-    jest.advanceTimersByTime(5000);
     const tree = renderer
       .create(
         <Provider store={store}>
@@ -49,7 +45,7 @@ describe('<GameLoop />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('shoud go withi useEffect', () => {
+  it('shoud umount and remove event handler', () => {
     const store = mockStore(true);
     const dkr = mkDkr(false);
     const cbMock = jest.fn();
