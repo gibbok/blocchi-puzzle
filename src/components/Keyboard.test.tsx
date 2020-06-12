@@ -7,6 +7,15 @@ import { mockStore } from '../utils';
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
+const dispatchEvent = (key: KeyEnum) => {
+  document.dispatchEvent(
+    new KeyboardEvent('keydown', {
+      code: key,
+      bubbles: true,
+    })
+  );
+};
+
 describe('Keyboard', () => {
   const dkr = {
     set: jest.fn(),
@@ -75,6 +84,7 @@ describe('Keyboard', () => {
     });
 
     it('should listen to events and dispatch actions', () => {
+      const store = mockStore(true);
       act(() => {
         ReactDOM.render(
           <Provider store={store}>
@@ -82,30 +92,22 @@ describe('Keyboard', () => {
           </Provider>,
           container
         );
-        document.dispatchEvent(
-          new KeyboardEvent('keydown', {
-            code: KeyEnum.Up,
-            bubbles: true,
-          })
-        );
-        document.dispatchEvent(
-          new KeyboardEvent('keydown', {
-            code: KeyEnum.Right,
-            bubbles: true,
-          })
-        );
-        document.dispatchEvent(
-          new KeyboardEvent('keydown', {
-            code: KeyEnum.Left,
-            bubbles: true,
-          })
-        );
+
+        dispatchEvent(KeyEnum.Up);
+        dispatchEvent(KeyEnum.Right);
+        dispatchEvent(KeyEnum.Left);
+        dispatchEvent(KeyEnum.Down);
+
         const actions = store.getActions();
         const expectedPayload = [
           { type: 'game/moveUp', paylaod: undefined },
           { type: 'game/moveRight', paylaod: undefined },
           { type: 'game/moveLeft', paylaod: undefined },
+          { type: 'game/moveDown', paylaod: undefined },
+          { type: 'game/checkBoard', payload: undefined },
+          { type: 'game/gameOver', payload: undefined },
         ];
+
         expect(actions).toEqual(expectedPayload);
       });
     });
