@@ -53,7 +53,7 @@ describe('Keyboard', () => {
         <Keyboard detectionKeyRepeat={dkr} />
       </Provider>
     );
-    let container: HTMLElement | null;
+    let container: Element | null;
     let mockUseEffect: jest.SpyInstance;
 
     beforeAll(() => {
@@ -113,6 +113,32 @@ describe('Keyboard', () => {
         document.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
 
         expect(dkr.get()).toBeFalsy();
+      });
+    });
+
+    it('should unmount property', () => {
+      const store = mockStore(true);
+      const dkr = mkDkr(false);
+      const cbMock = jest.fn();
+
+      act(() => {
+        ReactDOM.render(
+          <Provider store={store}>
+            <Keyboard detectionKeyRepeat={dkr} />
+          </Provider>,
+          container
+        );
+
+        const removeEventListenerMock: jest.SpyInstance = jest
+          .spyOn(document, 'removeEventListener')
+          .mockImplementation(cbMock);
+
+        if (container) {
+          ReactDOM.unmountComponentAtNode(container);
+          expect(cbMock).toHaveBeenCalled();
+        }
+
+        removeEventListenerMock.mockRestore();
       });
     });
   });
