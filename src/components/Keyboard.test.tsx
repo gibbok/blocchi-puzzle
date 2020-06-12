@@ -4,8 +4,8 @@ import renderer from 'react-test-renderer';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { mockStore } from '../utils';
-import { act } from 'react-dom/test-utils';
 import ReactDOM from 'react-dom';
+import { act } from 'react-dom/test-utils';
 
 describe('Keyboard', () => {
   const dkr = {
@@ -65,24 +65,28 @@ describe('Keyboard', () => {
       expect(tree).toMatchSnapshot();
     });
 
-    // FIXME
-    // it('should dispatch actions', () => {
-    //   act(() => {
-    //     ReactDOM.render(
-    //       <Provider store={store}>
-    //         <Keyboard detectionKeyRepeat={dkr} />
-    //       </Provider>,
-    //       container
-    //     );
-    //     document.dispatchEvent(
-    //       new KeyboardEvent('keydown', {
-    //         code: KeyEnum.Left,
-    //       })
-    //     );
-    //     const actions = store.getActions();
-    //     const expectedPayload = [{ type: 'game/resetGame', paylaod: undefined }];
-    //     expect(actions).toEqual(expectedPayload);
-    //   });
-    // });
+    beforeAll(() => jest.spyOn(React, 'useEffect').mockImplementation(React.useLayoutEffect));
+    it('should listen to events and dispatch actions', () => {
+      act(() => {
+        ReactDOM.render(
+          <Provider store={store}>
+            <Keyboard detectionKeyRepeat={dkr} />
+          </Provider>,
+          container
+        );
+        document.addEventListener('keydown', (e) => {
+          console.log(e);
+        });
+        document.dispatchEvent(
+          new KeyboardEvent('keydown', {
+            code: KeyEnum.Left,
+            bubbles: true,
+          })
+        );
+        const actions = store.getActions();
+        const expectedPayload = [{ type: 'game/moveLeft', paylaod: undefined }];
+        expect(actions).toEqual(expectedPayload);
+      });
+    });
   });
 });
