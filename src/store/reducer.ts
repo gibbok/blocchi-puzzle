@@ -19,8 +19,14 @@ import {
   resetGame,
 } from './board/actions';
 import { gameOver } from './board/actions/gameOver';
+
 export type AppThunk = ThunkAction<void, InternalState, null, Action<string>>;
 
+/**
+ * Make an initial state for the game.
+ * @param current Current tetromino
+ * @param next Next tetromino
+ */
 export const mkInitialState = (current: TetroEnum, next: TetroEnum): InternalState => {
   const type = current;
   return {
@@ -40,12 +46,15 @@ export const mkInitialState = (current: TetroEnum, next: TetroEnum): InternalSta
       x: setTetroPositionXCenterBoard(BOARD_CELLS, type, DirectionEnum.N),
       y: 0,
     },
-    isPlay: true, // TODO pause before start game
+    isPlay: true,
     isGameOver: false,
     screen: ScreenEnum.Intro,
   };
 };
 
+/**
+ * Generates action creators and action types that correspond to the reducers and state (deterministic version).
+ */
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const gameSlicePure = (current: TetroEnum, next: TetroEnum) =>
   createSlice({
@@ -63,10 +72,20 @@ export const gameSlicePure = (current: TetroEnum, next: TetroEnum) =>
     },
   });
 
+/**
+ * Generates action creators and action types that correspond to the reducers and state (nondeterministic version).
+ */
 export const gameSlice = gameSlicePure(getRandomTetroEnum()(), getRandomTetroEnum()());
 
+/**
+ * Create a store.
+ */
 export const store: Store = configureStore({ reducer: gameSlice.reducer });
 
+/**
+ * Make public state based on private state.
+ * @param state
+ */
 export const mkPublicState = (state: InternalState): PublicState => {
   const { board, currentTetro, score, level, lines, nextTetro, screen } = state;
   const { type, direction, x, y } = currentTetro;
