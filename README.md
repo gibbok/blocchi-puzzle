@@ -1,3 +1,5 @@
+![Blocchi puzzle logo](./assets/logo-blocchi-puzzle-small.png)
+
 # Blocchi puzzle
 
 A tetromino game based on React, Redux, TypeScript and function programming.
@@ -24,4 +26,4 @@ Additional visual regression testing is setup using [Loki](https://loki.js.org/)
 
 ## Screen shot
 
-![alt text](./assets/screen-shot-blocchi-puzzle.png 'Screen shot Blocchi Puzzle')
+![Blocchi puzzle screen shot](./assets/screen-shot-blocchi-puzzle.png)
