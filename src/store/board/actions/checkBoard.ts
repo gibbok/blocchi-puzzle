@@ -7,6 +7,10 @@ import {
 } from '../../../game';
 import { pipe } from 'fp-ts/lib/pipeable';
 
+/**
+ * Check for collision in the board logic.
+ * @param prevState Previous state
+ */
 export const checkBoard = (prevState: InternalState): InternalState => {
   const {
     board,

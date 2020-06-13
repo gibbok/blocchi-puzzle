@@ -8,6 +8,10 @@ import {
 } from '../../../game';
 import { BOARD_CELLS } from '../../../game/settings';
 
+/**
+ * Move down game logic. Check for collisions and game over. Create the next tetromino information.
+ * @param prevState Previous state
+ */
 export const moveDown = (prevState: InternalState): InternalState => {
   const {
     board,
@@ -51,8 +55,3 @@ export const moveDown = (prevState: InternalState): InternalState => {
   };
   return newState;
 };
-
-// export const moveDownThunk = (prevState: InternalState): AppThunk => dispatch => {
-//   // dispatch(moveDown(prevState));
-//   dispatch(checkBoard);
-// };
