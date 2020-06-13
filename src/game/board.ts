@@ -3,12 +3,28 @@ import { getTetroFromPieces, isOccupied } from './tetromino';
 import { pipe } from 'fp-ts/lib/pipeable';
 import { BOARD_CELLS } from './settings';
 
+/**
+ * Create an empty board.
+ * @param rows Number of rows
+ * @param columns Number of columns
+ */
 export const mkEmptyBoard = (rows: number, columns: number): Board =>
   [...Array(rows)].fill([...Array(columns).fill(NoTetro)]);
 
-// TODO add test
+/**
+ * Copy a new board.
+ * @param Original board
+ */
 export const copyBoard = (b: Board): BoardMutable => b.map((r) => r.map((c) => c));
 
+/**
+ * Add a tetromino to a board.
+ * @param t Tetromino type
+ * @param d Tetromino direction
+ * @param x Tetromino x position on board
+ * @param y Tetromino y position on board
+ * @param b Board where to add the tetromino
+ */
 export const addTetroToBoard = (
   t: TetroEnum,
   d: DirectionEnum,
@@ -17,7 +33,7 @@ export const addTetroToBoard = (
   b: Board
 ): Board => {
   const tetro = getTetroFromPieces(t, d);
-  const bn = copyBoard(b); // copy board
+  const bn = copyBoard(b);
   tetro.forEach((tR, tRx) =>
     tR.forEach(
       (tC, tCx) =>
@@ -27,7 +43,16 @@ export const addTetroToBoard = (
   return bn;
 };
 
-// TODO add test
+/**
+ * Recursivelly find an available position on board.
+ * @param type Tetromino type
+ * @param d Tetromino direction
+ * @param x Tetromino current x position on board
+ * @param y Tetromino current y position on board
+ * @param b Board
+ * @param towardsX Position x to check
+ * @param towardsY Position y to check
+ */
 export const recFindAvailablePos = (
   type: TetroEnum,
   d: DirectionEnum,
@@ -45,6 +70,15 @@ export const recFindAvailablePos = (
     : x;
 };
 
+/**
+ * Recursivelly find available position x on board.
+ * @param type Tetromino type
+ * @param d Tetromino direction
+ * @param x Tetromino current x position on board
+ * @param y Tetromino current y position on board
+ * @param b Board
+ * @param towardsX Position x to check
+ */
 export const recFindAvailablePosX = (
   type: TetroEnum,
   d: DirectionEnum,
@@ -54,6 +88,15 @@ export const recFindAvailablePosX = (
   towardsX: number
 ): number => recFindAvailablePos(type, d, x, y, b, towardsX, 0);
 
+/**
+ * Recursivelly find available position y on board.
+ * @param type Tetromino type
+ * @param d Tetromino direction
+ * @param x Tetromino current x position on board
+ * @param y Tetromino current y position on board
+ * @param b Board
+ * @param towardsY Position y to check
+ */
 export const recFindAvailablePosY = (
   type: TetroEnum,
   d: DirectionEnum,
@@ -63,9 +106,18 @@ export const recFindAvailablePosY = (
   towardsY: number
 ): number => recFindAvailablePos(type, d, x, y, b, 0, towardsY);
 
+/**
+ * Get board position for completed rows.
+ * @param b Board
+ */
 export const getCompleteRowIdxs = (b: Board): number[] =>
   b.flatMap((row, idx) => (row.every((cell) => cell !== NoTetro) ? [idx] : []));
 
+/**
+ * Remove from the board completed rows.
+ * @param b Board
+ * @param lineIdxs Rows position
+ */
 export const removeCompleteRowFromBoard = (
   b: Board,
   lineIdxs: number[]
@@ -80,15 +132,32 @@ export const removeCompleteRowFromBoard = (
   };
 };
 
-export const mkRow = (len: number, b: Tile): BoardRow => [...Array(len).fill(b)];
+/**
+ * Make a new row.
+ * @param len The number of rows to create
+ * @param t Tile type
+ */
+export const mkRow = (len: number, t: Tile): BoardRow => [...Array(len).fill(t)];
 
+/**
+ * Make an empty row.
+ */
 export const mkEmptyRow = mkRow(BOARD_CELLS, NoTetro);
 
+/**
+ * Append empty rows to the board.
+ * @param b Board
+ * @param amount Amount rows to append
+ */
 export const appendEmptyRowsToBoard = (b: Board, amount: number): Board => [
   ...Array(amount).fill(mkEmptyRow),
   ...b,
 ];
 
+/**
+ * Detect and remove completed rows from the board.
+ * @param b Board
+ */
 export const detectAndRemoveCompletedRows = (b: Board): Board =>
   pipe(
     getCompleteRowIdxs(b),

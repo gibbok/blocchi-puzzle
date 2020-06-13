@@ -1,6 +1,10 @@
 import { InternalState } from '../../../game/types';
 import { rotateTetroDirectionCW, isOccupied } from '../../../game';
 
+/**
+ * Move up game logic. Check for collisions with other tetrominoes.
+ * @param prevState Previous state
+ */
 export const moveUp = (prevState: InternalState): InternalState => {
   const {
     board,

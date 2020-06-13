@@ -1,6 +1,10 @@
 import { InternalState } from '../../../game/types';
 import { isOccupied } from '../../../game';
 
+/**
+ * Move right game logic. Check for collisions with other tetrominoes or board limits.
+ * @param prevState Previous state
+ */
 export const moveRight = (prevState: InternalState): InternalState => {
   const {
     board,
