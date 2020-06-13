@@ -21,3 +21,7 @@ The layout is fluid and based on CSS3 written using [styled-components](https://
 All tests are written using [Jest](https://jestjs.io/) with coverage to near 100%. UI snapshots and behavioral testing is performed using [react-test-renderer](https://reactjs.org/docs/test-renderer.html). To mock the store [redux-mock-store](https://github.com/reduxjs/redux-mock-store) was used.
 
 Additional visual regression testing is setup using [Loki](https://loki.js.org/). End-to-end testing made with [Cypress](https://www.cypress.io/) (coming soon). Continuous integration with [Travis Ci](https://travis-ci.com/).
+
+## Screen shot
+
+![alt text](./assets/screen-shot-blocchi-puzzle.png 'Screen shot Blocchi Puzzle')
