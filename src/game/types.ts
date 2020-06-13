@@ -1,10 +1,10 @@
+// Tetromino
 export enum DirectionEnum {
   N = 'N',
   E = 'E',
   S = 'S',
   W = 'W',
 }
-
 export const NO = DirectionEnum.N;
 export const ES = DirectionEnum.E;
 export const SO = DirectionEnum.S;
@@ -51,6 +51,7 @@ export const O = TetroEnum.O;
 
 export type Position = number;
 
+// Board related
 export type BoardRow = readonly Tile[];
 
 export type BoardMutable = Tile[][];
@@ -65,11 +66,12 @@ export enum ScreenEnum {
   Over = 'Over',
 }
 
+// Game state
 export type InternalState = Readonly<{
   board: Board;
-  score: number; // some point based on lines done
-  level: number; // based on score, every 1000 score you go to next level, speed is faster
-  lines: number; // number of lines done
+  score: number;
+  level: number;
+  lines: number;
   currentTetro: TetroDef;
   nextTetro: TetroDef;
   isPlay: boolean;
@@ -79,6 +81,7 @@ export type InternalState = Readonly<{
 
 export type PublicState = Omit<InternalState, 'currentTetro' | 'isPlay' | 'isGameOver'>;
 
+// User interaction
 export enum KeyEnum {
   Space = 'Space',
   Left = 'ArrowLeft',
@@ -87,6 +90,7 @@ export enum KeyEnum {
   Down = 'ArrowDown',
 }
 
+// Utilities
 export type CallBack = () => void;
 
 export type Action = Readonly<{
