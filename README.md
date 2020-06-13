@@ -1,5 +1,3 @@
-![Blocchi puzzle logo](./assets/logo-blocchi-puzzle-small.png)
-
 # Blocchi puzzle
 
 A tetromino game based on React, Redux, TypeScript and function programming.
