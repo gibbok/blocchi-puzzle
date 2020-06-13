@@ -1,4 +1,8 @@
 import { TetroPieces, Z, S, J, T, I, L, O } from './types';
+
+/**
+ * Date for the tetromino pieces.
+ */
 export const pieces: TetroPieces = {
   Z: {
     N: [
