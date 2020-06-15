@@ -51,7 +51,10 @@ const LogoWrapper = styled.div`
 export const ScreenIntro = (): JSX.Element => {
   const dispatch = useDispatch();
 
-  const handleClickPlay = () => dispatch(screenGame());
+  const handleClickPlay = () => {
+    document.documentElement.requestFullscreen();
+    dispatch(screenGame());
+  };
 
   return (
     <ScreenIntroStyled>
