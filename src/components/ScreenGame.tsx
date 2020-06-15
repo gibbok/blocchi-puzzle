@@ -15,8 +15,9 @@ const {
 } = gameSlice;
 
 const ScreenGameStyled = styled.div`
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 2rem;
   height: 100%;
   ${mq_o.l} {
   }
