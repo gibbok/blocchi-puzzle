@@ -49,7 +49,7 @@ const LogoWrapper = styled.div`
   width: 80%;
 `;
 
-const requestFullScreen = () => {
+export const requestFullScreen = (): void => {
   if (screenfull.isEnabled) {
     screenfull.request();
   }
