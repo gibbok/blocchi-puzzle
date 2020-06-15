@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Board as BoardType, Tile as TileType } from '../game/types';
 import styled from 'styled-components';
-import { BOARD_CELLS, BOARD_ROWS, TILE_COLOR_NOTETRO, mq_o } from '../game/settings';
+import { BOARD_CELLS, BOARD_ROWS, TILE_COLOR_NOTETRO, mq_o, mq } from '../game/settings';
 import { Tile } from './Tile';
 
 const BoardStyled = styled.div`
@@ -22,6 +22,10 @@ const BoardStyled = styled.div`
   ${mq_o.p} {
     width: 45vmax;
     height: 90vmax;
+    ${mq.sm} {
+      width: 25vmax;
+      height: 50vmax;
+    }
   }
 `;
 

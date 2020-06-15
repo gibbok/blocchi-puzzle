@@ -9,12 +9,10 @@ const NavigationStyled = styled.div`
   justify-content: space-between;
   ${mq_o.l} {
     width: 35rem;
-    border: 4px solid green;
   }
   ${mq_o.p} {
     flex-direction: column;
     height: 35rem;
-    border: 4px solid red;
     align-items: center;
   }
 `;
