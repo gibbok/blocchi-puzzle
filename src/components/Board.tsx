@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Board as BoardType, Tile as TileType } from '../game/types';
 import styled from 'styled-components';
-import { BOARD_CELLS, BOARD_ROWS, TILE_COLOR_NOTETRO } from '../game/settings';
+import { BOARD_CELLS, BOARD_ROWS, TILE_COLOR_NOTETRO, mq_o, mq } from '../game/settings';
 import { Tile } from './Tile';
 
 const BoardStyled = styled.div`
@@ -15,6 +15,18 @@ const BoardStyled = styled.div`
   grid-gap: 0.2rem;
   background-color: ${TILE_COLOR_NOTETRO};
   box-shadow: inset 0 0.2rem 3rem 1rem rgba(0, 0, 0, 0.5);
+  ${mq_o.l} {
+    width: 45vmin;
+    height: 90vmin;
+  }
+  ${mq_o.p} {
+    width: 45vmax;
+    height: 90vmax;
+    ${mq.sm} {
+      width: 25vmax;
+      height: 50vmax;
+    }
+  }
 `;
 
 const Frame = styled.div`

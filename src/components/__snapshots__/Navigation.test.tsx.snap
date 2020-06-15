@@ -2,20 +2,20 @@
 
 exports[`<Navigation /> should render Navigation 1`] = `
 <div
-  className="sc-AxgMl hbmoOe"
+  className="sc-AxgMl MMksN"
 >
   <div
     className="sc-AxhUy ehyRyD"
   >
     <div
-      className="sc-AxirZ jtuuYO"
+      className="sc-AxirZ lcEoVe"
       onClick={[MockFunction]}
     >
       <div
         className="sc-AxiKw cWlzsq"
       >
         <div
-          className="sc-AxhCb ciyzgb"
+          className="sc-AxhCb kiYDUb"
         >
           <svg
             aria-hidden="true"
@@ -41,14 +41,14 @@ exports[`<Navigation /> should render Navigation 1`] = `
     className="sc-AxhUy ehyRyD"
   >
     <div
-      className="sc-AxirZ jtuuYO"
+      className="sc-AxirZ lcEoVe"
       onClick={[MockFunction]}
     >
       <div
         className="sc-AxiKw cWlzsq"
       >
         <div
-          className="sc-AxhCb ciyzgb"
+          className="sc-AxhCb kiYDUb"
         >
           <svg
             aria-hidden="true"
@@ -74,14 +74,14 @@ exports[`<Navigation /> should render Navigation 1`] = `
     className="sc-AxhUy ehyRyD"
   >
     <div
-      className="sc-AxirZ jtuuYO"
+      className="sc-AxirZ lcEoVe"
       onClick={[MockFunction]}
     >
       <div
         className="sc-AxiKw cWlzsq"
       >
         <div
-          className="sc-AxhCb ciyzgb"
+          className="sc-AxhCb kiYDUb"
         >
           <svg
             aria-hidden="true"
@@ -107,14 +107,14 @@ exports[`<Navigation /> should render Navigation 1`] = `
     className="sc-AxhUy ehyRyD"
   >
     <div
-      className="sc-AxirZ jtuuYO"
+      className="sc-AxirZ lcEoVe"
       onClick={[MockFunction]}
     >
       <div
         className="sc-AxiKw cWlzsq"
       >
         <div
-          className="sc-AxhCb ciyzgb"
+          className="sc-AxhCb kiYDUb"
         >
           <svg
             aria-hidden="true"

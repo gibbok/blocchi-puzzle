@@ -5,9 +5,7 @@ import { ScreenEnum } from '../src/game/types';
 import { ScreenTransaction } from '../src/components/ScreenTransaction';
 import styled from 'styled-components';
 
-const Screen = styled.div`
-  color: red;
-`;
+const Screen = styled.div``;
 
 const Wrapper = styled.div`
   font-size: 4rem;
