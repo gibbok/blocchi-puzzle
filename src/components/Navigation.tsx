@@ -9,6 +9,9 @@ const NavigationStyled = styled.div`
   justify-content: space-between;
   ${mq_o.l} {
     width: 35rem;
+    ${mq.sm} {
+      width: 29rem;
+    }
   }
   ${mq_o.p} {
     flex-direction: column;
