@@ -20,14 +20,6 @@ const PadStyled = styled.div`
   clip-path: circle(50% at 50% 50%);
   border: 0.2rem solid rgba(0, 0, 0, 0.1);
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.12);
-  ${mq.sm} {
-    width: 4rem;
-    height: 4rem;
-  }
-  ${mq.md} {
-    width: 5rem;
-    height: 5rem;
-  }
 `;
 
 const PadBackground = styled.div`
@@ -45,8 +37,8 @@ const PadBackground = styled.div`
 
 export const IconStyleWrapper = styled.div`
   ${StyledIconBase} {
-    width: 4.5vmin;
-    height: 4.5vmin;
+    width: 4.5rem;
+    height: 4.5rem;
     color: #5c3e2e;
     opacity: 0.8;
     transform: rotate(-90deg);
