@@ -8,7 +8,7 @@ import { Navigation } from './Navigation';
 import { useDispatch } from 'react-redux';
 import { moveDownThunk } from '../store/board/actions/thunks';
 import { gameSlice } from '../store';
-import { mq, mq_o } from '../game/settings';
+import { mq_o } from '../game/settings';
 
 const {
   actions: { moveLeft, moveUp, moveRight },

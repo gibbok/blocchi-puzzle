@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { Logo } from '../assets/Logo';
 import { Button } from './Button';
 import { mq } from '../game/settings';
+import screenfull from 'screenfull';
 
 const {
   actions: { screenGame },
@@ -48,11 +49,17 @@ const LogoWrapper = styled.div`
   width: 80%;
 `;
 
+const requestFullScreen = () => {
+  if (screenfull.isEnabled) {
+    screenfull.request();
+  }
+};
+
 export const ScreenIntro = (): JSX.Element => {
   const dispatch = useDispatch();
 
   const handleClickPlay = () => {
-    document.documentElement.requestFullscreen();
+    requestFullScreen();
     dispatch(screenGame());
   };
 
