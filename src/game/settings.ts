@@ -49,6 +49,11 @@ export const DEVICE: Record<Size, string> = {
   lg: `(min-width: ${VP_LG}px) and (max-width: ${VP_XL}px)`,
   xl: `(min-width: ${VP_XL}px)`,
 };
+export const mq_o: Record<string, string> = {
+  p: `@media (orientation:portrait)`,
+  l: `@media (orientation:landscape)`,
+};
+
 // Notes: use with styled as: `${mq.sm}{ color: red; }`
 export const mq: Record<Size, string> = {
   sm: `@media ${DEVICE.sm}`,

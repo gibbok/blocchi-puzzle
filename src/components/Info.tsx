@@ -5,7 +5,6 @@ import { wood } from '../assets/images';
 
 const InfoStyled = styled.div`
   width: 100%;
-  height: 8rem;
 `;
 
 export const Group = styled.div`
