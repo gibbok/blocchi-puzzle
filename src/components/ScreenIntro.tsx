@@ -4,6 +4,7 @@ import { gameSlice } from '../store';
 import { useDispatch } from 'react-redux';
 import { Logo } from '../assets/Logo';
 import { Button } from './Button';
+import { mq } from '../game/settings';
 
 const {
   actions: { screenGame },
@@ -31,10 +32,20 @@ const ScreenIntroStyled = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
-  margin-top: 3.5vmin;
+  margin-top: 3rem;
   opacity: 0;
   animation: ${buttonFadeAnim} 1.5s linear 2s normal forwards;
   transition: all 0.3s;
+  ${mq.sm} {
+    margin-top: initial;
+  }
+  ${mq.md} {
+    margin-top: initial;
+  }
+`;
+
+const LogoWrapper = styled.div`
+  width: 80%;
 `;
 
 export const ScreenIntro = (): JSX.Element => {
@@ -44,7 +55,9 @@ export const ScreenIntro = (): JSX.Element => {
 
   return (
     <ScreenIntroStyled>
-      <Logo />
+      <LogoWrapper>
+        <Logo />
+      </LogoWrapper>
       <ButtonWrapper>
         <Button onClick={handleClickPlay}>Play!</Button>
       </ButtonWrapper>
