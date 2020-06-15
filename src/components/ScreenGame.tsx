@@ -25,10 +25,7 @@ const ScreenGameStyled = styled.div`
   }
 `;
 
-const Status = styled.div`
-  /* margin-top: 4vmin;
-  margin-left: 4vmin; */
-`;
+const Status = styled.div``;
 
 const Board = styled.div``;
 
