@@ -6,7 +6,7 @@ import { getTetroFromPieces } from '../game';
 
 const SIZE_NEXT_BOARD = 4;
 
-const StyledNext = styled.div`
+const Grid = styled.div`
   display: grid;
   width: 16.5vmin;
   height: 16.5vmin;
@@ -17,6 +17,12 @@ const StyledNext = styled.div`
 
 const EmptyTile = styled.div``;
 
+const NextStyles = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
 type Props = Readonly<{
   type: TetroEnum;
   direction: DirectionEnum;
@@ -25,23 +31,25 @@ type Props = Readonly<{
 export function Next({ type, direction }: Props): JSX.Element {
   const tetro = getTetroFromPieces(type, direction);
   return (
-    <StyledNext>
-      {new Array(SIZE_NEXT_BOARD).fill(0).map((_rowB, rowIdxB) =>
-        new Array(SIZE_NEXT_BOARD).fill(0).map((_cellB: number, cellIdxB: number) => {
-          const hasPiece = tetro[rowIdxB] !== undefined && tetro[rowIdxB][cellIdxB] !== undefined;
-          if (hasPiece) {
-            const piece = tetro[rowIdxB][cellIdxB];
-            const isPieceTetro = piece !== NoTetro;
-            if (isPieceTetro) {
-              return <Tile key={cellIdxB} variant={piece} />;
+    <NextStyles>
+      <Grid>
+        {new Array(SIZE_NEXT_BOARD).fill(0).map((_rowB, rowIdxB) =>
+          new Array(SIZE_NEXT_BOARD).fill(0).map((_cellB: number, cellIdxB: number) => {
+            const hasPiece = tetro[rowIdxB] !== undefined && tetro[rowIdxB][cellIdxB] !== undefined;
+            if (hasPiece) {
+              const piece = tetro[rowIdxB][cellIdxB];
+              const isPieceTetro = piece !== NoTetro;
+              if (isPieceTetro) {
+                return <Tile key={cellIdxB} variant={piece} />;
+              } else {
+                return <EmptyTile key={cellIdxB} />;
+              }
             } else {
               return <EmptyTile key={cellIdxB} />;
             }
-          } else {
-            return <EmptyTile key={cellIdxB} />;
-          }
-        })
-      )}
-    </StyledNext>
+          })
+        )}
+      </Grid>
+    </NextStyles>
   );
 }
