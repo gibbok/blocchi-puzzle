@@ -46,7 +46,7 @@ const ButtonWrapper = styled.div`
 `;
 
 const LogoWrapper = styled.div`
-  width: 80%;
+  width: 80vw;
 `;
 
 export const requestFullScreen = (): void => {
