@@ -3,3 +3,4 @@
 - update visual regressions
 - set up end to end test integration
 - add test end to end
+- remove sinon if not necessary

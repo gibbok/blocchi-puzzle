@@ -2,42 +2,42 @@
 
 exports[`ScreenOver should render correctly 1`] = `
 <div
-  className="sc-fzqNJr dCjklm"
+  className="sc-fzoyAV eHPTjQ"
 >
   <div
-    className="sc-fzqBZW ckAzKi"
+    className="sc-fzqNJr dBMSRv"
   >
     <div
-      className="sc-fznKkj dBOSXt"
+      className="sc-fznZeY emNvvx"
     >
       <div
-        className="sc-fznZeY ihsglE"
+        className="sc-fzokOt ezsXz"
       >
         Score
       </div>
       <div
-        className="sc-fznZeY ihsglE"
+        className="sc-fzokOt ezsXz"
       >
         0
       </div>
     </div>
     <div
-      className="sc-fznKkj dBOSXt"
+      className="sc-fznZeY emNvvx"
     >
       <div
-        className="sc-fznZeY ihsglE"
+        className="sc-fzokOt ezsXz"
       >
         Level
       </div>
       <div
-        className="sc-fznZeY ihsglE"
+        className="sc-fzokOt ezsXz"
       >
         1
       </div>
     </div>
   </div>
   <div
-    className="sc-fzoyAV fqmqGy"
+    className="sc-fzoLag oRztq"
   >
     <button
       className="sc-AxjAm gORXxf"
