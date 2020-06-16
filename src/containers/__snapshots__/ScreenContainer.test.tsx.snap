@@ -2,7 +2,7 @@
 
 exports[`<ScreenContainer /> should render correctly 1`] = `
 <div
-  className="sc-fznMAR gqLYwY"
+  className="sc-fznWOq eUWLdX"
 >
   <div
     style={
@@ -17,7 +17,7 @@ exports[`<ScreenContainer /> should render correctly 1`] = `
       className="sc-fznyAO exTuiw"
     >
       <div
-        className="sc-fznZeY dnaxVA"
+        className="sc-fznZeY gMOis"
       >
         <svg
           className="sc-fzozJi sc-fzoLsD frVdkQ"

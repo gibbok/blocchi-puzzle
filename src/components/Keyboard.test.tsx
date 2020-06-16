@@ -82,6 +82,8 @@ describe('Keyboard', () => {
     });
 
     it('should listen to events keydown and keyup execute appropriate actions', () => {
+      jest.useFakeTimers();
+
       const store = mockStore(true);
       const dkr = mkDkr(false);
 
@@ -94,9 +96,21 @@ describe('Keyboard', () => {
         );
 
         dispatchEvent(KeyEnum.Up);
+        jest.advanceTimersByTime(1000);
         dispatchEvent(KeyEnum.Right);
+        jest.advanceTimersByTime(2000);
         dispatchEvent(KeyEnum.Left);
+        jest.advanceTimersByTime(3000);
         dispatchEvent(KeyEnum.Down);
+        jest.advanceTimersByTime(4000);
+
+        // throttle will not dispatch these actions
+        dispatchEvent(KeyEnum.Right);
+        dispatchEvent(KeyEnum.Right);
+        dispatchEvent(KeyEnum.Right);
+        dispatchEvent(KeyEnum.Right);
+        dispatchEvent(KeyEnum.Right);
+        jest.advanceTimersByTime(5000);
 
         const actions = store.getActions();
         const expectedPayload = [
@@ -106,7 +120,10 @@ describe('Keyboard', () => {
           { type: 'game/moveDown', paylaod: undefined },
           { type: 'game/checkBoard', payload: undefined },
           { type: 'game/gameOver', payload: undefined },
+          { type: 'game/moveRight', paylaod: undefined }, // throttle
         ];
+
+        console.log(actions);
 
         expect(actions).toEqual(expectedPayload);
 

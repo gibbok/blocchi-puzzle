@@ -1,6 +1,6 @@
 # Blocchi puzzle
 
-A tetromino game based on React, Redux, TypeScript and function programming.
+A tetromino game based on React, Redux, TypeScript, and functional programming
 
 🚀 Play the game: https://gibbok.github.io/blocchi-puzzle/game/
 
@@ -16,12 +16,14 @@ The game is built in [TypeScript](https://www.typescriptlang.org/), using functi
 
 UI components are written in [React](https://reactjs.org/) in isolation using [Storybook](https://storybook.js.org/).
 Application state management is handled using [Redux](https://redux.js.org/) with middleware [redux-thunk](https://github.com/reduxjs/redux-thunk).
-The layout is fluid and based on CSS3 written using [styled-components](https://styled-components.com/).
+The layout is fluid and responsive based on CSS3 written using [styled-components](https://styled-components.com/).
+
+Animations created using [GSAP](https://greensock.com/gsap/) and [react-transition-group](https://github.com/reactjs/react-transition-group) with CSS transitions.
 
 All tests are written using [Jest](https://jestjs.io/) with coverage to near 100%. UI snapshots and behavioral testing is performed using [react-test-renderer](https://reactjs.org/docs/test-renderer.html). To mock the store [redux-mock-store](https://github.com/reduxjs/redux-mock-store) was used.
 
 Additional visual regression testing is setup using [Loki](https://loki.js.org/). End-to-end testing made with [Cypress](https://www.cypress.io/) (coming soon). Continuous integration with [Travis Ci](https://travis-ci.com/).
 
-## Screen shot
+## Screenshot
 
 ![Blocchi puzzle screen shot](./assets/screen-shot-blocchi-puzzle.png)
