@@ -1,4 +1,3 @@
-- increase test coverate by mocking node_module
 - set up end to end test integration
 - add test end to end
 - remove sinon if not necessary

@@ -1,10 +1,12 @@
-import { detect } from 'detect-browser';
-
 const getPathRelease = (version: string) => version.split('.')[0];
 
-export const detectorBrowser = (): boolean => {
-  const browser = detect();
-  if (browser && browser.name && browser.version) {
+type BrowserInfo = Readonly<{
+  name: string;
+  version: string;
+}>;
+
+export const detectorBrowser = (browser?: BrowserInfo): boolean => {
+  if (browser) {
     const name = browser.name;
     const version = browser.version;
     const path = Number(getPathRelease(version));
