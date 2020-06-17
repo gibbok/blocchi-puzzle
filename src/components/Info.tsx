@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import 'typeface-oleo-script/index.css';
 import { wood } from '../assets/images';
+import { mq, mq_o } from '../game/settings';
 
 const InfoStyled = styled.div`
   width: 100%;
@@ -9,11 +10,28 @@ const InfoStyled = styled.div`
 
 export const Group = styled.div`
   font-family: 'Oleo Script', cursive;
-  font-size: clamp(1.5rem, 5vmin, 7rem);
+  font-size: 4rem;
   color: #442217;
   opacity: 0.8;
   text-shadow: 0 0.1rem 0 rgba(255, 255, 255, 0.4), 0 -0.1rem 0 rgba(0, 0, 0, 0.8);
   padding: 3.5vmin 0 3.5vmin 0;
+  ${mq.sm} {
+    font-size: 2.1rem;
+  }
+  ${mq.lg} {
+    font-size: 5rem;
+  }
+  ${mq.xl} {
+    font-size: 6rem;
+  }
+  ${mq_o.l} {
+    ${mq.sm} {
+      font-size: 1.5rem;
+    }
+    ${mq.md} {
+      font-size: 2rem;
+    }
+  }
 `;
 
 export const Line = styled.div`
