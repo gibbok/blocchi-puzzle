@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<App /> should render 1`] = `
+exports[`<BrowserNotSupported /> should render 1`] = `
 <div
-  className="sc-fzolEj gylGIo"
+  className="sc-AxjAm fmQrIb"
 >
   <div
-    className="sc-fzqBkg dMvPDQ"
+    className="sc-AxirZ hbTpnX"
   >
     Browser not supported! 😱
   </div>
   <div
-    className="sc-fzqPZZ iMyiKw"
+    className="sc-AxiKw cFEFMp"
   >
     Please use the latest Chrome or Firefox.
   </div>

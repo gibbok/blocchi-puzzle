@@ -123,8 +123,6 @@ describe('Keyboard', () => {
           { type: 'game/moveRight', paylaod: undefined }, // throttle
         ];
 
-        console.log(actions);
-
         expect(actions).toEqual(expectedPayload);
 
         document.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
