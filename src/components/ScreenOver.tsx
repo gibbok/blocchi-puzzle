@@ -4,6 +4,7 @@ import { Button } from './Button';
 import { gameSlice } from '../store';
 import { useDispatch } from 'react-redux';
 import { ScoreContainer } from '../containers';
+import { mq } from '../game/settings';
 
 const {
   actions: { screenGame, resetGame },
@@ -19,7 +20,13 @@ const ScreenOverStyled = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
-  margin-top: 3.5vmin;
+  margin-top: 3.5rem;
+  ${mq.sm} {
+    margin-top: 2rem;
+  }
+  ${mq.md} {
+    margin-top: 3rem;
+  }
 `;
 
 export const ScreenOver = (): JSX.Element => {

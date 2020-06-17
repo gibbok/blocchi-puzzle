@@ -1623,7 +1623,7 @@ exports[`<ScreenGame /> should render 1`] = `
       className="sc-fzplWN jHAIBM"
     >
       <div
-        className="sc-fznyAO jwKRTM"
+        className="sc-fznyAO cFYtJx"
       >
         <div
           className="sc-fznKkj cFUJKw"
@@ -1640,7 +1640,7 @@ exports[`<ScreenGame /> should render 1`] = `
         className="sc-fznZeY hkPqns"
       />
       <div
-        className="sc-fznyAO jwKRTM"
+        className="sc-fznyAO cFYtJx"
       >
         <div
           className="sc-fznKkj cFUJKw"
@@ -1657,7 +1657,7 @@ exports[`<ScreenGame /> should render 1`] = `
         className="sc-fznZeY hkPqns"
       />
       <div
-        className="sc-fznyAO jwKRTM"
+        className="sc-fznyAO cFYtJx"
       >
         <div
           className="sc-fznKkj cFUJKw"
@@ -1678,7 +1678,7 @@ exports[`<ScreenGame /> should render 1`] = `
         className="sc-fzoXzr kxYKKJ"
       >
         <div
-          className="sc-fzqNJr cJygph"
+          className="sc-fzqNJr fzDvtI"
           onClick={[Function]}
         >
           <div
@@ -1711,7 +1711,7 @@ exports[`<ScreenGame /> should render 1`] = `
         className="sc-fzoXzr kxYKKJ"
       >
         <div
-          className="sc-fzqNJr cJygph"
+          className="sc-fzqNJr fzDvtI"
           onClick={[Function]}
         >
           <div
@@ -1744,7 +1744,7 @@ exports[`<ScreenGame /> should render 1`] = `
         className="sc-fzoXzr kxYKKJ"
       >
         <div
-          className="sc-fzqNJr cJygph"
+          className="sc-fzqNJr fzDvtI"
           onClick={[Function]}
         >
           <div
@@ -1777,7 +1777,7 @@ exports[`<ScreenGame /> should render 1`] = `
         className="sc-fzoXzr kxYKKJ"
       >
         <div
-          className="sc-fzqNJr cJygph"
+          className="sc-fzqNJr fzDvtI"
           onClick={[Function]}
         >
           <div

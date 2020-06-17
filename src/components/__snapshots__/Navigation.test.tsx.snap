@@ -8,7 +8,7 @@ exports[`<Navigation /> should render Navigation 1`] = `
     className="sc-AxhUy ehyRyD"
   >
     <div
-      className="sc-AxirZ lcEoVe"
+      className="sc-AxirZ gPyzun"
       onClick={[MockFunction]}
     >
       <div
@@ -41,7 +41,7 @@ exports[`<Navigation /> should render Navigation 1`] = `
     className="sc-AxhUy ehyRyD"
   >
     <div
-      className="sc-AxirZ lcEoVe"
+      className="sc-AxirZ gPyzun"
       onClick={[MockFunction]}
     >
       <div
@@ -74,7 +74,7 @@ exports[`<Navigation /> should render Navigation 1`] = `
     className="sc-AxhUy ehyRyD"
   >
     <div
-      className="sc-AxirZ lcEoVe"
+      className="sc-AxirZ gPyzun"
       onClick={[MockFunction]}
     >
       <div
@@ -107,7 +107,7 @@ exports[`<Navigation /> should render Navigation 1`] = `
     className="sc-AxhUy ehyRyD"
   >
     <div
-      className="sc-AxirZ lcEoVe"
+      className="sc-AxirZ gPyzun"
       onClick={[MockFunction]}
     >
       <div

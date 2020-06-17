@@ -8,13 +8,12 @@ import {
   RotateRight,
 } from '@styled-icons/material';
 import { StyledIconBase } from '@styled-icons/styled-icon';
-import { mq } from '../game/settings';
 
 const PadStyled = styled.div`
   position: relative;
   width: 6rem;
   height: 6rem;
-  border-radius: 3.5vmin;
+  border-radius: 3rem;
   box-shadow: inset 0.1rem 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.4);
   transform: rotate(90deg);
   clip-path: circle(50% at 50% 50%);

@@ -5,10 +5,10 @@ exports[`ScreenOver should render correctly 1`] = `
   className="sc-fzoyAV eHPTjQ"
 >
   <div
-    className="sc-fzqNJr dBMSRv"
+    className="sc-fzqNJr jfvDQh"
   >
     <div
-      className="sc-fznZeY emNvvx"
+      className="sc-fznZeY jwTyjE"
     >
       <div
         className="sc-fzokOt ezsXz"
@@ -22,7 +22,7 @@ exports[`ScreenOver should render correctly 1`] = `
       </div>
     </div>
     <div
-      className="sc-fznZeY emNvvx"
+      className="sc-fznZeY jwTyjE"
     >
       <div
         className="sc-fzokOt ezsXz"
@@ -37,10 +37,10 @@ exports[`ScreenOver should render correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-fzoLag oRztq"
+    className="sc-fzoLag xoqVe"
   >
     <button
-      className="sc-AxjAm gORXxf"
+      className="sc-AxjAm bJRPJO"
       onClick={[Function]}
     >
       <div

@@ -12,11 +12,14 @@ export const detectorBrowser = (): boolean => {
     switch (name) {
       case 'chrome':
       case 'firefox':
-        return path > 80;
+        return path >= 80;
       case 'safari':
-        return path > 13;
+      case 'ios':
+        return path >= 11;
       case 'opera':
-        return path > 62;
+        return path >= 62;
+      case 'android':
+        return path >= 4;
       default:
         return false;
     }
