@@ -15,16 +15,18 @@ const ButtonStyled = styled.button`
     rgba(69, 188, 4, 1) 85%,
     rgba(63, 173, 2, 1) 100%
   );
-  border-radius: 1vmin;
+  border-radius: 1.3rem;
   box-shadow: 0 0.4rem 0.7rem 0 #165801, inset 0 0 0.4rem 0 #1a6f00;
   &:focus {
     outline: none;
   }
   ${mq.sm} {
     font-size: 2.5rem;
+    border-radius: 0.5rem;
   }
   ${mq.md} {
     font-size: 4rem;
+    border-radius: 1rem;
   }
 `;
 

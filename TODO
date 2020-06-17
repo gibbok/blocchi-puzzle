@@ -1,4 +1,3 @@
-- remove fontclamp
 - increase test coverate by mocking node_module
 - update visual regressions
 - set up end to end test integration
