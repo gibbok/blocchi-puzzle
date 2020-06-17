@@ -8,7 +8,7 @@ import { BrowserNotSupported } from './components';
 
 export function App(): JSX.Element {
   const isValidBrowser = detectorBrowser();
-  console.log(isValidBrowser);
+
   return (
     <Provider store={store}>
       <GlobalStyle />
@@ -16,19 +16,3 @@ export function App(): JSX.Element {
     </Provider>
   );
 }
-
-// export function App(): JSX.Element {
-//   const isValidBrowser = detectorBrowser();
-//   return (
-//     <>
-//       {isValidBrowser ? (
-//         <Provider store={store}>
-//           <GlobalStyle />
-//           <ScreenContainer />
-//         </Provider>
-//       ) : (
-//         <BrowserNotSupported />
-//       )}
-//     </>
-//   );
-// }

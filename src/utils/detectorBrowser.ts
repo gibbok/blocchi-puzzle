@@ -8,7 +8,6 @@ export const detectorBrowser = (): boolean => {
     const name = browser.name;
     const version = browser.version;
     const path = Number(getPathRelease(version));
-    console.log(browser);
 
     switch (name) {
       case 'chrome':

@@ -1,4 +1,3 @@
-- browser detection
 - remove fontclamp
 - increase test coverate by mocking node_module
 - update visual regressions
