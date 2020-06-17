@@ -49,10 +49,10 @@ exports[`<ScreenContainer /> should render correctly 1`] = `
         </svg>
       </div>
       <div
-        className="sc-fznKkj cUKwnW"
+        className="sc-fznKkj gnBPpK"
       >
         <button
-          className="sc-fzpans kxyDTA"
+          className="sc-fzpans hBlqfx"
           onClick={[Function]}
         >
           <div

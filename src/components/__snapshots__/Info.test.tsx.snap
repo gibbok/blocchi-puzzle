@@ -5,7 +5,7 @@ exports[`<Info /> should render Info 1`] = `
   className="sc-AxjAm jdsAYC"
 >
   <div
-    className="sc-AxirZ jPhnSh"
+    className="sc-AxirZ gVRNow"
   >
     <div
       className="sc-AxiKw bLKSBM"
@@ -22,7 +22,7 @@ exports[`<Info /> should render Info 1`] = `
     className="sc-AxhCb jNrBnE"
   />
   <div
-    className="sc-AxirZ jPhnSh"
+    className="sc-AxirZ gVRNow"
   >
     <div
       className="sc-AxiKw bLKSBM"
@@ -39,7 +39,7 @@ exports[`<Info /> should render Info 1`] = `
     className="sc-AxhCb jNrBnE"
   />
   <div
-    className="sc-AxirZ jPhnSh"
+    className="sc-AxirZ gVRNow"
   >
     <div
       className="sc-AxiKw bLKSBM"

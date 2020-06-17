@@ -37,10 +37,10 @@ exports[`<ScreenIntro /> should render 1`] = `
     </svg>
   </div>
   <div
-    className="sc-AxgMl dbOwWt"
+    className="sc-AxgMl jBoCvJ"
   >
     <button
-      className="sc-AxiKw fmZgk"
+      className="sc-AxiKw eIprCN"
       onClick={[Function]}
     >
       <div

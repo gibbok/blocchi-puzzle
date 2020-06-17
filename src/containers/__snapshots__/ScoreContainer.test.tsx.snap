@@ -2,10 +2,10 @@
 
 exports[`<ScoreContainer /> should render correctly 1`] = `
 <div
-  className="sc-AxhUy liFohR"
+  className="sc-AxhUy cgIlUX"
 >
   <div
-    className="sc-AxirZ jPhnSh"
+    className="sc-AxirZ gVRNow"
   >
     <div
       className="sc-AxiKw bLKSBM"
@@ -19,7 +19,7 @@ exports[`<ScoreContainer /> should render correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-AxirZ jPhnSh"
+    className="sc-AxirZ gVRNow"
   >
     <div
       className="sc-AxiKw bLKSBM"
