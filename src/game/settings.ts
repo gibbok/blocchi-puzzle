@@ -43,9 +43,9 @@ export const SIZE: SizeMap = {
 // Compartmentalized media queries technique
 export const DEVICE: Record<Size, string> = {
   sm: `(min-width: 0px) and (max-width: ${VP_SM}px)`,
-  md: `(min-width: ${VP_SM}px) and (max-width: ${VP_LG}px)`,
-  md_l: `(min-width: ${VP_SM}px) and (max-width: ${VP_LG}px) and (orientation:landscape)`,
-  md_p: `(min-width: ${VP_SM}px) and (max-width: ${VP_LG}px) and (orientation:portrait)`,
+  md: `(min-width: ${VP_SM}px) and (max-width: ${VP_MD}px)`,
+  md_l: `(min-width: ${VP_MD}px) and (max-width: ${VP_LG}px) and (orientation:landscape)`,
+  md_p: `(min-width: ${VP_MD}px) and (max-width: ${VP_LG}px) and (orientation:portrait)`,
   lg: `(min-width: ${VP_LG}px) and (max-width: ${VP_XL}px)`,
   xl: `(min-width: ${VP_XL}px)`,
 };
