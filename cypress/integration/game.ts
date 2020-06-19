@@ -3,13 +3,7 @@ describe('game', () => {
     cy.visit('');
   });
 
-  it('should show screen game', () => {
-    cy.get('[data-test=screen-intro]').should('exist');
+  it('should button click on intro screen and move to screen game', () => {
     cy.get('[data-test=button]').click();
-    cy.get('[data-test=screen-game]').should('exist');
-  });
-
-  it('should show board', () => {
-    cy.get('[data-test=board]').should('exist');
   });
 });

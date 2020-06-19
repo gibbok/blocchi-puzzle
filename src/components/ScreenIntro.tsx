@@ -23,11 +23,7 @@ const buttonFadeAnim = keyframes`
   }
 `;
 
-const ScreenIntroElm = styled.div.attrs({
-  'data-test': 'screen-intro',
-});
-
-const ScreenIntroStyled = ScreenIntroElm`
+const ScreenIntroStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

@@ -10,11 +10,7 @@ const {
   actions: { screenGame, resetGame },
 } = gameSlice;
 
-const ScreenOverElm = styled.div.attrs({
-  'data-test': 'screen-over',
-});
-
-const ScreenOverStyled = ScreenOverElm`
+const ScreenOverStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

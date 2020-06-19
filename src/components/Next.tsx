@@ -40,7 +40,7 @@ export function Next({ type, direction }: Props): JSX.Element {
               const piece = tetro[rowIdxB][cellIdxB];
               const isPieceTetro = piece !== NoTetro;
               if (isPieceTetro) {
-                return <Tile key={cellIdxB} variant={piece} />;
+                return <Tile key={cellIdxB} variant={piece} row={rowIdxB} column={cellIdxB} />;
               } else {
                 return <EmptyTile key={cellIdxB} />;
               }
