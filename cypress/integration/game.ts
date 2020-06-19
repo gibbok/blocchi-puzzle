@@ -30,4 +30,16 @@ describe('game', () => {
   it('should display a non empty next', () => {
     cy.get('[data-test=next]').should(hasTiles);
   });
+
+  it('should display default score', () => {
+    cy.get('[data-test=score]').contains(0);
+  });
+
+  it('should display default level', () => {
+    cy.get('[data-test=level]').contains(1);
+  });
+
+  it('should display default lines', () => {
+    cy.get('[data-test=lines]').contains(0);
+  });
 });
