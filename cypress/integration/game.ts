@@ -12,7 +12,7 @@ const hasTiles = (elm: JQuery<HTMLElement>) => {
   expect(hasTiles).to.be.true;
 };
 
-const checkTilePosition = (selector: string, selectorPad: string) => {
+const checkTilePosition = (selector: string, selectorPad: Sel.padLeft | Sel.padRight) => {
   return cy
     .get(selector)
     .then((elm) => {
@@ -37,19 +37,19 @@ const checkTilePosition = (selector: string, selectorPad: string) => {
     });
 };
 
-const sel = {
-  logo: '[data-test=logo]',
-  button: '[data-test=button]',
-  board: '[data-test=board]',
-  next: '[data-test=next]',
-  score: '[data-test=score]',
-  level: '[data-test=level]',
-  lines: '[data-test=lines]',
-  padLeft: '[data-test=pad-left]',
-  padRotate: '[data-test=pad-rotate]',
-  padDown: '[data-test=pad-down]',
-  padRight: '[data-test=pad-right]',
-};
+const enum Sel {
+  logo = '[data-test=logo]',
+  button = '[data-test=button]',
+  board = '[data-test=board]',
+  next = '[data-test=next]',
+  score = '[data-test=score]',
+  level = '[data-test=level]',
+  lines = '[data-test=lines]',
+  padLeft = '[data-test=pad-left]',
+  padRotate = '[data-test=pad-rotate]',
+  padDown = '[data-test=pad-down]',
+  padRight = '[data-test=pad-right]',
+}
 
 describe('game', () => {
   before(() => {
@@ -57,63 +57,63 @@ describe('game', () => {
   });
 
   it('should render logo', () => {
-    cy.get(sel.logo).should('exist');
+    cy.get(Sel.logo).should('exist');
   });
 
   it('should animate logo', () => {
-    cy.get(`${sel.logo} > path`).should('not.have.attr', 'style', 'fill: rgb(68, 34, 23);');
-    cy.wait(4).get(`${sel.logo} > path`).should('have.attr', 'style', 'fill: rgb(68, 34, 23);');
+    cy.get(`${Sel.logo} > path`).should('not.have.attr', 'style', 'fill: rgb(68, 34, 23);');
+    cy.wait(4).get(`${Sel.logo} > path`).should('have.attr', 'style', 'fill: rgb(68, 34, 23);');
   });
 
   it('should button click on intro screen and move to screen game', () => {
-    cy.get(sel.button).click();
+    cy.get(Sel.button).click();
   });
 
   it('should display a tetro on board', () => {
-    cy.get(sel.board).should('exist');
-    cy.get(sel.board).find('div[data-test-variant]');
+    cy.get(Sel.board).should('exist');
+    cy.get(Sel.board).find('div[data-test-variant]');
   });
 
   it('should display a tetro on next', () => {
-    cy.get(sel.next).should('exist');
-    cy.get(sel.next).find('div[data-test-variant]');
+    cy.get(Sel.next).should('exist');
+    cy.get(Sel.next).find('div[data-test-variant]');
   });
 
   it('should display a non empty board', () => {
-    cy.get(sel.board).should(hasTiles);
+    cy.get(Sel.board).should(hasTiles);
   });
 
   it('should display a non empty next', () => {
-    cy.get(sel.next).should(hasTiles);
+    cy.get(Sel.next).should(hasTiles);
   });
 
   it('should display default score', () => {
-    cy.get(sel.score).contains(0);
+    cy.get(Sel.score).contains(0);
   });
 
   it('should display default level', () => {
-    cy.get(sel.level).contains(1);
+    cy.get(Sel.level).contains(1);
   });
 
   it('should display default lines', () => {
-    cy.get(sel.lines).contains(0);
+    cy.get(Sel.lines).contains(0);
   });
 
   it('should render navigation', () => {
-    cy.get(sel.padLeft).should('exist');
-    cy.get(sel.padRotate).should('exist');
-    cy.get(sel.padDown).should('exist');
-    cy.get(sel.padRight).should('exist');
+    cy.get(Sel.padLeft).should('exist');
+    cy.get(Sel.padRotate).should('exist');
+    cy.get(Sel.padDown).should('exist');
+    cy.get(Sel.padRight).should('exist');
   });
 
   it('should click on pad-left and move tetromino', () => {
-    checkTilePosition(sel.board, sel.padLeft).then((x) => {
+    checkTilePosition(Sel.board, Sel.padLeft).then((x) => {
       expect(x.before - 1).equal(x.after);
     });
   });
 
   it('should click on pad-right and move tetromino', () => {
-    checkTilePosition(sel.board, sel.padRight).then((x) => {
+    checkTilePosition(Sel.board, Sel.padRight).then((x) => {
       expect(x.before + 1).equal(x.after);
     });
   });
