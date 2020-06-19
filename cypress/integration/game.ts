@@ -1,59 +1,11 @@
-const findTiles = (elm: JQuery<HTMLElement>) => elm.find('[data-test-variant]');
+import { Sel, checkTilePosition, findTiles } from '../util';
 
-const findFirstTile = (elm: JQuery<HTMLElement>) =>
-  findTiles(elm)
-    .filter((idx: number, y: HTMLElement) => y.dataset.testVariant !== '0')
-    .get(0);
-
-const hasTiles = (elm: JQuery<HTMLElement>) => {
+const hasTiles = (elm: JQuery<HTMLElement>): void => {
   const hasTiles = findTiles(elm).is(
     (idx: number, y: HTMLElement) => y.dataset.testVariant !== '0'
   );
   expect(hasTiles).to.be.true;
 };
-
-const checkTilePosition = (
-  selector: string,
-  selectorPad: Sel.padLeft | Sel.padRight | Sel.padDown,
-  type: 'testColumn' | 'testRow'
-) => {
-  return cy
-    .get(selector)
-    .then((elm) => {
-      const tile = findFirstTile(elm);
-      const posBefore = Number(tile?.dataset?.[type]);
-      return Promise.resolve(posBefore);
-    })
-    .then((posBefore) => {
-      return cy
-        .get(selectorPad)
-        .click()
-        .then(() => {
-          return cy.get(selector).then((elm) => {
-            const tile = findFirstTile(elm);
-            const posAfter = Number(tile?.dataset?.[type]);
-            return Promise.resolve({
-              posBefore,
-              posAfter,
-            });
-          });
-        });
-    });
-};
-
-const enum Sel {
-  logo = '[data-test=logo]',
-  button = '[data-test=button]',
-  board = '[data-test=board]',
-  next = '[data-test=next]',
-  score = '[data-test=score]',
-  level = '[data-test=level]',
-  lines = '[data-test=lines]',
-  padLeft = '[data-test=pad-left]',
-  padRotate = '[data-test=pad-rotate]',
-  padDown = '[data-test=pad-down]',
-  padRight = '[data-test=pad-right]',
-}
 
 describe('game', () => {
   before(() => {
