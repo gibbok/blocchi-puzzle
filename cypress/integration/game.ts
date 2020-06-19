@@ -14,7 +14,7 @@ const hasTiles = (elm: JQuery<HTMLElement>) => {
 
 const checkTilePosition = (
   selector: string,
-  selectorPad: Sel.padLeft | Sel.padRight,
+  selectorPad: Sel.padLeft | Sel.padRight | Sel.padDown,
   type: 'testColumn' | 'testRow'
 ) => {
   return cy
@@ -24,7 +24,7 @@ const checkTilePosition = (
       const posBefore = Number(tile?.dataset?.[type]);
       return Promise.resolve(posBefore);
     })
-    .then((beforeColumn) => {
+    .then((posBefore) => {
       return cy
         .get(selectorPad)
         .click()
@@ -33,8 +33,8 @@ const checkTilePosition = (
             const tile = findFirstTile(elm);
             const posAfter = Number(tile?.dataset?.[type]);
             return Promise.resolve({
-              before: beforeColumn,
-              after: posAfter,
+              posBefore,
+              posAfter,
             });
           });
         });
@@ -112,13 +112,20 @@ describe('game', () => {
 
   it('should click on pad-left and move tetromino', () => {
     checkTilePosition(Sel.board, Sel.padLeft, 'testColumn').then((x) => {
-      expect(x.before - 1).equal(x.after);
+      expect(x.posBefore - 1).equal(x.posAfter);
     });
   });
 
   it('should click on pad-right and move tetromino', () => {
     checkTilePosition(Sel.board, Sel.padRight, 'testColumn').then((x) => {
-      expect(x.before + 1).equal(x.after);
+      expect(x.posBefore + 1).equal(x.posAfter);
+    });
+  });
+
+  it('should click on pad-down and move tetromino', () => {
+    cy.wait(1000);
+    checkTilePosition(Sel.board, Sel.padDown, 'testRow').then((x) => {
+      expect(x.posBefore + 1).equal(x.posAfter);
     });
   });
 });
