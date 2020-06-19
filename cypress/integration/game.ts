@@ -9,6 +9,17 @@ describe('game', () => {
     cy.visit('');
   });
 
+  it('should render logo', () => {
+    cy.get('[data-test=logo]').should('exist');
+  });
+
+  it('should animate logo', () => {
+    cy.get('[data-test=logo] > path').should('not.have.attr', 'style', 'fill: rgb(68, 34, 23);');
+    cy.wait(5)
+      .get('[data-test=logo] > path')
+      .should('have.attr', 'style', 'fill: rgb(68, 34, 23);');
+  });
+
   it('should button click on intro screen and move to screen game', () => {
     cy.get('[data-test=button]').click();
   });
