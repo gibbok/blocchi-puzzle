@@ -1,4 +1,8 @@
-import { debug } from 'console';
+const hasTiles = ($div: JQuery<HTMLElement>) => {
+  const tilesHtml = $div.find('[data-test-variant]');
+  const hasTiles = tilesHtml.is((idx: number, y: HTMLElement) => y.dataset.testVariant !== '0');
+  expect(hasTiles).to.be.true;
+};
 
 describe('game', () => {
   before(() => {
@@ -19,11 +23,11 @@ describe('game', () => {
     cy.get('[data-test=next]').find('div[data-test-variant]');
   });
 
-  it('should display a tromino on board ', () => {
-    cy.get('[data-test=board]').should(() => {
-      const tilesHtml = Cypress.$('[data-test-variant]');
-      const hasTiles = tilesHtml.is((idx: number, y: HTMLElement) => y.dataset.testVariant !== '0');
-      expect(hasTiles).to.be.true;
-    });
+  it('should display a non empty board', () => {
+    cy.get('[data-test=board]').should(hasTiles);
+  });
+
+  it('should display a non empty next', () => {
+    cy.get('[data-test=next]').should(hasTiles);
   });
 });
