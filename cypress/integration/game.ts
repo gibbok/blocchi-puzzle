@@ -22,8 +22,7 @@ describe('game', () => {
   it('should display a tromino on board ', () => {
     cy.get('[data-test=board]').should(() => {
       const tilesHtml = Cypress.$('[data-test-variant]');
-      const fn = (idx: number, y: HTMLElement) => y.dataset.testVariant !== '0';
-      const hasTiles = tilesHtml.is(fn);
+      const hasTiles = tilesHtml.is((idx: number, y: HTMLElement) => y.dataset.testVariant !== '0');
       expect(hasTiles).to.be.true;
     });
   });
