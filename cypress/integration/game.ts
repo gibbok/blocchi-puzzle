@@ -13,6 +13,9 @@ const sel = {
   level: '[data-test=level]',
   lines: '[data-test=lines]',
   padLeft: '[data-test=pad-left]',
+  padRotate: '[data-test=pad-rotate]',
+  padDown: '[data-test=pad-down]',
+  padRight: '[data-test=pad-right]',
 };
 
 describe('game', () => {
@@ -61,6 +64,13 @@ describe('game', () => {
 
   it('should display default lines', () => {
     cy.get(sel.lines).contains(0);
+  });
+
+  it('should render navigation', () => {
+    cy.get(sel.padLeft).should('exist');
+    cy.get(sel.padRotate).should('exist');
+    cy.get(sel.padDown).should('exist');
+    cy.get(sel.padRight).should('exist');
   });
 
   it('should click on pad-left and move tetromino', () => {

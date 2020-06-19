@@ -48,7 +48,7 @@ const ShadowElm = styled.div.attrs<{ test?: string }>((p) => ({
   'data-test': p.test,
 }));
 
-const Shadow = ShadowElm`
+const Shadow = ShadowElm<{ test?: string }>`
   filter: drop-shadow(-0.2rem 0.3rem 0.3rem rgba(50, 50, 0, 0.4));
 `;
 
