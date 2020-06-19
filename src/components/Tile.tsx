@@ -11,7 +11,9 @@ type Props = {
 };
 
 const TileElm = styled.div.attrs<{ variant: TileType; row: number; column: number }>((p) => ({
-  'data-test': `${p.variant}-${p.row}-${p.column}`,
+  'data-test-variant': p.variant,
+  'data-test-row': p.row,
+  'data-test-column': p.column,
 }));
 
 const TileStyled = TileElm<Props>`

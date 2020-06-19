@@ -17,7 +17,11 @@ const Grid = styled.div`
 
 const EmptyTile = styled.div``;
 
-const NextStyles = styled.div`
+const NextElm = styled.div.attrs({
+  'data-test': 'next',
+});
+
+const NextStyles = NextElm`
   width: 100%;
   display: flex;
   justify-content: center;
