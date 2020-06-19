@@ -1,6 +1,9 @@
+const findTiles = ($div: JQuery<HTMLElement>) => $div.find('[data-test-variant]');
+
 const hasTiles = ($div: JQuery<HTMLElement>) => {
-  const tilesHtml = $div.find('[data-test-variant]');
-  const hasTiles = tilesHtml.is((idx: number, y: HTMLElement) => y.dataset.testVariant !== '0');
+  const hasTiles = findTiles($div).is(
+    (idx: number, y: HTMLElement) => y.dataset.testVariant !== '0'
+  );
   expect(hasTiles).to.be.true;
 };
 
