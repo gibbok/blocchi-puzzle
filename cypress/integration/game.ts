@@ -1,12 +1,12 @@
-const findTiles = ($elm: JQuery<HTMLElement>) => $elm.find('[data-test-variant]');
+const findTiles = (elm: JQuery<HTMLElement>) => elm.find('[data-test-variant]');
 
-const findFirstTile = ($elm: JQuery<HTMLElement>) =>
-  findTiles($elm)
+const findFirstTile = (elm: JQuery<HTMLElement>) =>
+  findTiles(elm)
     .filter((idx: number, y: HTMLElement) => y.dataset.testVariant !== '0')
     .get(0);
 
-const hasTiles = ($elm: JQuery<HTMLElement>) => {
-  const hasTiles = findTiles($elm).is(
+const hasTiles = (elm: JQuery<HTMLElement>) => {
+  const hasTiles = findTiles(elm).is(
     (idx: number, y: HTMLElement) => y.dataset.testVariant !== '0'
   );
   expect(hasTiles).to.be.true;
@@ -83,22 +83,19 @@ describe('game', () => {
 
   it('should click on pad-left and move tetromino', () => {
     cy.get(sel.board)
-      .then((boardElm) => {
-        const tile = findFirstTile(boardElm);
-        const prevColumn = tile?.dataset?.testColumn;
-        return Promise.resolve(Number(prevColumn));
+      .then((elm) => {
+        const tile = findFirstTile(elm);
+        const posBefore = Number(tile?.dataset?.testColumn);
+        return Promise.resolve(posBefore);
       })
-      .then((originalPosColumn) => {
+      .then((beforeColumn) => {
         cy.get(sel.padLeft)
           .click()
           .then(() => {
-            cy.get(sel.board).then((boardElm) => {
-              const tile = findFirstTile(boardElm);
-              const newPosColumn = tile?.dataset?.testColumn;
-              if (newPosColumn) {
-                const newValue = Number(newPosColumn);
-                expect(originalPosColumn - 1).equal(newValue);
-              }
+            cy.get(sel.board).then((elm) => {
+              const tile = findFirstTile(elm);
+              const posAfter = Number(tile?.dataset?.testColumn);
+              expect(beforeColumn - 1).equal(posAfter);
             });
           });
       });
