@@ -12,7 +12,7 @@ const hasTiles = (elm: JQuery<HTMLElement>) => {
   expect(hasTiles).to.be.true;
 };
 
-const checkPosColumnBeforeAfter = (selector: string) => {
+const checkTilePosition = (selector: string, selectorPad: string) => {
   return cy
     .get(selector)
     .then((elm) => {
@@ -22,7 +22,7 @@ const checkPosColumnBeforeAfter = (selector: string) => {
     })
     .then((beforeColumn) => {
       return cy
-        .get(sel.padLeft)
+        .get(selectorPad)
         .click()
         .then(() => {
           return cy.get(selector).then((elm) => {
@@ -107,14 +107,14 @@ describe('game', () => {
   });
 
   it('should click on pad-left and move tetromino', () => {
-    checkPosColumnBeforeAfter(sel.board).then((x) => {
+    checkTilePosition(sel.board, sel.padLeft).then((x) => {
       expect(x.before - 1).equal(x.after);
     });
   });
 
   it('should click on pad-right and move tetromino', () => {
-    checkPosColumnBeforeAfter(sel.board).then((x) => {
-      expect(x.before).equal(x.after + 1);
+    checkTilePosition(sel.board, sel.padRight).then((x) => {
+      expect(x.before + 1).equal(x.after);
     });
   });
 });
