@@ -12,6 +12,31 @@ const hasTiles = (elm: JQuery<HTMLElement>) => {
   expect(hasTiles).to.be.true;
 };
 
+const checkPosColumnBeforeAfter = (selector: string) => {
+  return cy
+    .get(selector)
+    .then((elm) => {
+      const tile = findFirstTile(elm);
+      const posBefore = Number(tile?.dataset?.testColumn);
+      return Promise.resolve(posBefore);
+    })
+    .then((beforeColumn) => {
+      return cy
+        .get(sel.padLeft)
+        .click()
+        .then(() => {
+          return cy.get(selector).then((elm) => {
+            const tile = findFirstTile(elm);
+            const posAfter = Number(tile?.dataset?.testColumn);
+            return Promise.resolve({
+              before: beforeColumn,
+              after: posAfter,
+            });
+          });
+        });
+    });
+};
+
 const sel = {
   logo: '[data-test=logo]',
   button: '[data-test=button]',
@@ -82,22 +107,8 @@ describe('game', () => {
   });
 
   it('should click on pad-left and move tetromino', () => {
-    cy.get(sel.board)
-      .then((elm) => {
-        const tile = findFirstTile(elm);
-        const posBefore = Number(tile?.dataset?.testColumn);
-        return Promise.resolve(posBefore);
-      })
-      .then((beforeColumn) => {
-        cy.get(sel.padLeft)
-          .click()
-          .then(() => {
-            cy.get(sel.board).then((elm) => {
-              const tile = findFirstTile(elm);
-              const posAfter = Number(tile?.dataset?.testColumn);
-              expect(beforeColumn - 1).equal(posAfter);
-            });
-          });
-      });
+    checkPosColumnBeforeAfter(sel.board).then((x) => {
+      expect(x.before - 1).equal(x.after);
+    });
   });
 });
