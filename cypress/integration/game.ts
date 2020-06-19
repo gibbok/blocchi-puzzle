@@ -111,4 +111,10 @@ describe('game', () => {
       expect(x.before - 1).equal(x.after);
     });
   });
+
+  it('should click on pad-right and move tetromino', () => {
+    checkPosColumnBeforeAfter(sel.board).then((x) => {
+      expect(x.before).equal(x.after + 1);
+    });
+  });
 });
