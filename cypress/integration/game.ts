@@ -77,6 +77,31 @@ describe('game', () => {
   });
 
   it('should click on pad-left and move tetromino', () => {
-    cy.get(sel.padLeft).click();
+    cy.get(sel.board)
+      .then((boardElm) => {
+        const tiles = findTiles(boardElm);
+        const tile = tiles
+          .filter((idx: number, y: HTMLElement) => y.dataset.testVariant !== '0')
+          .get(0);
+        const prevColumn = tile?.dataset?.testColumn;
+        return Promise.resolve(Number(prevColumn));
+      })
+      .then((originalPosColumn) => {
+        cy.get(sel.padLeft)
+          .click()
+          .then(() => {
+            cy.get(sel.board).then((boardElm) => {
+              const tiles = findTiles(boardElm);
+              const tile = tiles
+                .filter((idx: number, y: HTMLElement) => y.dataset.testVariant !== '0')
+                .get(0);
+              const newPosColumn = tile?.dataset?.testColumn;
+              if (newPosColumn) {
+                const newValue = Number(newPosColumn);
+                expect(originalPosColumn - 1).equal(newValue);
+              }
+            });
+          });
+      });
   });
 });
