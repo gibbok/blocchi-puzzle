@@ -1,7 +1,12 @@
-const findTiles = ($div: JQuery<HTMLElement>) => $div.find('[data-test-variant]');
+const findTiles = ($elm: JQuery<HTMLElement>) => $elm.find('[data-test-variant]');
 
-const hasTiles = ($div: JQuery<HTMLElement>) => {
-  const hasTiles = findTiles($div).is(
+const findFirstTile = ($elm: JQuery<HTMLElement>) =>
+  findTiles($elm)
+    .filter((idx: number, y: HTMLElement) => y.dataset.testVariant !== '0')
+    .get(0);
+
+const hasTiles = ($elm: JQuery<HTMLElement>) => {
+  const hasTiles = findTiles($elm).is(
     (idx: number, y: HTMLElement) => y.dataset.testVariant !== '0'
   );
   expect(hasTiles).to.be.true;
@@ -79,10 +84,7 @@ describe('game', () => {
   it('should click on pad-left and move tetromino', () => {
     cy.get(sel.board)
       .then((boardElm) => {
-        const tiles = findTiles(boardElm);
-        const tile = tiles
-          .filter((idx: number, y: HTMLElement) => y.dataset.testVariant !== '0')
-          .get(0);
+        const tile = findFirstTile(boardElm);
         const prevColumn = tile?.dataset?.testColumn;
         return Promise.resolve(Number(prevColumn));
       })
@@ -91,10 +93,7 @@ describe('game', () => {
           .click()
           .then(() => {
             cy.get(sel.board).then((boardElm) => {
-              const tiles = findTiles(boardElm);
-              const tile = tiles
-                .filter((idx: number, y: HTMLElement) => y.dataset.testVariant !== '0')
-                .get(0);
+              const tile = findFirstTile(boardElm);
               const newPosColumn = tile?.dataset?.testColumn;
               if (newPosColumn) {
                 const newValue = Number(newPosColumn);
