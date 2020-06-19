@@ -4,53 +4,66 @@ const hasTiles = ($div: JQuery<HTMLElement>) => {
   expect(hasTiles).to.be.true;
 };
 
+const sel = {
+  logo: '[data-test=logo]',
+  button: '[data-test=button]',
+  board: '[data-test=board]',
+  next: '[data-test=next]',
+  score: '[data-test=score]',
+  level: '[data-test=level]',
+  lines: '[data-test=lines]',
+  padLeft: '[data-test=pad-left]',
+};
+
 describe('game', () => {
   before(() => {
     cy.visit('');
   });
 
   it('should render logo', () => {
-    cy.get('[data-test=logo]').should('exist');
+    cy.get(sel.logo).should('exist');
   });
 
   it('should animate logo', () => {
-    cy.get('[data-test=logo] > path').should('not.have.attr', 'style', 'fill: rgb(68, 34, 23);');
-    cy.wait(4)
-      .get('[data-test=logo] > path')
-      .should('have.attr', 'style', 'fill: rgb(68, 34, 23);');
+    cy.get(`${sel.logo} > path`).should('not.have.attr', 'style', 'fill: rgb(68, 34, 23);');
+    cy.wait(4).get(`${sel.logo} > path`).should('have.attr', 'style', 'fill: rgb(68, 34, 23);');
   });
 
   it('should button click on intro screen and move to screen game', () => {
-    cy.get('[data-test=button]').click();
+    cy.get(sel.button).click();
   });
 
   it('should display a tetro on board', () => {
-    cy.get('[data-test=board]').should('exist');
-    cy.get('[data-test=board]').find('div[data-test-variant]');
+    cy.get(sel.board).should('exist');
+    cy.get(sel.board).find('div[data-test-variant]');
   });
 
   it('should display a tetro on next', () => {
-    cy.get('[data-test=next]').should('exist');
-    cy.get('[data-test=next]').find('div[data-test-variant]');
+    cy.get(sel.next).should('exist');
+    cy.get(sel.next).find('div[data-test-variant]');
   });
 
   it('should display a non empty board', () => {
-    cy.get('[data-test=board]').should(hasTiles);
+    cy.get(sel.board).should(hasTiles);
   });
 
   it('should display a non empty next', () => {
-    cy.get('[data-test=next]').should(hasTiles);
+    cy.get(sel.next).should(hasTiles);
   });
 
   it('should display default score', () => {
-    cy.get('[data-test=score]').contains(0);
+    cy.get(sel.score).contains(0);
   });
 
   it('should display default level', () => {
-    cy.get('[data-test=level]').contains(1);
+    cy.get(sel.level).contains(1);
   });
 
   it('should display default lines', () => {
-    cy.get('[data-test=lines]').contains(0);
+    cy.get(sel.lines).contains(0);
+  });
+
+  it('should click on pad-left and move tetromino', () => {
+    cy.get(sel.padLeft).click();
   });
 });
