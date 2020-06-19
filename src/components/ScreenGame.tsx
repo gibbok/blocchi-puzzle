@@ -14,7 +14,11 @@ const {
   actions: { moveLeft, moveUp, moveRight },
 } = gameSlice;
 
-const ScreenGameStyled = styled.div`
+const ScreenGameElm = styled.div.attrs({
+  'data-test': 'screen-game',
+});
+
+const ScreenGameStyled = ScreenGameElm`
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 2rem;

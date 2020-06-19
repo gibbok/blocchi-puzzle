@@ -2,7 +2,11 @@ import styled from 'styled-components';
 import React from 'react';
 import { mq, PaletteEnum } from '../game/settings';
 
-const ButtonStyled = styled.button`
+const ButtonElm = styled.button.attrs({
+  'data-test': 'button',
+});
+
+const ButtonStyled = ButtonElm`
   cursor: pointer;
   border: none;
   display: block;

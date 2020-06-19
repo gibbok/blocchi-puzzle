@@ -4,7 +4,11 @@ import styled from 'styled-components';
 import { BOARD_CELLS, BOARD_ROWS, TILE_COLOR_NOTETRO, mq_o, mq } from '../game/settings';
 import { Tile } from './Tile';
 
-const BoardStyled = styled.div`
+const BoardElm = styled.div.attrs({
+  'data-test': 'board',
+});
+
+const BoardStyled = BoardElm`
   display: grid;
   width: 40vmin;
   height: 80vmin;
