@@ -44,20 +44,25 @@ export const IconStyleWrapper = styled.div`
   }
 `;
 
-const Shadow = styled.div`
+const ShadowElm = styled.div.attrs<{ test?: string }>((p) => ({
+  'data-test': p.test,
+}));
+
+const Shadow = ShadowElm`
   filter: drop-shadow(-0.2rem 0.3rem 0.3rem rgba(50, 50, 0, 0.4));
 `;
 
 type PadProps = Readonly<{
+  test?: string;
   icon: React.ReactNode;
   onClick: () => void;
 }>;
 
 type PadSpecific = Omit<PadProps, 'icon'>;
 
-export function Pad({ icon, onClick }: PadProps): JSX.Element {
+export function Pad({ icon, test, onClick }: PadProps): JSX.Element {
   return (
-    <Shadow>
+    <Shadow test={test}>
       <PadStyled onClick={onClick}>
         <PadBackground>{icon}</PadBackground>
       </PadStyled>
@@ -68,6 +73,7 @@ export function Pad({ icon, onClick }: PadProps): JSX.Element {
 export function PadLeft({ onClick }: PadSpecific): JSX.Element {
   return (
     <Pad
+      test="pad-left"
       onClick={onClick}
       icon={
         <IconStyleWrapper>
@@ -81,6 +87,7 @@ export function PadLeft({ onClick }: PadSpecific): JSX.Element {
 export function PadRight({ onClick }: PadSpecific): JSX.Element {
   return (
     <Pad
+      test="pad-right"
       onClick={onClick}
       icon={
         <IconStyleWrapper>
@@ -93,6 +100,7 @@ export function PadRight({ onClick }: PadSpecific): JSX.Element {
 export function PadDown({ onClick }: PadSpecific): JSX.Element {
   return (
     <Pad
+      test="pad-down"
       onClick={onClick}
       icon={
         <IconStyleWrapper>
@@ -105,6 +113,7 @@ export function PadDown({ onClick }: PadSpecific): JSX.Element {
 export function PadRotate({ onClick }: PadSpecific): JSX.Element {
   return (
     <Pad
+      test="pad-rotate"
       onClick={onClick}
       icon={
         <IconStyleWrapper>

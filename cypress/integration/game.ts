@@ -15,7 +15,7 @@ describe('game', () => {
 
   it('should animate logo', () => {
     cy.get('[data-test=logo] > path').should('not.have.attr', 'style', 'fill: rgb(68, 34, 23);');
-    cy.wait(5)
+    cy.wait(4)
       .get('[data-test=logo] > path')
       .should('have.attr', 'style', 'fill: rgb(68, 34, 23);');
   });
