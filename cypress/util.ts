@@ -1,10 +1,17 @@
+import { pipe } from 'fp-ts/lib/pipeable';
+
 export const findTiles = (elm: JQuery<HTMLElement>): JQuery<HTMLElement> =>
   elm.find('[data-test-variant]');
 
-export const findFirstTile = (elm: JQuery<HTMLElement>): HTMLElement =>
-  findTiles(elm)
-    .filter((idx: number, y: HTMLElement) => y.dataset.testVariant !== '0')
-    .get(0);
+export const filterTetros = (elm: JQuery<HTMLElement>): JQuery<HTMLElement> =>
+  elm.filter((idx: number, y: HTMLElement) => y.dataset.testVariant !== '0');
+
+export const findTile = (idx: number) => (elm: JQuery<HTMLElement>): HTMLElement =>
+  pipe(findTiles(elm), filterTetros, (x) => x.get(idx));
+
+export const firstTile = findTile(1);
+
+export const lastTile = findTile(-1);
 
 export const checkTilePosition = (
   selector: string,
@@ -14,7 +21,7 @@ export const checkTilePosition = (
   return cy
     .get(selector)
     .then((elm) => {
-      const tile = findFirstTile(elm);
+      const tile = firstTile(elm);
       const posBefore = Number(tile?.dataset?.[type]);
       return Promise.resolve(posBefore);
     })
@@ -24,7 +31,7 @@ export const checkTilePosition = (
         .click()
         .then(() => {
           return cy.get(selector).then((elm) => {
-            const tile = findFirstTile(elm);
+            const tile = firstTile(elm);
             const posAfter = Number(tile?.dataset?.[type]);
             return Promise.resolve({
               posBefore,
