@@ -19,46 +19,46 @@ storiesOf('Tile', module)
   .addDecorator(globalStylesDecorator)
   .add('Z', () => (
     <WrapperBig>
-      <Tile variant={TetroEnum.Z} />
+      <Tile variant={TetroEnum.Z} row={0} column={0} />
     </WrapperBig>
   ))
   .add('S', () => (
     <WrapperBig>
-      <Tile variant={TetroEnum.S} />
+      <Tile variant={TetroEnum.S} row={0} column={0} />
     </WrapperBig>
   ))
   .add('J', () => (
     <WrapperBig>
-      <Tile variant={TetroEnum.J} />
+      <Tile variant={TetroEnum.J} row={0} column={0} />
     </WrapperBig>
   ))
   .add('T', () => (
     <WrapperBig>
-      <Tile variant={TetroEnum.T} />
+      <Tile variant={TetroEnum.T} row={0} column={0} />
     </WrapperBig>
   ))
   .add('I', () => (
     <WrapperBig>
-      <Tile variant={TetroEnum.I} />
+      <Tile variant={TetroEnum.I} row={0} column={0} />
     </WrapperBig>
   ))
   .add('L', () => (
     <WrapperBig>
-      <Tile variant={TetroEnum.L} />
+      <Tile variant={TetroEnum.L} row={0} column={0} />
     </WrapperBig>
   ))
   .add('O', () => (
     <WrapperBig>
-      <Tile variant={TetroEnum.O} />
+      <Tile variant={TetroEnum.O} row={0} column={0} />
     </WrapperBig>
   ))
   .add('none', () => (
     <WrapperBig>
-      <Tile variant={NoTetro} />
+      <Tile variant={NoTetro} row={0} column={0} />
     </WrapperBig>
   ))
   .add('small', () => (
     <WrapperSmall>
-      <Tile variant={TetroEnum.O} />
+      <Tile variant={TetroEnum.O} row={0} column={0} />
     </WrapperSmall>
   ));

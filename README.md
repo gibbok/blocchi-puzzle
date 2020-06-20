@@ -20,9 +20,9 @@ The layout is fluid and responsive based on CSS3 written using [styled-component
 
 Animations created using [GSAP](https://greensock.com/gsap/) and [react-transition-group](https://github.com/reactjs/react-transition-group) with CSS transitions.
 
-All tests are written using [Jest](https://jestjs.io/) with coverage to near 100%. UI snapshots and behavioral testing is performed using [react-test-renderer](https://reactjs.org/docs/test-renderer.html). To mock the store [redux-mock-store](https://github.com/reduxjs/redux-mock-store) was used.
+All tests are written using [Jest](https://jestjs.io/) and [Sinon](https://sinonjs.org/) with coverage to near 100%. UI snapshots and behavioral testing is performed using [react-test-renderer](https://reactjs.org/docs/test-renderer.html). To mock the store [redux-mock-store](https://github.com/reduxjs/redux-mock-store) was used.
 
-Additional visual regression testing is setup using [Loki](https://loki.js.org/). End-to-end testing made with [Cypress](https://www.cypress.io/) (coming soon). Continuous integration with [Travis Ci](https://travis-ci.com/).
+Additional visual regression testing is setup using [Loki](https://loki.js.org/). End-to-end testing made with [Cypress](https://www.cypress.io/). Continuous integration with [Travis Ci](https://travis-ci.com/).
 
 ## Screenshot
 
