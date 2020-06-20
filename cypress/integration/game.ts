@@ -1,4 +1,4 @@
-import { Sel, checkTilePosition, findTiles } from '../util';
+import { Sel, checkTilePosition, findTiles, firstTile, getDataset } from '../util';
 
 const hasTiles = (elm: JQuery<HTMLElement>): void => {
   const hasTiles = findTiles(elm).is(
@@ -80,5 +80,11 @@ describe('game', () => {
     });
   });
 
-  it('should click on pad-up and rotate tetromino', () => {});
+  it('should click on pad-up and rotate tetromino', () => {
+    cy.get(Sel.board).then((boardElm) => {
+      const beforeFirstTile = firstTile(boardElm);
+      const beforeFirstTileVariant = getDataset(beforeFirstTile, 'testVariant');
+      debugger;
+    });
+  });
 });

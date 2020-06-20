@@ -1,4 +1,4 @@
-type TileDataset = 'testColumn' | 'testRow';
+type TileDataset = 'testColumn' | 'testRow' | 'testVariant';
 
 import { pipe } from 'fp-ts/lib/pipeable';
 
@@ -15,8 +15,8 @@ export const firstTile = findTile(1);
 
 export const lastTile = findTile(-1);
 
-export const getDataset = (elm: HTMLElement, type: TileDataset): number =>
-  Number(elm?.dataset?.[type]);
+export const getDataset = (elm: HTMLElement, type: TileDataset): string | undefined =>
+  elm?.dataset?.[type];
 
 export const checkTilePosition = (
   selector: string,
@@ -37,7 +37,7 @@ export const checkTilePosition = (
         .then(() => {
           return cy.get(selector).then((elm) => {
             const tile = firstTile(elm);
-            const posAfter = getDataset(tile, type);
+            const posAfter = Number(getDataset(tile, type));
             return Promise.resolve({
               posBefore,
               posAfter,
