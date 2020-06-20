@@ -8,21 +8,20 @@ import { Navigation } from './Navigation';
 import { useDispatch } from 'react-redux';
 import { moveDownThunk } from '../store/board/actions/thunks';
 import { gameSlice } from '../store';
-import { mq_o } from '../game/settings';
 
 const {
   actions: { moveLeft, moveUp, moveRight },
 } = gameSlice;
 
-const ScreenGameStyled = styled.div`
+const ScreenGameElm = styled.div.attrs({
+  'data-test': 'screen-game',
+});
+
+const ScreenGameStyled = ScreenGameElm`
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 2rem;
   height: 100%;
-  ${mq_o.l} {
-  }
-  ${mq_o.p} {
-  }
 `;
 
 const Status = styled.div``;

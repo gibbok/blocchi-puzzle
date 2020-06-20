@@ -1,4 +1,4 @@
-import { Sel, checkTilePosition, findTiles, getDataTiles, extractDataFromTetros } from '../util';
+import { Sel, checkTilePosition, findTiles, getDataFromContainer } from '../util';
 
 const hasTiles = (elm: JQuery<HTMLElement>): void => {
   const hasTiles = findTiles(elm).is(
@@ -12,6 +12,10 @@ describe('game', () => {
     cy.visit('');
   });
 
+  it('should render screen into', () => {
+    cy.get(Sel.screenIntro).should('exist');
+  });
+
   it('should render logo', () => {
     cy.get(Sel.logo).should('exist');
   });
@@ -23,6 +27,7 @@ describe('game', () => {
 
   it('should button click on intro screen and move to screen game', () => {
     cy.get(Sel.button).click();
+    cy.get(Sel.screenGame).should('exist');
   });
 
   it('should display a tetro on board', () => {
@@ -81,11 +86,11 @@ describe('game', () => {
   });
 
   it('should click on pad-up and rotate tetromino', () => {
-    extractDataFromTetros(Sel.board).then((beforeData) => {
+    getDataFromContainer(Sel.board).then((beforeData) => {
       cy.get(Sel.padRotate)
         .click()
         .then(() => {
-          extractDataFromTetros(Sel.board).then((afterData) => {
+          getDataFromContainer(Sel.board).then((afterData) => {
             expect(afterData).not.equal(beforeData);
           });
         });
@@ -93,14 +98,18 @@ describe('game', () => {
   });
 
   it('should navigate using arrow keys', () => {
-    extractDataFromTetros(Sel.board).then((beforeData) => {
+    getDataFromContainer(Sel.board).then((beforeData) => {
       cy.get(Sel.padRotate)
         .trigger('keydown', { code: 'ArrowUp', bubble: true, force: true, log: true })
         .then(() => {
-          extractDataFromTetros(Sel.board).then((afterData) => {
+          getDataFromContainer(Sel.board).then((afterData) => {
             expect(afterData).not.equal(beforeData);
           });
         });
     });
+  });
+
+  it('should end game and move over screen', () => {
+    cy.wait(30).get(Sel.screenOver).should('exist');
   });
 });

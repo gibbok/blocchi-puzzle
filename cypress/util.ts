@@ -1,25 +1,25 @@
-type TileDataset = 'testColumn' | 'testRow' | 'testVariant';
-
 import { pipe } from 'fp-ts/lib/pipeable';
+
+type TileDataset = 'testColumn' | 'testRow' | 'testVariant';
 
 export const findTiles = (elm: JQuery<HTMLElement>): JQuery<HTMLElement> =>
   elm.find('[data-test-variant]');
 
-export const filterTetros = (elm: JQuery<HTMLElement>): JQuery<HTMLElement> =>
+export const filterBoardForTiles = (elm: JQuery<HTMLElement>): JQuery<HTMLElement> =>
   elm.filter((idx: number, y: HTMLElement) => y.dataset.testVariant !== '0');
 
 export const findTile = (idx: number) => (elm: JQuery<HTMLElement>): HTMLElement =>
-  pipe(findTiles(elm), filterTetros, (x) => x.get(idx));
+  pipe(findTiles(elm), filterBoardForTiles, (x) => x.get(idx));
 
 export const firstTile = findTile(1);
 
 export const lastTile = findTile(-1);
 
-export const getDataset = (elm: HTMLElement, type: TileDataset): string | undefined =>
+export const getTileDataset = (elm: HTMLElement, type: TileDataset): string | undefined =>
   elm?.dataset?.[type];
 
 export const getDataTiles = (elm: JQuery<HTMLElement>): ReadonlyArray<string> =>
-  pipe(findTiles(elm), filterTetros)
+  pipe(findTiles(elm), filterBoardForTiles)
     .toArray()
     .map(({ dataset }) => [
       dataset.testVariant ?? '',
@@ -28,7 +28,7 @@ export const getDataTiles = (elm: JQuery<HTMLElement>): ReadonlyArray<string> =>
     ])
     .flat();
 
-export const extractDataFromTetros = (selector: Sel): Cypress.Chainable<ReadonlyArray<string>> =>
+export const getDataFromContainer = (selector: Sel): Cypress.Chainable<ReadonlyArray<string>> =>
   cy.get(selector).then((elm) => {
     const data = getDataTiles(elm);
     return Promise.resolve(data);
@@ -53,7 +53,7 @@ export const checkTilePosition = (
         .then(() => {
           return cy.get(selector).then((elm) => {
             const tile = firstTile(elm);
-            const posAfter = Number(getDataset(tile, type));
+            const posAfter = Number(getTileDataset(tile, type));
             return Promise.resolve({
               posBefore,
               posAfter,
@@ -75,4 +75,7 @@ export const enum Sel {
   padRotate = '[data-test=pad-rotate]',
   padDown = '[data-test=pad-down]',
   padRight = '[data-test=pad-right]',
+  screenIntro = '[data-test=screen-intro]',
+  screenGame = '[data-test=screen-game]',
+  screenOver = '[data-test=screen-over]',
 }
