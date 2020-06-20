@@ -1,11 +1,4 @@
-import { Sel, checkTilePosition, findTiles, getDataFromContainer } from '../util';
-
-const hasTiles = (elm: JQuery<HTMLElement>): void => {
-  const hasTiles = findTiles(elm).is(
-    (idx: number, y: HTMLElement) => y.dataset.testVariant !== '0'
-  );
-  expect(hasTiles).to.be.true;
-};
+import { Sel, checkTilePosition, hasTiles, getDataFromContainer } from '../util';
 
 describe('game', () => {
   before(() => {
@@ -107,9 +100,5 @@ describe('game', () => {
           });
         });
     });
-  });
-
-  it('should end game and move over screen', () => {
-    cy.wait(30).get(Sel.screenOver).should('exist');
   });
 });

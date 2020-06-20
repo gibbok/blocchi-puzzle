@@ -63,6 +63,13 @@ export const checkTilePosition = (
     });
 };
 
+export const hasTiles = (elm: JQuery<HTMLElement>): void => {
+  const hasTiles = findTiles(elm).is(
+    (idx: number, y: HTMLElement) => y.dataset.testVariant !== '0'
+  );
+  expect(hasTiles).to.be.true;
+};
+
 export const enum Sel {
   logo = '[data-test=logo]',
   button = '[data-test=button]',
