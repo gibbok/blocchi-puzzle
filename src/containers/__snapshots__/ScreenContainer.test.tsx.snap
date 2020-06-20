@@ -15,12 +15,14 @@ exports[`<ScreenContainer /> should render correctly 1`] = `
   >
     <div
       className="sc-fznyAO exTuiw"
+      data-test="screen-intro"
     >
       <div
         className="sc-fznZeY gMOis"
       >
         <svg
           className="sc-fzozJi sc-fzoLsD frVdkQ"
+          data-test="logo"
           height="207.94"
           viewBox="0 0 509.06 207.94"
           width="509.06"
@@ -53,6 +55,7 @@ exports[`<ScreenContainer /> should render correctly 1`] = `
       >
         <button
           className="sc-fzpans hBlqfx"
+          data-test="button"
           onClick={[Function]}
         >
           <div

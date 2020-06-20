@@ -3,6 +3,7 @@
 exports[`should render Next 1`] = `
 <div
   className="sc-fzozJi eBvqWD"
+  data-test="next"
 >
   <div
     className="sc-Axmtr hKwgRk"
@@ -24,6 +25,9 @@ exports[`should render Next 1`] = `
     >
       <div
         className="sc-AxjAm hTpnSM"
+        data-test-column={0}
+        data-test-row={1}
+        data-test-variant="I"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -47,6 +51,9 @@ exports[`should render Next 1`] = `
     >
       <div
         className="sc-AxjAm hTpnSM"
+        data-test-column={1}
+        data-test-row={1}
+        data-test-variant="I"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -70,6 +77,9 @@ exports[`should render Next 1`] = `
     >
       <div
         className="sc-AxjAm hTpnSM"
+        data-test-column={2}
+        data-test-row={1}
+        data-test-variant="I"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -93,6 +103,9 @@ exports[`should render Next 1`] = `
     >
       <div
         className="sc-AxjAm hTpnSM"
+        data-test-column={3}
+        data-test-row={1}
+        data-test-variant="I"
       >
         <div
           className="sc-AxirZ cTgbdZ"

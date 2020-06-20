@@ -6,12 +6,16 @@ exports[`should render Board 1`] = `
 >
   <div
     className="sc-Axmtr bFEGpo"
+    data-test="board"
   >
     <div
       className="sc-AxheI fUKIku"
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={0}
+        data-test-row={0}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -35,6 +39,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={1}
+        data-test-row={0}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -58,6 +65,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={2}
+        data-test-row={0}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -81,6 +91,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={3}
+        data-test-row={0}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -104,6 +117,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={4}
+        data-test-row={0}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -127,6 +143,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={5}
+        data-test-row={0}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -150,6 +169,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={6}
+        data-test-row={0}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -173,6 +195,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={7}
+        data-test-row={0}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -196,6 +221,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={8}
+        data-test-row={0}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -219,6 +247,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={9}
+        data-test-row={0}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -242,6 +273,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={0}
+        data-test-row={1}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -265,6 +299,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={1}
+        data-test-row={1}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -288,6 +325,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={2}
+        data-test-row={1}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -311,6 +351,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={3}
+        data-test-row={1}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -334,6 +377,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={4}
+        data-test-row={1}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -357,6 +403,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={5}
+        data-test-row={1}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -380,6 +429,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={6}
+        data-test-row={1}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -403,6 +455,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={7}
+        data-test-row={1}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -426,6 +481,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={8}
+        data-test-row={1}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -449,6 +507,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={9}
+        data-test-row={1}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -472,6 +533,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={0}
+        data-test-row={2}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -495,6 +559,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={1}
+        data-test-row={2}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -518,6 +585,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={2}
+        data-test-row={2}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -541,6 +611,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={3}
+        data-test-row={2}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -564,6 +637,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={4}
+        data-test-row={2}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -587,6 +663,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={5}
+        data-test-row={2}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -610,6 +689,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={6}
+        data-test-row={2}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -633,6 +715,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={7}
+        data-test-row={2}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -656,6 +741,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={8}
+        data-test-row={2}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -679,6 +767,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={9}
+        data-test-row={2}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -702,6 +793,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={0}
+        data-test-row={3}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -725,6 +819,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={1}
+        data-test-row={3}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -748,6 +845,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={2}
+        data-test-row={3}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -771,6 +871,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={3}
+        data-test-row={3}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -794,6 +897,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={4}
+        data-test-row={3}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -817,6 +923,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={5}
+        data-test-row={3}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -840,6 +949,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={6}
+        data-test-row={3}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -863,6 +975,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={7}
+        data-test-row={3}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -886,6 +1001,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={8}
+        data-test-row={3}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -909,6 +1027,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={9}
+        data-test-row={3}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -932,6 +1053,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={0}
+        data-test-row={4}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -955,6 +1079,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={1}
+        data-test-row={4}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -978,6 +1105,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={2}
+        data-test-row={4}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1001,6 +1131,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={3}
+        data-test-row={4}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1024,6 +1157,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={4}
+        data-test-row={4}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1047,6 +1183,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={5}
+        data-test-row={4}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1070,6 +1209,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={6}
+        data-test-row={4}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1093,6 +1235,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={7}
+        data-test-row={4}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1116,6 +1261,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={8}
+        data-test-row={4}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1139,6 +1287,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={9}
+        data-test-row={4}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1162,6 +1313,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={0}
+        data-test-row={5}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1185,6 +1339,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={1}
+        data-test-row={5}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1208,6 +1365,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={2}
+        data-test-row={5}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1231,6 +1391,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={3}
+        data-test-row={5}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1254,6 +1417,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={4}
+        data-test-row={5}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1277,6 +1443,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={5}
+        data-test-row={5}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1300,6 +1469,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={6}
+        data-test-row={5}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1323,6 +1495,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={7}
+        data-test-row={5}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1346,6 +1521,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={8}
+        data-test-row={5}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1369,6 +1547,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={9}
+        data-test-row={5}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1392,6 +1573,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={0}
+        data-test-row={6}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1415,6 +1599,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={1}
+        data-test-row={6}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1438,6 +1625,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={2}
+        data-test-row={6}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1461,6 +1651,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={3}
+        data-test-row={6}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1484,6 +1677,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={4}
+        data-test-row={6}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1507,6 +1703,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={5}
+        data-test-row={6}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1530,6 +1729,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={6}
+        data-test-row={6}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1553,6 +1755,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={7}
+        data-test-row={6}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1576,6 +1781,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={8}
+        data-test-row={6}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1599,6 +1807,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={9}
+        data-test-row={6}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1622,6 +1833,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={0}
+        data-test-row={7}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1645,6 +1859,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={1}
+        data-test-row={7}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1668,6 +1885,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={2}
+        data-test-row={7}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1691,6 +1911,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={3}
+        data-test-row={7}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1714,6 +1937,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={4}
+        data-test-row={7}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1737,6 +1963,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={5}
+        data-test-row={7}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1760,6 +1989,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={6}
+        data-test-row={7}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1783,6 +2015,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={7}
+        data-test-row={7}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1806,6 +2041,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={8}
+        data-test-row={7}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1829,6 +2067,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={9}
+        data-test-row={7}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1852,6 +2093,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={0}
+        data-test-row={8}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1875,6 +2119,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={1}
+        data-test-row={8}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1898,6 +2145,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={2}
+        data-test-row={8}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1921,6 +2171,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={3}
+        data-test-row={8}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1944,6 +2197,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={4}
+        data-test-row={8}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1967,6 +2223,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={5}
+        data-test-row={8}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -1990,6 +2249,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={6}
+        data-test-row={8}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2013,6 +2275,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={7}
+        data-test-row={8}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2036,6 +2301,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={8}
+        data-test-row={8}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2059,6 +2327,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={9}
+        data-test-row={8}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2082,6 +2353,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={0}
+        data-test-row={9}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2105,6 +2379,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={1}
+        data-test-row={9}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2128,6 +2405,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={2}
+        data-test-row={9}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2151,6 +2431,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={3}
+        data-test-row={9}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2174,6 +2457,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={4}
+        data-test-row={9}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2197,6 +2483,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={5}
+        data-test-row={9}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2220,6 +2509,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={6}
+        data-test-row={9}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2243,6 +2535,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={7}
+        data-test-row={9}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2266,6 +2561,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={8}
+        data-test-row={9}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2289,6 +2587,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={9}
+        data-test-row={9}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2312,6 +2613,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={0}
+        data-test-row={10}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2335,6 +2639,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={1}
+        data-test-row={10}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2358,6 +2665,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={2}
+        data-test-row={10}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2381,6 +2691,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={3}
+        data-test-row={10}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2404,6 +2717,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={4}
+        data-test-row={10}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2427,6 +2743,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={5}
+        data-test-row={10}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2450,6 +2769,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={6}
+        data-test-row={10}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2473,6 +2795,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={7}
+        data-test-row={10}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2496,6 +2821,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={8}
+        data-test-row={10}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2519,6 +2847,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={9}
+        data-test-row={10}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2542,6 +2873,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={0}
+        data-test-row={11}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2565,6 +2899,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={1}
+        data-test-row={11}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2588,6 +2925,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={2}
+        data-test-row={11}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2611,6 +2951,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={3}
+        data-test-row={11}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2634,6 +2977,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={4}
+        data-test-row={11}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2657,6 +3003,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={5}
+        data-test-row={11}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2680,6 +3029,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={6}
+        data-test-row={11}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2703,6 +3055,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={7}
+        data-test-row={11}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2726,6 +3081,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={8}
+        data-test-row={11}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2749,6 +3107,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={9}
+        data-test-row={11}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2772,6 +3133,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={0}
+        data-test-row={12}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2795,6 +3159,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={1}
+        data-test-row={12}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2818,6 +3185,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={2}
+        data-test-row={12}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2841,6 +3211,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={3}
+        data-test-row={12}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2864,6 +3237,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={4}
+        data-test-row={12}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2887,6 +3263,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={5}
+        data-test-row={12}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2910,6 +3289,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={6}
+        data-test-row={12}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2933,6 +3315,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={7}
+        data-test-row={12}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2956,6 +3341,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={8}
+        data-test-row={12}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -2979,6 +3367,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={9}
+        data-test-row={12}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3002,6 +3393,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={0}
+        data-test-row={13}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3025,6 +3419,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={1}
+        data-test-row={13}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3048,6 +3445,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={2}
+        data-test-row={13}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3071,6 +3471,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={3}
+        data-test-row={13}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3094,6 +3497,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={4}
+        data-test-row={13}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3117,6 +3523,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={5}
+        data-test-row={13}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3140,6 +3549,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={6}
+        data-test-row={13}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3163,6 +3575,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={7}
+        data-test-row={13}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3186,6 +3601,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={8}
+        data-test-row={13}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3209,6 +3627,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={9}
+        data-test-row={13}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3232,6 +3653,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={0}
+        data-test-row={14}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3255,6 +3679,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={1}
+        data-test-row={14}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3278,6 +3705,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={2}
+        data-test-row={14}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3301,6 +3731,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={3}
+        data-test-row={14}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3324,6 +3757,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={4}
+        data-test-row={14}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3347,6 +3783,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={5}
+        data-test-row={14}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3370,6 +3809,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={6}
+        data-test-row={14}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3393,6 +3835,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={7}
+        data-test-row={14}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3416,6 +3861,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={8}
+        data-test-row={14}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3439,6 +3887,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={9}
+        data-test-row={14}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3462,6 +3913,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={0}
+        data-test-row={15}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3485,6 +3939,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={1}
+        data-test-row={15}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3508,6 +3965,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={2}
+        data-test-row={15}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3531,6 +3991,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={3}
+        data-test-row={15}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3554,6 +4017,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={4}
+        data-test-row={15}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3577,6 +4043,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={5}
+        data-test-row={15}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3600,6 +4069,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={6}
+        data-test-row={15}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3623,6 +4095,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={7}
+        data-test-row={15}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3646,6 +4121,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={8}
+        data-test-row={15}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3669,6 +4147,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={9}
+        data-test-row={15}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3692,6 +4173,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={0}
+        data-test-row={16}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3715,6 +4199,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={1}
+        data-test-row={16}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3738,6 +4225,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={2}
+        data-test-row={16}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3761,6 +4251,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={3}
+        data-test-row={16}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3784,6 +4277,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={4}
+        data-test-row={16}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3807,6 +4303,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={5}
+        data-test-row={16}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3830,6 +4329,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={6}
+        data-test-row={16}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3853,6 +4355,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={7}
+        data-test-row={16}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3876,6 +4381,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={8}
+        data-test-row={16}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3899,6 +4407,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={9}
+        data-test-row={16}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3922,6 +4433,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={0}
+        data-test-row={17}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3945,6 +4459,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={1}
+        data-test-row={17}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3968,6 +4485,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={2}
+        data-test-row={17}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -3991,6 +4511,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={3}
+        data-test-row={17}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4014,6 +4537,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={4}
+        data-test-row={17}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4037,6 +4563,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={5}
+        data-test-row={17}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4060,6 +4589,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={6}
+        data-test-row={17}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4083,6 +4615,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={7}
+        data-test-row={17}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4106,6 +4641,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={8}
+        data-test-row={17}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4129,6 +4667,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={9}
+        data-test-row={17}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4152,6 +4693,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={0}
+        data-test-row={18}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4175,6 +4719,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={1}
+        data-test-row={18}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4198,6 +4745,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={2}
+        data-test-row={18}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4221,6 +4771,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={3}
+        data-test-row={18}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4244,6 +4797,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={4}
+        data-test-row={18}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4267,6 +4823,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={5}
+        data-test-row={18}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4290,6 +4849,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={6}
+        data-test-row={18}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4313,6 +4875,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={7}
+        data-test-row={18}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4336,6 +4901,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={8}
+        data-test-row={18}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4359,6 +4927,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={9}
+        data-test-row={18}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4382,6 +4953,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={0}
+        data-test-row={19}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4405,6 +4979,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={1}
+        data-test-row={19}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4428,6 +5005,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={2}
+        data-test-row={19}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4451,6 +5031,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={3}
+        data-test-row={19}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4474,6 +5057,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={4}
+        data-test-row={19}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4497,6 +5083,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={5}
+        data-test-row={19}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4520,6 +5109,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={6}
+        data-test-row={19}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4543,6 +5135,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={7}
+        data-test-row={19}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4566,6 +5161,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={8}
+        data-test-row={19}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -4589,6 +5187,9 @@ exports[`should render Board 1`] = `
     >
       <div
         className="sc-AxjAm feDwdy"
+        data-test-column={9}
+        data-test-row={19}
+        data-test-variant="S"
       >
         <div
           className="sc-AxirZ cTgbdZ"

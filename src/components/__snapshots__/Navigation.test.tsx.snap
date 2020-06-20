@@ -6,6 +6,7 @@ exports[`<Navigation /> should render Navigation 1`] = `
 >
   <div
     className="sc-AxhUy ehyRyD"
+    data-test="pad-left"
   >
     <div
       className="sc-AxirZ gPyzun"
@@ -39,6 +40,7 @@ exports[`<Navigation /> should render Navigation 1`] = `
   </div>
   <div
     className="sc-AxhUy ehyRyD"
+    data-test="pad-rotate"
   >
     <div
       className="sc-AxirZ gPyzun"
@@ -72,6 +74,7 @@ exports[`<Navigation /> should render Navigation 1`] = `
   </div>
   <div
     className="sc-AxhUy ehyRyD"
+    data-test="pad-down"
   >
     <div
       className="sc-AxirZ gPyzun"
@@ -105,6 +108,7 @@ exports[`<Navigation /> should render Navigation 1`] = `
   </div>
   <div
     className="sc-AxhUy ehyRyD"
+    data-test="pad-right"
   >
     <div
       className="sc-AxirZ gPyzun"

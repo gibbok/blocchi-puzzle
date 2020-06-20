@@ -2,7 +2,8 @@
 
 exports[`<ScreenGame /> should render 1`] = `
 <div
-  className="sc-fznxsB dAlLCM"
+  className="sc-fznxsB jaHCBA"
+  data-test="screen-game"
 >
   <div
     className="sc-fznWqX clGFVO"
@@ -12,12 +13,16 @@ exports[`<ScreenGame /> should render 1`] = `
     >
       <div
         className="sc-Axmtr bFEGpo"
+        data-test="board"
       >
         <div
           className="sc-AxheI fwUCIC"
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={0}
+            data-test-row={0}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -25,6 +30,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={1}
+            data-test-row={0}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -32,6 +40,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={2}
+            data-test-row={0}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -39,6 +50,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={3}
+            data-test-row={0}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -46,6 +60,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hTpnSM"
+            data-test-column={4}
+            data-test-row={0}
+            data-test-variant="I"
           >
             <div
               className="sc-AxirZ cTgbdZ"
@@ -69,6 +86,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={5}
+            data-test-row={0}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -76,6 +96,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={6}
+            data-test-row={0}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -83,6 +106,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={7}
+            data-test-row={0}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -90,6 +116,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={8}
+            data-test-row={0}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -97,6 +126,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={9}
+            data-test-row={0}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -104,6 +136,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={0}
+            data-test-row={1}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -111,6 +146,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={1}
+            data-test-row={1}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -118,6 +156,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={2}
+            data-test-row={1}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -125,6 +166,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={3}
+            data-test-row={1}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -132,6 +176,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hTpnSM"
+            data-test-column={4}
+            data-test-row={1}
+            data-test-variant="I"
           >
             <div
               className="sc-AxirZ cTgbdZ"
@@ -155,6 +202,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={5}
+            data-test-row={1}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -162,6 +212,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={6}
+            data-test-row={1}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -169,6 +222,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={7}
+            data-test-row={1}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -176,6 +232,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={8}
+            data-test-row={1}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -183,6 +242,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={9}
+            data-test-row={1}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -190,6 +252,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={0}
+            data-test-row={2}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -197,6 +262,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={1}
+            data-test-row={2}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -204,6 +272,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={2}
+            data-test-row={2}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -211,6 +282,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={3}
+            data-test-row={2}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -218,6 +292,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hTpnSM"
+            data-test-column={4}
+            data-test-row={2}
+            data-test-variant="I"
           >
             <div
               className="sc-AxirZ cTgbdZ"
@@ -241,6 +318,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={5}
+            data-test-row={2}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -248,6 +328,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={6}
+            data-test-row={2}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -255,6 +338,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={7}
+            data-test-row={2}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -262,6 +348,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={8}
+            data-test-row={2}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -269,6 +358,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={9}
+            data-test-row={2}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -276,6 +368,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={0}
+            data-test-row={3}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -283,6 +378,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={1}
+            data-test-row={3}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -290,6 +388,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={2}
+            data-test-row={3}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -297,6 +398,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={3}
+            data-test-row={3}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -304,6 +408,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hTpnSM"
+            data-test-column={4}
+            data-test-row={3}
+            data-test-variant="I"
           >
             <div
               className="sc-AxirZ cTgbdZ"
@@ -327,6 +434,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={5}
+            data-test-row={3}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -334,6 +444,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={6}
+            data-test-row={3}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -341,6 +454,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={7}
+            data-test-row={3}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -348,6 +464,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={8}
+            data-test-row={3}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -355,6 +474,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={9}
+            data-test-row={3}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -362,6 +484,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={0}
+            data-test-row={4}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -369,6 +494,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={1}
+            data-test-row={4}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -376,6 +504,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={2}
+            data-test-row={4}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -383,6 +514,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={3}
+            data-test-row={4}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -390,6 +524,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={4}
+            data-test-row={4}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -397,6 +534,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={5}
+            data-test-row={4}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -404,6 +544,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={6}
+            data-test-row={4}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -411,6 +554,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={7}
+            data-test-row={4}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -418,6 +564,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={8}
+            data-test-row={4}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -425,6 +574,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={9}
+            data-test-row={4}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -432,6 +584,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={0}
+            data-test-row={5}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -439,6 +594,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={1}
+            data-test-row={5}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -446,6 +604,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={2}
+            data-test-row={5}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -453,6 +614,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={3}
+            data-test-row={5}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -460,6 +624,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={4}
+            data-test-row={5}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -467,6 +634,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={5}
+            data-test-row={5}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -474,6 +644,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={6}
+            data-test-row={5}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -481,6 +654,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={7}
+            data-test-row={5}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -488,6 +664,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={8}
+            data-test-row={5}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -495,6 +674,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={9}
+            data-test-row={5}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -502,6 +684,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={0}
+            data-test-row={6}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -509,6 +694,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={1}
+            data-test-row={6}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -516,6 +704,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={2}
+            data-test-row={6}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -523,6 +714,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={3}
+            data-test-row={6}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -530,6 +724,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={4}
+            data-test-row={6}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -537,6 +734,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={5}
+            data-test-row={6}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -544,6 +744,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={6}
+            data-test-row={6}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -551,6 +754,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={7}
+            data-test-row={6}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -558,6 +764,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={8}
+            data-test-row={6}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -565,6 +774,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={9}
+            data-test-row={6}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -572,6 +784,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={0}
+            data-test-row={7}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -579,6 +794,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={1}
+            data-test-row={7}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -586,6 +804,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={2}
+            data-test-row={7}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -593,6 +814,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={3}
+            data-test-row={7}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -600,6 +824,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={4}
+            data-test-row={7}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -607,6 +834,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={5}
+            data-test-row={7}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -614,6 +844,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={6}
+            data-test-row={7}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -621,6 +854,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={7}
+            data-test-row={7}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -628,6 +864,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={8}
+            data-test-row={7}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -635,6 +874,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={9}
+            data-test-row={7}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -642,6 +884,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={0}
+            data-test-row={8}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -649,6 +894,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={1}
+            data-test-row={8}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -656,6 +904,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={2}
+            data-test-row={8}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -663,6 +914,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={3}
+            data-test-row={8}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -670,6 +924,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={4}
+            data-test-row={8}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -677,6 +934,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={5}
+            data-test-row={8}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -684,6 +944,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={6}
+            data-test-row={8}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -691,6 +954,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={7}
+            data-test-row={8}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -698,6 +964,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={8}
+            data-test-row={8}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -705,6 +974,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={9}
+            data-test-row={8}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -712,6 +984,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={0}
+            data-test-row={9}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -719,6 +994,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={1}
+            data-test-row={9}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -726,6 +1004,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={2}
+            data-test-row={9}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -733,6 +1014,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={3}
+            data-test-row={9}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -740,6 +1024,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={4}
+            data-test-row={9}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -747,6 +1034,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={5}
+            data-test-row={9}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -754,6 +1044,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={6}
+            data-test-row={9}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -761,6 +1054,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={7}
+            data-test-row={9}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -768,6 +1064,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={8}
+            data-test-row={9}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -775,6 +1074,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={9}
+            data-test-row={9}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -782,6 +1084,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={0}
+            data-test-row={10}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -789,6 +1094,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={1}
+            data-test-row={10}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -796,6 +1104,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={2}
+            data-test-row={10}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -803,6 +1114,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={3}
+            data-test-row={10}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -810,6 +1124,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={4}
+            data-test-row={10}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -817,6 +1134,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={5}
+            data-test-row={10}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -824,6 +1144,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={6}
+            data-test-row={10}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -831,6 +1154,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={7}
+            data-test-row={10}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -838,6 +1164,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={8}
+            data-test-row={10}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -845,6 +1174,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={9}
+            data-test-row={10}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -852,6 +1184,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={0}
+            data-test-row={11}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -859,6 +1194,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={1}
+            data-test-row={11}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -866,6 +1204,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={2}
+            data-test-row={11}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -873,6 +1214,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={3}
+            data-test-row={11}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -880,6 +1224,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={4}
+            data-test-row={11}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -887,6 +1234,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={5}
+            data-test-row={11}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -894,6 +1244,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={6}
+            data-test-row={11}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -901,6 +1254,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={7}
+            data-test-row={11}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -908,6 +1264,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={8}
+            data-test-row={11}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -915,6 +1274,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={9}
+            data-test-row={11}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -922,6 +1284,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={0}
+            data-test-row={12}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -929,6 +1294,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={1}
+            data-test-row={12}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -936,6 +1304,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={2}
+            data-test-row={12}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -943,6 +1314,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={3}
+            data-test-row={12}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -950,6 +1324,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={4}
+            data-test-row={12}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -957,6 +1334,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={5}
+            data-test-row={12}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -964,6 +1344,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={6}
+            data-test-row={12}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -971,6 +1354,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={7}
+            data-test-row={12}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -978,6 +1364,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={8}
+            data-test-row={12}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -985,6 +1374,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={9}
+            data-test-row={12}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -992,6 +1384,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={0}
+            data-test-row={13}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -999,6 +1394,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={1}
+            data-test-row={13}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1006,6 +1404,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={2}
+            data-test-row={13}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1013,6 +1414,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={3}
+            data-test-row={13}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1020,6 +1424,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={4}
+            data-test-row={13}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1027,6 +1434,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={5}
+            data-test-row={13}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1034,6 +1444,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={6}
+            data-test-row={13}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1041,6 +1454,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={7}
+            data-test-row={13}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1048,6 +1464,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={8}
+            data-test-row={13}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1055,6 +1474,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={9}
+            data-test-row={13}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1062,6 +1484,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={0}
+            data-test-row={14}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1069,6 +1494,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={1}
+            data-test-row={14}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1076,6 +1504,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={2}
+            data-test-row={14}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1083,6 +1514,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={3}
+            data-test-row={14}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1090,6 +1524,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={4}
+            data-test-row={14}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1097,6 +1534,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={5}
+            data-test-row={14}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1104,6 +1544,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={6}
+            data-test-row={14}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1111,6 +1554,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={7}
+            data-test-row={14}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1118,6 +1564,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={8}
+            data-test-row={14}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1125,6 +1574,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={9}
+            data-test-row={14}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1132,6 +1584,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={0}
+            data-test-row={15}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1139,6 +1594,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={1}
+            data-test-row={15}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1146,6 +1604,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={2}
+            data-test-row={15}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1153,6 +1614,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={3}
+            data-test-row={15}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1160,6 +1624,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={4}
+            data-test-row={15}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1167,6 +1634,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={5}
+            data-test-row={15}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1174,6 +1644,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={6}
+            data-test-row={15}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1181,6 +1654,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={7}
+            data-test-row={15}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1188,6 +1664,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={8}
+            data-test-row={15}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1195,6 +1674,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={9}
+            data-test-row={15}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1202,6 +1684,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={0}
+            data-test-row={16}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1209,6 +1694,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={1}
+            data-test-row={16}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1216,6 +1704,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={2}
+            data-test-row={16}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1223,6 +1714,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={3}
+            data-test-row={16}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1230,6 +1724,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={4}
+            data-test-row={16}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1237,6 +1734,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={5}
+            data-test-row={16}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1244,6 +1744,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={6}
+            data-test-row={16}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1251,6 +1754,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={7}
+            data-test-row={16}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1258,6 +1764,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={8}
+            data-test-row={16}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1265,6 +1774,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={9}
+            data-test-row={16}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1272,6 +1784,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={0}
+            data-test-row={17}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1279,6 +1794,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={1}
+            data-test-row={17}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1286,6 +1804,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={2}
+            data-test-row={17}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1293,6 +1814,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={3}
+            data-test-row={17}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1300,6 +1824,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={4}
+            data-test-row={17}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1307,6 +1834,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={5}
+            data-test-row={17}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1314,6 +1844,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={6}
+            data-test-row={17}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1321,6 +1854,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={7}
+            data-test-row={17}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1328,6 +1864,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={8}
+            data-test-row={17}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1335,6 +1874,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={9}
+            data-test-row={17}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1342,6 +1884,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={0}
+            data-test-row={18}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1349,6 +1894,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={1}
+            data-test-row={18}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1356,6 +1904,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={2}
+            data-test-row={18}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1363,6 +1914,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={3}
+            data-test-row={18}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1370,6 +1924,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={4}
+            data-test-row={18}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1377,6 +1934,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={5}
+            data-test-row={18}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1384,6 +1944,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={6}
+            data-test-row={18}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1391,6 +1954,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={7}
+            data-test-row={18}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1398,6 +1964,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={8}
+            data-test-row={18}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1405,6 +1974,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={9}
+            data-test-row={18}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1412,6 +1984,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={0}
+            data-test-row={19}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1419,6 +1994,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={1}
+            data-test-row={19}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1426,6 +2004,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={2}
+            data-test-row={19}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1433,6 +2014,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={3}
+            data-test-row={19}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1440,6 +2024,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={4}
+            data-test-row={19}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1447,6 +2034,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={5}
+            data-test-row={19}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1454,6 +2044,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={6}
+            data-test-row={19}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1461,6 +2054,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={7}
+            data-test-row={19}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1468,6 +2064,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={8}
+            data-test-row={19}
+            data-test-variant={0}
           />
         </div>
         <div
@@ -1475,6 +2074,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hQvQLG"
+            data-test-column={9}
+            data-test-row={19}
+            data-test-variant={0}
           />
         </div>
       </div>
@@ -1485,6 +2087,7 @@ exports[`<ScreenGame /> should render 1`] = `
   >
     <div
       className="sc-fzpans enrRGx"
+      data-test="next"
     >
       <div
         className="sc-fzozJi gOGhpI"
@@ -1497,6 +2100,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hFFVxV"
+            data-test-column={1}
+            data-test-row={0}
+            data-test-variant="J"
           >
             <div
               className="sc-AxirZ cTgbdZ"
@@ -1529,6 +2135,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hFFVxV"
+            data-test-column={1}
+            data-test-row={1}
+            data-test-variant="J"
           >
             <div
               className="sc-AxirZ cTgbdZ"
@@ -1558,6 +2167,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hFFVxV"
+            data-test-column={0}
+            data-test-row={2}
+            data-test-variant="J"
           >
             <div
               className="sc-AxirZ cTgbdZ"
@@ -1581,6 +2193,9 @@ exports[`<ScreenGame /> should render 1`] = `
         >
           <div
             className="sc-AxjAm hFFVxV"
+            data-test-column={1}
+            data-test-row={2}
+            data-test-variant="J"
           >
             <div
               className="sc-AxirZ cTgbdZ"
@@ -1632,6 +2247,7 @@ exports[`<ScreenGame /> should render 1`] = `
         </div>
         <div
           className="sc-fznKkj cFUJKw"
+          data-test="score"
         >
           0
         </div>
@@ -1649,6 +2265,7 @@ exports[`<ScreenGame /> should render 1`] = `
         </div>
         <div
           className="sc-fznKkj cFUJKw"
+          data-test="level"
         >
           1
         </div>
@@ -1666,6 +2283,7 @@ exports[`<ScreenGame /> should render 1`] = `
         </div>
         <div
           className="sc-fznKkj cFUJKw"
+          data-test="lines"
         >
           0
         </div>
@@ -1676,6 +2294,7 @@ exports[`<ScreenGame /> should render 1`] = `
     >
       <div
         className="sc-fzoXzr kxYKKJ"
+        data-test="pad-left"
       >
         <div
           className="sc-fzqNJr fzDvtI"
@@ -1709,6 +2328,7 @@ exports[`<ScreenGame /> should render 1`] = `
       </div>
       <div
         className="sc-fzoXzr kxYKKJ"
+        data-test="pad-rotate"
       >
         <div
           className="sc-fzqNJr fzDvtI"
@@ -1742,6 +2362,7 @@ exports[`<ScreenGame /> should render 1`] = `
       </div>
       <div
         className="sc-fzoXzr kxYKKJ"
+        data-test="pad-down"
       >
         <div
           className="sc-fzqNJr fzDvtI"
@@ -1775,6 +2396,7 @@ exports[`<ScreenGame /> should render 1`] = `
       </div>
       <div
         className="sc-fzoXzr kxYKKJ"
+        data-test="pad-right"
       >
         <div
           className="sc-fzqNJr fzDvtI"
