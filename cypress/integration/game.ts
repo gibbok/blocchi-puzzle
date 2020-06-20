@@ -93,9 +93,21 @@ describe('game', () => {
   });
 
   it('should click on pad-up and rotate tetromino', () => {
-    cy.get(Sel.board).then((boardElm) => {
-      const beforeData = getDataTiles(boardElm);
-      debugger;
-    });
+    cy.get(Sel.board)
+      .then((boardElm) => {
+        const beforeData = getDataTiles(boardElm);
+        return Promise.resolve(beforeData);
+      })
+      .then((beforeData) => {
+        cy.get(Sel.padRotate)
+          .click()
+          .then(() => {
+            cy.get(Sel.board).then((boardElm) => {
+              const afterData = getDataTiles(boardElm);
+              console.log('before', beforeData, 'after', afterData);
+              expect(afterData).not.equal(beforeData);
+            });
+          });
+      });
   });
 });

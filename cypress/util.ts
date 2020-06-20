@@ -18,10 +18,15 @@ export const lastTile = findTile(-1);
 export const getDataset = (elm: HTMLElement, type: TileDataset): string | undefined =>
   elm?.dataset?.[type];
 
-export const getDataTiles = (elm: JQuery<HTMLElement>) =>
+export const getDataTiles = (elm: JQuery<HTMLElement>): ReadonlyArray<string> =>
   pipe(findTiles(elm), filterTetros)
     .toArray()
-    .map(({ dataset }) => [dataset.testVariant, dataset.testRow, dataset.testColumn]);
+    .map(({ dataset }) => [
+      dataset.testVariant ?? '',
+      dataset.testRow ?? '',
+      dataset.testColumn ?? '',
+    ])
+    .flat();
 
 export const checkTilePosition = (
   selector: string,
