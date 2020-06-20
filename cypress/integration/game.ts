@@ -104,7 +104,6 @@ describe('game', () => {
           .then(() => {
             cy.get(Sel.board).then((boardElm) => {
               const afterData = getDataTiles(boardElm);
-              console.log('before', beforeData, 'after', afterData);
               expect(afterData).not.equal(beforeData);
             });
           });
