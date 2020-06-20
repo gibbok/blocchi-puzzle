@@ -3,6 +3,7 @@
 exports[`ScreenOver should render correctly 1`] = `
 <div
   className="sc-fzoyAV eHPTjQ"
+  data-test="screen-over"
 >
   <div
     className="sc-fzqNJr jfvDQh"
@@ -41,6 +42,7 @@ exports[`ScreenOver should render correctly 1`] = `
   >
     <button
       className="sc-AxjAm bJRPJO"
+      data-test="button"
       onClick={[Function]}
     >
       <div

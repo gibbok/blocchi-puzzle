@@ -3,6 +3,7 @@
 exports[`should render Button 1`] = `
 <button
   className="sc-AxjAm bJRPJO"
+  data-test="button"
   onClick={[Function]}
 >
   <div

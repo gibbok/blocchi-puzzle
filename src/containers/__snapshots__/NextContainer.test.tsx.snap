@@ -3,6 +3,7 @@
 exports[`<NextContainer /> should render NextContainer 1`] = `
 <div
   className="sc-fzozJi eBvqWD"
+  data-test="next"
 >
   <div
     className="sc-Axmtr hKwgRk"
@@ -15,6 +16,9 @@ exports[`<NextContainer /> should render NextContainer 1`] = `
     >
       <div
         className="sc-AxjAm hFFVxV"
+        data-test-column={1}
+        data-test-row={0}
+        data-test-variant="J"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -47,6 +51,9 @@ exports[`<NextContainer /> should render NextContainer 1`] = `
     >
       <div
         className="sc-AxjAm hFFVxV"
+        data-test-column={1}
+        data-test-row={1}
+        data-test-variant="J"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -76,6 +83,9 @@ exports[`<NextContainer /> should render NextContainer 1`] = `
     >
       <div
         className="sc-AxjAm hFFVxV"
+        data-test-column={0}
+        data-test-row={2}
+        data-test-variant="J"
       >
         <div
           className="sc-AxirZ cTgbdZ"
@@ -99,6 +109,9 @@ exports[`<NextContainer /> should render NextContainer 1`] = `
     >
       <div
         className="sc-AxjAm hFFVxV"
+        data-test-column={1}
+        data-test-row={2}
+        data-test-variant="J"
       >
         <div
           className="sc-AxirZ cTgbdZ"

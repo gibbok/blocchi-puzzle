@@ -34,7 +34,11 @@ export const Group = styled.div`
   }
 `;
 
-export const Line = styled.div`
+const LineElm = styled.div.attrs<{ test?: string }>((p) => ({
+  'data-test': p.test,
+}));
+
+export const Line = LineElm<{ test?: string }>`
   display: flex;
   justify-content: center;
 `;
@@ -79,17 +83,17 @@ export const Info = ({
   <InfoStyled>
     <Group>
       <Line>Score</Line>
-      <Line>{score}</Line>
+      <Line test="score">{score}</Line>
     </Group>
     <Divider />
     <Group>
       <Line>Level</Line>
-      <Line>{level}</Line>
+      <Line test="level">{level}</Line>
     </Group>
     <Divider />
     <Group>
       <Line>Lines</Line>
-      <Line>{lines}</Line>
+      <Line test="lines">{lines}</Line>
     </Group>
   </InfoStyled>
 );

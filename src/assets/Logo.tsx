@@ -14,6 +14,7 @@ const STYLE_PATH = {
 const Svg = styled.svg.attrs({
   xmlns: 'http://www.w3.org/2000/svg',
   viewBox: '0 0 509.06 207.94',
+  'data-test': 'logo',
 })``;
 
 const LogoSvg = styled(Svg)`

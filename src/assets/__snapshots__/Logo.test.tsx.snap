@@ -3,6 +3,7 @@
 exports[`<Logo /> should render Logo 1`] = `
 <svg
   className="sc-AxjAm sc-AxirZ OvNeY"
+  data-test="logo"
   height="207.94"
   viewBox="0 0 509.06 207.94"
   width="509.06"

@@ -3,12 +3,14 @@
 exports[`<ScreenIntro /> should render 1`] = `
 <div
   className="sc-AxhUy kgKiYM"
+  data-test="screen-intro"
 >
   <div
     className="sc-AxheI fqYhUZ"
   >
     <svg
       className="sc-AxjAm sc-AxirZ OvNeY"
+      data-test="logo"
       height="207.94"
       viewBox="0 0 509.06 207.94"
       width="509.06"
@@ -41,6 +43,7 @@ exports[`<ScreenIntro /> should render 1`] = `
   >
     <button
       className="sc-AxiKw eIprCN"
+      data-test="button"
       onClick={[Function]}
     >
       <div

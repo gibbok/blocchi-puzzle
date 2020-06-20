@@ -6,9 +6,17 @@ import { dots } from '../assets/patterns';
 
 type Props = {
   variant: TileType;
+  row: number;
+  column: number;
 };
 
-const TileStyled = styled.div<Props>`
+const TileElm = styled.div.attrs<{ variant: TileType; row: number; column: number }>((p) => ({
+  'data-test-variant': p.variant,
+  'data-test-row': p.row,
+  'data-test-column': p.column,
+}));
+
+const TileStyled = TileElm<Props>`
   position: relative;
   background: ${({ variant }) => (variant === NoTetro ? `${dots}` : TITLE_COLOR_ENUM[variant])};
   width: 100%;
@@ -94,10 +102,10 @@ const Shadow = styled.div<{ variant: TileType }>`
     variant === NoTetro ? 'none' : 'drop-shadow(0.3vmin 0.3vmin 0.3vmin rgba(50, 50, 0, 0.5))'};
 `;
 
-export function Tile({ variant }: Props): JSX.Element {
+export function Tile({ variant, row, column }: Props): JSX.Element {
   return (
     <Shadow variant={variant}>
-      <TileStyled variant={variant}>
+      <TileStyled variant={variant} row={row} column={column}>
         {variant !== NoTetro && (
           <>
             <UpSide />

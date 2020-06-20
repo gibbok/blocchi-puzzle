@@ -4,7 +4,11 @@ import styled from 'styled-components';
 import { BOARD_CELLS, BOARD_ROWS, TILE_COLOR_NOTETRO, mq_o, mq } from '../game/settings';
 import { Tile } from './Tile';
 
-const BoardStyled = styled.div`
+const BoardElm = styled.div.attrs({
+  'data-test': 'board',
+});
+
+const BoardStyled = BoardElm`
   display: grid;
   width: 40vmin;
   height: 80vmin;
@@ -65,14 +69,19 @@ const Frame = styled.div`
   }
 `;
 
-const renderTileMemo = (variant: TileType, idx: number) =>
-  React.useMemo(() => <Tile key={idx} variant={variant} />, [variant]);
+const renderTileMemo = (variant: TileType, rowIdx: number, columnIdx: number) =>
+  React.useMemo(
+    () => <Tile key={`${rowIdx}-${columnIdx}`} variant={variant} row={rowIdx} column={columnIdx} />,
+    [variant]
+  );
 
 export function Board({ board }: { board: BoardType }): JSX.Element {
   return (
     <Frame>
       <BoardStyled>
-        {board.map((row) => row.map((tileVariant, idx) => renderTileMemo(tileVariant, idx)))}
+        {board.map((row, rowIdx) =>
+          row.map((tileVariant, columnIdx) => renderTileMemo(tileVariant, rowIdx, columnIdx))
+        )}
       </BoardStyled>
     </Frame>
   );

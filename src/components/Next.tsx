@@ -17,7 +17,11 @@ const Grid = styled.div`
 
 const EmptyTile = styled.div``;
 
-const NextStyles = styled.div`
+const NextElm = styled.div.attrs({
+  'data-test': 'next',
+});
+
+const NextStyles = NextElm`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -40,7 +44,7 @@ export function Next({ type, direction }: Props): JSX.Element {
               const piece = tetro[rowIdxB][cellIdxB];
               const isPieceTetro = piece !== NoTetro;
               if (isPieceTetro) {
-                return <Tile key={cellIdxB} variant={piece} />;
+                return <Tile key={cellIdxB} variant={piece} row={rowIdxB} column={cellIdxB} />;
               } else {
                 return <EmptyTile key={cellIdxB} />;
               }
