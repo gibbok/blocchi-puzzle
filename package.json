@@ -34,7 +34,7 @@
     "tsc": "tsc",
     "cy:open": "cypress open",
     "cy:run": "cypress run --headless --browser chrome",
-    "cy:ci": "start-server-and-test storybook:build:local 8080 cy:run",
+    "cy:ci": "start-server-and-test start:build:local 8080 cy:run",
     "cy:verify": "cypress verify"
   },
   "dependencies": {
