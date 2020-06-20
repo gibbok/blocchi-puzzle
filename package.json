@@ -34,7 +34,7 @@
     "tsc": "tsc",
     "cy:open": "cypress open",
     "cy:run": "cypress run --headless --browser chrome",
-    "cy:ci": "npm start && cypress run --headless --browser chrome"
+    "cy:ci": "start-server-and-test start http://localhost:1234 cy:run"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.3.6",
@@ -101,6 +101,7 @@
     "react-test-renderer": "^16.13.1",
     "redux-mock-store": "^1.5.4",
     "shx": "^0.3.2",
+    "start-server-and-test": "^1.11.0",
     "ts-jest": "^26.0.0",
     "typescript": "^3.9.3"
   },
