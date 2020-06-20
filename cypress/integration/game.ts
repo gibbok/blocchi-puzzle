@@ -5,7 +5,7 @@ describe('game', () => {
     cy.visit('');
   });
 
-  it('should render screen into', () => {
+  it('should render screen intro', () => {
     cy.get(Sel.screenIntro).should('exist');
   });
 
@@ -20,7 +20,7 @@ describe('game', () => {
         return Promise.resolve(before);
       })
       .then((before) => {
-        cy.wait(0.25)
+        cy.wait(0.1)
           .get(`${Sel.logo} > path`)
           .then((elm) => {
             const after = elm.attr('stroke-dashoffset');
@@ -32,7 +32,7 @@ describe('game', () => {
       });
   });
 
-  it('should button click on intro screen and move to screen game', () => {
+  it('should button click on screen into and move to screen game', () => {
     cy.get(Sel.button).click();
     cy.get(Sel.screenGame).should('exist');
   });
@@ -104,7 +104,7 @@ describe('game', () => {
     });
   });
 
-  it('should navigate using arrow keys', () => {
+  it('should navigate using arrow key', () => {
     getDataFromContainer(Sel.board).then((beforeData) => {
       cy.get(Sel.padRotate)
         .trigger('keydown', { code: 'ArrowUp', bubble: true, force: true, log: true })
