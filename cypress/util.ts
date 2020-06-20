@@ -1,3 +1,5 @@
+type TileDataset = 'testColumn' | 'testRow';
+
 import { pipe } from 'fp-ts/lib/pipeable';
 
 export const findTiles = (elm: JQuery<HTMLElement>): JQuery<HTMLElement> =>
@@ -13,10 +15,13 @@ export const firstTile = findTile(1);
 
 export const lastTile = findTile(-1);
 
+export const getDataset = (elm: HTMLElement, type: TileDataset): number =>
+  Number(elm?.dataset?.[type]);
+
 export const checkTilePosition = (
   selector: string,
   selectorPad: Sel.padLeft | Sel.padRight | Sel.padDown,
-  type: 'testColumn' | 'testRow'
+  type: TileDataset
 ): Cypress.Chainable<{ posBefore: number; posAfter: number }> => {
   return cy
     .get(selector)
@@ -32,7 +37,7 @@ export const checkTilePosition = (
         .then(() => {
           return cy.get(selector).then((elm) => {
             const tile = firstTile(elm);
-            const posAfter = Number(tile?.dataset?.[type]);
+            const posAfter = getDataset(tile, type);
             return Promise.resolve({
               posBefore,
               posAfter,
