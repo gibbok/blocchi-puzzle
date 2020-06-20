@@ -1,4 +1,4 @@
-import { Sel, checkTilePosition, findTiles, getDataTiles } from '../util';
+import { Sel, checkTilePosition, findTiles, getDataTiles, extractDataFromTetros } from '../util';
 
 const hasTiles = (elm: JQuery<HTMLElement>): void => {
   const hasTiles = findTiles(elm).is(
@@ -99,20 +99,14 @@ describe('game', () => {
   });
 
   it('should navigate using arrow keys', () => {
-    cy.get(Sel.board)
-      .then((boardElm) => {
-        const beforeData = getDataTiles(boardElm);
-        return Promise.resolve(beforeData);
-      })
-      .then((beforeData) => {
-        cy.get(Sel.padRotate)
-          .trigger('keydown', { code: 'ArrowUp', bubble: true, force: true, log: true })
-          .then(() => {
-            cy.get(Sel.board).then((boardElm) => {
-              const afterData = getDataTiles(boardElm);
-              expect(afterData).not.equal(beforeData);
-            });
+    extractDataFromTetros(Sel.board).then((beforeData) => {
+      cy.get(Sel.padRotate)
+        .trigger('keydown', { code: 'ArrowUp', bubble: true, force: true, log: true })
+        .then(() => {
+          extractDataFromTetros(Sel.board).then((afterData) => {
+            expect(afterData).not.equal(beforeData);
           });
-      });
+        });
+    });
   });
 });

@@ -28,6 +28,12 @@ export const getDataTiles = (elm: JQuery<HTMLElement>): ReadonlyArray<string> =>
     ])
     .flat();
 
+export const extractDataFromTetros = (selector: Sel): Cypress.Chainable<ReadonlyArray<string>> =>
+  cy.get(selector).then((elm) => {
+    const data = getDataTiles(elm);
+    return Promise.resolve(data);
+  });
+
 export const checkTilePosition = (
   selector: string,
   selectorPad: Sel.padLeft | Sel.padRight | Sel.padDown,
