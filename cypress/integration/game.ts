@@ -1,16 +1,4 @@
-import {
-  Sel,
-  checkTilePosition,
-  findTiles,
-  firstTile,
-  getDataset,
-  lastTile,
-  findTile,
-  filterTetros,
-  getDataTiles,
-} from '../util';
-import { pipe } from 'fp-ts/lib/pipeable';
-import { toArray } from 'cypress/types/lodash';
+import { Sel, checkTilePosition, findTiles, getDataTiles } from '../util';
 
 const hasTiles = (elm: JQuery<HTMLElement>): void => {
   const hasTiles = findTiles(elm).is(
