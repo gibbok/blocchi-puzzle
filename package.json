@@ -33,7 +33,8 @@
     "tsc:watch": "tsc --watch --pretty",
     "tsc": "tsc",
     "cy:open": "cypress open",
-    "cy:run": "cypress run --headless --browser chrome"
+    "cy:run": "cypress run --headless --browser chrome",
+    "cy:ci": "npm start && cypress run --headless --browser chrome"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.3.6",
