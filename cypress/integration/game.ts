@@ -14,8 +14,22 @@ describe('game', () => {
   });
 
   it('should animate logo', () => {
-    cy.get(`${Sel.logo} > path`).should('not.have.attr', 'style', 'fill: rgb(68, 34, 23);');
-    cy.wait(4).get(`${Sel.logo} > path`).should('have.attr', 'style', 'fill: rgb(68, 34, 23);');
+    cy.get(`${Sel.logo} > path`)
+      .then((elm) => {
+        const before = elm.attr('stroke-dashoffset');
+        return Promise.resolve(before);
+      })
+      .then((before) => {
+        cy.wait(0.25)
+          .get(`${Sel.logo} > path`)
+          .then((elm) => {
+            const after = elm.attr('stroke-dashoffset');
+            return Promise.resolve(after);
+          })
+          .then((after) => {
+            expect(after).not.equal(before);
+          });
+      });
   });
 
   it('should button click on intro screen and move to screen game', () => {
