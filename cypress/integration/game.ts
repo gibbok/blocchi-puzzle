@@ -75,9 +75,10 @@ describe('game', () => {
   });
 
   it('should click on pad-down and move tetromino', () => {
-    cy.wait(1000);
     checkTilePosition(Sel.board, Sel.padDown, 'testRow').then((x) => {
       expect(x.posBefore + 1).equal(x.posAfter);
     });
   });
+
+  it('should click on pad-up and rotate tetromino', () => {});
 });
