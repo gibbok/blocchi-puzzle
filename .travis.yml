@@ -14,5 +14,7 @@ cache:
 install:
   - npm ci
 script:
-  - npm run cy:ci #move down fixme
   - npm run check
+  - npm run game:build:prod
+  - npm run cy:verify
+  - npm run cy:ci
