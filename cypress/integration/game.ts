@@ -81,21 +81,15 @@ describe('game', () => {
   });
 
   it('should click on pad-up and rotate tetromino', () => {
-    cy.get(Sel.board)
-      .then((boardElm) => {
-        const beforeData = getDataTiles(boardElm);
-        return Promise.resolve(beforeData);
-      })
-      .then((beforeData) => {
-        cy.get(Sel.padRotate)
-          .click()
-          .then(() => {
-            cy.get(Sel.board).then((boardElm) => {
-              const afterData = getDataTiles(boardElm);
-              expect(afterData).not.equal(beforeData);
-            });
+    extractDataFromTetros(Sel.board).then((beforeData) => {
+      cy.get(Sel.padRotate)
+        .click()
+        .then(() => {
+          extractDataFromTetros(Sel.board).then((afterData) => {
+            expect(afterData).not.equal(beforeData);
           });
-      });
+        });
+    });
   });
 
   it('should navigate using arrow keys', () => {
