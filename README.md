@@ -1,6 +1,6 @@
 # Blocchi puzzle
 
-A tetromino game based on React, Redux, TypeScript, and functional programming
+A tetromino game based on React, Redux, TypeScript, and functional programming.
 
 🚀 Play the game: https://gibbok.github.io/blocchi-puzzle/game/
 
