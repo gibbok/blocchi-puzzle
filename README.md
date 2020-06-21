@@ -1,6 +1,6 @@
 # Blocchi puzzle
 
-A tetromino game based on React, Redux, TypeScript, and functional programming
+A tetromino game based on React, Redux, TypeScript, and functional programming.
 
 🚀 Play the game: https://gibbok.github.io/blocchi-puzzle/game/
 
@@ -22,7 +22,7 @@ Animations created using [GSAP](https://greensock.com/gsap/) and [react-transiti
 
 All tests are written using [Jest](https://jestjs.io/) and [Sinon](https://sinonjs.org/) with coverage to near 100%. UI snapshots and behavioral testing is performed using [react-test-renderer](https://reactjs.org/docs/test-renderer.html). To mock the store [redux-mock-store](https://github.com/reduxjs/redux-mock-store) was used.
 
-Additional visual regression testing is setup using [Loki](https://loki.js.org/). End-to-end testing made with [Cypress](https://www.cypress.io/). Continuous integration with [Travis Ci](https://travis-ci.com/).
+Additional visual regression testing is setup using [Loki](https://loki.js.org/). End-to-end testing made with [Cypress](https://www.cypress.io/). Continuous integration with [Travis CI](https://travis-ci.com/).
 
 ## Screenshot
 
