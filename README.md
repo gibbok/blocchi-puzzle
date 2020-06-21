@@ -26,4 +26,4 @@ Additional visual regression testing is setup using [Loki](https://loki.js.org/)
 
 ## Screenshot
 
-![Blocchi puzzle screen shot](./assets/screen-shot-blocchi-puzzle.png)
+![Blocchi puzzle screen shot](./assets/screen-shot-blocchi-puzzle.jpg)
