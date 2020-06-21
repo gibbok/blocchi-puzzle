@@ -24,3 +24,4 @@ script:
   - npm run loki:ci
   - npm run cy:verify
   - npm run cy:ci
+  - npm run build-deploy:ci

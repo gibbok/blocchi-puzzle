@@ -18,6 +18,7 @@
     "check": "npm run tsc && npm run lint && npm run test",
     "deploy": "gh-pages -d build",
     "build-deploy": "npm run check && npm run storybook:build && npm run game:build:prod && npm run deploy",
+    "build-deploy:ci": "npm run storybook:build && npm run game:build:prod && npm run deploy",
     "game:build:prod": "tsc && parcel build src/index.html --no-source-maps --out-dir build/game --public-url ./",
     "lint:fix": "tsc & eslint './src/**/*.{js,ts,tsx}' --fix & prettier './src/**/*.{js,ts,tsx}' --write",
     "lint": "tsc & eslint './src/**/*.{js,ts,tsx}' & prettier './src/**/*.{js,ts,tsx}' --check",
