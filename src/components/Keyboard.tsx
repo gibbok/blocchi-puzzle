@@ -66,6 +66,7 @@ export const Keyboard = ({ detectionKeyRepeat }: Props): JSX.Element => {
     document.addEventListener('keyup', () => detectionKeyRepeat.set(false));
     return cleanUpHandleKeydown;
   });
+  }, []);
 
   return <></>;
 };
