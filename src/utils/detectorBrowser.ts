@@ -15,7 +15,7 @@ export const detectorBrowser = (browser?: BrowserInfo): boolean => {
       case 'chrome':
         return path >= 80;
       case 'firefox':
-        return path >= 74;
+        return path >= 77;
       case 'safari':
       case 'ios':
         return path >= 11;

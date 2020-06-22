@@ -5,8 +5,8 @@ describe('detectorBrowser', () => {
     expect(test).toBeTruthy();
   });
 
-  it('return true for firefox 74', () => {
-    const test = detectorBrowser({ name: 'firefox', version: '74' });
+  it('return true for firefox 77', () => {
+    const test = detectorBrowser({ name: 'firefox', version: '77' });
     expect(test).toBeTruthy();
   });
 
