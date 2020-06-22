@@ -1,19 +1,23 @@
 import renderer from 'react-test-renderer';
 import React from 'react';
 import { ScreenGame } from './ScreenGame';
-import { mockStore } from '../utils';
+import { mockStore, mockContext } from '../utils';
 import { Provider } from 'react-redux';
 import { PadLeft, PadRight, PadDown, PadRotate } from './Pad';
 import { act } from 'react-dom/test-utils';
+import { AppContextProvider } from '../context';
 
 describe('<ScreenGame />', () => {
   it('should render', () => {
     const store = mockStore();
+    const context = mockContext();
     const tree = renderer
       .create(
-        <Provider store={store}>
-          <ScreenGame />
-        </Provider>
+        <AppContextProvider value={context}>
+          <Provider store={store}>
+            <ScreenGame />
+          </Provider>
+        </AppContextProvider>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -21,10 +25,13 @@ describe('<ScreenGame />', () => {
 
   it('should dispath actions when clicking on navigation', () => {
     const store = mockStore(true);
+    const context = mockContext();
     const tree = renderer.create(
-      <Provider store={store}>
-        <ScreenGame />
-      </Provider>
+      <AppContextProvider value={context}>
+        <Provider store={store}>
+          <ScreenGame />
+        </Provider>
+      </AppContextProvider>
     );
     const instance = tree.root;
 

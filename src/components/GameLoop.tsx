@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { DetectorKeyRepeat } from './detectorKeyRepeat';
+import { useAppContextConsumer } from '../context';
 
 const TICK_MS = 1000;
 
@@ -12,12 +12,12 @@ export const loop = (
   time: number,
   level: number,
   lastTime: number,
-  detectionKeyRepeat: DetectorKeyRepeat,
+  repeat: boolean,
   setLastTimeCb: (time: number) => void,
   cb: () => void,
   dispatchCb: (cb: () => void) => void
 ): void => {
-  const isKeyHeld = detectionKeyRepeat.get();
+  const isKeyHeld = repeat;
   const threshold = calcTimeClockByLevel(TICK_MS, level);
   const progress = time - lastTime;
   const canGameAdvance = progress >= threshold;
@@ -29,14 +29,15 @@ export const loop = (
     return undefined;
   }
   animId = window.requestAnimationFrame((time) =>
-    loop(time, level, lastTime, detectionKeyRepeat, setLastTimeCb, cb, () => dispatchCb(() => cb()))
+    loop(time, level, lastTime, repeat, setLastTimeCb, cb, () => dispatchCb(() => cb()))
   );
   return undefined;
 };
 
-type Props = Readonly<{ level: number; detectionKeyRepeat: DetectorKeyRepeat; cb: () => void }>;
+type Props = Readonly<{ level: number; cb: () => void }>;
 
-export const GameLoop = ({ level, detectionKeyRepeat, cb }: Props): JSX.Element => {
+export const GameLoop = ({ level, cb }: Props): JSX.Element => {
+  const { repeat } = useAppContextConsumer();
   const dispatch = useDispatch();
   const [lastTime, setLastTime] = React.useState(0);
 
@@ -44,7 +45,7 @@ export const GameLoop = ({ level, detectionKeyRepeat, cb }: Props): JSX.Element 
 
   useEffect(() => {
     animId = window.requestAnimationFrame((time) =>
-      loop(time, level, lastTime, detectionKeyRepeat, setLastTime, cb, () => dispatch(cb()))
+      loop(time, level, lastTime, repeat, setLastTime, cb, () => dispatch(cb()))
     );
     return () => cleanAnimation(animId);
   });

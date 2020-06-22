@@ -104,3 +104,8 @@ export interface TransitionStyles {
   exiting?: React.CSSProperties;
   exited?: React.CSSProperties;
 }
+
+export type BrowserInfo = Readonly<{
+  name: string;
+  version: string;
+}>;

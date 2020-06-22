@@ -55,7 +55,7 @@ const LogoWrapper = styled.div`
 
 export const requestFullScreen = (): void => {
   if (screenfull.isEnabled) {
-    screenfull.request();
+    // screenfull.request();
   }
 };
 

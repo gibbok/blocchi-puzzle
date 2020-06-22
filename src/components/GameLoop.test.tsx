@@ -1,10 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { GameLoop, loop } from './GameLoop';
-import { mockStore, mkDkr } from '../utils';
+import { mockStore, mockContext } from '../utils';
 import { Provider } from 'react-redux';
 import { act } from 'react-dom/test-utils';
 import ReactDOM from 'react-dom';
+import { AppContextProvider } from '../context';
 
 describe('<GameLoop />', () => {
   let container: Element | null;
@@ -31,14 +32,15 @@ describe('<GameLoop />', () => {
   });
 
   it('should not render any dom', () => {
-    const dkr = mkDkr(false);
     const cb = jest.fn();
     const store = mockStore();
-
+    const context = mockContext();
     const tree = renderer
       .create(
         <Provider store={store}>
-          <GameLoop level={1} detectionKeyRepeat={dkr} cb={cb} />
+          <AppContextProvider value={context}>
+            <GameLoop level={1} cb={cb} />
+          </AppContextProvider>
         </Provider>
       )
       .toJSON();
@@ -47,14 +49,16 @@ describe('<GameLoop />', () => {
 
   it('shoud umount and remove event handler', () => {
     const store = mockStore(true);
-    const dkr = mkDkr(false);
     const cbMock = jest.fn();
     const cbCafMock = jest.fn();
+    const context = mockContext();
 
     act(() => {
       ReactDOM.render(
         <Provider store={store}>
-          <GameLoop level={1} detectionKeyRepeat={dkr} cb={cbMock} />
+          <AppContextProvider value={context}>
+            <GameLoop level={1} cb={cbMock} />
+          </AppContextProvider>
         </Provider>,
         container
       );
@@ -73,36 +77,33 @@ describe('<GameLoop />', () => {
 
   describe('loop', () => {
     it('should call dispatch and update last time, if time passed is over threshold and user does not hold key', () => {
-      const dkr = mkDkr(false);
       const setLastTimeCbMock = jest.fn();
       const cbMock = jest.fn();
       const dispatchCbMock = jest.fn().mockImplementation(() => undefined);
 
-      loop(5000, 1, 1000, dkr, setLastTimeCbMock, cbMock, dispatchCbMock);
+      loop(5000, 1, 1000, false, setLastTimeCbMock, cbMock, dispatchCbMock);
 
       expect(setLastTimeCbMock).toHaveBeenCalled();
       expect(dispatchCbMock).toHaveBeenCalled();
     });
 
     it('should do not dispatch and update last time, if time passed is not over threshold', () => {
-      const dkr = mkDkr(false);
       const setLastTimeCbMock = jest.fn();
       const cbMock = jest.fn();
       const dispatchCbMock = jest.fn().mockImplementation(() => undefined);
 
-      loop(4500, 1, 5000, dkr, setLastTimeCbMock, cbMock, dispatchCbMock);
+      loop(4500, 1, 5000, false, setLastTimeCbMock, cbMock, dispatchCbMock);
 
       expect(setLastTimeCbMock).not.toHaveBeenCalled();
       expect(dispatchCbMock).not.toHaveBeenCalled();
     });
 
     it('should call dispatch and update last time, if time passed is over threshold and user hold key', () => {
-      const dkr = mkDkr(true);
       const setLastTimeCbMock = jest.fn();
       const cbMock = jest.fn();
       const dispatchCbMock = jest.fn().mockImplementation(() => undefined);
 
-      loop(5000, 1, 1000, dkr, setLastTimeCbMock, cbMock, dispatchCbMock);
+      loop(5000, 1, 1000, true, setLastTimeCbMock, cbMock, dispatchCbMock);
 
       expect(setLastTimeCbMock).toHaveBeenCalled();
       expect(dispatchCbMock).not.toHaveBeenCalled();

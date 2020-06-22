@@ -1,9 +1,6 @@
-const getPathRelease = (version: string) => version.split('.')[0];
+import { BrowserInfo } from '../game/types';
 
-type BrowserInfo = Readonly<{
-  name: string;
-  version: string;
-}>;
+const getPathRelease = (version: string) => version.split('.')[0];
 
 export const detectorBrowser = (browser?: BrowserInfo): boolean => {
   if (browser) {

@@ -15,8 +15,8 @@ describe('detectorBrowser', () => {
     expect(test).toBeTruthy();
   });
 
-  it('return true for ios 11', () => {
-    const test = detectorBrowser({ name: 'ios', version: '11' });
+  it('return true for ios 13', () => {
+    const test = detectorBrowser({ name: 'ios', version: '13' });
     expect(test).toBeTruthy();
   });
 

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Keyboard } from './Keyboard';
 import { BoardContainer, NextContainer, InfoContainer } from '../containers';
 import { GameLoopContainer } from '../containers/GameLoopContainer';
-import { detectorKeyRepeat } from './detectorKeyRepeat';
 import { Navigation } from './Navigation';
 import { useDispatch } from 'react-redux';
 import { moveDownThunk } from '../store/board/actions/thunks';
@@ -33,8 +32,8 @@ export const ScreenGame = (): JSX.Element => {
 
   return (
     <>
-      <GameLoopContainer detectionKeyRepeat={detectorKeyRepeat} />
-      <Keyboard detectionKeyRepeat={detectorKeyRepeat} />
+      <GameLoopContainer />
+      <Keyboard />
       <ScreenGameStyled>
         <Board>
           <BoardContainer />

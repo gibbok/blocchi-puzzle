@@ -4,8 +4,8 @@ import { mkInitialState } from '../store';
 import renderer from 'react-test-renderer';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { detectorKeyRepeat } from '../components/detectorKeyRepeat';
-import { mockStore } from '../utils';
+import { mockStore, mockContext } from '../utils';
+import { AppContextProvider } from '../context';
 
 describe('<GameLoopContainer />', () => {
   jest.useFakeTimers();
@@ -18,10 +18,13 @@ describe('<GameLoopContainer />', () => {
   });
 
   it('should render correctly', () => {
-    const mockedStore = mockStore();
+    const store = mockStore();
+    const context = mockContext();
     const withProvider = (
-      <Provider store={mockedStore}>
-        <GameLoopContainer detectionKeyRepeat={detectorKeyRepeat} />
+      <Provider store={store}>
+        <AppContextProvider value={context}>
+          <GameLoopContainer />
+        </AppContextProvider>
       </Provider>
     );
     const component = renderer.create(withProvider);
