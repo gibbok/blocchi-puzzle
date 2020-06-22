@@ -39,14 +39,14 @@ export const handleKeydown = (
   }
 };
 
-const getThrottle = (browser?: string) =>
+export const getThrottleMs = (browser?: string): number =>
   browser && browser === 'safari' ? THROTTLE_MS_SAFARI : THROTTLE_MS;
 
 export const Keyboard = (): JSX.Element => {
   const { browserInfo, setRepeat } = useAppContextConsumer();
   const dispatch = useDispatch();
 
-  const throttleMs = getThrottle(browserInfo?.name);
+  const throttleMs = getThrottleMs(browserInfo?.name);
 
   const hkd = handleKeydown(
     setRepeat,
