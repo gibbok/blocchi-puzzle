@@ -1,11 +1,12 @@
-import { handleKeydown, Keyboard } from './Keyboard';
+import { handleKeydown, Keyboard, getThrottleMs } from './Keyboard';
 import { KeyEnum } from '../game/types';
 import renderer from 'react-test-renderer';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { mockStore, mkDkr } from '../utils';
+import { mockStore, mockContext } from '../utils';
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
+import { AppContextProvider } from '../context';
 
 const dispatchEvent = (key: KeyEnum) => {
   document.dispatchEvent(
@@ -17,7 +18,20 @@ const dispatchEvent = (key: KeyEnum) => {
 };
 
 describe('Keyboard', () => {
-  const dkr = mkDkr(false);
+  const setRepeatMock = jest.fn();
+
+  describe('getThrottle', () => {
+    it('should return long throttle for safari', () => {
+      expect(getThrottleMs('safari')).toBe(250);
+    });
+
+    it('should return short throttle for other browser', () => {
+      expect(getThrottleMs('chrome')).toBe(60);
+    });
+    it('should return default throttle if no browser was detected', () => {
+      expect(getThrottleMs(undefined)).toBe(60);
+    });
+  });
 
   describe('handleKeydown', () => {
     const up = jest.fn();
@@ -26,31 +40,34 @@ describe('Keyboard', () => {
     const left = jest.fn();
 
     it('should execute up callback', () => {
-      handleKeydown(dkr, up, right, down, left)(KeyEnum.Up, false);
+      handleKeydown(setRepeatMock, up, right, down, left)(KeyEnum.Up, false);
       expect(up).toHaveBeenCalled();
     });
 
     it('should execute right callback', () => {
-      handleKeydown(dkr, up, right, down, right)(KeyEnum.Right, false);
+      handleKeydown(setRepeatMock, up, right, down, right)(KeyEnum.Right, false);
       expect(right).toHaveBeenCalled();
     });
 
     it('should execute down callback', () => {
-      handleKeydown(dkr, up, right, down, down)(KeyEnum.Down, false);
+      handleKeydown(setRepeatMock, up, right, down, down)(KeyEnum.Down, false);
       expect(down).toHaveBeenCalled();
     });
 
     it('should execute left callback', () => {
-      handleKeydown(dkr, up, right, down, left)(KeyEnum.Left, false);
+      handleKeydown(setRepeatMock, up, right, down, left)(KeyEnum.Left, false);
       expect(left).toHaveBeenCalled();
     });
   });
 
   describe('<Keyboard />', () => {
     const store = mockStore();
+    const context = mockContext();
     const tree = renderer.create(
       <Provider store={store}>
-        <Keyboard detectionKeyRepeat={dkr} />
+        <AppContextProvider value={context}>
+          <Keyboard />
+        </AppContextProvider>
       </Provider>
     );
     let container: Element | null;
@@ -85,12 +102,14 @@ describe('Keyboard', () => {
       jest.useFakeTimers();
 
       const store = mockStore(true);
-      const dkr = mkDkr(false);
+      const context = mockContext();
 
       act(() => {
         ReactDOM.render(
           <Provider store={store}>
-            <Keyboard detectionKeyRepeat={dkr} />
+            <AppContextProvider value={context}>
+              <Keyboard />
+            </AppContextProvider>
           </Provider>,
           container
         );
@@ -123,23 +142,22 @@ describe('Keyboard', () => {
           { type: 'game/moveRight', paylaod: undefined }, // throttle
         ];
 
-        expect(actions).toEqual(expectedPayload);
-
         document.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
-
-        expect(dkr.get()).toBeFalsy();
+        expect(actions).toEqual(expectedPayload);
       });
     });
 
     it('should unmount property', () => {
       const store = mockStore(true);
-      const dkr = mkDkr(false);
       const cbMock = jest.fn();
+      const context = mockContext();
 
       act(() => {
         ReactDOM.render(
           <Provider store={store}>
-            <Keyboard detectionKeyRepeat={dkr} />
+            <AppContextProvider value={context}>
+              <Keyboard />
+            </AppContextProvider>
           </Provider>,
           container
         );
@@ -155,6 +173,22 @@ describe('Keyboard', () => {
 
         removeEventListenerMock.mockRestore();
       });
+    });
+
+    it('should throw an exception if not used with an app context consumer', () => {
+      let exception;
+      try {
+        const tree = renderer.create(
+          <Provider store={store}>
+            <Keyboard />
+          </Provider>
+        );
+        tree.toJSON;
+      } catch (err) {
+        exception = err;
+      }
+
+      expect(exception.message).toBe('useContext must be inside a Provider with a value');
     });
   });
 });

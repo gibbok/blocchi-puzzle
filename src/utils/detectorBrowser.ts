@@ -1,9 +1,6 @@
-const getPathRelease = (version: string) => version.split('.')[0];
+import { BrowserInfo } from '../game/types';
 
-type BrowserInfo = Readonly<{
-  name: string;
-  version: string;
-}>;
+const getPathRelease = (version: string) => version.split('.')[0];
 
 export const detectorBrowser = (browser?: BrowserInfo): boolean => {
   if (browser) {
@@ -15,10 +12,10 @@ export const detectorBrowser = (browser?: BrowserInfo): boolean => {
       case 'chrome':
         return path >= 80;
       case 'firefox':
-        return path >= 74;
+        return path >= 77;
       case 'safari':
       case 'ios':
-        return path >= 11;
+        return path >= 13;
       case 'opera':
         return path >= 62;
       case 'android':
