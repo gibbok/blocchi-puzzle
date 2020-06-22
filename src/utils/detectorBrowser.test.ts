@@ -10,8 +10,8 @@ describe('detectorBrowser', () => {
     expect(test).toBeTruthy();
   });
 
-  it('return true for safari 11', () => {
-    const test = detectorBrowser({ name: 'safari', version: '11' });
+  it('return true for safari 13', () => {
+    const test = detectorBrowser({ name: 'safari', version: '13' });
     expect(test).toBeTruthy();
   });
 
