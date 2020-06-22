@@ -187,6 +187,7 @@ describe('Keyboard', () => {
       } catch (err) {
         exception = err;
       }
+
       expect(exception.message).toBe('useContext must be inside a Provider with a value');
     });
   });
