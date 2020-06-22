@@ -10,7 +10,7 @@ const {
   actions: { moveLeft, moveUp, moveRight },
 } = gameSlice;
 
-const THROTTLE_MS = 200;
+const THROTTLE_MS = 60;
 
 type Props = Readonly<{
   detectionKeyRepeat: DetectorKeyRepeat;
@@ -65,7 +65,6 @@ export const Keyboard = ({ detectionKeyRepeat }: Props): JSX.Element => {
     );
     document.addEventListener('keyup', () => detectionKeyRepeat.set(false));
     return cleanUpHandleKeydown;
-  });
   }, []);
 
   return <></>;
