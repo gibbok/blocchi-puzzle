@@ -2241,12 +2241,12 @@ exports[`<ScreenGame /> should render 1`] = `
         className="sc-fznyAO cFYtJx"
       >
         <div
-          className="sc-fznKkj cFUJKw"
+          className="sc-fznKkj ipWLyZ"
         >
           Score
         </div>
         <div
-          className="sc-fznKkj cFUJKw"
+          className="sc-fznKkj ipWLyZ"
           data-test="score"
         >
           0
@@ -2259,12 +2259,12 @@ exports[`<ScreenGame /> should render 1`] = `
         className="sc-fznyAO cFYtJx"
       >
         <div
-          className="sc-fznKkj cFUJKw"
+          className="sc-fznKkj ipWLyZ"
         >
           Level
         </div>
         <div
-          className="sc-fznKkj cFUJKw"
+          className="sc-fznKkj ipWLyZ"
           data-test="level"
         >
           1
@@ -2277,12 +2277,12 @@ exports[`<ScreenGame /> should render 1`] = `
         className="sc-fznyAO cFYtJx"
       >
         <div
-          className="sc-fznKkj cFUJKw"
+          className="sc-fznKkj ipWLyZ"
         >
           Lines
         </div>
         <div
-          className="sc-fznKkj cFUJKw"
+          className="sc-fznKkj ipWLyZ"
           data-test="lines"
         >
           0

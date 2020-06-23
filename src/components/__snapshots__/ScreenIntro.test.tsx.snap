@@ -47,7 +47,7 @@ exports[`<ScreenIntro /> should render 1`] = `
       onClick={[Function]}
     >
       <div
-        className="sc-AxhCb hrgQl"
+        className="sc-AxhCb kObGcE"
       >
         Play!
       </div>

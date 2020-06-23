@@ -39,6 +39,7 @@ const Content = styled.div`
   justify-content: center;
   align-items: center;
   padding: 1.4rem;
+  user-select: none;
 `;
 
 type Props = Readonly<{

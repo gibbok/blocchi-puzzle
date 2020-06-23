@@ -8,12 +8,12 @@ exports[`<Info /> should render Info 1`] = `
     className="sc-AxirZ gVRNow"
   >
     <div
-      className="sc-AxiKw bLKSBM"
+      className="sc-AxiKw eqhIAV"
     >
       Score
     </div>
     <div
-      className="sc-AxiKw bLKSBM"
+      className="sc-AxiKw eqhIAV"
       data-test="score"
     >
       100
@@ -26,12 +26,12 @@ exports[`<Info /> should render Info 1`] = `
     className="sc-AxirZ gVRNow"
   >
     <div
-      className="sc-AxiKw bLKSBM"
+      className="sc-AxiKw eqhIAV"
     >
       Level
     </div>
     <div
-      className="sc-AxiKw bLKSBM"
+      className="sc-AxiKw eqhIAV"
       data-test="level"
     >
       1
@@ -44,12 +44,12 @@ exports[`<Info /> should render Info 1`] = `
     className="sc-AxirZ gVRNow"
   >
     <div
-      className="sc-AxiKw bLKSBM"
+      className="sc-AxiKw eqhIAV"
     >
       Lines
     </div>
     <div
-      className="sc-AxiKw bLKSBM"
+      className="sc-AxiKw eqhIAV"
       data-test="lines"
     >
       2

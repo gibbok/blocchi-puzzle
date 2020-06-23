@@ -12,12 +12,12 @@ exports[`ScreenOver should render correctly 1`] = `
       className="sc-fznZeY jwTyjE"
     >
       <div
-        className="sc-fzokOt ezsXz"
+        className="sc-fzokOt flixXu"
       >
         Score
       </div>
       <div
-        className="sc-fzokOt ezsXz"
+        className="sc-fzokOt flixXu"
       >
         0
       </div>
@@ -26,12 +26,12 @@ exports[`ScreenOver should render correctly 1`] = `
       className="sc-fznZeY jwTyjE"
     >
       <div
-        className="sc-fzokOt ezsXz"
+        className="sc-fzokOt flixXu"
       >
         Level
       </div>
       <div
-        className="sc-fzokOt ezsXz"
+        className="sc-fzokOt flixXu"
       >
         1
       </div>
@@ -46,7 +46,7 @@ exports[`ScreenOver should render correctly 1`] = `
       onClick={[Function]}
     >
       <div
-        className="sc-AxirZ kCiwbh"
+        className="sc-AxirZ eJxFBc"
       >
         Play again!
       </div>
