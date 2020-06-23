@@ -174,21 +174,5 @@ describe('Keyboard', () => {
         removeEventListenerMock.mockRestore();
       });
     });
-
-    it('should throw an exception if not used with an app context consumer', () => {
-      let exception;
-      try {
-        const tree = renderer.create(
-          <Provider store={store}>
-            <Keyboard />
-          </Provider>
-        );
-        tree.toJSON;
-      } catch (err) {
-        exception = err;
-      }
-
-      expect(exception.message).toBe('useContext must be inside a Provider with a value');
-    });
   });
 });
