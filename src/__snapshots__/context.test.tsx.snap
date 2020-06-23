@@ -3,5 +3,11 @@
 exports[`context should use AppContextProvider 1`] = `
 <div>
   {"repeat":false,"browserInfo":{"name":"chrome","version":"83"}}
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Click me!
+  </button>
 </div>
 `;
