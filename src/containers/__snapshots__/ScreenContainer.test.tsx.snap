@@ -59,7 +59,7 @@ exports[`<ScreenContainer /> should render correctly 1`] = `
           onClick={[Function]}
         >
           <div
-            className="sc-fzplWN etvKmk"
+            className="sc-fzplWN logiRZ"
           >
             Play!
           </div>

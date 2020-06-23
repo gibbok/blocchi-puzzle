@@ -8,12 +8,12 @@ exports[`<ScoreContainer /> should render correctly 1`] = `
     className="sc-AxirZ gVRNow"
   >
     <div
-      className="sc-AxiKw bLKSBM"
+      className="sc-AxiKw eqhIAV"
     >
       Score
     </div>
     <div
-      className="sc-AxiKw bLKSBM"
+      className="sc-AxiKw eqhIAV"
     >
       0
     </div>
@@ -22,12 +22,12 @@ exports[`<ScoreContainer /> should render correctly 1`] = `
     className="sc-AxirZ gVRNow"
   >
     <div
-      className="sc-AxiKw bLKSBM"
+      className="sc-AxiKw eqhIAV"
     >
       Level
     </div>
     <div
-      className="sc-AxiKw bLKSBM"
+      className="sc-AxiKw eqhIAV"
     >
       1
     </div>

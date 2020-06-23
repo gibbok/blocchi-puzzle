@@ -11,6 +11,7 @@ const BrowserNotSupportedStyled = styled.div`
   align-items: center;
   text-align: center;
   flex-direction: column;
+  user-select: none;
 `;
 
 const Main = styled.div`

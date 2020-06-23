@@ -41,6 +41,7 @@ const LineElm = styled.div.attrs<{ test?: string }>((p) => ({
 export const Line = LineElm<{ test?: string }>`
   display: flex;
   justify-content: center;
+  user-select: none;
 `;
 
 const Divider = styled.div`

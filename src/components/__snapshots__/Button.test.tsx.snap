@@ -7,7 +7,7 @@ exports[`should render Button 1`] = `
   onClick={[Function]}
 >
   <div
-    className="sc-AxirZ kCiwbh"
+    className="sc-AxirZ eJxFBc"
   >
     Button
   </div>
