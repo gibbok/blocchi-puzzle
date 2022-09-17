@@ -167,8 +167,15 @@ describe('Keyboard', () => {
     it('should call callback if current time is within treshold', () => {
       const cb = jest.fn();
 
-      canExecuteCbIfInTreshold(5000, 6000, cb);
+      canExecuteCbIfInTreshold(1000, 2000, cb);
       expect(cb).toBeCalledTimes(1);
+    });
+
+    it('should not call callback if current time is not within treshold', () => {
+      const cb = jest.fn();
+
+      canExecuteCbIfInTreshold(1000, 1001, cb);
+      expect(cb).not.toBeCalledTimes(1);
     });
   });
 });
