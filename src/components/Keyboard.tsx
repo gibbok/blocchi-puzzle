@@ -13,8 +13,12 @@ const THRESHOLD_TIME_MS = 70;
 
 let INITIAL_TIME_MS: number = new Date().valueOf();
 
-export const canExecuteUserCommand = (currentTimeMs: number, executeCb: () => void): undefined => {
-  if (currentTimeMs - INITIAL_TIME_MS > THRESHOLD_TIME_MS) {
+export const canExecuteCbIfInTreshold = (
+  baseTimeMs: number,
+  currentTimeMs: number,
+  executeCb: () => void
+): undefined => {
+  if (currentTimeMs - baseTimeMs > THRESHOLD_TIME_MS) {
     INITIAL_TIME_MS = currentTimeMs;
     executeCb();
   }
@@ -66,7 +70,7 @@ export const Keyboard = (): JSX.Element => {
 
   useEffect(() => {
     document.addEventListener('keydown', (e) =>
-      canExecuteUserCommand(new Date().valueOf(), () => hkd(e.code, e.repeat))
+      canExecuteCbIfInTreshold(INITIAL_TIME_MS, new Date().valueOf(), () => hkd(e.code, e.repeat))
     );
     document.addEventListener('keyup', () => setRepeat(false));
     return cleanUpHandleKeydown;

@@ -1,4 +1,4 @@
-import { handleKeydown, Keyboard } from './Keyboard';
+import { canExecuteCbIfInTreshold, handleKeydown, Keyboard } from './Keyboard';
 import { KeyEnum } from '../game/types';
 import renderer from 'react-test-renderer';
 import React from 'react';
@@ -160,6 +160,15 @@ describe('Keyboard', () => {
 
         removeEventListenerMock.mockRestore();
       });
+    });
+  });
+
+  describe('canExecuteCbIfInTreshold', () => {
+    it('should call callback if current time is within treshold', () => {
+      const cb = jest.fn();
+
+      canExecuteCbIfInTreshold(5000, 6000, cb);
+      expect(cb).toBeCalledTimes(1);
     });
   });
 });
