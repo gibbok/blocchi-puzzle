@@ -9,8 +9,6 @@ import { act } from 'react-dom/test-utils';
 import { AppContextProvider } from '../context';
 
 describe('Keyboard', () => {
-  const setRepeatMock = jest.fn();
-
   describe('handleKeydown', () => {
     const up = jest.fn();
     const right = jest.fn();
@@ -18,37 +16,37 @@ describe('Keyboard', () => {
     const left = jest.fn();
 
     it('should execute up callback', () => {
-      handleKeydown(setRepeatMock, up, right, down, left)(KeyEnum.Up, false);
+      handleKeydown(up, right, down, left)(KeyEnum.Up);
       expect(up).toHaveBeenCalled();
 
-      handleKeydown(setRepeatMock, up, right, down, left)(KeyEnum.KeyW, false);
+      handleKeydown(up, right, down, left)(KeyEnum.KeyW);
       expect(up).toHaveBeenCalled();
 
-      handleKeydown(setRepeatMock, up, right, down, left)(KeyEnum.Up, false);
+      handleKeydown(up, right, down, left)(KeyEnum.Up);
       expect(up).toHaveBeenCalled();
     });
 
     it('should execute right callback', () => {
-      handleKeydown(setRepeatMock, up, right, down, right)(KeyEnum.Right, false);
+      handleKeydown(up, right, down, right)(KeyEnum.Right);
       expect(right).toHaveBeenCalled();
 
-      handleKeydown(setRepeatMock, up, right, down, right)(KeyEnum.KeyD, false);
+      handleKeydown(up, right, down, right)(KeyEnum.KeyD);
       expect(right).toHaveBeenCalled();
     });
 
     it('should execute down callback', () => {
-      handleKeydown(setRepeatMock, up, right, down, down)(KeyEnum.Down, false);
+      handleKeydown(up, right, down, down)(KeyEnum.Down);
       expect(down).toHaveBeenCalled();
 
-      handleKeydown(setRepeatMock, up, right, down, down)(KeyEnum.KeyS, false);
+      handleKeydown(up, right, down, down)(KeyEnum.KeyS);
       expect(down).toHaveBeenCalled();
     });
 
     it('should execute left callback', () => {
-      handleKeydown(setRepeatMock, up, right, down, left)(KeyEnum.Left, false);
+      handleKeydown(up, right, down, left)(KeyEnum.Left);
       expect(left).toHaveBeenCalled();
 
-      handleKeydown(setRepeatMock, up, right, down, left)(KeyEnum.KeyS, false);
+      handleKeydown(up, right, down, left)(KeyEnum.KeyS);
       expect(left).toHaveBeenCalled();
     });
   });

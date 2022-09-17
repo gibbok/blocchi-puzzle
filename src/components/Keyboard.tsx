@@ -26,13 +26,11 @@ export const canExecuteCbIfInTreshold = (
 };
 
 export const handleKeydown = (
-  setRepeat: (repeat: boolean) => void,
   up: () => void,
   right: () => void,
   down: () => void,
   left: () => void
-) => (keyCode: string, repeat: boolean): void => {
-  setRepeat(repeat);
+) => (keyCode: string): void => {
   switch (keyCode) {
     case KeyEnum.Left:
     case KeyEnum.KeyA:
@@ -59,7 +57,6 @@ export const Keyboard = (): JSX.Element => {
   const dispatch = useDispatch();
 
   const hkd = handleKeydown(
-    setRepeat,
     () => dispatch(moveUp()),
     () => dispatch(moveRight()),
     () => dispatch(moveDownThunk()),
@@ -67,15 +64,14 @@ export const Keyboard = (): JSX.Element => {
   );
 
   const cleanUpHandleKeydown = () => {
-    document.removeEventListener('keydown', (e) => hkd(e.code, e.repeat));
-    document.removeEventListener('keyup', () => setRepeat(false));
+    document.removeEventListener('keydown', (e) => hkd(e.code));
   };
 
   useEffect(() => {
     document.addEventListener('keydown', (e) =>
       canExecuteCbIfInTreshold(INITIAL_TIME_MS, new Date().valueOf(), (currentTimeMs) => {
         INITIAL_TIME_MS = currentTimeMs;
-        hkd(e.code, e.repeat);
+        hkd(e.code);
       })
     );
     document.addEventListener('keyup', () => setRepeat(false));
