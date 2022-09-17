@@ -8,15 +8,6 @@ import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import { AppContextProvider } from '../context';
 
-const dispatchEvent = (key: KeyEnum) => {
-  document.dispatchEvent(
-    new KeyboardEvent('keydown', {
-      code: key,
-      bubbles: true,
-    })
-  );
-};
-
 describe('Keyboard', () => {
   const setRepeatMock = jest.fn();
 
@@ -83,55 +74,6 @@ describe('Keyboard', () => {
     it('should not render any dom', () => {
       tree.toJSON();
       expect(tree).toMatchSnapshot();
-    });
-
-    it('should listen to events keydown and keyup execute appropriate actions', () => {
-      jest.useFakeTimers();
-
-      const store = mockStore(true);
-      const context = mockContext();
-
-      act(() => {
-        ReactDOM.render(
-          <Provider store={store}>
-            <AppContextProvider value={context}>
-              <Keyboard />
-            </AppContextProvider>
-          </Provider>,
-          container
-        );
-
-        dispatchEvent(KeyEnum.Up);
-        jest.advanceTimersByTime(1000);
-        dispatchEvent(KeyEnum.Right);
-        jest.advanceTimersByTime(2000);
-        dispatchEvent(KeyEnum.Left);
-        jest.advanceTimersByTime(3000);
-        dispatchEvent(KeyEnum.Down);
-        jest.advanceTimersByTime(4000);
-
-        // throttle will not dispatch these actions
-        dispatchEvent(KeyEnum.Right);
-        dispatchEvent(KeyEnum.Right);
-        dispatchEvent(KeyEnum.Right);
-        dispatchEvent(KeyEnum.Right);
-        dispatchEvent(KeyEnum.Right);
-        jest.advanceTimersByTime(5000);
-
-        const actions = store.getActions();
-        const expectedPayload = [
-          { type: 'game/moveUp', paylaod: undefined },
-          { type: 'game/moveRight', paylaod: undefined },
-          { type: 'game/moveLeft', paylaod: undefined },
-          { type: 'game/moveDown', paylaod: undefined },
-          { type: 'game/checkBoard', payload: undefined },
-          { type: 'game/gameOver', payload: undefined },
-          { type: 'game/moveRight', paylaod: undefined }, // throttle
-        ];
-
-        document.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
-        expect(actions).toEqual(expectedPayload);
-      });
     });
 
     it('should unmount property', () => {

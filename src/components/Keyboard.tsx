@@ -33,13 +33,13 @@ export const handleKeydown = (
   left: () => void
 ) => (keyCode: string, repeat: boolean): void => {
   setRepeat(repeat);
-  console.log(keyCode);
   switch (keyCode) {
     case KeyEnum.Left:
     case KeyEnum.KeyA:
       left();
       break;
     case KeyEnum.Up:
+    case KeyEnum.Space:
     case KeyEnum.KeyW:
       up();
       break;
@@ -48,7 +48,6 @@ export const handleKeydown = (
       right();
       break;
     case KeyEnum.Down:
-    case KeyEnum.Space:
     case KeyEnum.KeyS:
       down();
       break;
