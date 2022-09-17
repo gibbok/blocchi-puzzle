@@ -20,20 +20,35 @@ describe('Keyboard', () => {
     it('should execute up callback', () => {
       handleKeydown(setRepeatMock, up, right, down, left)(KeyEnum.Up, false);
       expect(up).toHaveBeenCalled();
+
+      handleKeydown(setRepeatMock, up, right, down, left)(KeyEnum.KeyW, false);
+      expect(up).toHaveBeenCalled();
+
+      handleKeydown(setRepeatMock, up, right, down, left)(KeyEnum.Up, false);
+      expect(up).toHaveBeenCalled();
     });
 
     it('should execute right callback', () => {
       handleKeydown(setRepeatMock, up, right, down, right)(KeyEnum.Right, false);
+      expect(right).toHaveBeenCalled();
+
+      handleKeydown(setRepeatMock, up, right, down, right)(KeyEnum.KeyD, false);
       expect(right).toHaveBeenCalled();
     });
 
     it('should execute down callback', () => {
       handleKeydown(setRepeatMock, up, right, down, down)(KeyEnum.Down, false);
       expect(down).toHaveBeenCalled();
+
+      handleKeydown(setRepeatMock, up, right, down, down)(KeyEnum.KeyS, false);
+      expect(down).toHaveBeenCalled();
     });
 
     it('should execute left callback', () => {
       handleKeydown(setRepeatMock, up, right, down, left)(KeyEnum.Left, false);
+      expect(left).toHaveBeenCalled();
+
+      handleKeydown(setRepeatMock, up, right, down, left)(KeyEnum.KeyS, false);
       expect(left).toHaveBeenCalled();
     });
   });
