@@ -1,4 +1,4 @@
-import { handleKeydown, Keyboard, getThrottleMs } from './Keyboard';
+import { canExecuteCbIfInTreshold, handleKeydown, Keyboard } from './Keyboard';
 import { KeyEnum } from '../game/types';
 import renderer from 'react-test-renderer';
 import React from 'react';
@@ -8,31 +8,7 @@ import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import { AppContextProvider } from '../context';
 
-const dispatchEvent = (key: KeyEnum) => {
-  document.dispatchEvent(
-    new KeyboardEvent('keydown', {
-      code: key,
-      bubbles: true,
-    })
-  );
-};
-
 describe('Keyboard', () => {
-  const setRepeatMock = jest.fn();
-
-  describe('getThrottle', () => {
-    it('should return long throttle for safari', () => {
-      expect(getThrottleMs('safari')).toBe(250);
-    });
-
-    it('should return short throttle for other browser', () => {
-      expect(getThrottleMs('chrome')).toBe(60);
-    });
-    it('should return default throttle if no browser was detected', () => {
-      expect(getThrottleMs(undefined)).toBe(60);
-    });
-  });
-
   describe('handleKeydown', () => {
     const up = jest.fn();
     const right = jest.fn();
@@ -40,22 +16,37 @@ describe('Keyboard', () => {
     const left = jest.fn();
 
     it('should execute up callback', () => {
-      handleKeydown(setRepeatMock, up, right, down, left)(KeyEnum.Up, false);
+      handleKeydown(up, right, down, left)(KeyEnum.Up);
+      expect(up).toHaveBeenCalled();
+
+      handleKeydown(up, right, down, left)(KeyEnum.KeyW);
+      expect(up).toHaveBeenCalled();
+
+      handleKeydown(up, right, down, left)(KeyEnum.Up);
       expect(up).toHaveBeenCalled();
     });
 
     it('should execute right callback', () => {
-      handleKeydown(setRepeatMock, up, right, down, right)(KeyEnum.Right, false);
+      handleKeydown(up, right, down, right)(KeyEnum.Right);
+      expect(right).toHaveBeenCalled();
+
+      handleKeydown(up, right, down, right)(KeyEnum.KeyD);
       expect(right).toHaveBeenCalled();
     });
 
     it('should execute down callback', () => {
-      handleKeydown(setRepeatMock, up, right, down, down)(KeyEnum.Down, false);
+      handleKeydown(up, right, down, down)(KeyEnum.Down);
+      expect(down).toHaveBeenCalled();
+
+      handleKeydown(up, right, down, down)(KeyEnum.KeyS);
       expect(down).toHaveBeenCalled();
     });
 
     it('should execute left callback', () => {
-      handleKeydown(setRepeatMock, up, right, down, left)(KeyEnum.Left, false);
+      handleKeydown(up, right, down, left)(KeyEnum.Left);
+      expect(left).toHaveBeenCalled();
+
+      handleKeydown(up, right, down, left)(KeyEnum.KeyS);
       expect(left).toHaveBeenCalled();
     });
   });
@@ -98,55 +89,6 @@ describe('Keyboard', () => {
       expect(tree).toMatchSnapshot();
     });
 
-    it('should listen to events keydown and keyup execute appropriate actions', () => {
-      jest.useFakeTimers();
-
-      const store = mockStore(true);
-      const context = mockContext();
-
-      act(() => {
-        ReactDOM.render(
-          <Provider store={store}>
-            <AppContextProvider value={context}>
-              <Keyboard />
-            </AppContextProvider>
-          </Provider>,
-          container
-        );
-
-        dispatchEvent(KeyEnum.Up);
-        jest.advanceTimersByTime(1000);
-        dispatchEvent(KeyEnum.Right);
-        jest.advanceTimersByTime(2000);
-        dispatchEvent(KeyEnum.Left);
-        jest.advanceTimersByTime(3000);
-        dispatchEvent(KeyEnum.Down);
-        jest.advanceTimersByTime(4000);
-
-        // throttle will not dispatch these actions
-        dispatchEvent(KeyEnum.Right);
-        dispatchEvent(KeyEnum.Right);
-        dispatchEvent(KeyEnum.Right);
-        dispatchEvent(KeyEnum.Right);
-        dispatchEvent(KeyEnum.Right);
-        jest.advanceTimersByTime(5000);
-
-        const actions = store.getActions();
-        const expectedPayload = [
-          { type: 'game/moveUp', paylaod: undefined },
-          { type: 'game/moveRight', paylaod: undefined },
-          { type: 'game/moveLeft', paylaod: undefined },
-          { type: 'game/moveDown', paylaod: undefined },
-          { type: 'game/checkBoard', payload: undefined },
-          { type: 'game/gameOver', payload: undefined },
-          { type: 'game/moveRight', paylaod: undefined }, // throttle
-        ];
-
-        document.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
-        expect(actions).toEqual(expectedPayload);
-      });
-    });
-
     it('should unmount property', () => {
       const store = mockStore(true);
       const cbMock = jest.fn();
@@ -173,6 +115,20 @@ describe('Keyboard', () => {
 
         removeEventListenerMock.mockRestore();
       });
+    });
+  });
+
+  describe('canExecuteCbIfInTreshold', () => {
+    it('should call callback if current time is within treshold', () => {
+      const cb = jest.fn();
+      canExecuteCbIfInTreshold(1000, 2000, cb);
+      expect(cb).toBeCalledTimes(1);
+    });
+
+    it('should not call callback if current time is not within treshold', () => {
+      const cb = jest.fn();
+      canExecuteCbIfInTreshold(1000, 1001, cb);
+      expect(cb).not.toBeCalledTimes(1);
     });
   });
 });

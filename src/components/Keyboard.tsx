@@ -3,53 +3,60 @@ import { KeyEnum } from '../game/types';
 import { useDispatch } from 'react-redux';
 import { gameSlice } from '../store';
 import { moveDownThunk } from '../store/board/actions/thunks';
-import { throttle } from 'throttle-debounce';
 import { useAppContextConsumer } from '../context';
 
 const {
   actions: { moveLeft, moveUp, moveRight },
 } = gameSlice;
 
-const THROTTLE_MS = 60;
-const THROTTLE_MS_SAFARI = 250;
+const THRESHOLD_TIME_MS = 70;
+
+let INITIAL_TIME_MS: number = new Date().valueOf();
+
+export const canExecuteCbIfInTreshold = (
+  baseTimeMs: number,
+  currentTimeMs: number,
+  executeCb: (currentTimeMs: number) => void
+): undefined => {
+  if (currentTimeMs - baseTimeMs > THRESHOLD_TIME_MS) {
+    // INITIAL_TIME_MS = currentTimeMs;
+    executeCb(currentTimeMs);
+  }
+  return undefined;
+};
 
 export const handleKeydown = (
-  setRepeat: (repeat: boolean) => void,
   up: () => void,
   right: () => void,
   down: () => void,
   left: () => void
-) => (keyCode: string, repeat: boolean): void => {
-  setRepeat(repeat);
-
+) => (keyCode: string): void => {
   switch (keyCode) {
     case KeyEnum.Left:
+    case KeyEnum.KeyA:
       left();
       break;
     case KeyEnum.Up:
+    case KeyEnum.Space:
+    case KeyEnum.KeyW:
       up();
       break;
     case KeyEnum.Right:
+    case KeyEnum.KeyD:
       right();
       break;
     case KeyEnum.Down:
-    case KeyEnum.Space:
+    case KeyEnum.KeyS:
       down();
       break;
   }
 };
 
-export const getThrottleMs = (browser?: string): number =>
-  browser && browser === 'safari' ? THROTTLE_MS_SAFARI : THROTTLE_MS;
-
 export const Keyboard = (): JSX.Element => {
-  const { browserInfo, setRepeat } = useAppContextConsumer();
+  const { setRepeat } = useAppContextConsumer();
   const dispatch = useDispatch();
 
-  const throttleMs = getThrottleMs(browserInfo?.name);
-
   const hkd = handleKeydown(
-    setRepeat,
     () => dispatch(moveUp()),
     () => dispatch(moveRight()),
     () => dispatch(moveDownThunk()),
@@ -57,14 +64,15 @@ export const Keyboard = (): JSX.Element => {
   );
 
   const cleanUpHandleKeydown = () => {
-    document.removeEventListener('keydown', (e) => hkd(e.code, e.repeat));
-    document.removeEventListener('keyup', () => setRepeat(false));
+    document.removeEventListener('keydown', (e) => hkd(e.code));
   };
 
   useEffect(() => {
-    document.addEventListener(
-      'keydown',
-      throttle(throttleMs, (e) => hkd(e.code, e.repeat))
+    document.addEventListener('keydown', (e) =>
+      canExecuteCbIfInTreshold(INITIAL_TIME_MS, new Date().valueOf(), (currentTimeMs) => {
+        INITIAL_TIME_MS = currentTimeMs;
+        hkd(e.code);
+      })
     );
     document.addEventListener('keyup', () => setRepeat(false));
     return cleanUpHandleKeydown;
