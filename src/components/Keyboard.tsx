@@ -3,15 +3,23 @@ import { KeyEnum } from '../game/types';
 import { useDispatch } from 'react-redux';
 import { gameSlice } from '../store';
 import { moveDownThunk } from '../store/board/actions/thunks';
-import { throttle } from 'throttle-debounce';
 import { useAppContextConsumer } from '../context';
 
 const {
   actions: { moveLeft, moveUp, moveRight },
 } = gameSlice;
 
-const THROTTLE_MS = 60;
-const THROTTLE_MS_SAFARI = 250;
+const THRESHOLD_TIME_MS = 70;
+
+let INITIAL_TIME_MS: number = new Date().valueOf();
+
+export const canExecuteUserCommand = (currentTimeMs: number, executeCb: () => void): undefined => {
+  if (currentTimeMs - INITIAL_TIME_MS > THRESHOLD_TIME_MS) {
+    INITIAL_TIME_MS = currentTimeMs;
+    executeCb();
+  }
+  return undefined;
+};
 
 export const handleKeydown = (
   setRepeat: (repeat: boolean) => void,
@@ -39,14 +47,9 @@ export const handleKeydown = (
   }
 };
 
-export const getThrottleMs = (browser?: string): number =>
-  browser && browser === 'safari' ? THROTTLE_MS_SAFARI : THROTTLE_MS;
-
 export const Keyboard = (): JSX.Element => {
-  const { browserInfo, setRepeat } = useAppContextConsumer();
+  const { setRepeat } = useAppContextConsumer();
   const dispatch = useDispatch();
-
-  const throttleMs = getThrottleMs(browserInfo?.name);
 
   const hkd = handleKeydown(
     setRepeat,
@@ -62,9 +65,8 @@ export const Keyboard = (): JSX.Element => {
   };
 
   useEffect(() => {
-    document.addEventListener(
-      'keydown',
-      throttle(throttleMs, (e) => hkd(e.code, e.repeat))
+    document.addEventListener('keydown', (e) =>
+      canExecuteUserCommand(new Date().valueOf(), () => hkd(e.code, e.repeat))
     );
     document.addEventListener('keyup', () => setRepeat(false));
     return cleanUpHandleKeydown;

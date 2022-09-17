@@ -1,4 +1,4 @@
-import { handleKeydown, Keyboard, getThrottleMs } from './Keyboard';
+import { handleKeydown, Keyboard } from './Keyboard';
 import { KeyEnum } from '../game/types';
 import renderer from 'react-test-renderer';
 import React from 'react';
@@ -19,19 +19,6 @@ const dispatchEvent = (key: KeyEnum) => {
 
 describe('Keyboard', () => {
   const setRepeatMock = jest.fn();
-
-  describe('getThrottle', () => {
-    it('should return long throttle for safari', () => {
-      expect(getThrottleMs('safari')).toBe(250);
-    });
-
-    it('should return short throttle for other browser', () => {
-      expect(getThrottleMs('chrome')).toBe(60);
-    });
-    it('should return default throttle if no browser was detected', () => {
-      expect(getThrottleMs(undefined)).toBe(60);
-    });
-  });
 
   describe('handleKeydown', () => {
     const up = jest.fn();
