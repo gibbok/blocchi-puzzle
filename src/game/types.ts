@@ -88,6 +88,10 @@ export enum KeyEnum {
   Up = 'ArrowUp',
   Right = 'ArrowRight',
   Down = 'ArrowDown',
+  KeyW = 'KeyW',
+  KeyS = 'KeyS',
+  KeyA = 'KeyA',
+  KeyD = 'KeyD',
 }
 
 // Utilities
